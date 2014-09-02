@@ -1,0 +1,62 @@
+#!/usr/bin/env dao
+
+load 'config.dao' import configuration . { conf }
+load time
+
+namespace translation { translations }
+
+# FIXME use some existing format supporting plurals
+#   http://docs.transifex.com/developer/formats/
+var translations = {
+  'en' -> {
+    'title' -> 'OpenAlt conference ' + (string)conf.time_from.year,
+    'logo_big' -> 'a big logo of the OpenAlt conference',
+    'rss' -> 'RSS channel for conference news and changes on this web',
+    'twitter' -> 'official twitter stream for OpenAlt conference',
+    'fb' -> 'official Facebook page for OpenAlt conference',
+    'motivation' -> 'Become a part of the ninth anniversary proceeding of a Brno open-source, open-hardware and open-mind conference.',
+    'home' -> 'Home',
+    'thanks' -> 'Thanks',
+    'gallery' -> 'Gallery',
+    'downloads' -> 'Downloads',
+    'contact' -> 'Contact',
+    'speakers' -> 'Speakers',
+    'partners' -> 'Partners',
+    'footer' -> time.time().format(),
+  },
+  'sk' -> {
+    'motivation' -> 'Staňte sa aj Vy súčasťou už deviateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie.',
+  },
+  'de' -> {
+    ->
+  },
+  'cs' -> {
+    'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
+    'logo_big' -> 'velké logo konference OpenAlt',
+    'rss' -> 'kanál RSS s konferenčními aktualitami a změnami na tomto webu',
+    'twitter' -> 'oficiální stránka konference OpenAlt na Twitter',
+    'fb' -> 'oficiální stránka konference OpenAlt na Facebook',
+    'motivation' -> 'Staňte sa i Vy součástí již devátého pokračování brněnské open-source, open-hardware a open-mind konference.',
+    'home' -> 'Domů',
+    'thanks' -> 'Poděkování',
+    'gallery' -> 'Galerie',  # Fotografie
+    'downloads' -> 'Ke stažení',
+    'contact' -> 'Kontakt',
+    'speakers' -> 'Přednášející',
+    'partners' -> 'Partneři',
+    'footer' -> time.time().format(),
+  },
+}
+
+# fill empty translations with english terms (if not existing in en,
+#   raise exception)
+translations.iterate { [k, v]
+  if (k != 'en') {
+    translations['en'].iterate { [k2, v2]
+      if (k2 not in v) {
+        io.stderr.writeln('WARN missing translation [' + k + ']: ' + k2)
+        v[k2] = v2
+      }
+    }
+  }
+}

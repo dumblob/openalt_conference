@@ -1,0 +1,52 @@
+#!/usr/bin/env dao
+
+load time
+load fs
+
+namespace configuration { conf }
+
+curdir = fs.dir('.').path
+
+# all paths have to be full or non-relative URIs! Do not worry,
+#   they'll be changed to relative ones in the end if needed.
+invar conf = (
+  time_from = time.time(2014, 11, 1),
+  time_to   = time.time(2014, 11, 2),
+  # FIXME how about detection of user's preference in browser (without JS)?
+  # default language
+  lang      = 'cs',
+  # FIXME
+  #base_uri  = 'https://www.some.domain.com/with/some/path/',
+  base_uri  = '',
+  rootdir   = curdir,
+  uri       = (
+    # shared between all pages (no exceptions)
+    css       = curdir + '/style.css',
+    rss       = 'https://rss',
+    twitter   = 'https://twitter',
+    fb        = 'https://facebook',
+  ),
+  # mime='image/x-icon'
+  favicon   = (mime='image/x-svg', path=curdir + '/img/favicon.svg',
+               sizes='16 32 64'),
+  img       = (
+    logo_big  = curdir + '/img/logo.svg',
+    rss       = curdir + '/img/rss.svg',
+    twitter   = curdir + '/img/twitter.svg',
+    fb        = curdir + '/img/fb.svg',
+  ),
+  partners  = {
+    'partner00' -> curdir + '/img/partner00.svg',
+  },
+)
+
+# blackbox testing...
+routine check(invar uri: string) {
+  if (uri[0] != '/'[0] && uri.match('^[^:/]+') == none)
+    std.error('"' + uri + '" is not a full path nor non-relative URI')
+}
+check(conf.rootdir)
+for (invar u in conf.uri) check(u)
+check(conf.favicon.path)
+for (invar u in conf.img) check(u)
+for (invar u in conf.partners) check(u[1])

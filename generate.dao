@@ -1,0 +1,174 @@
+#!/usr/bin/env dao
+
+# FIXME check all colors to match the design
+
+# FIXME remove
+#load <module> import <submodule>  # full import from submodule;
+#load <module> import <submodule> . { <submodule_members> } # selective import from submodule;
+#load <module> import { <module_members> }  # selective import from the main module;
+
+load html import html
+load time as my_time  # conflicting html tag name with module name
+load fs
+load 'config.dao' import configuration
+load 'translations.dao' import translation
+
+routine mkrel(from: string, invar target: string) => string {
+  # FIXME check that paths are normalized (can't use fs.realpath(), because
+  #   it requires file existence) and full and not empty
+  if (from  [0] != '/'[0]) std.error('"from" is not a full path')
+  if (from [-1] != '/'[0]) from += '/'
+  if (target[0] != '/'[0]) {
+    if (target.match('^[^:/]+') == none)
+      std.error('"target" is not a full path nor URI')
+    else
+      return target
+  }
+
+  # /some/full/path/to/file/or/dir/aka/target
+  # /some/full/path/with/my/current/directory/I/am/in/aka/from/
+  # ->
+  # to/file/or/dir/aka/target
+  # with/my/current/directory/I/am/in/aka/from/
+  # ->
+  # to/file/or/dir/aka/target
+  # ../../../../../../../../../
+  # ->
+  # ../../../../../../../../../to/file/or/dir/aka/target
+
+  shared = 1  # the /
+  while (1) {
+    x = target[shared:].fetch('[^/]+')
+    y = from[shared:].fetch('[^/]+')
+    if (%x && x == y)
+      shared += %x +1  # +1 for /
+    else
+      break
+  }
+  return from[shared:].change('[^/]+', '..') + target[shared:]
+}
+
+routine gen_pages(invar tr: string) {
+  # just convenient shortcuts
+  invar cu = conf.uri
+  invar ci = conf.img
+  invar t = translations[tr]
+
+  d = fs.dir(conf.rootdir)
+  if (! d.exists(tr)) d.mkdir(tr)
+  invar dst = conf.rootdir + '/' + tr
+
+  rel = routine(target: string) { return mkrel(dst, target) }
+
+  html5 = io.open(dst + '/main.html', 'w')
+  defer { html5.close() }
+
+  html5.write(document {
+    head {
+      title { t['title'] }
+      # convenient for relative URLs (see http://www.ietf.org/rfc/rfc1808.txt)
+      base(href=conf.base_uri)
+      meta(http_eqiv=$content_type, content='text/html')
+      # FIXME why charset must be separately from http_eqiv?
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width')
+      meta(name='Keywords', content='k1,k2,k3')
+      # FIXME
+      meta(name='Description',
+           content='some human-readable text taken from config (!) file')
+      link(rel=$icon, _type=conf.favicon.mime, href=rel(conf.favicon.path),
+           sizes=conf.favicon.sizes)
+      link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
+    }
+    body {
+      # FIXME span input anchor text paragraph strong italic table h1
+      #   (style=''
+      div(id='top_stripe') {
+        div(id='top_stripe_nav') {
+          anchor(href=rel('/page_main_'      + conf.lang)) { t['home'] }
+          anchor(href=rel('/page_thanks_'    + conf.lang)) { t['thanks'] }
+          anchor(href=rel('/page_gallery_'   + conf.lang)) { t['gallery'] }
+          anchor(href=rel('/page_downloads_' + conf.lang)) { t['downloads'] }
+          anchor(href=rel('/page_contact_'   + conf.lang)) { t['contact'] }
+        }
+        div(id='top_stripe_links') {
+          anchor(href=rel(cu.rss)) {
+            img(_class='TopStripeLinks', src=rel(ci.rss), alt=t['rss'])
+          }
+          anchor(href=rel(cu.twitter)) {
+            img(_class='TopStripeLinks', src=rel(ci.twitter),
+                alt=t['twitter'])
+          }
+          anchor(href=rel(cu.fb)) {
+            img(_class='TopStripeLinks', src=rel(ci.fb), alt=t['fb'])
+          }
+        }
+        div(id='top_stripe_lang') {
+          paragraph {
+            i = 0
+            for (invar lang in translations) {
+              if (i)
+                text(' / ')
+              else
+                i += 1
+              if (conf.lang == lang[0])
+                strong { lang[0] }
+              else
+                text(lang[0])
+            }
+          }
+        }
+      }
+      div(id='header') {
+        img(id='logo_big', src=ci.logo_big, alt=t['logo_big'])
+        paragraph { t['motivation'] }
+        paragraph { t['motivation'] }
+      }
+      div(id='speakers') {
+      }
+      div(id='partners') {
+      }
+      div(id='footer') {
+        paragraph {
+          my_time.time().format('')  #{ time of generation #}
+        }
+      }
+    }
+  })
+}
+
+# USAGE: generate.dao [<translation>]...
+#   if no translations given, generate all
+routine main(invar ... as _args) {
+  # FIXME
+  #invar args = (list<string>)_args
+  args = (list<string>)_args
+
+  invar chosen_trs = std.exec {
+    if (%args)
+      return args.associate(1) { (X, translations[X]) }
+    else
+      return translations
+  }
+
+  for (invar tr in chosen_trs) {
+    fut = gen_pages(tr[0])!!
+    defer { fut.value() }
+  }
+
+  css = io.open(conf.uri.css, 'w')
+  defer { css.close() }
+
+  # FIXME @media only screen and (max-width: 640px) {...}
+  css.write(@[]
+html { background-color: white; }
+#top_stripe {
+  background-color: black;
+}
+#logo_big {
+  position: fixed;
+  width: 512px;
+  margin: 0 auto 0 auto;
+}
+@[])
+}
