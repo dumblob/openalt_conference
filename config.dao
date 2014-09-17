@@ -1,23 +1,45 @@
 #!/usr/bin/env dao
 
 load time
-load fs
+load os.fs
 
-namespace configuration { conf }
+namespace configuration { conf, participants, partners }
 
 curdir = fs.dir('.').path
+
+type Partner = tuple<name:string, img:string, uri:string>
+
+type Event = tuple<
+  kind:enum<talk, workshop, internal>,
+  name:string,
+  requirements:string,
+  description:string,
+  from:time.DateTime,
+  to:time.DateTime,
+  place:string,
+>
+
+type Participant = tuple<
+  name:string,
+  photo:string,
+  note:string,
+  events:list<Event>
+>
 
 # all paths have to be full or non-relative URIs! Do not worry,
 #   they'll be changed to relative ones in the end if needed.
 invar conf = (
-  time_from = time.time(2014, 11, 1),
-  time_to   = time.time(2014, 11, 2),
+  time_from = time.make(2014, 11, 1),
+  time_to   = time.make(2014, 11, 2),
+  coord_gps = '49.2263872°N, 16.5963531°E',
   # FIXME how about detection of user's preference in browser (without JS)?
   # default language
   lang      = 'cs',
   # FIXME
   #base_uri  = 'https://www.some.domain.com/with/some/path/',
   base_uri  = '',
+  # FIXME
+  meta_description = 'some short human readable description of the content of the web page',
   rootdir   = curdir,
   uri       = (
     # shared between all pages (no exceptions)
@@ -28,25 +50,173 @@ invar conf = (
   ),
   # mime='image/x-icon'
   favicon   = (mime='image/x-svg', path=curdir + '/img/favicon.svg',
-               sizes='16 32 64'),
+               sizes='any'),
   img       = (
-    logo_big  = curdir + '/img/logo.svg',
-    rss       = curdir + '/img/rss.svg',
-    twitter   = curdir + '/img/twitter.svg',
-    fb        = curdir + '/img/fb.svg',
+    # FIXME request from Michaela
+    rss          = curdir + '/img/icon-clock.png',
+    twitter      = curdir + '/img/icon-clock.png',
+    fb           = curdir + '/img/icon-clock.png',
+    location     = curdir + '/img/map_fit_vutbr.jpg',
+
+    # FIXME use SVG everywhere!
+    audio        = curdir + '/img/icon-audio.png',
+    clock        = curdir + '/img/icon-clock.png',
+    door         = curdir + '/img/icon-door.png',
+    on_in_circle = curdir + '/img/icon-on_in_circle.png',
+    pdf          = curdir + '/img/icon-pdf.png',
+    video        = curdir + '/img/icon-video.png',
+    logo_big     = curdir + '/img/logo-openalt-conference-far-305px.png',
   ),
-  partners  = {
-    'partner00' -> curdir + '/img/partner00.svg',
-  },
 )
+
+invar partners: list<Partner> = {
+    ('', curdir + '/img/partners/partner00.png', 'http://some_nice_circle0.com/about'),
+    ('', curdir + '/img/partners/partner00.png', 'http://some_nice_circle1.com/about'),
+    ('', curdir + '/img/partners/partner00.png', 'http://some_nice_circle2.com/about'),
+}
+
+invar participants: list<Participant> = {
+  ('Miroslav Suchy',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Vzrustove vypadam jak velky medved a v praci si rikam lopata.',
+   events = {
+    ($talk,
+     'Stare dobre Lorem ipsum (talk)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 30),
+     'D105',
+    ),
+    ($workshop,
+     'Stare dobre Lorem ipsum (workshop)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
+     'C304',
+    ),
+    ($talk,
+     'Stare dobre Lorem ipsum (talk)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 12, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
+     'D105',
+    ),
+    ($workshop,
+     'Stare dobre Lorem ipsum (workshop)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+     'C304',
+    ),
+    ($talk,
+     'Stare dobre Lorem ipsum (talk)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
+     'D105',
+    ),
+    ($workshop,
+     'Stare dobre Lorem ipsum (workshop)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
+     'C304',
+    ),
+  }),
+  ('Nekdo Jiny0',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Jiny nepovinny popisek.',
+   events = {
+   }),
+  ('Nekdo Jiny1',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Jiny nepovinny popisek.',
+   events = {
+   }),
+  ('Nekdo Jiny2',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Jiny nepovinny popisek.',
+   events = {
+   }),
+  ('Nekdo Jiny3',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Jiny nepovinny popisek.',
+   events = {
+    ($talk,
+     'Stare dobre Lorem ipsum (talk)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 5, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 6, 30),
+     'D105',
+    ),
+    ($workshop,
+     'Stare dobre Lorem ipsum (workshop)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 1, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 2, 30),
+     'C304',
+    ),
+    ($talk,
+     'Stare dobre Lorem ipsum (talk)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 12, 30),
+     'D105',
+    ),
+    ($workshop,
+     'Stare dobre Lorem ipsum (workshop)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 12, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
+     'C304',
+    ),
+    ($talk,
+     'Stare dobre Lorem ipsum (talk)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 30),
+     'D105',
+    ),
+    ($workshop,
+     'Stare dobre Lorem ipsum (workshop)',
+     'sami chytri lide',
+     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 19, 30),
+     'C304',
+    ),
+  }),
+}
 
 # blackbox testing...
 routine check(invar uri: string) {
   if (uri[0] != '/'[0] && uri.match('^[^:/]+') == none)
     std.error('"' + uri + '" is not a full path nor non-relative URI')
 }
+for (p in participants) check(p.photo)
 check(conf.rootdir)
-for (invar u in conf.uri) check(u)
+for (t in conf.uri) check(t[1])
 check(conf.favicon.path)
-for (invar u in conf.img) check(u)
-for (invar u in conf.partners) check(u[1])
+if ('svg' in conf.favicon.mime) {
+  if (conf.favicon.sizes != 'any')
+    std.error('scalable favicons demand "any" in the `sizes\' attribute')
+}
+else {
+  conf.favicon.sizes.split(' ').iterate {
+    if (X.match('^[0-9]+x[0-9]+$') == none)
+      std.error('bitmap favicons demand "NxM N2xM2 ..." in the `sizes\' attribute')
+  }
+}
+for (t in conf.img) check(t[1])
+for (p in partners) check(p.img)
