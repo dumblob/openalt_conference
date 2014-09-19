@@ -3,8 +3,10 @@
 # FIXME check all colors to match the design
 
 load web.html import html
-load time as my_time  # conflicting html tag name with module name
+# conflicting html tag name with namespace name
+load time as my_time
 load os.fs
+load sys
 load 'config.dao' import configuration
 load 'translations.dao' import translation
 
@@ -163,42 +165,69 @@ routine gen_pages(invar trans: string) {
         paragraph { t['schedule'] }
 
         events = {}
-        participants.iterate { events.append(X.events, ...) }
-        events = events.sort { X.from < Y.from }
-        last_day = events[0].from - my_time.make(day=1)
-        for (e in events) {
-          if (e.from.day > last_day.day) {
-            last_day = e.from
-            paragraph {
-              # FIXME make it LOCALE-aware and then translation tr-aware
-              last_day.format('%A %-d %-m %Y')
-            }
-          }
+        participants.iterate { [p]
+          p.events.iterate { events.append((X, p)) }
         }
-        #for (pa in participants) {
-        #  pa.events.sort { X. } .iterate {
-        #    tr {
-        #      td { X }
-        #    }
-        #    img(_class='speaker', src=rel(pa.photo), alt=pa.name)
-        #  }
-        #}
+        # according to time
+        events = events.sort { X[0].from < Y[0].from }
+        last_from = my_time.time.copy(events[0][0].from)
 
-        table {
-          tr {
-            td { 'abc' }
-            td { 'def' }
-            td { 'mno' }
-            td { 'xyz' }
+        for (i = 0; i < %events;) {
+          paragraph {
+            # FIXME make it thread-safe!
+            #old = sys.setlocale()
+            #defer { sys.setlocale($all, old) }
+            #sys.setlocale($time, t['_locale'])
+            last_from.format('%A %-d. %-m. %Y')
+          }
+
+          table {
+            do {
+              e           = events[i][0]
+              participant = events[i][1]
+              if (e.from.year  == last_from.year &&
+                  e.from.month == last_from.month &&
+                  e.from.day   == last_from.day) {
+                tr(_class=
+                   (e.from == last_from) ? 'tr_no_upper_line' : 'tr_usual') {
+                  td {
+                    # FIXME don't mention this image in HTML,
+                    #   but use it only in CSS as decoration?
+                    img(src=rel(ci.clock))
+                    #text((string)e.from.hour + ':' + (string)e.from.min)
+                    text(e.from.format('%-H:%M'))
+                    if (%e.place) {
+                      img(src=rel(ci.door))
+                      text(e.place)
+                    }
+                  }
+                  td {
+                    strong { e.name }
+                    if (e.kind != $internal) {
+                      switch (e.kind) {
+                        case $workshop: text(' / ' + t['workshop'])
+                        case $talk: text(' / ' + t['talk'])
+                      }
+                      text(' / ' + participant.name + ' (' +
+                        (string)(my_time.time.diff(e.from, e.to).seconds/60) +
+                        ' min)')
+                    }
+                  }
+                }
+              }
+              else {
+                last_from = e.from
+                break
+              }
+
+              i += 1
+            } while (i < %events)
           }
         }
       }
       div(id='location') {
         paragraph { t['location'] }
-        # FIXME dao deadlock or sigsegv
-        #img(_class='speaker', src=rel(pa.photo), alt=pa.name)
-        #img(src=rel(ci.location), alt=t['location'] + ': ' + conf.coord_gps)
-        img(src='../img/map_fit_vutbr.jpg', alt=t['location'] + ': ' + conf.coord_gps)
+        img(src=rel(ci.location), alt=t['location'] + ': ' + conf.coord_gps)
       }
       div(id='partners') {
         paragraph { t['partners'] }

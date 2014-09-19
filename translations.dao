@@ -9,6 +9,7 @@ namespace translation { translations }
 #   http://docs.transifex.com/developer/formats/
 var translations = {
   'en' -> {
+    '_locale' -> 'en_US',
     'title' -> 'OpenAlt conference ' + (string)conf.time_from.year,
     'logo_big' -> 'a big logo of the OpenAlt conference',
     'rss' -> 'RSS channel for conference news and changes on this web',
@@ -24,17 +25,21 @@ var translations = {
     'partners' -> 'Partners',
     'footer' -> 'last updated on ' + time.now().format(),
     'talks' -> 'Talks',
+    'talk' -> 'Talk',
     'workshops' -> 'Workshops',
+    'workshop' -> 'Workshop',
     'schedule' -> 'Schedule',
     'location' -> 'Location',
   },
   'sk' -> {
+    '_locale' -> 'sk_SK',
     'motivation' -> 'Staňte sa aj Vy súčasťou už deviateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie!',
   },
   'de' -> {
-    ->
+    '_locale' -> 'de_DE',
   },
   'cs' -> {
+    '_locale' -> 'cs_CZ',
     'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
     'logo_big' -> 'velké logo konference OpenAlt',
     'rss' -> 'kanál RSS s konferenčními aktualitami a změnami na tomto webu',
@@ -50,7 +55,9 @@ var translations = {
     'partners' -> 'Partneři',
     'footer' -> 'Poslední aktualizace ' + time.now().format(),
     'talks' -> 'Přednášky',
+    'talk' -> 'Přednáška',
     'workshops' -> 'Dílny',
+    'workshop' -> 'Dílna',
     'schedule' -> 'Rozvrh',
     'location' -> 'Místo konání',
   },
@@ -59,6 +66,8 @@ var translations = {
 # fill empty translations with english terms (if not existing in en,
 #   raise exception)
 translations.iterate { [k, v]
+  if ('_locale' not in v)
+    io.stderr.writeln('ERR _locale not specified for ' + k)
   if (k != 'en') {
     translations['en'].iterate { [k2, v2]
       if (k2 not in v) {
