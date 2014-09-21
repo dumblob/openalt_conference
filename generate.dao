@@ -1,6 +1,9 @@
 #!/usr/bin/env dao
 
 # FIXME check all colors to match the design
+# FIXME add links/names to proper parts (workshops...)
+# FIXME obrazky partneru ze stareho openalt.cz v co nejvyssim rozliseni
+# FIXME vypisy WARN
 
 load web.html import html
 # conflicting html tag name with namespace name
@@ -70,16 +73,17 @@ routine gen_pages(invar trans: string) {
       link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
     }
     body {
-      # FIXME span input anchor text paragraph strong italic table h1
+      # FIXME span input anchor text paragraph italic table h1
       #   (style=''
       div(id='top_stripe') {
         div(id='top_stripe_sub00') {
           div(id='top_stripe_nav') {
-            anchor(href='#')                                 { t['home'] }
-            anchor(href=rel('/page_thanks_'    + conf.lang)) { t['thanks'] }
-            anchor(href=rel('/page_gallery_'   + conf.lang)) { t['gallery'] }
-            anchor(href=rel('/page_downloads_' + conf.lang)) { t['downloads'] }
-            anchor(href=rel('/page_contact_'   + conf.lang)) { t['contact'] }
+            anchor(href='#')                     { t['home'] }
+            anchor(href=rel(dst + '/about'    )) { t['about'] }
+            anchor(href=rel(dst + '/thanks'   )) { t['thanks'] }
+            anchor(href=rel(dst + '/gallery'  )) { t['gallery'] }
+            anchor(href=rel(dst + '/downloads')) { t['downloads'] }
+            anchor(href=rel(dst + '/contact'  )) { t['contact'] }
           }
           div(id='top_stripe_right_part') {
             div(id='top_stripe_links') {
@@ -97,18 +101,16 @@ routine gen_pages(invar trans: string) {
               }
             }
             div(id='top_stripe_lang') {
-              paragraph {
-                i = 0
-                for (invar lang in translations) {
-                  if (i)
-                    text(' / ')
-                  else
-                    i += 1
-                  if (lang[0] == trans)
-                    strong { lang[0] }
-                  else
-                    anchor(href='../' + lang[0] + '/' + main_html) { lang[0] }
-                }
+              i = 0
+              for (invar lang in translations) {
+                if (i)
+                  text(' / ')
+                else
+                  i += 1
+                if (lang[0] == trans)
+                  strong { lang[0] }
+                else
+                  anchor(href='../' + lang[0] + '/' + main_html) { lang[0] }
               }
             }
           }
@@ -119,10 +121,10 @@ routine gen_pages(invar trans: string) {
           img(id='logo_big', src=rel(ci.logo_big), alt=t['logo_big'])
         }
         paragraph { t['motivation'] }
-        paragraph {
+        paragraph(id='time_range') {
           strong {
             # FIXME make it LOCALE-aware and then translation tr-aware
-            conf.time_from.format('%-d.') + ' - ' +
+            conf.time_from.format('%-d.') + '-' +
             conf.time_to.format('%-d. %B %Y')
           }
         }
@@ -133,7 +135,7 @@ routine gen_pages(invar trans: string) {
         anchor(id='main_button2', href='#schedule')  { t['schedule'] }
       }
       div(id='speakers') {
-        paragraph { t['speakers'] }
+        h3(_class='section') { t['speakers'] }
         paragraph {
           for (pa in participants) {
             if (pa.events.find { X.kind == $internal } == none) {
@@ -143,36 +145,52 @@ routine gen_pages(invar trans: string) {
         }
       }
       div(id='talks') {
-        paragraph { t['talks'] }
-        paragraph {
-          #for (tk in conf.talks) {
-          #  img(_class='talk', src=rel(tk[1]), alt=tk[0])
-          #}
-          'talk00'
+        h3(_class='section') { t['talks'] }
+        participants.iterate { [p]
+          p.events.iterate { [e]
+            #img(_class='talk', src=rel(tk[1]), alt=tk[0])
+            if (e.kind == $talk) {
+              paragraph(_class='event_title') { e.trans[trans].name }
+              paragraph(_class='participant_name') { p.name }
+              paragraph(_class='event_desc') { e.trans[trans].description }
+            }
+          }
         }
       }
-      # FIXME the same as talks, but different colors
       div(id='workshops') {
-        paragraph { t['workshops'] }
-        paragraph {
-          #for (sp in conf.workshops) {
-          #  paragraph { 'prednaska00' }
-          #}
-          'workshop00'
+        h3(_class='section') { t['workshops'] }
+        participants.iterate { [p]
+          p.events.iterate { [e]
+            if (e.kind == $workshop) {
+              paragraph(_class='event_title') { e.trans[trans].name }
+              paragraph(_class='participant_name') { p.name }
+              paragraph(_class='event_desc') { e.trans[trans].description }
+              paragraph(_class='participation_reqs') { t['participation_reqs'] }
+              paragraph(_class='event_reqs') { e.trans[trans].requirements }
+            }
+          }
         }
       }
       div(id='schedule') {
-        paragraph { t['schedule'] }
+        h3(_class='section') { t['schedule'] }
 
+        # FIXME reuse the sorted items (use guard?)
         events = {}
         participants.iterate { [p]
           p.events.iterate { events.append((X, p)) }
         }
-        # according to time
-        events = events.sort { X[0].from < Y[0].from }
-        last_from = my_time.time.copy(events[0][0].from)
+        # according to time and place
+        events = events.sort {
+          # FIXME why need to use value?
+          if (X[0].from.value == Y[0].from.value)
+            return X[0].trans[trans].place < Y[0].trans[trans].place
+          else
+            return X[0].from < Y[0].from
+        }
 
         for (i = 0; i < %events;) {
+          last_from = events[i][0].from
+
           paragraph {
             # FIXME make it thread-safe!
             #old = sys.setlocale()
@@ -182,55 +200,61 @@ routine gen_pages(invar trans: string) {
           }
 
           table {
-            do {
-              e           = events[i][0]
-              participant = events[i][1]
+            for ((border_top, first_iter) = (true, true);
+                 i < %events; i += 1) {
+              (e, participant) = events[i]
+
               if (e.from.year  == last_from.year &&
                   e.from.month == last_from.month &&
                   e.from.day   == last_from.day) {
-                tr(_class=
-                   (e.from == last_from) ? 'tr_no_upper_line' : 'tr_usual') {
-                  td {
-                    # FIXME don't mention this image in HTML,
-                    #   but use it only in CSS as decoration?
-                    img(src=rel(ci.clock))
-                    #text((string)e.from.hour + ':' + (string)e.from.min)
-                    text(e.from.format('%-H:%M'))
-                    if (%e.place) {
-                      img(src=rel(ci.door))
-                      text(e.place)
-                    }
-                  }
-                  td {
-                    strong { e.name }
-                    if (e.kind != $internal) {
-                      switch (e.kind) {
-                        case $workshop: text(' / ' + t['workshop'])
-                        case $talk: text(' / ' + t['talk'])
-                      }
-                      text(' / ' + participant.name + ' (' +
-                        (string)(my_time.time.diff(e.from, e.to).seconds/60) +
-                        ' min)')
-                    }
-                  }
-                }
+                # FIXME why need to use value?
+                if (e.from.value == last_from.value && ! first_iter)
+                  border_top = false
+                else
+                  border_top = true
               }
               else {
-                last_from = e.from
                 break
               }
 
-              i += 1
-            } while (i < %events)
+              tr {
+                # FIXME class doesn't work - why?
+                td(_class=(border_top) ? 'with_border_top' : '') {
+                  # FIXME don't mention this image in HTML,
+                  #   but use it only in CSS as decoration?
+                  img(src=rel(ci.clock))
+                  text(e.from.format('%-H:%M'))
+                  if (%e.trans[trans].place) {
+                    img(src=rel(ci.door))
+                    text(e.trans[trans].place)
+                  }
+                }
+                td(_class=(border_top) ? 'with_border_top' : '') {
+                  strong { e.trans[trans].name }
+                  if (e.kind != $internal) {
+                    switch (e.kind) {
+                      case $workshop: text(' / ' + t['workshop'])
+                      case $talk:     text(' / ' + t['talk'])
+                    }
+                    text(' / ' + participant.name + ' (' +
+                      (string)(my_time.time.diff(e.from, e.to).seconds/60) +
+                      ' min)')
+                  }
+                }
+              }
+
+              last_from = e.from
+              first_iter = false
+            }
           }
         }
       }
       div(id='location') {
-        paragraph { t['location'] }
+        h3(_class='section') { t['location'] }
         img(src=rel(ci.location), alt=t['location'] + ': ' + conf.coord_gps)
       }
       div(id='partners') {
-        paragraph { t['partners'] }
+        h3(_class='section') { t['partners'] }
         paragraph {
           for (invar p in partners) {
             anchor(href=p.uri) {
@@ -267,6 +291,9 @@ routine main(invar ...: string as args) {
   css = io.open(conf.uri.css, 'w')
   defer { css.close() }
 
+  # FIXME definitions for the CSS below
+  invar red = 'red'
+  invar font = ''
   # FIXME @media only screen and (max-width: 640px) {...}
   css.write(
 @[]html {
@@ -294,32 +321,45 @@ body {
   margin: 0 auto 0 auto;
   position: relative;
 }
-#top_stripe_nav, #top_stripe_right_part, #top_stripe_links, #top_stripe_lang {
+#top_stripe_nav,
+#top_stripe_right_part {
   display: inline-block;
+}
+#top_stripe_links,
+#top_stripe_lang {
+  display: inline;
 }
 #top_stripe_nav {
   width: 75%;
-  margin: 0;
+  margin: 10pt;
+}
+#top_stripe_nav > a {
+  margin: 6pt;
+  text-transform: uppercase;
+  font-size: 10pt;
 }
 #top_stripe_right_part {
+  display: inline;
   width: 25%;
   /*margin: 0 0 0 auto;*/
 }
+
 #header {
   margin: 0;
   width: 100%;
-  padding: 0 auto 0 auto;
+  padding: 0 auto;
+}
+#time_range {
+  font-size: 15pt;
 }
 #main_buttons {
-  width: 50%;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
 }
 #main_buttons a,
 #main_buttons a:link,
 #main_buttons a:visited,
 #main_buttons a:hover,
 #main_buttons a:active {
-  /*display: inline;*/
   color: white;
   padding: 20pt 50pt;
   /*height: 135pt;
@@ -340,6 +380,50 @@ body {
   /*width: 512px;
   margin: 0 auto 0 auto;*/
 }
+#speakers,
+#talks,
+#workshops,
+#schedule,
+#location,
+#partners {
+  padding-bottom: 38pt;
+}
+.section {
+  font-size: 30pt;
+  font-weight: 200;
+  text-transform: uppercase;
+  padding: 30pt 0 0 0;
+  margin: 0;
+}
+#talks > h3, #workshops > h3 {
+  color: red;
+}
+.event_title {
+  color: black;
+  font-weight: 900;
+  font-size: 13pt;
+  text-transform: uppercase;
+  margin: 30pt auto 0 auto;
+}
+.participant_name {
+  color: red;
+  font-size: 13pt;
+  font-weight: 500;
+  margin: 3pt auto;
+}
+.event_desc {
+  margin: 8pt auto 0 auto;
+}
+.participation_reqs {
+  font-weight: bold;
+  margin: 3pt auto 0 auto;
+}
+.participation_reqs, .event_reqs {
+  font-size: 10pt;
+}
+.event_reqs {
+  margin: 2pt auto 0 auto;
+}
 #speakers, #location {
   background-color: #404040;
   color: white;
@@ -357,18 +441,37 @@ body {
   background-color: #e03030;
   color: white;
 }
-#location > p {
-  margin 30px auto;
+#schedule table {
+  border-collapse: collapse
+}
+#schedule > table tr:last-child > td {
+  border-bottom: 2px solid white;
+}
+.with_border_top {
+  border-top: 2px solid white;
+  padding-top: 17pt;
+}
+#schedule td {
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  padding-bottom: 17pt;
+  padding-right: 17pt;
+  padding-left: 17pt;
+}
+#location {
+  padding: 0;
+  margin: 0;
 }
 #location > img {
   height: 300px;
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 #footer * {
   margin: 0;
   background-color: black;
   color: white;
 }
-
 @[])
 }

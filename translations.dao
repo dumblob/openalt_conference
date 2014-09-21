@@ -1,9 +1,29 @@
 #!/usr/bin/env dao
 
-load 'config.dao' import configuration . { conf }
+load 'config.dao' import configuration . { conf, curdir, check_path }
 load time
 
-namespace translation { translations }
+namespace translation { translations, participants }
+
+# FIXME how to treat talks with 1+ speakers?
+type Event = tuple<
+  kind:enum<talk, workshop, internal>,
+  from:time.DateTime,
+  to:time.DateTime,
+  trans:map<string, tuple<
+    name:string,
+    requirements:string,
+    description:string,
+    place:string,
+  >>
+>
+
+type Participant = tuple<
+  name:string,
+  photo:string,
+  note:string,
+  events:list<Event>
+>
 
 # FIXME use some existing format supporting plurals
 #   http://docs.transifex.com/developer/formats/
@@ -17,6 +37,7 @@ var translations = {
     'fb' -> 'official Facebook page for OpenAlt conference',
     'motivation' -> 'Become a part of the ninth anniversary proceeding of a Brno open-source, open-hardware and open-mind conference!',
     'home' -> 'Home',
+    'about' -> 'About',
     'thanks' -> 'Thanks',
     'gallery' -> 'Gallery',
     'downloads' -> 'Downloads',
@@ -30,6 +51,7 @@ var translations = {
     'workshop' -> 'Workshop',
     'schedule' -> 'Schedule',
     'location' -> 'Location',
+    'participation_reqs' -> 'Requirements for participation:',
   },
   'sk' -> {
     '_locale' -> 'sk_SK',
@@ -47,8 +69,9 @@ var translations = {
     'fb' -> 'oficiální stránka konference OpenAlt na Facebook',
     'motivation' -> 'Staňte sa i Vy součástí již devátého pokračování brněnské open-source, open-hardware a open-mind konference!',
     'home' -> 'Domů',
+    'about' -> 'O nás',
     'thanks' -> 'Poděkování',
-    'gallery' -> 'Galerie',  # Fotografie
+    'gallery' -> 'Fotogalerie',  # Fotografie
     'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
     'speakers' -> 'Přednášející',
@@ -60,7 +83,202 @@ var translations = {
     'workshop' -> 'Dílna',
     'schedule' -> 'Rozvrh',
     'location' -> 'Místo konání',
+    'participation_reqs' -> 'Požadavky pro účast:',
   },
+}
+
+# FIXME at the beginning, we don't have any participants - use some temporary text?
+var participants: list<Participant> = {
+  ('organizers',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Tvrde jadro OpenAlt z.s.',
+   events = {
+    ($internal,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 7, 00),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 7, 30),
+     trans = {
+       'en' -> ('zahajeni',
+                '',
+                'popis zahajeni',
+                'D105',),
+     }
+    ),
+    ($internal,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 12, 30),
+     trans = {
+       'en' -> ('obed',
+                '',
+                'popis obeda',
+                '',),
+     }
+    ),
+    ($internal,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 12, 30),
+     trans = {
+       'en' -> ('obed2',
+                '',
+                'popis obeda',
+                '',),
+     }
+    ),
+    ($internal,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 18, 80),
+     trans = {
+       'en' -> ('zakonceni',
+                '',
+                'popis zakonceni',
+                'D105',),
+     }
+    ),
+   }),
+  ('Miroslav Suchy',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Vzrustove vypadam jak velky medved a v praci si rikam lopata.',
+   events = {
+    ($talk,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum T',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'D105',),
+     }
+    ),
+    ($workshop,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum W',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'C304',),
+     }
+    ),
+    ($talk,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 12, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum T',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'D105',),
+     }
+    ),
+    ($workshop,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum W',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'C304',),
+     }
+    ),
+    ($talk,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum T',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'D105',),
+     }
+    ),
+    ($workshop,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum W',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'C304',),
+     }
+    ),
+   }),
+  ('Nekdo Jiny0',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Jiny nepovinny popisek.',
+   events = {
+   }),
+  ('Nekdo Jiny1',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Jiny nepovinny popisek.',
+   events = {
+   }),
+  ('Nekdo Jiny2',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Jiny nepovinny popisek.',
+   events = {
+   }),
+  ('Nekdo Jiny3',
+   curdir + '/img/participants/miroslav_suchy.png',
+   'Jiny nepovinny popisek.',
+   events = {
+    ($talk,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 5, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 6, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum T',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'D105',),
+     }
+    ),
+    ($workshop,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 1, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 2, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum W',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'C304',),
+     }
+    ),
+    ($talk,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 12, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum T',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'D105',),
+     }
+    ),
+    ($workshop,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 12, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum W',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'C304',),
+     }
+    ),
+    ($talk,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum T',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'D105',),
+     }
+    ),
+    ($workshop,
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 30),
+     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 19, 30),
+     trans = {
+       'en' -> ('Stare dobre Lorem ipsum W',
+                'sami chytri lide',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+                'C304',),
+     }
+    ),
+  }),
 }
 
 # fill empty translations with english terms (if not existing in en,
@@ -68,11 +286,25 @@ var translations = {
 translations.iterate { [k, v]
   if ('_locale' not in v)
     io.stderr.writeln('ERR _locale not specified for ' + k)
+
   if (k != 'en') {
     translations['en'].iterate { [k2, v2]
       if (k2 not in v) {
         io.stderr.writeln('WARN missing translation [' + k + ']: ' + k2)
         v[k2] = v2
+      }
+    }
+
+    participants.iterate { [p]
+      # blackbox testing
+      check_path(p.photo)
+
+      p.events.iterate { [e]
+        if (k not in e.trans) {
+          io.stderr.writeln('WARN missing translation [' + k + '] in ' +
+                            e.trans['en'].name + ' in ' + p.name)
+          e.trans[k] = e.trans['en']
+        }
       }
     }
   }
