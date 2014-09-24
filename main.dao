@@ -1,0 +1,251 @@
+#!/usr/bin/env dao
+
+# FIXME check all colors to match the design
+# FIXME add links/names to proper parts (workshops...)
+# FIXME obrazky partneru ze stareho openalt.cz v co nejvyssim rozliseni
+# FIXME vypisy WARN
+# FIXME span input
+# FIXME prednasejici - jmeno + fce
+
+# conflicting html tag name with namespace name
+load os.fs
+load 'config.dao' import configuration
+load 'translations.dao' import translation
+# FIXME one namespace html_page
+load 'html_main.dao' import ns_main
+load 'html_about.dao' import ns_about
+load mt
+
+routine gen_pages(invar trans: string) {
+  d = fs.dir(conf.rootdir)
+  if (! d.exists(trans)) d.mkdir(trans)
+  invar dst = conf.rootdir + '/' + trans
+
+  invar pages = {
+    'main'      -> 'main.html',
+    'about'     -> 'about.html',
+    'thanks'    -> 'thanks.html',
+    'gallery'   -> 'gallery.html',
+    'downloads' -> 'downloads.html',
+    'contact'   -> 'contact.html',
+  }
+
+  for (p in pages) {
+    fut = std.exec {
+      switch (p[0]) {
+        case 'main':
+          return (none|@T)html_main(dst + '/' + p[1], trans, dst, pages) !!
+        case 'about':
+          return html_about(dst + '/' + p[1], trans, dst, pages) !!
+      }
+      #return none
+    }
+    if (fut != none) defer { fut.value() }
+  }
+}
+
+# USAGE: generate.dao [<translation>]...
+#   if no translations given, generate all
+routine main(invar ...: string as args) {
+  # FIXME bug?
+  #defer (any) { return 0 }
+
+  invar chosen_trs = std.exec {
+    if (%args)
+      return ((list<string>)args).associate(1) { (X, translations[X]) }
+    else
+      return translations
+  }
+
+  for (invar trans in chosen_trs) {
+    fut = gen_pages(trans[0]) !!
+    defer { fut.value() }
+  }
+
+  css = io.open(conf.uri.css, 'w')
+  defer { css.close() }
+
+  # FIXME definitions for the CSS below
+  invar red = 'red'
+  invar font = ''
+  # FIXME @media only screen and (max-width: 640px) {...}
+  css.write(
+@[]html {
+  background-color: white;
+  color: black;
+  font: "";
+}
+body {
+  margin: 0;
+}
+#top_stripe,
+#top_stripe a:link,
+#top_stripe a:visited,
+#top_stripe a:hover,
+#top_stripe a:active {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  /*margin: 0 auto 0 auto;*/
+  /*width: 700pt;*/
+}
+#top_stripe_sub00 {
+  /*margin: auto 0 auto 100pt;*/
+  /*width: 900px;*/
+  margin: 0 auto 0 auto;
+  position: relative;
+}
+#top_stripe_nav,
+#top_stripe_right_part {
+  display: inline-block;
+}
+#top_stripe_links,
+#top_stripe_lang {
+  display: inline;
+}
+#top_stripe_nav {
+  width: 75%;
+  margin: 10pt;
+}
+#top_stripe_nav > a {
+  margin: 6pt;
+  text-transform: uppercase;
+  font-size: 10pt;
+}
+#top_stripe_right_part {
+  display: inline;
+  width: 25%;
+  /*margin: 0 0 0 auto;*/
+}
+
+#header {
+  margin: 0;
+  width: 100%;
+  padding: 0 auto;
+}
+#time_range {
+  font-size: 15pt;
+}
+#main_buttons {
+  margin: 0 auto;
+}
+#main_buttons a,
+#main_buttons a:link,
+#main_buttons a:visited,
+#main_buttons a:hover,
+#main_buttons a:active {
+  color: white;
+  padding: 20pt 50pt;
+  /*height: 135pt;
+  width: 65pt;*/
+  margin: 0 10pt 0 10pt;
+}
+#main_button0 {
+  background-color: red;
+}
+#main_button1 {
+  background-color: green;
+}
+#main_button2 {
+  background-color: blue;
+}
+#logo_big {
+  /*position: fixed;*/
+  /*width: 512px;
+  margin: 0 auto 0 auto;*/
+}
+#speakers,
+#talks,
+#workshops,
+#schedule,
+#location,
+#partners {
+  padding-bottom: 38pt;
+}
+.section {
+  font-size: 30pt;
+  font-weight: 200;
+  text-transform: uppercase;
+  padding: 30pt 0 0 0;
+  margin: 0;
+}
+#talks > h3, #workshops > h3 {
+  color: red;
+}
+.event_title {
+  color: black;
+  font-weight: 900;
+  font-size: 13pt;
+  text-transform: uppercase;
+  margin: 30pt auto 0 auto;
+}
+.participant_name {
+  color: red;
+  font-size: 13pt;
+  font-weight: 500;
+  margin: 3pt auto;
+}
+.event_desc {
+  margin: 8pt auto 0 auto;
+}
+.participation_reqs {
+  font-weight: bold;
+  margin: 3pt auto 0 auto;
+}
+.participation_reqs, .event_reqs {
+  font-size: 10pt;
+}
+.event_reqs {
+  margin: 2pt auto 0 auto;
+}
+#speakers, #location {
+  background-color: #404040;
+  color: white;
+}
+.speaker {
+  height: 150px;
+  width: 150px;
+  margin: 30px;
+  padding: 0;
+}
+#workshops {
+  background-color: #c0c0c0;
+}
+#schedule {
+  background-color: #e03030;
+  color: white;
+}
+#schedule table {
+  border-collapse: collapse
+}
+#schedule > table tr:last-child > td {
+  border-bottom: 2px solid white;
+}
+.with_border_top {
+  border-top: 2px solid white;
+  padding-top: 17pt;
+}
+#schedule td {
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  padding-bottom: 17pt;
+  padding-right: 17pt;
+  padding-left: 17pt;
+}
+#location {
+  padding: 0;
+  margin: 0;
+}
+#location > img {
+  height: 300px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#footer * {
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+@[])
+}

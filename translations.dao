@@ -52,6 +52,10 @@ var translations = {
     'schedule' -> 'Schedule',
     'location' -> 'Location',
     'participation_reqs' -> 'Requirements for participation:',
+    'conference' -> 'Conference',
+    'conference_about_content' -> 'The best conference ever about open*',
+    'organization' -> 'Organization',
+    'organization_about_content' -> 'The most impressive and progressive organization dealing with open* stuff.',
   },
   'sk' -> {
     '_locale' -> 'sk_SK',
@@ -84,6 +88,10 @@ var translations = {
     'schedule' -> 'Rozvrh',
     'location' -> 'Místo konání',
     'participation_reqs' -> 'Požadavky pro účast:',
+    'conference' -> 'Konference',
+    'conference_about_content' -> 'Úplně nejlepší konference ze všech o čemkoliv otevřeném (sháníme přednášející o dveřích dokořán...).',
+    'organization' -> 'Spolek',
+    'organization_about_content' -> 'Nejpokrokovější a nejpůsobivější spolek zabývající se otevřenými záležitostmi.',
   },
 }
 

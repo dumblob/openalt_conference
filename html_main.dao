@@ -1,61 +1,26 @@
-#!/usr/bin/env dao
-
-# FIXME check all colors to match the design
-# FIXME add links/names to proper parts (workshops...)
-# FIXME obrazky partneru ze stareho openalt.cz v co nejvyssim rozliseni
-# FIXME vypisy WARN
-
 load web.html import html
-# conflicting html tag name with namespace name
 load time as my_time
-load os.fs
-load sys
 load 'config.dao' import configuration
 load 'translations.dao' import translation
+load 'lib.dao' import lib
 
-# /some/full/path/to/file/or/dir/aka/target
-# /some/full/path/with/my/current/directory/I/am/in/aka/from/
-# ->
-# ../../../../../../../../../to/file/or/dir/aka/target
-routine mkrel(from: string, invar target: string) => string {
-  # FIXME check that paths are normalized (can't use fs.realpath(), because
-  #   it requires file existence) and full and not empty
-  if (from  [0] != '/'[0]) std.error('"from" is not a full path')
-  if (from [-1] != '/'[0]) from += '/'
-  if (target[0] != '/'[0]) {
-    if (target.match('^[^:/]+') == none)
-      std.error('"target" is not a full path nor URI')
-    else
-      return target
-  }
+#namespace html_page { html_main }
+namespace ns_main { html_main }
 
-  shared = 1  # /
-  while (1) {
-    x = target[shared:].fetch('[^/]+')
-    y = from[shared:].fetch('[^/]+')
-    if (%x && x == y)
-      shared += %x +1  # +1 for /
-    else
-      break
-  }
-  return from[shared:].change('[^/]+', '..') + target[shared:]
-}
+routine html_main(
+    path: string,
+    invar trans: string,
+    invar dst: string,
+    invar pages: map<string, string>) => none {
+  html5 = io.open(path, 'w')
+  defer { html5.close() }
 
-routine gen_pages(invar trans: string) {
   # just convenient shortcuts
   invar cu = conf.uri
   invar ci = conf.img
   invar t = translations[trans]
 
-  d = fs.dir(conf.rootdir)
-  if (! d.exists(trans)) d.mkdir(trans)
-  invar dst = conf.rootdir + '/' + trans
-
   rel = routine(invar target: string) { return mkrel(dst, target) }
-
-  main_html = 'main.html'
-  html5 = io.open(dst + '/' + main_html, 'w')
-  defer { html5.close() }
 
   html5.write(document {
     head {
@@ -73,17 +38,15 @@ routine gen_pages(invar trans: string) {
       link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
     }
     body {
-      # FIXME span input anchor text paragraph italic table h1
-      #   (style=''
       div(id='top_stripe') {
         div(id='top_stripe_sub00') {
           div(id='top_stripe_nav') {
             anchor(href='#')                     { t['home'] }
-            anchor(href=rel(dst + '/about'    )) { t['about'] }
-            anchor(href=rel(dst + '/thanks'   )) { t['thanks'] }
-            anchor(href=rel(dst + '/gallery'  )) { t['gallery'] }
-            anchor(href=rel(dst + '/downloads')) { t['downloads'] }
-            anchor(href=rel(dst + '/contact'  )) { t['contact'] }
+            anchor(href=rel(dst + '/' + pages['about'    ])) { t['about'] }
+            anchor(href=rel(dst + '/' + pages['thanks'   ])) { t['thanks'] }
+            anchor(href=rel(dst + '/' + pages['gallery'  ])) { t['gallery'] }
+            anchor(href=rel(dst + '/' + pages['downloads'])) { t['downloads'] }
+            anchor(href=rel(dst + '/' + pages['contact'  ])) { t['contact'] }
           }
           div(id='top_stripe_right_part') {
             div(id='top_stripe_links') {
@@ -110,7 +73,7 @@ routine gen_pages(invar trans: string) {
                 if (lang[0] == trans)
                   strong { lang[0] }
                 else
-                  anchor(href='../' + lang[0] + '/' + main_html) { lang[0] }
+                  anchor(href='../' + lang[0] + '/' + pages['main']) { lang[0] }
               }
             }
           }
@@ -268,210 +231,4 @@ routine gen_pages(invar trans: string) {
       }
     }
   })
-}
-
-# USAGE: generate.dao [<translation>]...
-#   if no translations given, generate all
-routine main(invar ...: string as args) {
-  # FIXME bug?
-  #defer (any) { return 0 }
-
-  invar chosen_trs = std.exec {
-    if (%args)
-      return ((list<string>)args).associate(1) { (X, translations[X]) }
-    else
-      return translations
-  }
-
-  for (invar trans in chosen_trs) {
-    fut = gen_pages(trans[0])!!
-    defer { fut.value() }
-  }
-
-  css = io.open(conf.uri.css, 'w')
-  defer { css.close() }
-
-  # FIXME definitions for the CSS below
-  invar red = 'red'
-  invar font = ''
-  # FIXME @media only screen and (max-width: 640px) {...}
-  css.write(
-@[]html {
-  background-color: white;
-  color: black;
-  font: "";
-}
-body {
-  margin: 0;
-}
-#top_stripe,
-#top_stripe a:link,
-#top_stripe a:visited,
-#top_stripe a:hover,
-#top_stripe a:active {
-  background-color: black;
-  color: white;
-  text-decoration: none;
-  /*margin: 0 auto 0 auto;*/
-  /*width: 700pt;*/
-}
-#top_stripe_sub00 {
-  /*margin: auto 0 auto 100pt;*/
-  /*width: 900px;*/
-  margin: 0 auto 0 auto;
-  position: relative;
-}
-#top_stripe_nav,
-#top_stripe_right_part {
-  display: inline-block;
-}
-#top_stripe_links,
-#top_stripe_lang {
-  display: inline;
-}
-#top_stripe_nav {
-  width: 75%;
-  margin: 10pt;
-}
-#top_stripe_nav > a {
-  margin: 6pt;
-  text-transform: uppercase;
-  font-size: 10pt;
-}
-#top_stripe_right_part {
-  display: inline;
-  width: 25%;
-  /*margin: 0 0 0 auto;*/
-}
-
-#header {
-  margin: 0;
-  width: 100%;
-  padding: 0 auto;
-}
-#time_range {
-  font-size: 15pt;
-}
-#main_buttons {
-  margin: 0 auto;
-}
-#main_buttons a,
-#main_buttons a:link,
-#main_buttons a:visited,
-#main_buttons a:hover,
-#main_buttons a:active {
-  color: white;
-  padding: 20pt 50pt;
-  /*height: 135pt;
-  width: 65pt;*/
-  margin: 0 10pt 0 10pt;
-}
-#main_button0 {
-  background-color: red;
-}
-#main_button1 {
-  background-color: green;
-}
-#main_button2 {
-  background-color: blue;
-}
-#logo_big {
-  /*position: fixed;*/
-  /*width: 512px;
-  margin: 0 auto 0 auto;*/
-}
-#speakers,
-#talks,
-#workshops,
-#schedule,
-#location,
-#partners {
-  padding-bottom: 38pt;
-}
-.section {
-  font-size: 30pt;
-  font-weight: 200;
-  text-transform: uppercase;
-  padding: 30pt 0 0 0;
-  margin: 0;
-}
-#talks > h3, #workshops > h3 {
-  color: red;
-}
-.event_title {
-  color: black;
-  font-weight: 900;
-  font-size: 13pt;
-  text-transform: uppercase;
-  margin: 30pt auto 0 auto;
-}
-.participant_name {
-  color: red;
-  font-size: 13pt;
-  font-weight: 500;
-  margin: 3pt auto;
-}
-.event_desc {
-  margin: 8pt auto 0 auto;
-}
-.participation_reqs {
-  font-weight: bold;
-  margin: 3pt auto 0 auto;
-}
-.participation_reqs, .event_reqs {
-  font-size: 10pt;
-}
-.event_reqs {
-  margin: 2pt auto 0 auto;
-}
-#speakers, #location {
-  background-color: #404040;
-  color: white;
-}
-.speaker {
-  height: 150px;
-  width: 150px;
-  margin: 30px;
-  padding: 0;
-}
-#workshops {
-  background-color: #c0c0c0;
-}
-#schedule {
-  background-color: #e03030;
-  color: white;
-}
-#schedule table {
-  border-collapse: collapse
-}
-#schedule > table tr:last-child > td {
-  border-bottom: 2px solid white;
-}
-.with_border_top {
-  border-top: 2px solid white;
-  padding-top: 17pt;
-}
-#schedule td {
-  border-right: 2px solid white;
-  border-left: 2px solid white;
-  padding-bottom: 17pt;
-  padding-right: 17pt;
-  padding-left: 17pt;
-}
-#location {
-  padding: 0;
-  margin: 0;
-}
-#location > img {
-  height: 300px;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-#footer * {
-  margin: 0;
-  background-color: black;
-  color: white;
-}
-@[])
 }

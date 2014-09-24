@@ -1,0 +1,32 @@
+namespace lib { mkrel }
+#namespace html_page {}
+
+routine mkrel(from: string, invar target: string) => string {
+  # FIXME assert that paths are normalized (can't use fs.realpath(), because
+  #   it requires file existence)
+  if (from  [0] != '/'[0]) std.error('"from" is not a full path')
+  if (from [-1] != '/'[0]) from += '/'
+  if (target[0] != '/'[0]) {
+    if (target.match('^[^:/]+') == none)
+      std.error('"target" is not a full path nor URI')
+    else
+      return target
+  }
+
+#io.writeln('from', from)
+#io.writeln('target', target)
+
+  shared = 1  # /
+  while (1) {
+    x = target[shared:].fetch('[^/]+')
+    y = from[shared:].fetch('[^/]+')
+    # FIXME
+    if (%x && x == y)
+    #if (%x && %y && x == y)
+      shared += %x +1  # +1 for /
+    else
+      break
+  }
+  return from[shared:].change('[^/]+', '..') + target[shared:]
+  #return '/'
+}
