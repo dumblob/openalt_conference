@@ -1,5 +1,5 @@
 namespace lib { mkrel }
-#namespace html_page {}
+namespace html_page {}
 
 routine mkrel(from: string, invar target: string) => string {
   # FIXME assert that paths are normalized (can't use fs.realpath(), because
@@ -13,20 +13,14 @@ routine mkrel(from: string, invar target: string) => string {
       return target
   }
 
-#io.writeln('from', from)
-#io.writeln('target', target)
-
   shared = 1  # /
   while (1) {
     x = target[shared:].fetch('[^/]+')
     y = from[shared:].fetch('[^/]+')
-    # FIXME
     if (%x && x == y)
-    #if (%x && %y && x == y)
       shared += %x +1  # +1 for /
     else
       break
   }
   return from[shared:].change('[^/]+', '..') + target[shared:]
-  #return '/'
 }

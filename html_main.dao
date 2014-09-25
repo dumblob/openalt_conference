@@ -1,11 +1,12 @@
+#FIXME add stripes over participants' photos
+
 load web.html import html
 load time as my_time
 load 'config.dao' import configuration
 load 'translations.dao' import translation
 load 'lib.dao' import lib
 
-#namespace html_page { html_main }
-namespace ns_main { html_main }
+namespace html_page { html_main }
 
 routine html_main(
     path: string,
@@ -80,6 +81,7 @@ routine html_main(
         }
       }
       div(id='header') {
+        # FIXME is img really needed to be inside of p?
         paragraph {
           img(id='logo_big', src=rel(ci.logo_big), alt=t['logo_big'])
         }

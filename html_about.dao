@@ -3,8 +3,7 @@ load 'config.dao' import configuration
 load 'translations.dao' import translation
 load 'lib.dao' import lib
 
-#namespace html_page { html_about }
-namespace ns_about { html_about }
+namespace html_page { html_about }
 
 routine html_about(
     path: string,
@@ -40,8 +39,8 @@ routine html_about(
       div(id='top_stripe') {
         div(id='top_stripe_sub00') {
           div(id='top_stripe_nav') {
-            anchor(href='#')                     { t['home'] }
-            anchor(href=rel(dst + '/' + pages['about'    ])) { t['about'] }
+            anchor(href=rel(dst + '/' + pages['main'     ])) { t['home'] }
+            anchor(href='#'                                ) { t['about'] }
             anchor(href=rel(dst + '/' + pages['thanks'   ])) { t['thanks'] }
             anchor(href=rel(dst + '/' + pages['gallery'  ])) { t['gallery'] }
             anchor(href=rel(dst + '/' + pages['downloads'])) { t['downloads'] }
@@ -79,10 +78,10 @@ routine html_about(
         }
       }
 
-      h3 { t['conference'] }
+      h3(_class='section') { t['conference'] }
       paragraph { t['conference_about_content'] }
 
-      h3 { t['organization'] }
+      h3(_class='section') { t['organization'] }
       paragraph { t['organization_about_content'] }
 
       div(id='footer') {

@@ -11,10 +11,8 @@
 load os.fs
 load 'config.dao' import configuration
 load 'translations.dao' import translation
-# FIXME one namespace html_page
-load 'html_main.dao' import ns_main
-load 'html_about.dao' import ns_about
-load mt
+load 'html_main.dao' import html_page
+load 'html_about.dao' import html_page
 
 routine gen_pages(invar trans: string) {
   d = fs.dir(conf.rootdir)
@@ -38,9 +36,9 @@ routine gen_pages(invar trans: string) {
         case 'about':
           return html_about(dst + '/' + p[1], trans, dst, pages) !!
       }
-      #return none
     }
-    if (fut != none) defer { fut.value() }
+    # FIXME fix the infinite loop!
+    if (fut != none) defer { fut.value(); io.writeln(p[0]) }
   }
 }
 
@@ -65,20 +63,25 @@ routine main(invar ...: string as args) {
   css = io.open(conf.uri.css, 'w')
   defer { css.close() }
 
-  # FIXME definitions for the CSS below
-  invar red = 'red'
-  invar font = ''
+  invar stripe_hover = '#BF1F2E'
+  invar schedule_bg = '#C22E38'
   # FIXME @media only screen and (max-width: 640px) {...}
   css.write(
 @[]html {
   background-color: white;
   color: black;
-  font: "";
+  font-family: "Open Sans", sans-serif;
 }
 body {
   margin: 0;
+  padding: 0;
+  text-align: center;
+  min-height: 100%;
 }
-#top_stripe,
+#top_stripe {
+    background-color: black;
+    height: 2.35em;
+}
 #top_stripe a:link,
 #top_stripe a:visited,
 #top_stripe a:hover,
@@ -89,45 +92,77 @@ body {
   /*margin: 0 auto 0 auto;*/
   /*width: 700pt;*/
 }
+
+#top_stripe_nav a:hover {
+    background-color: @[] + stripe_hover + @[];
+}
 #top_stripe_sub00 {
-  /*margin: auto 0 auto 100pt;*/
-  /*width: 900px;*/
-  margin: 0 auto 0 auto;
-  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
 }
 #top_stripe_nav,
 #top_stripe_right_part {
   display: inline-block;
+  height: 100%;
 }
 #top_stripe_links,
 #top_stripe_lang {
   display: inline;
+  height: 100%;
+  color: white;
 }
 #top_stripe_nav {
   width: 75%;
-  margin: 10pt;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
-#top_stripe_nav > a {
-  margin: 6pt;
+#top_stripe_nav a {
   text-transform: uppercase;
-  font-size: 10pt;
+  font-size: 1em;
+  font-weight: lighter;
+  padding: 1em 0.5em 1em 0.5em;
+  line-height: normal;
 }
 #top_stripe_right_part {
   display: inline;
   width: 25%;
-  /*margin: 0 0 0 auto;*/
 }
 
 #header {
   margin: 0;
   width: 100%;
-  padding: 0 auto;
+}
+#header p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500pt;
 }
 #time_range {
   font-size: 15pt;
 }
 #main_buttons {
-  margin: 0 auto;
+  display: block;
+  /*height: 2em;*/
+  height: 28pt;
+  /*margin: 1em 0 2em 0;*/
+  margin: 0;
+  padding: 14pt 0;
+  /*padding-bottom: 2em;*/
+  vertical-align: middle;
+}
+
+#main_buttons a:nth-child(n) {
+    background-color: #D47A69;
+}
+#main_buttons a:nth-child(2n) {
+    background-color: @[] + stripe_hover + @[];
+}
+#main_buttons a:nth-child(3n) {
+    background-color: #6B0A12;
 }
 #main_buttons a,
 #main_buttons a:link,
@@ -135,24 +170,21 @@ body {
 #main_buttons a:hover,
 #main_buttons a:active {
   color: white;
-  padding: 20pt 50pt;
-  /*height: 135pt;
-  width: 65pt;*/
-  margin: 0 10pt 0 10pt;
-}
-#main_button0 {
-  background-color: red;
-}
-#main_button1 {
-  background-color: green;
-}
-#main_button2 {
-  background-color: blue;
-}
-#logo_big {
-  /*position: fixed;*/
-  /*width: 512px;
-  margin: 0 auto 0 auto;*/
+  display: inline-block;
+  /*padding: 1em 3em 1em 3em;*/
+  height: 100%;
+  /*margin: 0 1em 0 1em;*/
+  font-weight: bolder;
+  text-decoration: none;
+  font-size: 1.5em;
+  text-transform: uppercase;
+
+  padding: 0;
+  width: 200pt;
+  margin: 0;
+  /*vertical-align: bottom;*/
+  vertical-align: middle;
+  horizontal-align: middle;
 }
 #speakers,
 #talks,
@@ -160,33 +192,47 @@ body {
 #schedule,
 #location,
 #partners {
-  padding-bottom: 38pt;
+  display: block;
+  padding: 1em 0 2em 0;
 }
+
 .section {
-  font-size: 30pt;
-  font-weight: 200;
+  font-size: 3em;
+  font-weight: lighter;
   text-transform: uppercase;
-  padding: 30pt 0 0 0;
+  padding: 0.5em 0 0 0;
   margin: 0;
 }
-#talks > h3, #workshops > h3 {
-  color: red;
+
+#workshops .section, #talks .section {
+  color: @[] + schedule_bg + @[];
 }
+
+#schedule .section {
+  color: white;
+}
+
 .event_title {
+  margin: 1.25em 0 0 0;
+  padding: 0;
   color: black;
   font-weight: 900;
-  font-size: 13pt;
+  font-size: 1.5em;
   text-transform: uppercase;
-  margin: 30pt auto 0 auto;
 }
 .participant_name {
-  color: red;
-  font-size: 13pt;
-  font-weight: 500;
-  margin: 3pt auto;
+  color: @[] + schedule_bg + @[];
+  font-size: 1.125em;
+  font-weight: lighter;
+  margin: auto 0;
+
 }
 .event_desc {
-  margin: 8pt auto 0 auto;
+  font-size: 0.85em;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+  padding: 0;
 }
 .participation_reqs {
   font-weight: bold;
@@ -209,21 +255,46 @@ body {
   padding: 0;
 }
 #workshops {
-  background-color: #c0c0c0;
+  background-color: #D0D1D1;
 }
 #schedule {
-  background-color: #e03030;
+  background-color: @[] + schedule_bg + @[];
   color: white;
 }
+#schedule > p {
+  text-transform: uppercase;
+  font-size: 18pt;
+  font-weight: lighter;
+}
 #schedule table {
-  border-collapse: collapse
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 84%;
+}
+img {
+    vertical-align: middle;
+}
+#schedule table td img:nth-child(n) {
+    /*margin-right: 0.5em;*/
+    margin-right: 10pt;
+}
+#schedule table td img:nth-child(2n) {
+    /*margin-left: 2em;*/
+    margin-left: 10pt;
 }
 #schedule > table tr:last-child > td {
   border-bottom: 2px solid white;
 }
+#schedule > table tr > td:first-child {
+  width: 27%;
+}
 .with_border_top {
   border-top: 2px solid white;
   padding-top: 17pt;
+}
+#schedule table strong {
+  text-transform: uppercase;
 }
 #schedule td {
   border-right: 2px solid white;
@@ -231,6 +302,7 @@ body {
   padding-bottom: 17pt;
   padding-right: 17pt;
   padding-left: 17pt;
+  text-align: left;
 }
 #location {
   padding: 0;
@@ -243,9 +315,10 @@ body {
   margin: 0;
 }
 #footer * {
-  margin: 0;
+  margin: auto 0 0 0;
   background-color: black;
   color: white;
-}
-@[])
+  text-transform: uppercase;
+}@[]
+  )
 }
