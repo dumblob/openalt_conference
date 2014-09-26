@@ -8,6 +8,8 @@ load 'lib.dao' import lib
 
 namespace html_page { html_main }
 
+invar this_one = 'main'
+
 routine html_main(
     path: string,
     invar trans: string,
@@ -42,7 +44,7 @@ routine html_main(
       div(id='top_stripe') {
         div(id='top_stripe_sub00') {
           div(id='top_stripe_nav') {
-            anchor(href='#')                     { t['home'] }
+            anchor(href='#')                                 { t['home'] }
             anchor(href=rel(dst + '/' + pages['about'    ])) { t['about'] }
             anchor(href=rel(dst + '/' + pages['thanks'   ])) { t['thanks'] }
             anchor(href=rel(dst + '/' + pages['gallery'  ])) { t['gallery'] }
@@ -74,18 +76,17 @@ routine html_main(
                 if (lang[0] == trans)
                   strong { lang[0] }
                 else
-                  anchor(href='../' + lang[0] + '/' + pages['main']) { lang[0] }
+                  anchor(href='../' + lang[0] + '/' + pages[this_one]) {
+                    lang[0]
+                  }
               }
             }
           }
         }
       }
       div(id='header') {
-        # FIXME is img really needed to be inside of p?
-        paragraph {
-          img(id='logo_big', src=rel(ci.logo_big), alt=t['logo_big'])
-        }
-        paragraph { t['motivation'] }
+        img(id='logo_big', src=rel(ci.logo_big), alt=t['logo_big'])
+        paragraph(_class='narrow_paragraph') { t['motivation'] }
         paragraph(id='time_range') {
           strong {
             # FIXME make it LOCALE-aware and then translation tr-aware

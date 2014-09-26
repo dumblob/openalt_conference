@@ -7,8 +7,6 @@
 # FIXME span input
 # FIXME prednasejici - jmeno + fce
 
-# FIXME width of the description in About
-# FIXME speaker's font-weight!
 # FIXME the span between text and speaker
 
 # conflicting html tag name with namespace name
@@ -140,33 +138,39 @@ body {
   margin: 0;
   width: 100%;
 }
-#header p {
+#header > * {
   margin-left: auto;
   margin-right: auto;
-  max-width: 500pt;
+}
+#header p:nth-child(2n) {
+  font-size: 16pt;
+  font-weight: lighter;
+  margin-bottom: 0;
+}
+.narrow_paragraph {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 440pt;
 }
 #time_range {
-  font-size: 15pt;
-}
-#main_buttons {
-  display: block;
-  /*height: 2em;*/
-  height: 28pt;
-  /*margin: 1em 0 2em 0;*/
-  margin: 0;
-  padding: 14pt 0;
-  /*padding-bottom: 2em;*/
-  vertical-align: middle;
+  font-size: 20pt;
+  margin-top: 10pt;
+  margin-bottom: 10pt;
 }
 
+#main_buttons {
+  display: block;
+  margin: 0;
+  vertical-align: middle;
+}
 #main_buttons a:nth-child(n) {
-    background-color: #D47A69;
+  background-color: #D47A69;
 }
 #main_buttons a:nth-child(2n) {
-    background-color: @[] + stripe_hover + @[];
+  background-color: @[] + stripe_hover + @[];
 }
 #main_buttons a:nth-child(3n) {
-    background-color: #6B0A12;
+  background-color: #6B0A12;
 }
 #main_buttons a,
 #main_buttons a:link,
@@ -175,21 +179,16 @@ body {
 #main_buttons a:active {
   color: white;
   display: inline-block;
-  /*padding: 1em 3em 1em 3em;*/
-  height: 100%;
-  /*margin: 0 1em 0 1em;*/
   font-weight: bolder;
   text-decoration: none;
   font-size: 1.5em;
   text-transform: uppercase;
-
-  padding: 0;
-  width: 200pt;
-  margin: 0;
-  /*vertical-align: bottom;*/
-  vertical-align: middle;
-  horizontal-align: middle;
+  padding-top: 15pt;
+  padding-bottom: 15pt;
+  width: 190pt;
+  margin: 0 11pt 20pt 0;
 }
+
 #speakers,
 #talks,
 #workshops,
@@ -199,7 +198,6 @@ body {
   display: block;
   padding: 1em 0 2em 0;
 }
-
 .section, .section_red {
   font-size: 35pt;
   font-weight: lighter;
@@ -207,15 +205,12 @@ body {
   padding: 35pt 0 15pt 0;
   margin: 0;
 }
-
 .section_red {
   color: @[] + schedule_bg + @[];
 }
-
 #schedule .section {
   color: white;
 }
-
 .event_title {
   margin: 1.25em 0 0 0;
   padding: 0;
@@ -227,7 +222,7 @@ body {
 .participant_name {
   color: @[] + schedule_bg + @[];
   font-size: 1.125em;
-  font-weight: lighter;
+  font-weight: 500;
   margin: auto 0;
 
 }

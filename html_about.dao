@@ -5,6 +5,8 @@ load 'lib.dao' import lib
 
 namespace html_page { html_about }
 
+invar this_one = 'about'
+
 routine html_about(
     path: string,
     invar trans: string,
@@ -71,7 +73,9 @@ routine html_about(
                 if (lang[0] == trans)
                   strong { lang[0] }
                 else
-                  anchor(href='../' + lang[0] + '/' + pages['main']) { lang[0] }
+                  anchor(href='../' + lang[0] + '/' + pages[this_one]) {
+                    lang[0]
+                  }
               }
             }
           }
@@ -79,10 +83,10 @@ routine html_about(
       }
 
       h3(_class='section_red') { t['conference'] }
-      paragraph { t['conference_about_content'] }
+      paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
 
       h3(_class='section_red') { t['organization'] }
-      paragraph { t['organization_about_content'] }
+      paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
 
       div(id='footer') {
         paragraph { t['footer'] }
