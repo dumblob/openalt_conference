@@ -110,7 +110,7 @@ routine html_main(
         }
       }
       div(id='talks') {
-        h3(_class='section') { t['talks'] }
+        h3(_class='section_red') { t['talks'] }
         participants.iterate { [p]
           p.events.iterate { [e]
             #img(_class='talk', src=rel(tk[1]), alt=tk[0])
@@ -123,7 +123,7 @@ routine html_main(
         }
       }
       div(id='workshops') {
-        h3(_class='section') { t['workshops'] }
+        h3(_class='section_red') { t['workshops'] }
         participants.iterate { [p]
           p.events.iterate { [e]
             if (e.kind == $workshop) {

@@ -7,6 +7,10 @@
 # FIXME span input
 # FIXME prednasejici - jmeno + fce
 
+# FIXME width of the description in About
+# FIXME speaker's font-weight!
+# FIXME the span between text and speaker
+
 # conflicting html tag name with namespace name
 load os.fs
 load 'config.dao' import configuration
@@ -196,15 +200,15 @@ body {
   padding: 1em 0 2em 0;
 }
 
-.section {
-  font-size: 3em;
+.section, .section_red {
+  font-size: 35pt;
   font-weight: lighter;
   text-transform: uppercase;
-  padding: 0.5em 0 0 0;
+  padding: 35pt 0 15pt 0;
   margin: 0;
 }
 
-#workshops .section, #talks .section {
+.section_red {
   color: @[] + schedule_bg + @[];
 }
 

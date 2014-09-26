@@ -78,10 +78,10 @@ routine html_about(
         }
       }
 
-      h3(_class='section') { t['conference'] }
+      h3(_class='section_red') { t['conference'] }
       paragraph { t['conference_about_content'] }
 
-      h3(_class='section') { t['organization'] }
+      h3(_class='section_red') { t['organization'] }
       paragraph { t['organization_about_content'] }
 
       div(id='footer') {
