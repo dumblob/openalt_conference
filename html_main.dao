@@ -42,45 +42,45 @@ routine html_main(
     }
     body {
       div(id='top_stripe') {
-        div(id='top_stripe_sub00') {
-          div(id='top_stripe_nav') {
-            anchor(href='#')                                 { t['home'] }
-            anchor(href=rel(dst + '/' + pages['about'    ])) { t['about'] }
-            anchor(href=rel(dst + '/' + pages['thanks'   ])) { t['thanks'] }
-            anchor(href=rel(dst + '/' + pages['gallery'  ])) { t['gallery'] }
-            anchor(href=rel(dst + '/' + pages['downloads'])) { t['downloads'] }
-            anchor(href=rel(dst + '/' + pages['contact'  ])) { t['contact'] }
+        div(_class='segment') {
+          anchor(_class='page_link',
+                  href='#')                                 { t['home'] }
+          anchor(_class='page_link',
+                  href=rel(dst + '/' + pages['about'    ])) { t['about'] }
+          anchor(_class='page_link',
+                  href=rel(dst + '/' + pages['thanks'   ])) { t['thanks'] }
+          anchor(_class='page_link',
+                  href=rel(dst + '/' + pages['gallery'  ])) { t['gallery'] }
+          anchor(_class='page_link',
+                  href=rel(dst + '/' + pages['downloads'])) { t['downloads'] }
+          anchor(_class='page_link',
+                  href=rel(dst + '/' + pages['contact'  ])) { t['contact'] }
+        }
+        div(_class='segment') {
+          anchor(_class='ext_link', href=rel(cu.rss)) {
+            img(src=rel(ci.rss), alt=t['rss'])
           }
-          div(id='top_stripe_right_part') {
-            div(id='top_stripe_links') {
-              anchor(href=rel(cu.rss)) {
-                img(_class='TopStripeLinks', src=rel(ci.rss),
-                    alt=t['rss'])
+          anchor(_class='ext_link', href=rel(cu.twitter)) {
+            img(src=rel(ci.twitter), alt=t['twitter'])
+          }
+          anchor(_class='ext_link', href=rel(cu.fb)) {
+            img(src=rel(ci.fb), alt=t['fb'])
+          }
+        }
+        div(_class='segment') {
+          i = 0
+          for (invar lang in translations) {
+            if (i)
+              text(' / ')
+            else
+              i += 1
+            if (lang[0] == trans)
+              strong(_class='lang_link') { lang[0] }
+            else
+              anchor(_class='lang_link',
+                      href='../' + lang[0] + '/' + pages[this_one]) {
+                lang[0]
               }
-              anchor(href=rel(cu.twitter)) {
-                img(_class='TopStripeLinks', src=rel(ci.twitter),
-                    alt=t['twitter'])
-              }
-              anchor(href=rel(cu.fb)) {
-                img(_class='TopStripeLinks', src=rel(ci.fb),
-                    alt=t['fb'])
-              }
-            }
-            div(id='top_stripe_lang') {
-              i = 0
-              for (invar lang in translations) {
-                if (i)
-                  text(' / ')
-                else
-                  i += 1
-                if (lang[0] == trans)
-                  strong { lang[0] }
-                else
-                  anchor(href='../' + lang[0] + '/' + pages[this_one]) {
-                    lang[0]
-                  }
-              }
-            }
           }
         }
       }

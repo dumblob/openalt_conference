@@ -8,6 +8,7 @@
 # FIXME prednasejici - jmeno + fce
 
 # FIXME the span between text and speaker
+# FIXME center speakers and allow only 3 per line
 
 # conflicting html tag name with namespace name
 load os.fs
@@ -39,14 +40,15 @@ routine gen_pages(invar trans: string) {
           return html_about(dst + '/' + p[1], trans, dst, pages) !!
       }
     }
-    # FIXME fix the infinite loop!
-    if (fut != none) defer { fut.value(); io.writeln(p[0]) }
+    # FIXME still infinite loop?
+    if (fut != none) defer { fut.value(); io.writeln(p[1]) }
   }
 }
 
 # USAGE: generate.dao [<translation>]...
 #   if no translations given, generate all
-routine main(invar ...: string as args) {
+#routine main(invar ...: string as args) {
+routine main(invar ... as args) {
   # FIXME bug?
   #defer (any) { return 0 }
 
@@ -67,7 +69,6 @@ routine main(invar ...: string as args) {
 
   invar stripe_hover = '#BF1F2E'
   invar schedule_bg = '#C22E38'
-  # FIXME @media only screen and (max-width: 640px) {...}
   css.write(
 @[]html {
   background-color: white;
@@ -81,58 +82,75 @@ body {
   min-height: 100%;
 }
 #top_stripe {
-    background-color: black;
-    height: 2.35em;
+  /*min-height: 37pt;
+  height: 37pt;*/
+  padding: 0;
+  margin: 0;
+}
+#top_stripe,
+#top_stripe * {
+  background-color: black;
+  color: white;
+}
+.segment {
+  display: inline-block;
+  /*background-color: blue;*/
+  height: 100%;
+  padding-top: 0;
+  margin-top: 0;
+  /*min-height: inherit;*/
+  /*padding-top: auto;
+  padding-bottom: auto;*/
+}
+@media (min-width: 390pt) {
+  .segment:nth-of-type(1) {
+    width: 390pt;
+  }
+}
+.segment:nth-of-type(1) * {
+  /* FIXME the narrow space between page links */
+  /*background-color: #00ff00;
+  /*padding-left: auto;
+  padding-right: auto;*/
+}
+.segment:nth-last-of-type(-n+2) {
+  margin-left: 20pt;
+}
+#top_stripe .segment * {
+  vertical-align: middle;  /* for img */
+  line-height: 37pt;  /* for the rest */
+}
+#top_stripe .segment > * {
+  display: inline-block;
+  margin: 0;
+  /*
+  padding-top: auto;
+  padding-bottom: auto;
+  padding-left: auto;
+  padding-right: auto;
+  */
 }
 #top_stripe a:link,
 #top_stripe a:visited,
 #top_stripe a:hover,
 #top_stripe a:active {
-  background-color: black;
-  color: white;
   text-decoration: none;
-  /*margin: 0 auto 0 auto;*/
-  /*width: 700pt;*/
+  font-weight: 300;
+}
+#top_stripe .page_link {
+  text-transform: uppercase;
+}
+#top_stripe .page_link:hover {
+  background-color: @[] + stripe_hover + @[];
+}
+#top_stripe .ext_link:hover {
+  background-color: #3572c2;
 }
 
-#top_stripe_nav a:hover {
-    background-color: @[] + stripe_hover + @[];
-}
-#top_stripe_sub00 {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  vertical-align: bottom;
-}
-#top_stripe_nav,
-#top_stripe_right_part {
-  display: inline-block;
-  height: 100%;
-}
-#top_stripe_links,
-#top_stripe_lang {
-  display: inline;
-  height: 100%;
-  color: white;
-}
-#top_stripe_nav {
-  width: 75%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
-#top_stripe_nav a {
-  text-transform: uppercase;
-  font-size: 1em;
-  font-weight: lighter;
-  padding: 1em 0.5em 1em 0.5em;
-  line-height: normal;
-}
-#top_stripe_right_part {
-  display: inline;
-  width: 25%;
-}
+
+
+
+
 
 #header {
   margin: 0;
@@ -179,9 +197,9 @@ body {
 #main_buttons a:active {
   color: white;
   display: inline-block;
-  font-weight: bolder;
+  font-weight: 600;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 17pt;
   text-transform: uppercase;
   padding-top: 15pt;
   padding-bottom: 15pt;
@@ -271,8 +289,8 @@ body {
   margin-right: auto;
   width: 84%;
 }
-img {
-    vertical-align: middle;
+#schedule img {
+  vertical-align: middle;
 }
 #schedule table td img:nth-child(n) {
     /*margin-right: 0.5em;*/
@@ -312,6 +330,7 @@ img {
   width: 100%;
   padding: 0;
   margin: 0;
+  vertical-align: middle;
 }
 #footer * {
   margin: auto 0 0 0;
