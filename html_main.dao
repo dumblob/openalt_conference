@@ -1,5 +1,11 @@
+#FIXME partners - block
 #FIXME add stripes over participants' photos
+#FIXME add year under the the header under the black stripe
+#      probably before the stripe and then through CSS away from there
+#FIXME remove unnecessary ids and classes
+#FIXME rewrite the table generation in schedule using paragraphs in cells
 
+# conflicting html tag name with namespace name
 load web.html import html
 load time as my_time
 load 'config.dao' import configuration
@@ -89,26 +95,30 @@ routine html_main(
         paragraph(_class='narrow_paragraph') { t['motivation'] }
         paragraph(id='time_range') {
           strong {
-            # FIXME make it LOCALE-aware and then translation tr-aware
-            conf.time_from.format('%-d.') + '-' +
-            conf.time_to.format('%-d. %B %Y')
+            localized_time_format(
+              t['_locale'], conf.time_from, '%-d.') + '-' +
+            localized_time_format(
+              t['_locale'], conf.time_to, '%-d. %B %Y')
           }
         }
       }
       div(id='main_buttons') {
-        anchor(id='main_button0', href='#talks')     { t['talks'] }
-        anchor(id='main_button1', href='#workshops') { t['workshops'] }
-        anchor(id='main_button2', href='#schedule')  { t['schedule'] }
+        anchor(href='#talks')     { t['talks'] }
+        anchor(href='#workshops') { t['workshops'] }
+        anchor(href='#schedule')  { t['schedule'] }
       }
       div(id='speakers') {
         h3(_class='section') { t['speakers'] }
-        paragraph {
-          for (pa in participants) {
-            if (pa.events.find { X.kind == $internal } == none) {
-              img(_class='speaker', src=rel(pa.photo), alt=pa.name)
+        div {
+          paragraph {
+            for (pa in participants) {
+              if (pa.events.find { X.kind == $internal } == none) {
+                img(_class='speaker', src=rel(pa.photo), alt=pa.name)
+              }
             }
           }
         }
+        div(_class='clear_float') {}
       }
       div(id='talks') {
         h3(_class='section_red') { t['talks'] }
@@ -158,11 +168,7 @@ routine html_main(
           last_from = events[i][0].from
 
           paragraph {
-            # FIXME make it thread-safe!
-            #old = sys.setlocale()
-            #defer { sys.setlocale($all, old) }
-            #sys.setlocale($time, t['_locale'])
-            last_from.format('%A %-d. %-m. %Y')
+            localized_time_format(t['_locale'], last_from, '%A %-d. %-m. %Y')
           }
 
           table {
@@ -217,6 +223,7 @@ routine html_main(
       }
       div(id='location') {
         h3(_class='section') { t['location'] }
+        paragraph { t['address'] }
         img(src=rel(ci.location), alt=t['location'] + ': ' + conf.coord_gps)
       }
       div(id='partners') {

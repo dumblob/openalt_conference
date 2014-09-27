@@ -4,13 +4,11 @@
 # FIXME add links/names to proper parts (workshops...)
 # FIXME obrazky partneru ze stareho openalt.cz v co nejvyssim rozliseni
 # FIXME vypisy WARN
-# FIXME span input
 # FIXME prednasejici - jmeno + fce
 
-# FIXME the span between text and speaker
-# FIXME center speakers and allow only 3 per line
+# FIXME remove the span between page links in the stripe
+# FIXME rss, twitter, facebook links?
 
-# conflicting html tag name with namespace name
 load os.fs
 load 'config.dao' import configuration
 load 'translations.dao' import translation
@@ -69,6 +67,8 @@ routine main(invar ... as args) {
 
   invar stripe_hover = '#BF1F2E'
   invar schedule_bg = '#C22E38'
+  invar dark_grey = '#28292a'
+
   css.write(
 @[]html {
   background-color: white;
@@ -89,7 +89,7 @@ body {
 }
 #top_stripe,
 #top_stripe * {
-  background-color: black;
+  background-color: @[] + dark_grey + @[];
   color: white;
 }
 .segment {
@@ -102,9 +102,9 @@ body {
   /*padding-top: auto;
   padding-bottom: auto;*/
 }
-@media (min-width: 390pt) {
+@media (min-width: 410pt) {
   .segment:nth-of-type(1) {
-    width: 390pt;
+    width: 420pt;
   }
 }
 .segment:nth-of-type(1) * {
@@ -114,7 +114,7 @@ body {
   padding-right: auto;*/
 }
 .segment:nth-last-of-type(-n+2) {
-  margin-left: 20pt;
+  margin-left: 12pt;
 }
 #top_stripe .segment * {
   vertical-align: middle;  /* for img */
@@ -135,32 +135,35 @@ body {
 #top_stripe a:hover,
 #top_stripe a:active {
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 400;
 }
 #top_stripe .page_link {
   text-transform: uppercase;
+  font-size: 12pt;
 }
 #top_stripe .page_link:hover {
   background-color: @[] + stripe_hover + @[];
+}
+#top_stripe .ext_link {
+  width: 18pt;
 }
 #top_stripe .ext_link:hover {
   background-color: #3572c2;
 }
 
 
-
-
-
-
 #header {
-  margin: 0;
+  margin: 27pt 0 0 0;
   width: 100%;
+}
+#header img {
+  width: 180pt;
 }
 #header > * {
   margin-left: auto;
   margin-right: auto;
 }
-#header p:nth-child(2n) {
+#header > p:nth-child(2) {
   font-size: 16pt;
   font-weight: lighter;
   margin-bottom: 0;
@@ -172,9 +175,10 @@ body {
 }
 #time_range {
   font-size: 20pt;
-  margin-top: 10pt;
-  margin-bottom: 10pt;
+  margin-top: 6pt;
+  margin-bottom: 13pt;
 }
+
 
 #main_buttons {
   display: block;
@@ -207,6 +211,7 @@ body {
   margin: 0 11pt 20pt 0;
 }
 
+
 #speakers,
 #talks,
 #workshops,
@@ -214,7 +219,8 @@ body {
 #location,
 #partners {
   display: block;
-  padding: 1em 0 2em 0;
+  padding-top: 10pt;
+  padding-bottom: 42pt;
 }
 .section, .section_red {
   font-size: 35pt;
@@ -239,17 +245,17 @@ body {
 }
 .participant_name {
   color: @[] + schedule_bg + @[];
-  font-size: 1.125em;
+  font-size: 15pt;
   font-weight: 500;
-  margin: auto 0;
-
+  margin: 1pt 0 0 0;
 }
 .event_desc {
-  font-size: 0.85em;
+  font-size: 11pt;
   text-align: center;
-  width: 60%;
-  margin: 0 auto;
+  max-width: 460pt;
+  margin: 7pt auto 0 auto;
   padding: 0;
+  line-height: 17pt;
 }
 .participation_reqs {
   font-weight: bold;
@@ -262,14 +268,25 @@ body {
   margin: 2pt auto 0 auto;
 }
 #speakers, #location {
-  background-color: #404040;
+  background-color: @[] + dark_grey + @[];
   color: white;
 }
+#speakers > div {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 42pt;
+  margin-bottom: 120pt;
+  max-width: 900px;
+  background-color: yellow;
+}
 .speaker {
-  height: 150px;
-  width: 150px;
-  margin: 30px;
-  padding: 0;
+  display: block;
+  float: left;
+  height: 300px;
+  width: 300px;
+}
+.clear_float {
+  clear: left;
 }
 #workshops {
   background-color: #D0D1D1;
@@ -287,24 +304,22 @@ body {
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
-  width: 84%;
+  width: 75%;
 }
 #schedule img {
   vertical-align: middle;
 }
 #schedule table td img:nth-child(n) {
-    /*margin-right: 0.5em;*/
-    margin-right: 10pt;
+  margin-right: 10pt;
 }
 #schedule table td img:nth-child(2n) {
-    /*margin-left: 2em;*/
-    margin-left: 10pt;
+  margin-left: 10pt;
 }
 #schedule > table tr:last-child > td {
   border-bottom: 2px solid white;
 }
 #schedule > table tr > td:first-child {
-  width: 27%;
+  width: 30%;
 }
 .with_border_top {
   border-top: 2px solid white;
@@ -325,16 +340,22 @@ body {
   padding: 0;
   margin: 0;
 }
+#location > p {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 12.4pt;
+  line-height: 20pt;
+}
 #location > img {
-  height: 300px;
+  height: 420px;
   width: 100%;
   padding: 0;
-  margin: 0;
+  margin: 20pt 0 0 0;
   vertical-align: middle;
 }
 #footer * {
   margin: auto 0 0 0;
-  background-color: black;
+  background-color: @[] + dark_grey + @[];
   color: white;
   text-transform: uppercase;
 }@[]

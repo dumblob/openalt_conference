@@ -1,5 +1,21 @@
-namespace lib { mkrel }
+load sync
+load time import time
+load os
+
+namespace lib { mkrel, localized_time_format }
 namespace html_page {}
+
+var mutex_locale = sync.Mutex()
+
+routine localized_time_format(invar locale: string,
+    invar t: time.DateTime, invar pattern: string) => string {
+  mutex_locale.lock()
+  defer { mutex_locale.unlock() }
+  old = os.setlocale($time)
+  defer { os.setlocale($time, old) }
+  os.setlocale($time, locale)
+  return t.format(pattern)
+}
 
 routine mkrel(from: string, invar target: string) => string {
   # FIXME assert that paths are normalized (can't use fs.realpath(), because

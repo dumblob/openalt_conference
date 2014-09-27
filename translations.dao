@@ -29,7 +29,7 @@ type Participant = tuple<
 #   http://docs.transifex.com/developer/formats/
 var translations = {
   'en' -> {
-    '_locale' -> 'en_US',
+    '_locale' -> 'en_US.UTF-8',  # locale -a
     'title' -> 'OpenAlt conference ' + (string)conf.time_from.year,
     'logo_big' -> 'a big logo of the OpenAlt conference',
     'rss' -> 'RSS channel for conference news and changes on this web',
@@ -56,16 +56,17 @@ var translations = {
     'conference_about_content' -> 'The best conference ever about open*',
     'organization' -> 'Organization',
     'organization_about_content' -> 'The most impressive and progressive organization dealing with open* stuff.',
+    'address' -> 'Brno University of Technology<br>Faculty of Information Technology<br>Božetěchova 1/2<br>61266 Brno',
   },
   'sk' -> {
-    '_locale' -> 'sk_SK',
+    '_locale' -> 'sk_SK.UTF-8',
     'motivation' -> 'Staňte sa aj Vy súčasťou už deviateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie!',
   },
   'de' -> {
-    '_locale' -> 'de_DE',
+    '_locale' -> 'de_DE.UTF-8',
   },
   'cs' -> {
-    '_locale' -> 'cs_CZ',
+    '_locale' -> 'cs_CZ.UTF-8',
     'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
     'logo_big' -> 'velké logo konference OpenAlt',
     'rss' -> 'kanál RSS s konferenčními aktualitami a změnami na tomto webu',
@@ -92,6 +93,7 @@ var translations = {
     'conference_about_content' -> 'Úplně nejlepší konference ze všech o čemkoliv otevřeném (sháníme přednášející o dveřích dokořán...).',
     'organization' -> 'Spolek',
     'organization_about_content' -> 'Nejpokrokovější a nejpůsobivější spolek zabývající se otevřenými záležitostmi.',
+    'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno',
   },
 }
 

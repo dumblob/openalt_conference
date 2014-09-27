@@ -15,7 +15,6 @@ invar conf = (
   time_from = time.make(2014, 11, 1),
   time_to   = time.make(2014, 11, 2),
   coord_gps = '49.2263872°N, 16.5963531°E',
-  # FIXME how about detection of user's preference in browser (without JS)?
   # default language
   lang      = 'cs',
   # FIXME
@@ -27,6 +26,7 @@ invar conf = (
   uri       = (
     # shared between all pages (no exceptions)
     css       = curdir + '/style.css',
+    # FIXME proper links!
     rss       = 'https://rss',
     twitter   = 'https://twitter',
     fb        = 'https://facebook',
@@ -36,19 +36,19 @@ invar conf = (
                sizes='any'),
   img       = (
     # FIXME request from Michaela
-    rss          = curdir + '/img/icon-clock.png',
-    twitter      = curdir + '/img/icon-clock.png',
-    fb           = curdir + '/img/icon-clock.png',
-    location     = curdir + '/img/map_fit_vutbr.jpg',
+    rss          = curdir + '/img/icon-rss.svg',
+    twitter      = curdir + '/img/icon-twitter.svg',
+    fb           = curdir + '/img/icon-facebook.svg',
+    location     = curdir + '/img/map_microsoft.png',
 
     # FIXME use SVG everywhere!
-    audio        = curdir + '/img/icon-audio.png',
-    clock        = curdir + '/img/icon-clock.png',
-    door         = curdir + '/img/icon-door.png',
-    on_in_circle = curdir + '/img/icon-on_in_circle.png',
-    pdf          = curdir + '/img/icon-pdf.png',
-    video        = curdir + '/img/icon-video.png',
-    logo_big     = curdir + '/img/logo-openalt-conference-far-305px.png',
+    audio        = curdir + '/img/icon-audio.svg',
+    clock        = curdir + '/img/icon-clock.svg',
+    door         = curdir + '/img/icon-door.svg',
+    on_in_circle = curdir + '/img/icon-stream.svg',
+    pdf          = curdir + '/img/icon-pdf.svg',
+    video        = curdir + '/img/icon-video.svg',
+    logo_big     = curdir + '/img/logo-openalt-conference.svg',
   ),
 )
 
