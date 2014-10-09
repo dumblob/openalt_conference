@@ -10,10 +10,11 @@
 # FIXME rss, twitter, facebook links?
 
 load os.fs
-load 'config.dao' import configuration
-load 'translations.dao' import translation
-load 'html_main.dao' import html_page
-load 'html_about.dao' import html_page
+load config import configuration
+load translations import translation
+
+load page_home import html_content
+load page_about import html_content
 
 routine gen_pages(invar trans: string) {
   d = fs.dir(conf.rootdir)
@@ -21,9 +22,9 @@ routine gen_pages(invar trans: string) {
   invar dst = conf.rootdir + '/' + trans
 
   invar pages = {
-    'main'      -> 'main.html',
+    'home'      -> 'home.html',
     'about'     -> 'about.html',
-    'thanks'    -> 'thanks.html',
+    'schedule'  -> 'schedule.html',
     'gallery'   -> 'gallery.html',
     'downloads' -> 'downloads.html',
     'contact'   -> 'contact.html',
@@ -32,14 +33,13 @@ routine gen_pages(invar trans: string) {
   for (p in pages) {
     fut = std.exec {
       switch (p[0]) {
-        case 'main':
-          return (none|@T)html_main(dst + '/' + p[1], trans, dst, pages) !!
+        case 'home':
+          return (none|@T)page_home(dst + '/' + p[1], trans, dst, pages) !!
         case 'about':
-          return html_about(dst + '/' + p[1], trans, dst, pages) !!
+          return page_about(dst + '/' + p[1], trans, dst, pages) !!
       }
     }
-    # FIXME still infinite loop?
-    if (fut != none) defer { fut.value(); io.writeln(p[1]) }
+    if (fut != none) defer { fut.value() }
   }
 }
 
@@ -89,12 +89,12 @@ body {
 }
 #top_stripe,
 #top_stripe * {
-  background-color: @[] + dark_grey + @[];
+  /*background-color: @[] + dark_grey + @[];*/
   color: white;
 }
 .segment {
   display: inline-block;
-  /*background-color: blue;*/
+  background-color: blue;
   height: 100%;
   padding-top: 0;
   margin-top: 0;
@@ -103,7 +103,8 @@ body {
   padding-bottom: auto;*/
 }
 @media (min-width: 410pt) {
-  .segment:nth-of-type(1) {
+  /*.segment:nth-of-type(1) {*/
+  nav {
     width: 420pt;
   }
 }
@@ -224,7 +225,7 @@ body {
 }
 .section, .section_red {
   font-size: 35pt;
-  font-weight: lighter;
+  font-weight: normal;
   text-transform: uppercase;
   padding: 35pt 0 15pt 0;
   margin: 0;

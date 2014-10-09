@@ -5,19 +5,18 @@
 #FIXME remove unnecessary ids and classes
 #FIXME rewrite the table generation in schedule using paragraphs in cells
 
-# conflicting html tag name with namespace name
 load web.html import html
+# conflicting html tag name with namespace name
 load time as my_time
-load 'config.dao' import configuration
-load 'translations.dao' import translation
-load 'lib.dao' import lib
+load config import configuration
+load translations import translation
+load lib import lib
+load html_common import html_content
 
-namespace html_page { html_main }
+namespace html_content { page_home }
 
-invar this_one = 'main'
-
-routine html_main(
-    path: string,
+routine page_home(
+    invar path: string,
     invar trans: string,
     invar dst: string,
     invar pages: map<string, string>) => none {
@@ -31,65 +30,14 @@ routine html_main(
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
+  _html_head = html_head(trans, dst)
+  # FIXME it should be somehow allowed
+  _top_stripe = top_stripe('home', trans, dst, pages)
+
   html5.write(document {
-    head {
-      title { t['title'] }
-      # convenient for relative URLs (see http://www.ietf.org/rfc/rfc1808.txt)
-      base(href=conf.base_uri)
-      # FIXME why charset must be separately from http_eqiv?
-      meta(charset='utf-8')
-      meta(http_equiv=$content_type, content='text/html')
-      meta(name='viewport', content='width=device-width')
-      meta(name='Keywords', content='k1,k2,k3')
-      meta(name='Description', content=conf.meta_description)
-      link(rel=$icon, _type=conf.favicon.mime, href=rel(conf.favicon.path),
-           sizes=conf.favicon.sizes)
-      link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
-    }
+    text(_html_head)
     body {
-      div(id='top_stripe') {
-        div(_class='segment') {
-          anchor(_class='page_link',
-                  href='#')                                 { t['home'] }
-          anchor(_class='page_link',
-                  href=rel(dst + '/' + pages['about'    ])) { t['about'] }
-          anchor(_class='page_link',
-                  href=rel(dst + '/' + pages['thanks'   ])) { t['thanks'] }
-          anchor(_class='page_link',
-                  href=rel(dst + '/' + pages['gallery'  ])) { t['gallery'] }
-          anchor(_class='page_link',
-                  href=rel(dst + '/' + pages['downloads'])) { t['downloads'] }
-          anchor(_class='page_link',
-                  href=rel(dst + '/' + pages['contact'  ])) { t['contact'] }
-        }
-        div(_class='segment') {
-          anchor(_class='ext_link', href=rel(cu.rss)) {
-            img(src=rel(ci.rss), alt=t['rss'])
-          }
-          anchor(_class='ext_link', href=rel(cu.twitter)) {
-            img(src=rel(ci.twitter), alt=t['twitter'])
-          }
-          anchor(_class='ext_link', href=rel(cu.fb)) {
-            img(src=rel(ci.fb), alt=t['fb'])
-          }
-        }
-        div(_class='segment') {
-          i = 0
-          for (invar lang in translations) {
-            if (i)
-              text(' / ')
-            else
-              i += 1
-            if (lang[0] == trans)
-              strong(_class='lang_link') { lang[0] }
-            else
-              anchor(_class='lang_link',
-                      href='../' + lang[0] + '/' + pages[this_one]) {
-                lang[0]
-              }
-          }
-        }
-      }
+      text(_top_stripe)
       div(id='header') {
         img(id='logo_big', src=rel(ci.logo_big), alt=t['logo_big'])
         paragraph(_class='narrow_paragraph') { t['motivation'] }
@@ -126,9 +74,11 @@ routine html_main(
           p.events.iterate { [e]
             #img(_class='talk', src=rel(tk[1]), alt=tk[0])
             if (e.kind == $talk) {
-              paragraph(_class='event_title') { e.trans[trans].name }
-              paragraph(_class='participant_name') { p.name }
-              paragraph(_class='event_desc') { e.trans[trans].description }
+              div(_class='talks') {
+                paragraph(_class='event_title') { e.trans[trans].name }
+                paragraph(_class='participant_name') { p.name }
+                paragraph(_class='event_desc') { e.trans[trans].description }
+              }
             }
           }
         }
@@ -138,11 +88,13 @@ routine html_main(
         participants.iterate { [p]
           p.events.iterate { [e]
             if (e.kind == $workshop) {
-              paragraph(_class='event_title') { e.trans[trans].name }
-              paragraph(_class='participant_name') { p.name }
-              paragraph(_class='event_desc') { e.trans[trans].description }
-              paragraph(_class='participation_reqs') { t['participation_reqs'] }
-              paragraph(_class='event_reqs') { e.trans[trans].requirements }
+              div(_class='workshop') {
+                paragraph(_class='event_title') { e.trans[trans].name }
+                paragraph(_class='participant_name') { p.name }
+                paragraph(_class='event_desc') { e.trans[trans].description }
+                paragraph(_class='participation_reqs') { t['participation_reqs'] }
+                paragraph(_class='event_reqs') { e.trans[trans].requirements }
+              }
             }
           }
         }

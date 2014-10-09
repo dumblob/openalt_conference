@@ -1,0 +1,100 @@
+load lib import lib
+load web.html import html
+load config import configuration
+load translations import translation
+
+namespace html_content { html_head, top_stripe }
+
+routine html_head( invar trans: string, invar dst: string) => string {
+  # just convenient shortcuts
+  invar cu = conf.uri
+  invar t = translations[trans]
+
+  rel = routine(invar target: string) { return mkrel(dst, target) }
+
+  return fragment {
+    head {
+      title { t['title'] }
+      # convenient for relative URLs (see http://www.ietf.org/rfc/rfc1808.txt)
+      base(href=conf.base_uri)
+      # FIXME why charset must be separately from http_eqiv?
+      meta(charset='utf-8')
+      meta(http_equiv=$content_type, content='text/html')
+      meta(name='viewport', content='width=device-width')
+      meta(name='Keywords', content='k1,k2,k3')
+      meta(name='Description', content=conf.meta_description)
+      link(rel=$icon, _type=conf.favicon.mime, href=rel(conf.favicon.path),
+           sizes=conf.favicon.sizes)
+      link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
+    }
+  }
+}
+
+routine top_stripe(
+    invar page_name: string,
+    invar trans: string,
+    invar dst: string,
+    invar pages: map<string, string>) => string {
+  # just convenient shortcuts
+  invar cu = conf.uri
+  invar ci = conf.img
+  invar t = translations[trans]
+
+  rel = routine(invar target: string) { return mkrel(dst, target) }
+
+  return fragment {
+    div(id='top_stripe') {
+      nav(_class='segment') {
+        # subset of pages linked directly from the top stripe
+        for (pg in {
+          'home', 'about', 'schedule', 'gallery', 'downloads', 'contact'
+        }) {
+          anchor(_class='page_link', href=
+            (pg == page_name) ? '#' : rel(dst + '/' + pages[pg])
+          ) { t[pg] }
+        }
+
+#        anchor(_class='page_link',
+#                href='#')                                 { t['home'] }
+#        anchor(_class='page_link',
+#                href=rel(dst + '/' + pages['schedule' ])) { t['schedule'] }
+#        anchor(_class='page_link',
+#                href=rel(dst + '/' + pages['thanks'   ])) { t['thanks'] }
+#        anchor(_class='page_link',
+#                href=rel(dst + '/' + pages['gallery'  ])) { t['gallery'] }
+#        anchor(_class='page_link',
+#                href=rel(dst + '/' + pages['downloads'])) { t['downloads'] }
+#        anchor(_class='page_link',
+#                href=rel(dst + '/' + pages['contact'  ])) { t['contact'] }
+#        }
+      }
+      div(_class='segment') {
+        anchor(_class='ext_link', href=rel(cu.rss)) {
+          img(src=rel(ci.rss), alt=t['rss'])
+        }
+        anchor(_class='ext_link', href=rel(cu.twitter)) {
+          img(src=rel(ci.twitter), alt=t['twitter'])
+        }
+        anchor(_class='ext_link', href=rel(cu.fb)) {
+          img(src=rel(ci.fb), alt=t['fb'])
+        }
+      }
+      div(_class='segment') {
+        i = 0
+        for (invar lang in translations) {
+          if (i)
+            text(' / ')
+          else
+            i += 1
+          if (lang[0] == trans)
+            strong(_class='lang_link') { lang[0] }
+          else
+            anchor(_class='lang_link',
+                    href='../' + lang[0] + '/' + pages[page_name]) {
+              lang[0]
+            }
+        }
+      }
+    }
+  }
+}

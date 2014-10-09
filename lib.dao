@@ -1,12 +1,35 @@
 load sync
 load time import time
 load os
+load string.scanner  # imports str
 
-namespace lib { mkrel, localized_time_format }
 namespace html_page {}
+namespace lib {
+  Event, Participant,
+  mkrel, localized_time_format, parse_csv, gen_participants
+}
+
+# FIXME how to treat talks with 1+ speakers?
+type Event = tuple<
+  kind:enum<talk, workshop, internal>,
+  from:time.DateTime,
+  to:time.DateTime,
+  trans:map<string, tuple<
+    name:string,
+    requirements:string,
+    description:string,
+    place:string,
+  >>
+>
+
+type Participant = tuple<
+  name:string,
+  photo:string,
+  note:string,
+  events:list<Event>
+>
 
 var mutex_locale = sync.Mutex()
-
 routine localized_time_format(invar locale: string,
     invar t: time.DateTime, invar pattern: string) => string {
   mutex_locale.lock()
@@ -39,4 +62,146 @@ routine mkrel(from: string, invar target: string) => string {
       break
   }
   return from[shared:].change('[^/]+', '..') + target[shared:]
+}
+
+# FIXME read HDD blocks and return only CSV lines in it (if the first
+#       CSV line exceeds one block, read following blocks
+#       until we have a whole CSV line or reach some huge memory limit)
+routine parse_csv(invar path: string) => list<list<string>> {
+  f = io.open(path, "r")
+  defer { f.close() }
+
+  s = str.Scanner(f.read())
+  res = (list<list<string>>){{}}
+
+  while (s.rest) {
+    i = 0
+    # FIXME \n \t \' can't be matched without enclosing them into []
+    # FIXME true;
+    for (true; s.scan('[\']'); i += 1) {
+      if (s.scan('[^\']+')) {
+        if (i)
+          res[-1][-1] += '\'' + s.matched()
+        else
+          res[-1].append(s.matched())
+      }
+      s.pos += 1  # the closing '
+    }
+
+    if (i == 0) {
+      if (s.scan('[^\t\n]+')) {
+        res[-1].append(s.matched())
+        i = 1
+      }
+    }
+
+    if (s.scan('[\t]')) {
+      if (i == 0) res[-1].append('')
+    }
+    else if (s.scan('[\n]')) {
+      res.append({})
+    }
+    else {
+      io.stderr.writeln('ERR Invalid CSV at `' + s.peek(30) + '\'')
+    }
+  }
+
+  # emptly line before EOF is a useless empty list
+  if (! %res[-1]) res.pop()
+
+  return res
+}
+
+# FIXME add obed, vecere, atd.
+routine gen_participants(invar csv: list<list<string>>) => string {
+  res = 'load config import configuration . { conf, curdir }
+load lib import lib
+load time import time
+namespace participants_ns { participants }
+
+_participants: list<Participant> = {
+'
+  # FIXME invar csv; csv[1:].iterate... yield a problem
+  #csv.iterate {
+  for (invar _line in csv[1:]) {
+    # escape everything for sure
+    line = _line.collect { X.replace("'", "\\'") }
+    #{
+      0  serial number
+      1  name + surname
+      2  accommodation (patek + sobota)
+      3  t-shirt size
+      4  preffered day of the talk/workshop
+      5  name + surname of personal supporters for the session
+      6  accommodation
+      7  t-shirt size
+      8  type (přednáška|workshop) <unknown>
+      9  talk/workshop title
+      10 abstract
+      11 length of the talk/workshop
+      12 name ???
+      13 file size
+      14 requirements for attendance
+      15 note
+      16 accepted for voting (usually contains X)
+    #}
+    if (line[1].convert($lower).match('test') != none)
+      io.stderr.writeln('WARN omitting `' + line[1] + "'")
+    else
+      res +=
+"  # personal supporters for the session: " + line[5].replace('\n', '\n#') + "
+  ('" + line[1].trim() + "',
+  curdir + '/img/participants/" + line[1].trim().convert($lower).change('%s+', '_') + ".png',
+  'PERSON/GROUP DESCRIPTION IS MISSING',
+  events = {
+   # " + line[15].replace('\n', '\n#') + "
+   # column12: " + line[12].replace('\n', '\n#') + "
+   (" + ( (line[8].trim().match('^workshop$') != none) ? "$workshop" :
+    (line[8].trim().match('^přednáška$') != none) ? "$talk" :
+    "$unknown" ) + ",
+    # " + line[11].replace('\n', '\n#') + "
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day" +
+      ((line[4].trim().match('^sobota$') != none) ? ' -1' : '') + ", 8, 00),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day" +
+      ((line[4].trim().match('^sobota$') != none) ? ' -1' : '') + ", 8, 45),
+    trans = {
+      'cs' -> ('" + line[9] + "',
+               '" + line[14] + "',
+               '" + line[10] + "',
+               'UNKNOWN_PLACE',),
+      'en' -> ('" + line[9] + "',
+               '" + line[14] + "',
+               '" + line[10] + "',
+               'UNKNOWN_PLACE',),
+      'sk' -> ('" + line[9] + "',
+               '" + line[14] + "',
+               '" + line[10] + "',
+               'UNKNOWN_PLACE',),
+      'de' -> ('" + line[9] + "',
+               '" + line[14] + "',
+               '" + line[10] + "',
+               'UNKNOWN_PLACE',),
+    }
+   )
+  }),
+"
+  }
+
+  return res + '}
+
+var participants: list<Participant> = {}
+
+# remove duplicates
+for (_p in _participants) {
+  # FIXME (_, p) = ...
+  p = participants.find { X.name == _p.name }
+  if (p == none)
+    participants.append(_p)
+  else
+    _p.events.iterate { p.value.events.append(X) }
+}
+
+# FIXME
+#load web.json
+#io.writeln(json.serialize((list<json.Data>)participants))'
 }
