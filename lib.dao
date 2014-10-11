@@ -12,21 +12,26 @@ namespace lib {
 # FIXME how to treat talks with 1+ speakers?
 type Event = tuple<
   kind:enum<talk, workshop, internal>,
+  track:enum<tips, world_around, security, challenges, establishment>,
   from:time.DateTime,
   to:time.DateTime,
   trans:map<string, tuple<
     name:string,
     requirements:string,
+    # if there are more speakers, they should be mentioned in description
     description:string,
     place:string,
   >>
 >
 
 type Participant = tuple<
-  name:string,
+  name:string,  # one and only one person
   photo:string,
-  note:string,
-  events:list<Event>
+  trans:map<string, tuple<
+    role:string,  # primary professional role (designer, analyst, manager, programmer, ...)
+    note:string,
+  >>,
+  events:list<Event>  # events, this person is in charge for
 >
 
 var mutex_locale = sync.Mutex()
@@ -125,7 +130,7 @@ _participants: list<Participant> = {
   #csv.iterate {
   for (invar _line in csv[1:]) {
     # escape everything for sure
-    line = _line.collect { X.replace("'", "\\'") }
+    line = _line.collect { X.replace('\\', '\\\\').replace("'", "\\'") }
     #{
       0  serial number
       1  name + surname

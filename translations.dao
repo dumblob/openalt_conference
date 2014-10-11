@@ -40,13 +40,6 @@ var translations = {
     'organization_about_content' -> 'The most impressive and progressive organization dealing with open* stuff.',
     'address' -> 'Brno University of Technology<br>Faculty of Information Technology<br>Božetěchova 1/2<br>61266 Brno',
   },
-  'sk' -> {
-    '_locale' -> 'sk_SK.UTF-8',
-    'motivation' -> 'Staňte sa aj Vy súčasťou už deviateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie!',
-  },
-  'de' -> {
-    '_locale' -> 'de_DE.UTF-8',
-  },
   'cs' -> {
     '_locale' -> 'cs_CZ.UTF-8',
     'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
@@ -77,6 +70,13 @@ var translations = {
     'organization_about_content' -> 'Nejpokrokovější a nejpůsobivější spolek zabývající se otevřenými záležitostmi.',
     'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno',
   },
+#  'sk' -> {
+#    '_locale' -> 'sk_SK.UTF-8',
+#    'motivation' -> 'Staňte sa aj Vy súčasťou už deviateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie!',
+#  },
+#  'de' -> {
+#    '_locale' -> 'de_DE.UTF-8',
+#  },
 }
 
 # fill empty translations with english terms (if not existing in en,
@@ -96,6 +96,10 @@ translations.iterate { [k, v]
     participants.iterate { [p]
       # blackbox testing
       check_path(p.photo)
+
+      if (k not in p.trans)
+        io.stderr.writeln('WARN missing translation [' + k +
+                          '] for role & note in ' + p.name)
 
       p.events.iterate { [e]
         if (k not in e.trans) {

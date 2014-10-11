@@ -102,6 +102,25 @@ routine page_home(
       div(id='schedule') {
         h3(_class='section') { t['schedule'] }
 
+        table {
+#          tr {
+#            # FIXME all existing rooms lexicographically sorted
+#            for (room in sorted_rooms) {
+#              th { room.name }
+#            }
+#          }
+#
+#          for (et in existing_times) {
+#            for (room in sorted_rooms) {
+#              td {
+#                e = event(et, room)
+#                paragraph { e.name }
+#                paragraph { e.author }
+#              }
+#            }
+#          }
+        }
+#{
         # FIXME reuse the sorted items (use guard?)
         events = {}
         participants.iterate { [p]
@@ -172,6 +191,7 @@ routine page_home(
             }
           }
         }
+#}
       }
       div(id='location') {
         h3(_class='section') { t['location'] }
