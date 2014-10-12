@@ -5,33 +5,40 @@ load string.scanner  # imports str
 
 namespace html_page {}
 namespace lib {
-  Event, Participant,
+  Locale, Event, Participant,
   mkrel, localized_time_format, parse_csv, gen_participants
 }
 
-# FIXME how to treat talks with 1+ speakers?
+type Locale = enum<cs, en, sk, de>
+
 type Event = tuple<
   kind:enum<talk, workshop, internal>,
   track:enum<tips, world_around, security, challenges, establishment>,
+  uri:tuple<
+    materials:string,
+    video_rec:string,
+  >,
   from:time.DateTime,
   to:time.DateTime,
-  trans:map<string, tuple<
+  trans:map<Locale, tuple<
     name:string,
     requirements:string,
+    # FIXME separate additional speakers so that we can put
+    #   e.g. "et al." to the person in charge for this event
     # if there are more speakers, they should be mentioned in description
     description:string,
     place:string,
-  >>
+  >>,
 >
 
 type Participant = tuple<
   name:string,  # one and only one person
   photo:string,
-  trans:map<string, tuple<
+  trans:map<Locale, tuple<
     role:string,  # primary professional role (designer, analyst, manager, programmer, ...)
     note:string,
   >>,
-  events:list<Event>  # events, this person is in charge for
+  events:list<Event>,  # events, this person is in charge for
 >
 
 var mutex_locale = sync.Mutex()
@@ -118,6 +125,7 @@ routine parse_csv(invar path: string) => list<list<string>> {
 }
 
 # FIXME add obed, vecere, atd.
+# FIXME update to the current version of types Event, Participant...
 routine gen_participants(invar csv: list<list<string>>) => string {
   res = 'load config import configuration . { conf, curdir }
 load lib import lib
@@ -126,8 +134,6 @@ namespace participants_ns { participants }
 
 _participants: list<Participant> = {
 '
-  # FIXME invar csv; csv[1:].iterate... yield a problem
-  #csv.iterate {
   for (invar _line in csv[1:]) {
     # escape everything for sure
     line = _line.collect { X.replace('\\', '\\\\').replace("'", "\\'") }
@@ -170,22 +176,22 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day" +
       ((line[4].trim().match('^sobota$') != none) ? ' -1' : '') + ", 8, 45),
     trans = {
-      'cs' -> ('" + line[9] + "',
-               '" + line[14] + "',
-               '" + line[10] + "',
-               'UNKNOWN_PLACE',),
-      'en' -> ('" + line[9] + "',
-               '" + line[14] + "',
-               '" + line[10] + "',
-               'UNKNOWN_PLACE',),
-      'sk' -> ('" + line[9] + "',
-               '" + line[14] + "',
-               '" + line[10] + "',
-               'UNKNOWN_PLACE',),
-      'de' -> ('" + line[9] + "',
-               '" + line[14] + "',
-               '" + line[10] + "',
-               'UNKNOWN_PLACE',),
+      Locale.en -> ('" + line[9] + "',
+              '" + line[14] + "',
+              '" + line[10] + "',
+              'UNKNOWN_PLACE',),
+      Locale.cs -> ('" + line[9] + "',
+              '" + line[14] + "',
+              '" + line[10] + "',
+              'UNKNOWN_PLACE',),
+      Locale.sk -> ('" + line[9] + "',
+              '" + line[14] + "',
+              '" + line[10] + "',
+              'UNKNOWN_PLACE',),
+      Locale.de -> ('" + line[9] + "',
+              '" + line[14] + "',
+              '" + line[10] + "',
+              'UNKNOWN_PLACE',),
     }
    )
   }),

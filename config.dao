@@ -15,10 +15,8 @@ invar conf = (
   time_from = time.make(2014, 11, 1),
   time_to   = time.make(2014, 11, 2),
   coord_gps = '49.2263872°N, 16.5963531°E',
-  # default language
-  lang      = 'cs',
   # FIXME
-  #base_uri  = 'https://www.some.domain.com/with/some/path/',
+  #base_uri  = 'http://www.openalt.cz/',
   base_uri  = '',
   # FIXME
   meta_description = 'some short human readable description in english of the content of the web page',
@@ -26,10 +24,8 @@ invar conf = (
   uri       = (
     # shared between all pages (no exceptions)
     css       = curdir + '/style.css',
-    # FIXME proper links!
-    rss       = 'https://rss',
-    twitter   = 'https://twitter',
-    fb        = 'https://facebook',
+    twitter   = 'https://twitter.com/OpenAlt',
+    fb        = 'https://www.facebook.com/OpenAlt',
   ),
   # mime='image/x-icon'
   favicon   = (mime='image/x-svg', path=curdir + '/img/favicon.svg',
@@ -59,10 +55,18 @@ invar partners: list<Partner> = {
 }
 
 # blackbox testing...
-routine check_path(invar uri: string) {
-  if (uri[0] != '/'[0] && uri.match('^[^:/]+') == none)
-    std.error('"' + uri + '" is not a full path nor non-relative URI')
+# FIXME use for_local_existence in auto-generated content (participants...)
+routine check_path(invar uri: string, for_local_existence = false) {
+  if (for_local_existence) {
+    if (! fs.exists(uri))
+      std.error('"' + uri + '" doesn\'t exist')
+  }
+  else {
+    if (uri[0] != '/'[0] && uri.match('^[^:/]+') == none)
+      std.error('"' + uri + '" is not a full path nor non-relative URI')
+  }
 }
+
 check_path(conf.rootdir)
 for (t in conf.uri) check_path(t[1])
 check_path(conf.favicon.path)

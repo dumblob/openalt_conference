@@ -3,12 +3,23 @@ load web.html import html
 load config import configuration
 load translations import translation
 
-namespace html_content { html_head, top_stripe }
+namespace html_content { html_head, html_top_stripe, html_footer }
 
-routine html_head( invar trans: string, invar dst: string) => string {
+routine html_footer(invar trans: Locale) => string {
+  # just convenient shortcuts
+  invar t = translations[(Locale)trans]
+
+  return fragment {
+    div(id='footer') {
+      paragraph { t['footer'] }
+    }
+  }
+}
+
+routine html_head(invar trans: Locale, invar dst: string) => string {
   # just convenient shortcuts
   invar cu = conf.uri
-  invar t = translations[trans]
+  invar t = translations[(Locale)trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
@@ -30,15 +41,15 @@ routine html_head( invar trans: string, invar dst: string) => string {
   }
 }
 
-routine top_stripe(
+routine html_top_stripe(
     invar page_name: string,
-    invar trans: string,
+    invar trans: Locale,
     invar dst: string,
     invar pages: map<string, string>) => string {
   # just convenient shortcuts
   invar cu = conf.uri
   invar ci = conf.img
-  invar t = translations[trans]
+  invar t = translations[(Locale)trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
@@ -47,29 +58,22 @@ routine top_stripe(
       nav(_class='segment') {
         # subset of pages linked directly from the top stripe
         for (pg in {
-          'home', 'about', 'schedule', 'gallery', 'downloads', 'contact'
+          'home', 'about', 'schedule', 'gallery', 'contact'
         }) {
-          anchor(_class='page_link', href=
-            (pg == page_name) ? '#' : rel(dst + '/' + pages[pg])
-          ) { t[pg] }
+          if (pg in pages) {
+            anchor(_class='page_link', href=
+                   (pg == page_name) ? '#' : rel(dst + '/' + pages[pg])
+                  ) { t[pg] }
+          }
+          else {
+            # FIXME links to certain parts of page
+            #   schedule!
+          }
         }
-
-#        anchor(_class='page_link',
-#                href='#')                                 { t['home'] }
-#        anchor(_class='page_link',
-#                href=rel(dst + '/' + pages['schedule' ])) { t['schedule'] }
-#        anchor(_class='page_link',
-#                href=rel(dst + '/' + pages['thanks'   ])) { t['thanks'] }
-#        anchor(_class='page_link',
-#                href=rel(dst + '/' + pages['gallery'  ])) { t['gallery'] }
-#        anchor(_class='page_link',
-#                href=rel(dst + '/' + pages['downloads'])) { t['downloads'] }
-#        anchor(_class='page_link',
-#                href=rel(dst + '/' + pages['contact'  ])) { t['contact'] }
-#        }
       }
+
       div(_class='segment') {
-        anchor(_class='ext_link', href=rel(cu.rss)) {
+        anchor(_class='ext_link', href=rel(dst + '/' + pages['feed_rss'])) {
           img(src=rel(ci.rss), alt=t['rss'])
         }
         anchor(_class='ext_link', href=rel(cu.twitter)) {
@@ -79,6 +83,7 @@ routine top_stripe(
           img(src=rel(ci.fb), alt=t['fb'])
         }
       }
+
       div(_class='segment') {
         i = 0
         for (invar lang in translations) {
@@ -86,12 +91,14 @@ routine top_stripe(
             text(' / ')
           else
             i += 1
+
+          lang_str = ((string)lang[0])[1:]
           if (lang[0] == trans)
-            strong(_class='lang_link') { lang[0] }
+            strong(_class='lang_link') { lang_str }
           else
             anchor(_class='lang_link',
-                    href='../' + lang[0] + '/' + pages[page_name]) {
-              lang[0]
+                   href='../' + lang_str + '/' + pages[page_name]) {
+              lang_str
             }
         }
       }

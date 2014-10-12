@@ -10,7 +10,7 @@ namespace translation { translations, participants }
 # FIXME use some existing format supporting plurals
 #   http://docs.transifex.com/developer/formats/
 var translations = {
-  'en' -> {
+  Locale.en -> {
     '_locale' -> 'en_US.UTF-8',  # locale -a
     'title' -> 'OpenAlt conference ' + (string)conf.time_from.year,
     'logo_big' -> 'a big logo of the OpenAlt conference',
@@ -21,9 +21,16 @@ var translations = {
     'home' -> 'Home',
     'about' -> 'About',
     'thanks' -> 'Thanks',
+    'thank_you' -> 'Děkujeme všem partnerům – bez jejich podpory by se akce nemohla uskutečnit.
+Lektorům patří náš dík za ochotu předstoupit před posluchače a také za to, jak atraktivní
+témata si připravili. Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat,
+a na něž z kapacitních důvodů nedošlo. Návštěvníkům pak děkujeme za účast a vytvořili
+výbornou atmosféru, která vydržela po dva dny a dvě noci. Bez nich by konference pocho-
+pitelně postrádala smysl.',
     'gallery' -> 'Gallery',
     'downloads' -> 'Downloads',
     'contact' -> 'Contact',
+    'contact_openalt_content' -> 'FIXME Praha, Brno...',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
     'footer' -> 'last updated on ' + time.now().format(),
@@ -40,7 +47,7 @@ var translations = {
     'organization_about_content' -> 'The most impressive and progressive organization dealing with open* stuff.',
     'address' -> 'Brno University of Technology<br>Faculty of Information Technology<br>Božetěchova 1/2<br>61266 Brno',
   },
-  'cs' -> {
+  Locale.cs -> {
     '_locale' -> 'cs_CZ.UTF-8',
     'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
     'logo_big' -> 'velké logo konference OpenAlt',
@@ -51,9 +58,16 @@ var translations = {
     'home' -> 'Domů',
     'about' -> 'O nás',
     'thanks' -> 'Poděkování',
+    'thank_you' -> 'Děkujeme všem partnerům – bez jejich podpory by se akce nemohla uskutečnit.
+Lektorům patří náš dík za ochotu předstoupit před posluchače a také za to, jak atraktivní
+témata si připravili. Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat,
+a na něž z kapacitních důvodů nedošlo. Návštěvníkům pak děkujeme za účast a vytvořili
+výbornou atmosféru, která vydržela po dva dny a dvě noci. Bez nich by konference pocho-
+pitelně postrádala smysl.',
     'gallery' -> 'Fotogalerie',  # Fotografie
     'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
+    'contact_openalt_content' -> 'FIXME Praha, Brno...',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
     'footer' -> 'Poslední aktualizace ' + time.now().format(),
@@ -70,11 +84,11 @@ var translations = {
     'organization_about_content' -> 'Nejpokrokovější a nejpůsobivější spolek zabývající se otevřenými záležitostmi.',
     'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno',
   },
-#  'sk' -> {
+#  Locale.sk -> {
 #    '_locale' -> 'sk_SK.UTF-8',
 #    'motivation' -> 'Staňte sa aj Vy súčasťou už deviateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie!',
 #  },
-#  'de' -> {
+#  Locale.de -> {
 #    '_locale' -> 'de_DE.UTF-8',
 #  },
 }
@@ -83,12 +97,13 @@ var translations = {
 #   raise exception)
 translations.iterate { [k, v]
   if ('_locale' not in v)
-    io.stderr.writeln('ERR _locale not specified for ' + k)
+    io.stderr.writeln('ERR _locale not specified for ' + (string)k)
 
-  if (k != 'en') {
-    translations['en'].iterate { [k2, v2]
+  if (k != Locale.en) {
+    translations[Locale.en].iterate { [k2, v2]
       if (k2 not in v) {
-        io.stderr.writeln('WARN missing translation [' + k + ']: ' + k2)
+        io.stderr.writeln('WARN missing translation [' + (string)k +
+                          ']: ' + (string)k2)
         v[k2] = v2
       }
     }
@@ -98,14 +113,15 @@ translations.iterate { [k, v]
       check_path(p.photo)
 
       if (k not in p.trans)
-        io.stderr.writeln('WARN missing translation [' + k +
-                          '] for role & note in ' + p.name)
+        io.stderr.writeln('WARN missing translation [' + (string)k +
+                          '] for role & note in `' + p.name + "'")
 
       p.events.iterate { [e]
         if (k not in e.trans) {
-          io.stderr.writeln('WARN missing translation [' + k + '] in ' +
-                            e.trans['en'].name + ' in ' + p.name)
-          e.trans[k] = e.trans['en']
+          io.stderr.writeln('WARN missing translation [' + (string)k +
+                            '] in ' + e.trans[Locale.en].name +
+                            ' in `' + p.name + "'")
+          e.trans[k] = e.trans[Locale.en]
         }
       }
     }

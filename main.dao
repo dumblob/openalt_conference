@@ -1,42 +1,64 @@
 #!/usr/bin/env dao
 
-# FIXME check all colors to match the design
 # FIXME add links/names to proper parts (workshops...)
 # FIXME obrazky partneru ze stareho openalt.cz v co nejvyssim rozliseni
-# FIXME vypisy WARN
 # FIXME prednasejici - jmeno + fce
+# FIXME change \n for <br> in the some descriptions/requirements/... (e.g. Tomas Tomecek)
+# FIXME add links to other open* project sites in Brno!
 
 # FIXME remove the span between page links in the stripe
 # FIXME rss, twitter, facebook links?
 
 load os.fs
+load lib
 load config import configuration
 load translations import translation
 
 load page_home import html_content
 load page_about import html_content
+load page_gallery import html_content
+load page_contact import html_content
+load page_talks import html_content
+load page_workshops import html_content
+load feed_rss import feed_content
 
-routine gen_pages(invar trans: string) {
+routine gen_pages(invar trans: lib.Locale) {
   d = fs.dir(conf.rootdir)
-  if (! d.exists(trans)) d.mkdir(trans)
-  invar dst = conf.rootdir + '/' + trans
+  _trans = ((string)trans)[1:]
+  if (! d.exists(_trans)) d.mkdir(_trans)
+  invar dst = conf.rootdir + '/' + _trans
 
+  # FIXME better name as there are not only pages (
+  #   we need all generated files accessible from this
+  #   structure as references/links to these are generated
+  #   based on the content of this structure)
   invar pages = {
     'home'      -> 'home.html',
     'about'     -> 'about.html',
-    'schedule'  -> 'schedule.html',
     'gallery'   -> 'gallery.html',
-    'downloads' -> 'downloads.html',
     'contact'   -> 'contact.html',
+    'talks'     -> 'talks.html',
+    'workshops' -> 'workshops.html',
+    'feed_rss'  -> 'feed.rss',
   }
 
   for (p in pages) {
     fut = std.exec {
       switch (p[0]) {
         case 'home':
-          return (none|@T)page_home(dst + '/' + p[1], trans, dst, pages) !!
+          return (none|@T)page_home(p[0], dst + '/' + p[1], trans, dst, pages) !!
         case 'about':
-          return page_about(dst + '/' + p[1], trans, dst, pages) !!
+          return page_about(p[0], dst + '/' + p[1], trans, dst, pages) !!
+        case 'gallery':
+          return page_gallery(p[0], dst + '/' + p[1], trans, dst, pages) !!
+        case 'contact':
+          return page_contact(p[0], dst + '/' + p[1], trans, dst, pages) !!
+        case 'talks':
+          return page_talks(p[0], dst + '/' + p[1], trans, dst, pages) !!
+        case 'workshops':
+          return page_workshops(p[0], dst + '/' + p[1], trans, dst, pages) !!
+        case 'feed_rss':
+          return feed_rss(p[0], dst + '/' + p[1], trans, dst, pages) !!
       }
     }
     if (fut != none) defer { fut.value() }
@@ -46,13 +68,19 @@ routine gen_pages(invar trans: string) {
 # USAGE: generate.dao [<translation>]...
 #   if no translations given, generate all
 #routine main(invar ...: string as args) {
-routine main(invar ... as args) {
+routine main(...: Locale as args) {
   # FIXME bug?
   #defer (any) { return 0 }
 
+  # FIXME
   invar chosen_trs = std.exec {
     if (%args)
-      return ((list<string>)args).associate(1) { (X, translations[X]) }
+      return translations.associate(1) {
+        if (X in args)
+          return (X, Y)
+        else
+          return none
+      }
     else
       return translations
   }
@@ -268,7 +296,7 @@ body {
 .event_reqs {
   margin: 2pt auto 0 auto;
 }
-#speakers, #location {
+#speakers, #thanks {
   background-color: @[] + dark_grey + @[];
   color: white;
 }
@@ -291,10 +319,6 @@ body {
 }
 #workshops {
   background-color: #D0D1D1;
-}
-#schedule {
-  background-color: @[] + schedule_bg + @[];
-  color: white;
 }
 #schedule > p {
   text-transform: uppercase;
@@ -338,6 +362,8 @@ body {
   text-align: left;
 }
 #location {
+  background-color: @[] + schedule_bg + @[];
+  color: white;
   padding: 0;
   margin: 0;
 }

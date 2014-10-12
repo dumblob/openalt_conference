@@ -4,9 +4,9 @@ load translations import translation
 load lib import lib
 load html_common import html_content
 
-namespace html_content { page_about }
+namespace html_content { page_talks }
 
-routine page_about(
+routine page_talks(
     invar page_name: string,
     path: string,
     invar trans: Locale,
@@ -24,20 +24,30 @@ routine page_about(
 
   # FIXME it should be somehow allowed
   _html_head = html_head(trans, dst)
-  _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
+  _top_stripe = html_top_stripe(page_name, trans, dst, pages)
   _html_footer = html_footer(trans)
 
   html5.write(document {
     text(_html_head)
 
     body {
-      text(_html_top_stripe)
+      text(_top_stripe)
 
-      h3(_class='section_red') { t['conference'] }
-      paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
-
-      h3(_class='section_red') { t['organization'] }
-      paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
+      div(id='talks') {
+        h3(_class='section_red') { t['talks'] }
+        participants.iterate { [p]
+          p.events.iterate { [e]
+            #img(_class='talk', src=rel(tk[1]), alt=tk[0])
+            if (e.kind == $talk) {
+              div(_class='talks') {
+                paragraph(_class='event_title') { e.trans[(Locale)trans].name }
+                paragraph(_class='participant_name') { p.name }
+                paragraph(_class='event_desc') { e.trans[(Locale)trans].description }
+              }
+            }
+          }
+        }
+      }
 
       text(_html_footer)
     }

@@ -1,13 +1,12 @@
 #FIXME partners - block
 #FIXME add stripes over participants' photos
 #FIXME add year under the the header under the black stripe
-#      probably before the stripe and then through CSS away from there
-#FIXME remove unnecessary ids and classes
+#      before the stripe? and then using CSS to the right place
 #FIXME rewrite the table generation in schedule using paragraphs in cells
 
-load web.html import html
 # conflicting html tag name with namespace name
 load time as my_time
+load web.html import html
 load config import configuration
 load translations import translation
 load lib import lib
@@ -16,8 +15,9 @@ load html_common import html_content
 namespace html_content { page_home }
 
 routine page_home(
-    invar path: string,
-    invar trans: string,
+    invar page_name: string,
+    path: string,
+    invar trans: Locale,
     invar dst: string,
     invar pages: map<string, string>) => none {
   html5 = io.open(path, 'w')
@@ -26,18 +26,19 @@ routine page_home(
   # just convenient shortcuts
   invar cu = conf.uri
   invar ci = conf.img
-  invar t = translations[trans]
+  invar t = translations[(Locale)trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
-  _html_head = html_head(trans, dst)
   # FIXME it should be somehow allowed
-  _top_stripe = top_stripe('home', trans, dst, pages)
+  _html_head = html_head(trans, dst)
+  _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
 
   html5.write(document {
     text(_html_head)
     body {
-      text(_top_stripe)
+      text(_html_top_stripe)
+
       div(id='header') {
         img(id='logo_big', src=rel(ci.logo_big), alt=t['logo_big'])
         paragraph(_class='narrow_paragraph') { t['motivation'] }
@@ -55,6 +56,7 @@ routine page_home(
         anchor(href='#workshops') { t['workshops'] }
         anchor(href='#schedule')  { t['schedule'] }
       }
+
       div(id='speakers') {
         h3(_class='section') { t['speakers'] }
         div {
@@ -68,37 +70,7 @@ routine page_home(
         }
         div(_class='clear_float') {}
       }
-      div(id='talks') {
-        h3(_class='section_red') { t['talks'] }
-        participants.iterate { [p]
-          p.events.iterate { [e]
-            #img(_class='talk', src=rel(tk[1]), alt=tk[0])
-            if (e.kind == $talk) {
-              div(_class='talks') {
-                paragraph(_class='event_title') { e.trans[trans].name }
-                paragraph(_class='participant_name') { p.name }
-                paragraph(_class='event_desc') { e.trans[trans].description }
-              }
-            }
-          }
-        }
-      }
-      div(id='workshops') {
-        h3(_class='section_red') { t['workshops'] }
-        participants.iterate { [p]
-          p.events.iterate { [e]
-            if (e.kind == $workshop) {
-              div(_class='workshop') {
-                paragraph(_class='event_title') { e.trans[trans].name }
-                paragraph(_class='participant_name') { p.name }
-                paragraph(_class='event_desc') { e.trans[trans].description }
-                paragraph(_class='participation_reqs') { t['participation_reqs'] }
-                paragraph(_class='event_reqs') { e.trans[trans].requirements }
-              }
-            }
-          }
-        }
-      }
+
       div(id='schedule') {
         h3(_class='section') { t['schedule'] }
 
@@ -130,7 +102,7 @@ routine page_home(
         events = events.sort {
           # FIXME why need to use value?
           if (X[0].from.value == Y[0].from.value)
-            return X[0].trans[trans].place < Y[0].trans[trans].place
+            return X[0].trans[(Locale)trans].place < Y[0].trans[(Locale)trans].place
           else
             return X[0].from < Y[0].from
         }
@@ -167,13 +139,13 @@ routine page_home(
                   #   but use it only in CSS as decoration?
                   img(src=rel(ci.clock))
                   text(e.from.format('%-H:%M'))
-                  if (%e.trans[trans].place) {
+                  if (%e.trans[(Locale)trans].place) {
                     img(src=rel(ci.door))
-                    text(e.trans[trans].place)
+                    text(e.trans[(Locale)trans].place)
                   }
                 }
                 td(_class=(border_top) ? 'with_border_top' : '') {
-                  strong { e.trans[trans].name }
+                  strong { e.trans[(Locale)trans].name }
                   if (e.kind != $internal) {
                     switch (e.kind) {
                       case $workshop: text(' / ' + t['workshop'])
@@ -193,11 +165,21 @@ routine page_home(
         }
 #}
       }
+
       div(id='location') {
         h3(_class='section') { t['location'] }
         paragraph { t['address'] }
         img(src=rel(ci.location), alt=t['location'] + ': ' + conf.coord_gps)
       }
+
+      # FIXME commented only for testing
+#      if (my_time.time.now().value > conf.date.time_to.value) {
+        div(id='thanks') {
+          h3(_class='section') { t['thanks'] }
+          paragraph(_class='narrow_paragraph') { t['thank_you'] }
+        }
+#      }
+
       div(id='partners') {
         h3(_class='section') { t['partners'] }
         paragraph {
@@ -208,6 +190,7 @@ routine page_home(
           }
         }
       }
+
       div(id='footer') {
         paragraph { t['footer'] }
       }
