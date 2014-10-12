@@ -37,7 +37,7 @@ routine page_talks(
         h3(_class='section_red') { t['talks'] }
         participants.iterate { [p]
           p.events.iterate { [e]
-            #img(_class='talk', src=rel(tk[1]), alt=tk[0])
+            #img(_class='talk', src=rel(tk[1]), alt=tk[0], title=tk[0])
             if (e.kind == $talk) {
               div(_class='talks') {
                 paragraph(_class='event_title') { e.trans[(Locale)trans].name }

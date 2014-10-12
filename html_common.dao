@@ -105,16 +105,16 @@ routine html_top_stripe(
 
       div(_class='segment') {
         anchor(_class='ext_link', href=rel(dst + '/' + pages['feed_rss'])) {
-          img(src=rel(ci.rss), alt=t['rss'])
+          img(src=rel(ci.rss), alt=t['rss'], title=t['rss'])
         }
         anchor(_class='ext_link', href=rel(cu.twitter)) {
-          img(src=rel(ci.twitter), alt=t['twitter'])
+          img(src=rel(ci.twitter), alt=t['twitter'], title=t['twitter'])
         }
         anchor(_class='ext_link', href=rel(cu.gplus)) {
-          img(src=rel(ci.gplus), alt=t['gplus'])
+          img(src=rel(ci.gplus), alt=t['gplus'], title=t['gplus'])
         }
         anchor(_class='ext_link', href=rel(cu.fb)) {
-          img(src=rel(ci.fb), alt=t['fb'])
+          img(src=rel(ci.fb), alt=t['fb'], title=t['fb'])
         }
       }
 

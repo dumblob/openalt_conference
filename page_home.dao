@@ -46,7 +46,7 @@ routine page_home(
       text(_html_top_stripe)
 
       div(id='header') {
-        img(src=rel(ci.logo_oa_conf), alt=t['logo_oa_conf'])
+        img(src=rel(ci.logo_oa_conf), alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
         paragraph(_class='narrow_paragraph') { t['motivation'] }
         paragraph(id='time_range') {
           strong {
@@ -69,7 +69,7 @@ routine page_home(
           paragraph {
             for (pa in participants) {
               if (pa.events.find { X.kind == $internal } == none) {
-                img(_class='speaker', src=rel(pa.photo), alt=pa.name)
+                img(_class='speaker', src=rel(pa.photo), alt=pa.name, title=pa.name)
               }
             }
           }
@@ -148,10 +148,10 @@ routine page_home(
                 td(_class=(border_top) ? 'with_border_top' : '') {
                   # FIXME don't mention this image in HTML,
                   #   but use it only in CSS as decoration?
-                  img(src=rel(ci.clock))
+                  img(src=rel(ci.clock), title=ci.clock)
                   text(e.from.format('%-H:%M'))
                   if (%e.trans[(Locale)trans].place) {
-                    img(src=rel(ci.door))
+                    img(src=rel(ci.door), title=ci.door)
                     text(e.trans[(Locale)trans].place)
                   }
                 }
@@ -180,7 +180,9 @@ routine page_home(
       div(id='location') {
         h3(_class='section') { t['location'] }
         paragraph { t['address'] }
-        img(src=rel(ci.location), alt=t['location'] + ': ' + conf.coord_gps)
+        img(src=rel(ci.location),
+            alt=t['location'] + ': ' + conf.coord_gps,
+            title=t['location'] + ': ' + conf.coord_gps)
       }
 
       if (my_time.time.now().value > conf.time_to.value) {
@@ -195,7 +197,7 @@ routine page_home(
         paragraph {
           for (invar p in partners) {
             anchor(href=p.uri) {
-              img(_class='partner', src=rel(p.img), alt=p.name)
+              img(_class='partner', src=rel(p.img), alt=p.name, title=p.name)
             }
           }
         }
