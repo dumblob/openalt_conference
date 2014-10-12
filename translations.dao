@@ -13,9 +13,10 @@ var translations = {
   Locale.en -> {
     '_locale' -> 'en_US.UTF-8',  # locale -a
     'title' -> 'OpenAlt conference ' + (string)conf.time_from.year,
-    'logo_big' -> 'a big logo of the OpenAlt conference',
+    'logo_oa_conf' -> 'a big logo of the OpenAlt conference',
     'rss' -> 'RSS channel for conference news and changes on this web',
     'twitter' -> 'official twitter stream for OpenAlt conference',
+    'gplus' -> 'official Google+ page for OpenAlt conference',
     'fb' -> 'official Facebook page for OpenAlt conference',
     'motivation' -> 'Become a part of the ninth anniversary proceeding of a Brno open-source, open-hardware and open-mind conference!',
     'home' -> 'Home',
@@ -49,9 +50,10 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
   Locale.cs -> {
     '_locale' -> 'cs_CZ.UTF-8',
     'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
-    'logo_big' -> 'velké logo konference OpenAlt',
+    'logo_oa_conf' -> 'velké logo konference OpenAlt',
     'rss' -> 'kanál RSS s konferenčními aktualitami a změnami na tomto webu',
     'twitter' -> 'oficiální stránka konference OpenAlt na Twitter',
+    'gplus' -> 'oficiální stránka konference OpenAlt na Google+',
     'fb' -> 'oficiální stránka konference OpenAlt na Facebook',
     'motivation' -> 'Staňte sa i Vy součástí již devátého pokračování brněnské open-source, open-hardware a open-mind konference!',
     'home' -> 'Domů',

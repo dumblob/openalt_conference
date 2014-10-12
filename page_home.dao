@@ -46,7 +46,7 @@ routine page_home(
       text(_html_top_stripe)
 
       div(id='header') {
-        img(id='logo_big', src=rel(ci.logo_big), alt=t['logo_big'])
+        img(src=rel(ci.logo_oa_conf), alt=t['logo_oa_conf'])
         paragraph(_class='narrow_paragraph') { t['motivation'] }
         paragraph(id='time_range') {
           strong {
@@ -178,13 +178,12 @@ routine page_home(
         img(src=rel(ci.location), alt=t['location'] + ': ' + conf.coord_gps)
       }
 
-      # FIXME commented only for testing
-#      if (my_time.time.now().value > conf.date.time_to.value) {
+      if (my_time.time.now().value > conf.time_to.value) {
         div(id='thanks') {
           h3(_class='section') { t['thanks'] }
           paragraph(_class='narrow_paragraph') { t['thank_you'] }
         }
-#      }
+      }
 
       div(id='partners') {
         h3(_class='section') { t['partners'] }

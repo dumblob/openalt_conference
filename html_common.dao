@@ -110,6 +110,9 @@ routine html_top_stripe(
         anchor(_class='ext_link', href=rel(cu.twitter)) {
           img(src=rel(ci.twitter), alt=t['twitter'])
         }
+        anchor(_class='ext_link', href=rel(cu.gplus)) {
+          img(src=rel(ci.gplus), alt=t['gplus'])
+        }
         anchor(_class='ext_link', href=rel(cu.fb)) {
           img(src=rel(ci.fb), alt=t['fb'])
         }
@@ -124,7 +127,7 @@ routine html_top_stripe(
             i += 1
 
           lang_str = ((string)lang[0])[1:]
-          if (lang[0] == trans)
+          if ((Locale)lang[0] == (Locale)trans)
             strong(_class='lang_link') { lang_str }
           else
             anchor(_class='lang_link',

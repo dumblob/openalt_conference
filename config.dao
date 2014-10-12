@@ -7,7 +7,9 @@ namespace configuration { conf, partners, curdir, check_path }
 
 invar curdir = fs.dir('.').path
 
-type Partner = tuple<name:string, img:string, uri:string>
+type Partner = tuple<
+  enum<general, main>, name:string, img:string, uri:string
+>
 
 # all paths have to be full or non-relative URIs! Do not worry,
 #   they'll be changed to relative ones in the end if needed.
@@ -25,6 +27,7 @@ invar conf = (
     # shared between all pages (no exceptions)
     css       = curdir + '/style.css',
     twitter   = 'https://twitter.com/OpenAlt',
+    gplus     = 'http://plus.google.com/100946575675112811528',
     fb        = 'https://www.facebook.com/OpenAlt',
   ),
   # mime='image/x-icon'
@@ -34,8 +37,9 @@ invar conf = (
     # FIXME request from Michaela
     rss          = curdir + '/img/icon-rss.svg',
     twitter      = curdir + '/img/icon-twitter.svg',
+    gplus        = curdir + '/img/icon-gplus.svg',
     fb           = curdir + '/img/icon-facebook.svg',
-    location     = curdir + '/img/map_microsoft.png',
+    location     = curdir + '/img/map_fit_vutbr.jpg',
 
     # FIXME use SVG everywhere!
     audio        = curdir + '/img/icon-audio.svg',
@@ -44,14 +48,35 @@ invar conf = (
     on_in_circle = curdir + '/img/icon-stream.svg',
     pdf          = curdir + '/img/icon-pdf.svg',
     video        = curdir + '/img/icon-video.svg',
-    logo_big     = curdir + '/img/logo-openalt-conference.svg',
+    logo_oa_conf = curdir + '/img/logo-openalt-conference.svg',
+    logo_oa_org  = curdir + '/img/logo-openalt-org.svg',
+    logo_sufit   = curdir + '/img/logo-sufit.gif',
   ),
 )
 
 invar partners: list<Partner> = {
-    ('', curdir + '/img/partners/partner00.png', 'http://some_nice_circle0.com/about'),
-    ('', curdir + '/img/partners/partner00.png', 'http://some_nice_circle1.com/about'),
-    ('', curdir + '/img/partners/partner00.png', 'http://some_nice_circle2.com/about'),
+  ($general, 'FIT VUT',
+   curdir + '/img/partners/logo_fit.gif',           'http://www.fit.vutbr.cz/'),
+  ($general, 'Red Hat',
+   curdir + '/img/partners/RHLogo.jpg',             'http://cz.redhat.com/'),
+  ($main, 'FlexiBee Systems',
+   curdir + '/img/partners/flexibee.png',           'http://www.flexibee.eu/'),
+  ($main, 'Honeywell',
+   curdir + '/img/partners/honeywell.png',          'http://honeywell.com/'),
+  ($main, 'ICT Pro s. r. o.',
+   curdir + '/img/partners/ict-pro.png',            'http://www.skoleni-ict.cz/'),
+  ($main, 'DataScript s. r. o.',
+   curdir + '/img/partners/logo_DataScript_cz.jpg', 'http://www.datascript.cz/'),
+  ($main, 'OKsystem',
+   curdir + '/img/partners/oksystem.png',           'http://www.oksystem.cz/'),
+  ($main, 'Perspektiva - ITJobs',
+   curdir + '/img/partners/perspektiva.png',        'http://www.perspektiva.eu/'),
+  ($main, 'Root.cz - linux, open source a free software',
+   curdir + '/img/partners/root.png',               'http://www.root.cz/'),
+  ($main, 'skHosting.eu s. r. o.',
+   curdir + '/img/partners/skhosting_eu.png',       'https://skhosting.eu/'),
+  ($main, 'Toastmasters International',
+   curdir + '/img/partners/toastmasters.png',       'http://www.projevse.cz/'),
 }
 
 # blackbox testing...

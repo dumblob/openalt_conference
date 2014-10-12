@@ -147,6 +147,9 @@ body {
   vertical-align: middle;  /* for img */
   line-height: 37pt;  /* for the rest */
 }
+#top_stripe .segment img {
+  max-height: 15pt;
+}
 #top_stripe .segment > * {
   display: inline-block;
   margin: 0;
@@ -164,7 +167,7 @@ body {
   text-decoration: none;
   font-weight: 400;
 }
-#top_stripe .page_link {
+#top_stripe .page_link, .lang_link {
   text-transform: uppercase;
   font-size: 12pt;
 }
@@ -244,6 +247,7 @@ body {
 #workshops,
 #schedule,
 #location,
+#thanks,
 #partners {
   display: block;
   padding-top: 10pt;
