@@ -9,7 +9,7 @@ namespace lib {
   mkrel, localized_time_format, parse_csv, gen_participants
 }
 
-type Locale = enum<cs, en, sk, de>
+type Locale = enum<cs, en, sk, de, fi>
 
 type Event = tuple<
   kind:enum<talk, workshop, internal>,

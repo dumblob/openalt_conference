@@ -80,14 +80,19 @@ routine page_home(
       div(id='schedule') {
         h3(_class='section') { t['schedule'] }
 
+        rooms = {}
+        participants.iterate { [p]
+          p.events.iterate {
+            # FIXME casting
+            if (X.trans[(Locale)trans].place not in rooms)
+              rooms.append(X.trans[(Locale)trans].place)
+          }
+        }
+        rooms.sort($descend)
+
         table {
-#          tr {
-#            # FIXME all existing rooms lexicographically sorted
-#            for (room in sorted_rooms) {
-#              th { room.name }
-#            }
-#          }
-#
+          tr { rooms.iterate { [r] th { r } } }
+
 #          for (et in existing_times) {
 #            for (room in sorted_rooms) {
 #              td {

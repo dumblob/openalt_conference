@@ -1,11 +1,9 @@
 #!/usr/bin/env dao
 
-# FIXME obrazky partneru ze stareho openalt.cz v co nejvyssim rozliseni
+# FIXME remove the span between page links in the stripe
 # FIXME prednasejici - jmeno + fce
 # FIXME change \n for <br> in the some descriptions/requirements/... (e.g. Tomas Tomecek)
 # FIXME add links to other open* project sites in Brno (industra etc.)
-
-# FIXME remove the span between page links in the stripe
 
 load os.fs
 load lib
