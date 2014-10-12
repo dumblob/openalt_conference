@@ -3,7 +3,35 @@ load web.html import html
 load config import configuration
 load translations import translation
 
-namespace html_content { html_head, html_top_stripe, html_footer }
+namespace html_content {
+  LocalRefs, html_local_refs,
+  html_head, html_top_stripe, html_footer,
+}
+
+type LocalRefs = enum<
+  home,
+  about,
+  schedule,
+  gallery,
+  contact,
+  talks,
+  workshops,
+>
+
+# FIXME $schedule
+var html_local_refs: map<LocalRefs, tuple<
+    # logical name of the page (real page names are in `pages')
+    page:string,
+    # real html id attribute
+    id:string>> = {
+  LocalRefs.home      -> ('home',      ''),
+  LocalRefs.about     -> ('about',     ''),
+  LocalRefs.schedule  -> ('home',      'schedule'),
+  LocalRefs.gallery   -> ('gallery',   ''),
+  LocalRefs.contact   -> ('contact',   ''),
+  LocalRefs.talks     -> ('talks',     ''),
+  LocalRefs.workshops -> ('workshops', ''),
+}
 
 routine html_footer(invar trans: Locale) => string {
   # just convenient shortcuts
@@ -16,7 +44,10 @@ routine html_footer(invar trans: Locale) => string {
   }
 }
 
-routine html_head(invar trans: Locale, invar dst: string) => string {
+routine html_head(
+    invar trans: Locale,
+    invar dst: string,
+    invar pages: map<string, string>) => string {
   # just convenient shortcuts
   invar cu = conf.uri
   invar t = translations[(Locale)trans]
@@ -37,6 +68,8 @@ routine html_head(invar trans: Locale, invar dst: string) => string {
       link(rel=$icon, _type=conf.favicon.mime, href=rel(conf.favicon.path),
            sizes=conf.favicon.sizes)
       link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
+      link(rel=$alternate, _type='application/rss+xml',
+           href=rel(dst + '/' + pages['feed_rss']))
     }
   }
 }
@@ -56,18 +89,16 @@ routine html_top_stripe(
   return fragment {
     div(id='top_stripe') {
       nav(_class='segment') {
-        # subset of pages linked directly from the top stripe
-        for (pg in {
-          'home', 'about', 'schedule', 'gallery', 'contact'
-        }) {
-          if (pg in pages) {
-            anchor(_class='page_link', href=
-                   (pg == page_name) ? '#' : rel(dst + '/' + pages[pg])
-                  ) { t[pg] }
-          }
-          else {
-            # FIXME links to certain parts of page
-            #   schedule!
+        for (ref in {
+            html_local_refs[LocalRefs.home],
+            html_local_refs[LocalRefs.about],
+            html_local_refs[LocalRefs.schedule],
+            html_local_refs[LocalRefs.gallery],
+            html_local_refs[LocalRefs.contact], }) {
+          anchor(_class='page_link', href=
+                 (ref[0] == page_name) ? '#' + ref[1] :
+                 rel(dst + '/' + pages[ref[0]] + '#' + ref[1])) {
+            t[(%ref[1]) ? ref[1] : ref[0]]
           }
         }
       }

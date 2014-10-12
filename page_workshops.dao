@@ -23,7 +23,7 @@ routine page_workshops(
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
   # FIXME it should be somehow allowed
-  _html_head = html_head(trans, dst)
+  _html_head = html_head(trans, dst, pages)
   _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
   _html_footer = html_footer(trans)
 

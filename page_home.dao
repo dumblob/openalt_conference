@@ -29,9 +29,15 @@ routine page_home(
   invar t = translations[(Locale)trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
+  rel2 = routine(invar ref: LocalRefs) => string {
+    # FIXME casting
+    tup = html_local_refs[(LocalRefs)ref]
+    return mkrel(dst, dst + '/' + pages[tup[0]]) +
+      ((%tup[1]) ? '#' + tup[1] : '')
+  }
 
   # FIXME it should be somehow allowed
-  _html_head = html_head(trans, dst)
+  _html_head = html_head(trans, dst, pages)
   _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
 
   html5.write(document {
@@ -52,9 +58,9 @@ routine page_home(
         }
       }
       div(id='main_buttons') {
-        anchor(href='#talks')     { t['talks'] }
-        anchor(href='#workshops') { t['workshops'] }
-        anchor(href='#schedule')  { t['schedule'] }
+        anchor(href=rel2(LocalRefs.talks)) { t['talks'] }
+        anchor(href=rel2(LocalRefs.workshops)) { t['workshops'] }
+        anchor(href=rel2(LocalRefs.schedule)) { t['schedule'] }
       }
 
       div(id='speakers') {

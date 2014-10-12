@@ -1,13 +1,11 @@
 #!/usr/bin/env dao
 
-# FIXME add links/names to proper parts (workshops...)
 # FIXME obrazky partneru ze stareho openalt.cz v co nejvyssim rozliseni
 # FIXME prednasejici - jmeno + fce
 # FIXME change \n for <br> in the some descriptions/requirements/... (e.g. Tomas Tomecek)
-# FIXME add links to other open* project sites in Brno!
+# FIXME add links to other open* project sites in Brno (industra etc.)
 
 # FIXME remove the span between page links in the stripe
-# FIXME rss, twitter, facebook links?
 
 load os.fs
 load lib
@@ -261,9 +259,11 @@ body {
 .section_red {
   color: @[] + schedule_bg + @[];
 }
+/*
 #schedule .section {
   color: white;
 }
+*/
 .event_title {
   margin: 1.25em 0 0 0;
   padding: 0;
@@ -296,6 +296,9 @@ body {
 .event_reqs {
   margin: 2pt auto 0 auto;
 }
+
+
+
 #speakers, #thanks {
   background-color: @[] + dark_grey + @[];
   color: white;
@@ -320,6 +323,9 @@ body {
 #workshops {
   background-color: #D0D1D1;
 }
+
+
+
 #schedule > p {
   text-transform: uppercase;
   font-size: 18pt;
@@ -361,6 +367,9 @@ body {
   padding-left: 17pt;
   text-align: left;
 }
+
+
+
 #location {
   background-color: @[] + schedule_bg + @[];
   color: white;

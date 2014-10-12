@@ -21,12 +21,11 @@ var translations = {
     'home' -> 'Home',
     'about' -> 'About',
     'thanks' -> 'Thanks',
-    'thank_you' -> 'Děkujeme všem partnerům – bez jejich podpory by se akce nemohla uskutečnit.
+    'thank_you' -> 'Děkujeme všem partnerům. Bez jejich podpory by se akce nemohla uskutečnit.<br>
 Lektorům patří náš dík za ochotu předstoupit před posluchače a také za to, jak atraktivní
-témata si připravili. Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat,
-a na něž z kapacitních důvodů nedošlo. Návštěvníkům pak děkujeme za účast a vytvořili
-výbornou atmosféru, která vydržela po dva dny a dvě noci. Bez nich by konference pocho-
-pitelně postrádala smysl.',
+témata si připravili.<br>
+Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat, a na něž z kapacitních důvodů nedošlo.<br>
+Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, která vydržela po dva dny a dvě noci. Bez nich by konference pochopitelně postrádala smysl.',
     'gallery' -> 'Gallery',
     'downloads' -> 'Downloads',
     'contact' -> 'Contact',
@@ -58,12 +57,11 @@ pitelně postrádala smysl.',
     'home' -> 'Domů',
     'about' -> 'O nás',
     'thanks' -> 'Poděkování',
-    'thank_you' -> 'Děkujeme všem partnerům – bez jejich podpory by se akce nemohla uskutečnit.
+    'thank_you' -> 'Děkujeme všem partnerům. Bez jejich podpory by se akce nemohla uskutečnit.<br>
 Lektorům patří náš dík za ochotu předstoupit před posluchače a také za to, jak atraktivní
-témata si připravili. Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat,
-a na něž z kapacitních důvodů nedošlo. Návštěvníkům pak děkujeme za účast a vytvořili
-výbornou atmosféru, která vydržela po dva dny a dvě noci. Bez nich by konference pocho-
-pitelně postrádala smysl.',
+témata si připravili.<br>
+Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat, a na něž z kapacitních důvodů nedošlo.<br>
+Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, která vydržela po dva dny a dvě noci. Bez nich by konference pochopitelně postrádala smysl.',
     'gallery' -> 'Fotogalerie',  # Fotografie
     'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
