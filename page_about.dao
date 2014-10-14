@@ -18,10 +18,7 @@ routine page_about(
   # just convenient shortcuts
   invar cu = conf.uri
   invar ci = conf.img
-load meta as my_meta
-# FIXME
-io.writeln('XXX', my_meta.meta.typeOf(trans))
-  invar t = translations[(Locale)trans]
+  invar t = translations[trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 

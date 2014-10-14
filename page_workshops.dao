@@ -18,7 +18,7 @@ routine page_workshops(
   # just convenient shortcuts
   invar cu = conf.uri
   invar ci = conf.img
-  invar t = translations[(Locale)trans]
+  invar t = translations[trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
@@ -39,11 +39,11 @@ routine page_workshops(
           p.events.iterate { [e]
             if (e.kind == $workshop) {
               div(_class='workshop') {
-                paragraph(_class='event_title') { e.trans[(Locale)trans].name }
+                paragraph(_class='event_title') { e.trans[trans].name }
                 paragraph(_class='participant_name') { p.name }
-                paragraph(_class='event_desc') { e.trans[(Locale)trans].description }
+                paragraph(_class='event_desc') { e.trans[trans].description }
                 paragraph(_class='participation_reqs') { t['participation_reqs'] }
-                paragraph(_class='event_reqs') { e.trans[(Locale)trans].requirements }
+                paragraph(_class='event_reqs') { e.trans[trans].requirements }
               }
             }
           }

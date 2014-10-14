@@ -26,7 +26,7 @@ routine page_home(
   # just convenient shortcuts
   invar cu = conf.uri
   invar ci = conf.img
-  invar t = translations[(Locale)trans]
+  invar t = translations[trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
   rel2 = routine(invar ref: LocalRefs) => string {
@@ -84,8 +84,8 @@ routine page_home(
         participants.iterate { [p]
           p.events.iterate {
             # FIXME casting
-            if (X.trans[(Locale)trans].place not in rooms)
-              rooms.append(X.trans[(Locale)trans].place)
+            if (X.trans[trans].place not in rooms)
+              rooms.append(X.trans[trans].place)
           }
         }
         rooms.sort($descend)
@@ -113,7 +113,7 @@ routine page_home(
         events = events.sort {
           # FIXME why need to use value?
           if (X[0].from.value == Y[0].from.value)
-            return X[0].trans[(Locale)trans].place < Y[0].trans[(Locale)trans].place
+            return X[0].trans[trans].place < Y[0].trans[trans].place
           else
             return X[0].from < Y[0].from
         }
@@ -150,13 +150,13 @@ routine page_home(
                   #   but use it only in CSS as decoration?
                   img(src=rel(ci.clock), title=ci.clock)
                   text(e.from.format('%-H:%M'))
-                  if (%e.trans[(Locale)trans].place) {
+                  if (%e.trans[trans].place) {
                     img(src=rel(ci.door), title=ci.door)
-                    text(e.trans[(Locale)trans].place)
+                    text(e.trans[trans].place)
                   }
                 }
                 td(_class=(border_top) ? 'with_border_top' : '') {
-                  strong { e.trans[(Locale)trans].name }
+                  strong { e.trans[trans].name }
                   if (e.kind != $internal) {
                     switch (e.kind) {
                       case $workshop: text(' / ' + t['workshop'])

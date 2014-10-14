@@ -1781,24 +1781,24 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #    $world_around,
 #    uri = ('', ''),
 #    # 2x 25 minut souvisejících témat
-#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
-#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
 #    trans = {
-#      $cs -> ('Web dynamite',
+#      $cs -> ('TNTnet - web dynamite',
 #               '',
-#               'Kazdy dnes dela webove sluzby. Ne pro vsechny je ale Ruby ci PHP jejich prirozenosti. Predstavime si webovy framework pro psani webovych aplikaci v C++ a pridruzene knihovny ktere se mohou hodit i jinde, nejen na webu.',
+#               'Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
 #               'UNKNOWN_PLACE',),
-#      $en -> ('Web dynamite',
+#      $en -> ('TNTnet - web dynamite',
 #               '',
-#               'Kazdy dnes dela webove sluzby. Ne pro vsechny je ale Ruby ci PHP jejich prirozenosti. Predstavime si webovy framework pro psani webovych aplikaci v C++ a pridruzene knihovny ktere se mohou hodit i jinde, nejen na webu.',
+#               'Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
 #               'UNKNOWN_PLACE',),
-#      $sk -> ('Web dynamite',
+#      $sk -> ('TNTnet - web dynamite',
 #               '',
-#               'Kazdy dnes dela webove sluzby. Ne pro vsechny je ale Ruby ci PHP jejich prirozenosti. Predstavime si webovy framework pro psani webovych aplikaci v C++ a pridruzene knihovny ktere se mohou hodit i jinde, nejen na webu.',
+#               'Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
 #               'UNKNOWN_PLACE',),
-#      $de -> ('Web dynamite',
+#      $de -> ('TNTnet - web dynamite',
 #               '',
-#               'Kazdy dnes dela webove sluzby. Ne pro vsechny je ale Ruby ci PHP jejich prirozenosti. Predstavime si webovy framework pro psani webovych aplikaci v C++ a pridruzene knihovny ktere se mohou hodit i jinde, nejen na webu.',
+#               'Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
 #               'UNKNOWN_PLACE',),
 #    }
 #   )
@@ -1823,21 +1823,29 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     trans = {
-      $cs -> ('Lehky uvod do ZeroMQ',
+      $cs -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
-               'Zkouseli jste nekdy psat sitovou aplikaci? Radi byste nejakou abstrakci ktera by vam to usnadnila? Prijde vam ActiveMQ moc slozite a velke? Prijdte si poslechnout lehky uvod do ZeroMQ a zjistit neco o zajimave knihovne ktera vam praci se siti usnadni.',
+               'Zadny pocitac dnes neni sam, ale psani sitovych aplikaci neni uplne jednoduche. Otvirat si socket, definovat protokoly, serializaci, resit aby kazdy kdo ma zpravy dostat ji opravdu dostal a jine nezabavne podruznosti. Prednaska nabidne lehky uvod do knihoven ZeroMQ a ukaze, jak je pouzit ke zjednoduseni prace a posilani zprav mezi procesy (at uz lokalnimi nebo vzdalenymi). Aby se clovek mohl zabyvat funkcionalitou a nemusel tolik resit jak dostat data pres sit.<br>
+<br>
+Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
                'D0207',),
-      $en -> ('Lehky uvod do ZeroMQ',
+      $en -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
-               'Zkouseli jste nekdy psat sitovou aplikaci? Radi byste nejakou abstrakci ktera by vam to usnadnila? Prijde vam ActiveMQ moc slozite a velke? Prijdte si poslechnout lehky uvod do ZeroMQ a zjistit neco o zajimave knihovne ktera vam praci se siti usnadni.',
+               'Zadny pocitac dnes neni sam, ale psani sitovych aplikaci neni uplne jednoduche. Otvirat si socket, definovat protokoly, serializaci, resit aby kazdy kdo ma zpravy dostat ji opravdu dostal a jine nezabavne podruznosti. Prednaska nabidne lehky uvod do knihoven ZeroMQ a ukaze, jak je pouzit ke zjednoduseni prace a posilani zprav mezi procesy (at uz lokalnimi nebo vzdalenymi). Aby se clovek mohl zabyvat funkcionalitou a nemusel tolik resit jak dostat data pres sit.<br>
+<br>
+Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
                'D0207',),
-      $sk -> ('Lehky uvod do ZeroMQ',
+      $sk -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
-               'Zkouseli jste nekdy psat sitovou aplikaci? Radi byste nejakou abstrakci ktera by vam to usnadnila? Prijde vam ActiveMQ moc slozite a velke? Prijdte si poslechnout lehky uvod do ZeroMQ a zjistit neco o zajimave knihovne ktera vam praci se siti usnadni.',
+               'Zadny pocitac dnes neni sam, ale psani sitovych aplikaci neni uplne jednoduche. Otvirat si socket, definovat protokoly, serializaci, resit aby kazdy kdo ma zpravy dostat ji opravdu dostal a jine nezabavne podruznosti. Prednaska nabidne lehky uvod do knihoven ZeroMQ a ukaze, jak je pouzit ke zjednoduseni prace a posilani zprav mezi procesy (at uz lokalnimi nebo vzdalenymi). Aby se clovek mohl zabyvat funkcionalitou a nemusel tolik resit jak dostat data pres sit.<br>
+<br>
+Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
                'D0207',),
-      $de -> ('Lehky uvod do ZeroMQ',
+      $de -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
-               'Zkouseli jste nekdy psat sitovou aplikaci? Radi byste nejakou abstrakci ktera by vam to usnadnila? Prijde vam ActiveMQ moc slozite a velke? Prijdte si poslechnout lehky uvod do ZeroMQ a zjistit neco o zajimave knihovne ktera vam praci se siti usnadni.',
+               'Zadny pocitac dnes neni sam, ale psani sitovych aplikaci neni uplne jednoduche. Otvirat si socket, definovat protokoly, serializaci, resit aby kazdy kdo ma zpravy dostat ji opravdu dostal a jine nezabavne podruznosti. Prednaska nabidne lehky uvod do knihoven ZeroMQ a ukaze, jak je pouzit ke zjednoduseni prace a posilani zprav mezi procesy (at uz lokalnimi nebo vzdalenymi). Aby se clovek mohl zabyvat funkcionalitou a nemusel tolik resit jak dostat data pres sit.<br>
+<br>
+Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
                'D0207',),
     }
    )

@@ -35,7 +35,7 @@ var html_local_refs: map<LocalRefs, tuple<
 
 routine html_footer(invar trans: Locale) => string {
   # just convenient shortcuts
-  invar t = translations[(Locale)trans]
+  invar t = translations[trans]
 
   return fragment {
     div(id='footer') {
@@ -50,7 +50,7 @@ routine html_head(
     invar pages: map<string, string>) => string {
   # just convenient shortcuts
   invar cu = conf.uri
-  invar t = translations[(Locale)trans]
+  invar t = translations[trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
@@ -82,7 +82,7 @@ routine html_top_stripe(
   # just convenient shortcuts
   invar cu = conf.uri
   invar ci = conf.img
-  invar t = translations[(Locale)trans]
+  invar t = translations[trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
@@ -127,7 +127,7 @@ routine html_top_stripe(
             i += 1
 
           lang_str = ((string)lang[0])[1:]
-          if ((Locale)lang[0] == (Locale)trans)
+          if (lang[0] == trans)
             strong(_class='lang_link') { lang_str }
           else
             anchor(_class='lang_link',

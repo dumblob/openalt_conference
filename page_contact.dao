@@ -18,7 +18,7 @@ routine page_contact(
   # just convenient shortcuts
   invar cu = conf.uri
   invar ci = conf.img
-  invar t = translations[(Locale)trans]
+  invar t = translations[trans]
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
