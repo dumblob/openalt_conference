@@ -24,29 +24,92 @@ routine page_talks(
 
   # FIXME it should be somehow allowed
   _html_head = html_head(trans, dst, pages)
-  _top_stripe = html_top_stripe(page_name, trans, dst, pages)
+  _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
   _html_footer = html_footer(trans)
 
   html5.write(document {
     text(_html_head)
 
     body {
-      text(_top_stripe)
+      text(_html_top_stripe)
 
-      div(id='talks') {
-        h3(_class='section_red') { t['talks'] }
-        participants.iterate { [p]
-          p.events.iterate { [e]
-            #img(_class='talk', src=rel(tk[1]), alt=tk[0], title=tk[0])
-            if (e.kind == $talk) {
-              div(_class='talks') {
-                paragraph(_class='event_title') { e.trans[trans].name }
-                paragraph(_class='participant_name') { p.name }
-                paragraph(_class='event_desc') { e.trans[trans].description }
+      h3(_class='section') { t['talks'] }
+
+      div(_class='talks') {
+        # FIXME all the tracks should be in DB and here shouldn't be
+        #   anything fixed - only loops over existing data
+        #   alse CSS should be generated from the data in DB
+
+        div(_class='track_tips') {
+          h4        { t['track_tips'] }
+          paragraph { t['track_tips_desc'] }
+          for (e in events_satisfying(participants, $talk, $tips)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
               }
             }
           }
         }
+
+        div(_class='track_world_around') {
+          h4        { t['track_world_around'] }
+          paragraph { t['track_world_around_desc'] }
+          for (e in events_satisfying(participants, $talk, $world_around)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
+              }
+            }
+          }
+        }
+
+        div(_class='track_security') {
+          h4        { t['track_security'] }
+          paragraph { t['track_security_desc'] }
+          for (e in events_satisfying(participants, $talk, $security)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
+              }
+            }
+          }
+        }
+
+        div(_class='track_challenges') {
+          h4        { t['track_challenges'] }
+          paragraph { t['track_challenges_desc'] }
+          for (e in events_satisfying(participants, $talk, $challenges)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
+              }
+            }
+          }
+        }
+
+        div(_class='track_establishment') {
+          h4        { t['track_establishment'] }
+          paragraph { t['track_establishment_desc'] }
+          for (e in events_satisfying(participants, $talk, $establishment)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
+              }
+            }
+          }
+        }
+
       }
 
       text(_html_footer)

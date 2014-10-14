@@ -113,7 +113,7 @@ body {
 }
 #top_stripe,
 #top_stripe * {
-  /*background-color: @[] + dark_grey + @[];*/
+  background-color: @[] + dark_grey + @[];
   color: white;
 }
 .segment {

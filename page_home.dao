@@ -30,8 +30,7 @@ routine page_home(
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
   rel2 = routine(invar ref: LocalRefs) => string {
-    # FIXME casting
-    tup = html_local_refs[(LocalRefs)ref]
+    tup = html_local_refs[ref]
     return mkrel(dst, dst + '/' + pages[tup[0]]) +
       ((%tup[1]) ? '#' + tup[1] : '')
   }
@@ -58,9 +57,9 @@ routine page_home(
         }
       }
       div(id='main_buttons') {
-        anchor(href=rel2(LocalRefs.talks)) { t['talks'] }
-        anchor(href=rel2(LocalRefs.workshops)) { t['workshops'] }
-        anchor(href=rel2(LocalRefs.schedule)) { t['schedule'] }
+        anchor(href=rel2($talks)) { t['talks'] }
+        anchor(href=rel2($workshops)) { t['workshops'] }
+        anchor(href=rel2($schedule)) { t['schedule'] }
       }
 
       div(id='speakers') {

@@ -33,21 +33,90 @@ routine page_workshops(
     body {
       text(_html_top_stripe)
 
+      h3(_class='section_red') { t['workshops'] }
+
       div(id='workshops') {
-        h3(_class='section_red') { t['workshops'] }
-        participants.iterate { [p]
-          p.events.iterate { [e]
-            if (e.kind == $workshop) {
-              div(_class='workshop') {
-                paragraph(_class='event_title') { e.trans[trans].name }
-                paragraph(_class='participant_name') { p.name }
-                paragraph(_class='event_desc') { e.trans[trans].description }
-                paragraph(_class='participation_reqs') { t['participation_reqs'] }
-                paragraph(_class='event_reqs') { e.trans[trans].requirements }
+
+        div(_class='track_tips') {
+          h4        { t['track_tips'] }
+          paragraph { t['track_tips_desc'] }
+          for (e in events_satisfying(participants, $workshop, $tips)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
               }
+              paragraph(_class='participation_reqs') { t['participation_reqs'] }
+              paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
             }
           }
         }
+
+        div(_class='track_world_around') {
+          h4        { t['track_world_around'] }
+          paragraph { t['track_world_around_desc'] }
+          for (e in events_satisfying(participants, $workshop, $world_around)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
+              }
+              paragraph(_class='participation_reqs') { t['participation_reqs'] }
+              paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
+            }
+          }
+        }
+
+        div(_class='track_security') {
+          h4        { t['track_security'] }
+          paragraph { t['track_security_desc'] }
+          for (e in events_satisfying(participants, $workshop, $security)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
+              }
+              paragraph(_class='participation_reqs') { t['participation_reqs'] }
+              paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
+            }
+          }
+        }
+
+        div(_class='track_challenges') {
+          h4        { t['track_challenges'] }
+          paragraph { t['track_challenges_desc'] }
+          for (e in events_satisfying(participants, $workshop, $challenges)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
+              }
+              paragraph(_class='participation_reqs') { t['participation_reqs'] }
+              paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
+            }
+          }
+        }
+
+        div(_class='track_establishment') {
+          h4        { t['track_establishment'] }
+          paragraph { t['track_establishment_desc'] }
+          for (e in events_satisfying(participants, $workshop, $establishment)) {
+            div(_class='event') {
+              paragraph(_class='event_title') { e.event.trans[trans].name }
+              paragraph(_class='participant_name') { e.name }
+              paragraph(_class='event_desc') {
+                e.event.trans[trans].description
+              }
+              paragraph(_class='participation_reqs') { t['participation_reqs'] }
+              paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
+            }
+          }
+        }
+
       }
 
       text(_html_footer)

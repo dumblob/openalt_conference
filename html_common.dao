@@ -24,13 +24,13 @@ var html_local_refs: map<LocalRefs, tuple<
     page:string,
     # real html id attribute
     id:string>> = {
-  LocalRefs.home      -> ('home',      ''),
-  LocalRefs.about     -> ('about',     ''),
-  LocalRefs.schedule  -> ('home',      'schedule'),
-  LocalRefs.gallery   -> ('gallery',   ''),
-  LocalRefs.contact   -> ('contact',   ''),
-  LocalRefs.talks     -> ('talks',     ''),
-  LocalRefs.workshops -> ('workshops', ''),
+  $home      -> ('home',      ''),
+  $about     -> ('about',     ''),
+  $schedule  -> ('home',      'schedule'),
+  $gallery   -> ('gallery',   ''),
+  $contact   -> ('contact',   ''),
+  $talks     -> ('talks',     ''),
+  $workshops -> ('workshops', ''),
 }
 
 routine html_footer(invar trans: Locale) => string {
@@ -90,11 +90,11 @@ routine html_top_stripe(
     div(id='top_stripe') {
       nav(_class='segment') {
         for (ref in {
-            html_local_refs[LocalRefs.home],
-            html_local_refs[LocalRefs.about],
-            html_local_refs[LocalRefs.schedule],
-            html_local_refs[LocalRefs.gallery],
-            html_local_refs[LocalRefs.contact], }) {
+            html_local_refs[$home],
+            html_local_refs[$about],
+            html_local_refs[$schedule],
+            html_local_refs[$gallery],
+            html_local_refs[$contact], }) {
           anchor(_class='page_link', href=
                  (ref[0] == page_name) ? '#' + ref[1] :
                  rel(dst + '/' + pages[ref[0]] + '#' + ref[1])) {

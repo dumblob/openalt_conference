@@ -5,15 +5,17 @@ load string.scanner  # imports str
 
 namespace html_page {}
 namespace lib {
-  Locale, Event, Participant,
-  mkrel, localized_time_format, parse_csv, gen_participants
+  Locale, Kind, Track, Event, Participant,
+  events_satisfying, localized_time_format, mkrel, parse_csv, gen_participants
 }
 
 type Locale = enum<cs, en, sk, de, fi>
+type Kind = enum<talk, workshop, internal, party>
+type Track = enum<tips, world_around, security, challenges, establishment>
 
 type Event = tuple<
-  kind:enum<talk, workshop, internal>,
-  track:enum<tips, world_around, security, challenges, establishment>,
+  kind:Kind,
+  track:Track,
   uri:tuple<
     materials:string,
     video_rec:string,
@@ -40,6 +42,19 @@ type Participant = tuple<
   >>,
   events:list<Event>,  # events, this person is in charge for
 >
+
+routine events_satisfying(
+    participants: list<Participant>,
+    invar kind: Kind,
+    invar track: Track) => list<tuple<name:string, event:Event>> {
+  res = (list<tuple<name:string, event:Event>>){}
+  participants.iterate { [p]
+    p.events.iterate {
+      if (X.kind == kind && X.track == track) res.append((p.name, X))
+    }
+  }
+  return res
+}
 
 var mutex_locale = sync.Mutex()
 routine localized_time_format(invar locale: string,

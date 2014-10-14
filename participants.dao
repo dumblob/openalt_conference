@@ -4,6 +4,119 @@ load time import time
 namespace participants_ns { participants }
 
 _participants: list<Participant> = {
+  ('',
+  curdir + '/img/participants/openalt_z_s.png',
+  trans = {
+    $en -> ('', '',),
+    $cs -> ('', '',),
+  },
+  events = {
+    # lunch - saturday
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
+    }),
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
+    }),
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
+    }),
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
+    }),
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
+    }),
+
+    # lunch - sunday
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
+    }),
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
+    }),
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
+    }),
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
+    }),
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    trans = {
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
+    }),
+
+    # party
+   ($party,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 22, 00),
+    trans = {
+      $en -> ('Party', 'no reqs', 'Please see the leaflets for further information.', 'Industra, 1. floor',),
+      $cs -> ('Párty', 'žádné pož.', 'Vizte letáky pro podrobnější informace.', 'Industra, 1. partro',),
+    }),
+  }),
+
   # personal supporters for the session: 
   ('Štěpán Bechynský',
   curdir + '/img/participants/štěpán_bechynský.png',
