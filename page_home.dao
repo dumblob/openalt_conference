@@ -194,6 +194,7 @@ routine page_home(
 
       div(id='partners') {
         h3(_class='section') { t['partners'] }
+        # FIXME $general + $main
         paragraph {
           for (invar p in partners) {
             anchor(href=p.uri) {
