@@ -5,7 +5,7 @@ namespace participants_ns { participants }
 
 _participants: list<Participant> = {
   ('',
-  curdir + '/img/participants/openalt_z_s.png',
+  curdir + '/img/participants/openalt_z_s.jpg',
   trans = {
     $en -> ('', '',),
     $cs -> ('', '',),
@@ -119,7 +119,7 @@ _participants: list<Participant> = {
 
   # personal supporters for the session: 
   ('Štěpán Bechynský',
-  curdir + '/img/participants/štěpán_bechynský.png',
+  curdir + '/img/participants/štěpán_bechynský.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -157,7 +157,7 @@ _participants: list<Participant> = {
   }),
   # personal supporters for the session: 
   ('Tomáš Tomeček',
-  curdir + '/img/participants/tomáš_tomeček.png',
+  curdir + '/img/participants/tomáš_tomeček.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -270,8 +270,8 @@ V prípade dostatku času:
    )
   }),
   # personal supporters for the session: 
-  ('Honza Horak',
-  curdir + '/img/participants/honza_horak.png',
+  ('Honza Horák',
+  curdir + '/img/participants/honza_horák.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -309,7 +309,7 @@ V prípade dostatku času:
   }),
   # personal supporters for the session: 
   ('Miroslav Šido',
-  curdir + '/img/participants/miroslav_šido.png',
+  curdir + '/img/participants/miroslav_šido.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -353,7 +353,7 @@ Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scann
 
 #  # personal supporters for the session: 
 #  ('Tomáš Kantůrek',
-#  curdir + '/img/participants/tomáš_kantůrek.png',
+#  curdir + '/img/participants/tomáš_kantůrek.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -392,7 +392,7 @@ Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scann
 
   # personal supporters for the session: 
   ('Tomáš Vondra',
-  curdir + '/img/participants/tomáš_vondra.png',
+  curdir + '/img/participants/tomáš_vondra.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -439,7 +439,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
   }),
   # personal supporters for the session: 
   ('Pavel Šnajdr',
-  curdir + '/img/participants/pavel_šnajdr.png',
+  curdir + '/img/participants/pavel_šnajdr.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -478,7 +478,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
   }),
   # personal supporters for the session: 
   ('Jirka Folta',
-  curdir + '/img/participants/jirka_folta.png',
+  curdir + '/img/participants/jirka_folta.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -532,8 +532,8 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
   }),
 
   # personal supporters for the session: 
-  ('Martin Stransky',
-  curdir + '/img/participants/martin_stransky.png',
+  ('Martin Stránský',
+  curdir + '/img/participants/martin_stránský.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -588,7 +588,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 
 #  # personal supporters for the session: 
 #  ('Petr Hráček',
-#  curdir + '/img/participants/petr_hráček.png',
+#  curdir + '/img/participants/petr_hráček.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -671,7 +671,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 
   # personal supporters for the session: 
   ('Martin Sivák',
-  curdir + '/img/participants/martin_sivák.png',
+  curdir + '/img/participants/martin_sivák.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -747,7 +747,7 @@ Součástí přednášky tedy budou zhruba následující body:
 
   # personal supporters for the session: 
   ('Michal Černý',
-  curdir + '/img/participants/michal_černý.png',
+  curdir + '/img/participants/michal_černý.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -786,7 +786,7 @@ Součástí přednášky tedy budou zhruba následující body:
 
   # personal supporters for the session: 
   ('Martin Čežík',
-  curdir + '/img/participants/martin_čežík.png',
+  curdir + '/img/participants/martin_čežík.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -858,7 +858,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
 
   # personal supporters for the session: 
   ('Jan Mareš',
-  curdir + '/img/participants/jan_mareš.png',
+  curdir + '/img/participants/jan_mareš.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -897,7 +897,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
 
   # personal supporters for the session: 
   ('Jiří Eischmann',
-  curdir + '/img/participants/jiří_eischmann.png',
+  curdir + '/img/participants/jiří_eischmann.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -936,7 +936,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
 
   # personal supporters for the session: 
   ('Šimon Lukašík',
-  curdir + '/img/participants/šimon_lukašík.png',
+  curdir + '/img/participants/šimon_lukašík.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1010,7 +1010,7 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
   }),
   # personal supporters for the session: 
   ('Věroš Kaplan',
-  curdir + '/img/participants/věroš_kaplan.png',
+  curdir + '/img/participants/věroš_kaplan.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1065,7 +1065,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 
 #  # personal supporters for the session: 
 #  ('Marek Bryša',
-#  curdir + '/img/participants/marek_bryša.png',
+#  curdir + '/img/participants/marek_bryša.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1105,7 +1105,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 
 #  # personal supporters for the session: 
 #  ('Jan Zelený',
-#  curdir + '/img/participants/jan_zelený.png',
+#  curdir + '/img/participants/jan_zelený.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1144,7 +1144,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 
   # personal supporters for the session: 
   ('Václav Pavlín',
-  curdir + '/img/participants/václav_pavlín.png',
+  curdir + '/img/participants/václav_pavlín.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1183,7 +1183,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 
   # personal supporters for the session: 
   ('Lukáš Nykrýn',
-  curdir + '/img/participants/lukáš_nykrýn.png',
+  curdir + '/img/participants/lukáš_nykrýn.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1222,7 +1222,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 
   # personal supporters for the session: Václav Pavlín
   ('Tomáš Tomeček',
-  curdir + '/img/participants/tomáš_tomeček.png',
+  curdir + '/img/participants/tomáš_tomeček.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1266,7 +1266,7 @@ A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příka
 
   # personal supporters for the session: 
   ('Martin Kolman',
-  curdir + '/img/participants/martin_kolman.png',
+  curdir + '/img/participants/martin_kolman.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1321,7 +1321,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
   # personal supporters for the session: 
   ('Barbora Ančincová',
-  curdir + '/img/participants/barbora_ančincová.png',
+  curdir + '/img/participants/barbora_ančincová.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1360,7 +1360,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
   # personal supporters for the session: 
   ('Tomáš Raděj',
-  curdir + '/img/participants/tomáš_raděj.png',
+  curdir + '/img/participants/tomáš_raděj.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1399,7 +1399,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
   # personal supporters for the session: 
   ('Pavel Cvrček',
-  curdir + '/img/participants/pavel_cvrček.png',
+  curdir + '/img/participants/pavel_cvrček.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1438,7 +1438,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
 #  # personal supporters for the session: Michal Stanke
 #  ('Pavel Cvrček',
-#  curdir + '/img/participants/pavel_cvrček.png',
+#  curdir + '/img/participants/pavel_cvrček.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1477,7 +1477,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
 #  # personal supporters for the session: 
 #  ('Pavel Cvrček',
-#  curdir + '/img/participants/pavel_cvrček.png',
+#  curdir + '/img/participants/pavel_cvrček.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1516,7 +1516,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
   # personal supporters for the session: 
   ('Ondřej Caletka',
-  curdir + '/img/participants/ondřej_caletka.png',
+  curdir + '/img/participants/ondřej_caletka.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1555,7 +1555,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
 #  # personal supporters for the session: Pavel Macík
 #  ('Martin Večeřa',
-#  curdir + '/img/participants/martin_večeřa.png',
+#  curdir + '/img/participants/martin_večeřa.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1619,7 +1619,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
   # personal supporters for the session: 
   ('Petr Hodač',
-  curdir + '/img/participants/petr_hodač.png',
+  curdir + '/img/participants/petr_hodač.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1658,7 +1658,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 
   # personal supporters for the session: 
   ('Petr Hodač',
-  curdir + '/img/participants/petr_hodač.png',
+  curdir + '/img/participants/petr_hodač.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1705,7 +1705,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 
   # personal supporters for the session: 
   ('Tomáš Ehrlich',
-  curdir + '/img/participants/tomáš_ehrlich.png',
+  curdir + '/img/participants/tomáš_ehrlich.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1744,7 +1744,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 
 #  # personal supporters for the session: 
 #  ('Dalibor Šulc',
-#  curdir + '/img/participants/dalibor_šulc.png',
+#  curdir + '/img/participants/dalibor_šulc.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1783,7 +1783,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 
 #  # personal supporters for the session: 
 #  ('David Kolibáč',
-#  curdir + '/img/participants/david_kolibáč.png',
+#  curdir + '/img/participants/david_kolibáč.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1840,7 +1840,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 
 #  # personal supporters for the session: 
 #  ('David Kolibáč',
-#  curdir + '/img/participants/david_kolibáč.png',
+#  curdir + '/img/participants/david_kolibáč.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1879,8 +1879,8 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #  }),
 
 #  # personal supporters for the session: 
-#  ('Michal Hrusecky',
-#  curdir + '/img/participants/michal_hrusecky.png',
+#  ('Michal Hrušecký',
+#  curdir + '/img/participants/michal_hrušecký.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -1918,8 +1918,8 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #  }),
 
   # personal supporters for the session: 
-  ('Michal Hrusecky',
-  curdir + '/img/participants/michal_hrusecky.png',
+  ('Michal Hrušecký',
+  curdir + '/img/participants/michal_hrušecký.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -1966,7 +1966,7 @@ Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvoj
 
   # personal supporters for the session: 
   ('Pavel Borecki',
-  curdir + '/img/participants/pavel_borecki.png',
+  curdir + '/img/participants/pavel_borecki.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2010,7 +2010,7 @@ Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložen�
 
 #  # personal supporters for the session: 
 #  ('Honza Horak',
-#  curdir + '/img/participants/honza_horak.png',
+#  curdir + '/img/participants/honza_horak.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2049,7 +2049,7 @@ Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložen�
 
   # personal supporters for the session: 
   ('Jan Kaláb',
-  curdir + '/img/participants/jan_kaláb.png',
+  curdir + '/img/participants/jan_kaláb.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2094,7 +2094,7 @@ Přednáška vám představí ty nejzajímavější vychytávky co dnešní brow
 
   # personal supporters for the session: 
   ('Michal Strnad',
-  curdir + '/img/participants/michal_strnad.png',
+  curdir + '/img/participants/michal_strnad.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2153,7 +2153,7 @@ Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFT
 
   # personal supporters for the session: 
   ('Marek Červenka',
-  curdir + '/img/participants/marek_červenka.png',
+  curdir + '/img/participants/marek_červenka.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2216,7 +2216,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 
 #  # personal supporters for the session: 
 #  ('Jaroslav Řezník',
-#  curdir + '/img/participants/jaroslav_řezník.png',
+#  curdir + '/img/participants/jaroslav_řezník.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2256,7 +2256,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 
   # personal supporters for the session: Martin Grmela, Ladislav Hagara, Petr Hvižď, Miroslav Lábr, Petr Strnad
   ('Ladislav Hagara',
-  curdir + '/img/participants/ladislav_hagara.png',
+  curdir + '/img/participants/ladislav_hagara.jpg',
   trans = {
     $en -> ('',
              'Collective of army specialists - Martin Grmela, Ladislav Hagara, Petr Hvižď, Miroslav Lábr and Petr Strnad.',),
@@ -2295,7 +2295,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 
   # personal supporters for the session: 
   ('Hynek Štětina',
-  curdir + '/img/participants/hynek_štětina.png',
+  curdir + '/img/participants/hynek_štětina.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2334,7 +2334,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 
 #  # personal supporters for the session: Miroslav Lábr
 #  ('Ladislav Hagara',
-#  curdir + '/img/participants/ladislav_hagara.png',
+#  curdir + '/img/participants/ladislav_hagara.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2373,7 +2373,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 
   # personal supporters for the session: 
   ('František Kučera',
-  curdir + '/img/participants/františek_kučera.png',
+  curdir + '/img/participants/františek_kučera.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2421,7 +2421,7 @@ Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dota
 
   # personal supporters for the session: 
   ('František Kučera',
-  curdir + '/img/participants/františek_kučera.png',
+  curdir + '/img/participants/františek_kučera.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2473,7 +2473,7 @@ Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt z
 
   # personal supporters for the session: 
   ('František Kučera',
-  curdir + '/img/participants/františek_kučera.png',
+  curdir + '/img/participants/františek_kučera.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2522,7 +2522,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
   }),
   # personal supporters for the session: 
   ('Zdeněk Hruška',
-  curdir + '/img/participants/zdeněk_hruška.png',
+  curdir + '/img/participants/zdeněk_hruška.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2561,7 +2561,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 
 #  # personal supporters for the session: 
 #  ('Martin Holec',
-#  curdir + '/img/participants/martin_holec.png',
+#  curdir + '/img/participants/martin_holec.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2600,7 +2600,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 
   # personal supporters for the session: 
   ('Tomáš Kaplan',
-  curdir + '/img/participants/tomáš_kaplan.png',
+  curdir + '/img/participants/tomáš_kaplan.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2639,7 +2639,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 
 #  # personal supporters for the session: 
 #  ('Radek Dostál',
-#  curdir + '/img/participants/radek_dostál.png',
+#  curdir + '/img/participants/radek_dostál.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2681,7 +2681,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 
 #  # personal supporters for the session: 
 #  ('Michal Černý',
-#  curdir + '/img/participants/michal_černý.png',
+#  curdir + '/img/participants/michal_černý.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2720,7 +2720,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 
 #  # personal supporters for the session: 
 #  ('Pavel Stratil',
-#  curdir + '/img/participants/pavel_stratil.png',
+#  curdir + '/img/participants/pavel_stratil.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2787,7 +2787,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 
   # personal supporters for the session: 
   ('Ľubor Jurena',
-  curdir + '/img/participants/ľubor_jurena.png',
+  curdir + '/img/participants/ľubor_jurena.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2830,7 +2830,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 
 #  # personal supporters for the session: 
 #  ('František Dalecký',
-#  curdir + '/img/participants/františek_dalecký.png',
+#  curdir + '/img/participants/františek_dalecký.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2869,7 +2869,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 
 #  # personal supporters for the session: 
 #  ('Zdeněk Záhora',
-#  curdir + '/img/participants/zdeněk_záhora.png',
+#  curdir + '/img/participants/zdeněk_záhora.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2910,7 +2910,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 
   # personal supporters for the session: 
   ('Jozef Mlích',
-  curdir + '/img/participants/jozef_mlích.png',
+  curdir + '/img/participants/jozef_mlích.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -2949,7 +2949,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 
 #  # personal supporters for the session: 
 #  ('Jozef Mlích',
-#  curdir + '/img/participants/jozef_mlích.png',
+#  curdir + '/img/participants/jozef_mlích.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
@@ -2989,7 +2989,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 
   # personal supporters for the session: 
   ('Jozef Mlích',
-  curdir + '/img/participants/jozef_mlích.png',
+  curdir + '/img/participants/jozef_mlích.jpg',
   trans = {
     $en -> ('',
              '',),
@@ -3032,7 +3032,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 
 #  # personal supporters for the session: 
 #  ('Martin Holec',
-#  curdir + '/img/participants/martin_holec.png',
+#  curdir + '/img/participants/martin_holec.jpg',
 #  trans = {
 #    $en -> ('',
 #             '',),
