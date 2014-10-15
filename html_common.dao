@@ -95,8 +95,10 @@ routine html_top_stripe(
             html_local_refs[$schedule],
             html_local_refs[$gallery],
             html_local_refs[$contact], }) {
-          anchor(_class='page_link', href=
-                 (ref[0] == page_name) ? '#' + ref[1] :
+          current = ref[0] == page_name
+          anchor(
+            _class='page_link' + ((current) ? ' page_link_selected' : ''),
+            href=(current) ? '#' + ref[1] :
                  rel(dst + '/' + pages[ref[0]] + '#' + ref[1])) {
             t[(%ref[1]) ? ref[1] : ref[0]]
           }
