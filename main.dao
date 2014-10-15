@@ -145,6 +145,7 @@ body {
   vertical-align: middle;  /* for img */
   line-height: 37pt;  /* for the rest */
 }
+/* arbitrary sized icons are evil */
 #top_stripe .segment img {
   max-height: 15pt;
 }
