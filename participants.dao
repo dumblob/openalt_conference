@@ -2096,10 +2096,10 @@ Přednáška vám představí ty nejzajímavější vychytávky co dnešní brow
   ('Michal Strnad',
   curdir + '/img/participants/michal_strnad.jpg',
   trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
+    $en -> ('Specialista datových úložišť',
+             'Vystudoval softwarové inženýrství na FEL ČVUT. V současnosti pracuje ve sdružení CESNET, provozujícím národní síť vědy a výzkumu.',),
+    $cs -> ('Specialista datových úložišť',
+             'Vystudoval softwarové inženýrství na FEL ČVUT. V současnosti pracuje ve sdružení CESNET, provozujícím národní síť vědy a výzkumu.',),
   },
   events = {
    # 
