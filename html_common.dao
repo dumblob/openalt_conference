@@ -2,6 +2,7 @@ load lib import lib
 load web.html import html
 load config import configuration
 load translations import translation
+load time import time
 
 namespace html_content {
   LocalRefs, html_local_refs,
@@ -138,6 +139,11 @@ routine html_top_stripe(
             }
         }
       }
+    }
+
+    # FIXME why need to use value?
+    if (time.now().add(days=-1).value > conf.time_to.value) {
+      paragraph(_class='urgent') { t['warn_past_annual'] }
     }
   }
 }

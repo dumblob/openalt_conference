@@ -5,7 +5,9 @@ load participants import participants_ns
 load lib import lib
 load time
 
-namespace translation { translations, participants }
+namespace translation { translations, participants, FeedbackPiece, feedback }
+
+type FeedbackPiece = tuple<author:none|string, msg:string>
 
 # FIXME use some existing format supporting plurals
 #   http://docs.transifex.com/developer/formats/
@@ -30,7 +32,12 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'gallery' -> 'Gallery',
     'downloads' -> 'Downloads',
     'contact' -> 'Contact',
-    'contact_openalt_content' -> 'FIXME Praha, Brno...',
+    'contact_openalt_content' ->
+'Openmobility, občanské sdružení<br>
+registrováno MVČR dne 18.11.2010 pod č.j. VS-1-1/82038/10-R<br>
+IČO: 22848037<br>
+Lamačova 634/2<br>
+Praha 52, 152 00',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
     'footer' -> 'last updated on ' + time.now().format(),
@@ -59,6 +66,8 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'propagation' -> 'Propagation',
     'propagation_hint_oa_conf' -> 'Pokud se chystáte navštívit naši konferenci, nebo Vám přijde zajímavá a chtěli byste dát vědět i ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
     'propagation_hint_oa_org' -> 'Pokud byste chtěli o nás dát vědět ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
+    'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
+    'feedback' -> 'Feedback and media',
   },
   $cs -> {
     '_locale' -> 'cs_CZ.UTF-8',
@@ -68,7 +77,7 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'twitter' -> 'oficiální stránka konference OpenAlt na Twitter',
     'gplus' -> 'oficiální stránka konference OpenAlt na Google+',
     'fb' -> 'oficiální stránka konference OpenAlt na Facebook',
-    'motivation' -> 'Staňte sa i Vy součástí již devátého pokračování brněnské open-source, open-hardware a open-mind konference!',
+    'motivation' -> '<a href="http://www.openalt.cz/2014/registrace" title="Registrace">Staňte se i Vy</a> součástí již devátého pokračování brněnské open-source, open-hardware a open-mind konference!',
     'home' -> 'Domů',
     'about' -> 'O nás',
     'thanks' -> 'Poděkování',
@@ -80,7 +89,12 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'gallery' -> 'Fotogalerie',  # Fotografie
     'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
-    'contact_openalt_content' -> 'FIXME Praha, Brno...',
+    'contact_openalt_content' ->
+'Openmobility, občanské sdružení<br>
+registrováno MVČR dne 18.11.2010 pod č.j. VS-1-1/82038/10-R<br>
+IČO: 22848037<br>
+Lamačova 634/2<br>
+Praha 52, 152 00',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
     'footer' -> 'Poslední aktualizace ' + time.now().format(),
@@ -109,6 +123,8 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'propagation' -> 'Propagace',
     'propagation_hint_oa_conf' -> 'Pokud se chystáte navštívit naši konferenci, nebo Vám přijde zajímavá a chtěli byste dát vědět i ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
     'propagation_hint_oa_org' -> 'Pokud byste chtěli o nás dát vědět ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
+    'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
+    'feedback' -> 'Napsali o nás',
   },
 #  $sk -> {
 #    '_locale' -> 'sk_SK.UTF-8',
@@ -117,6 +133,12 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 #  $de -> {
 #    '_locale' -> 'de_DE.UTF-8',
 #  },
+}
+
+var feedback: list<FeedbackPiece> = {
+  ('Jiří Eischmann (z <a href="http://www.linuxexpres.cz/blog/jaky-byl-linuxalt-2012-myma-ocima">Jaký byl LinuxAlt 2012 mýma očima</a>)', '"Myslím, že velkou zásluhu na slušné návštěvnosti druhého dne měla přednáška Mira Hrončoka o 3D tiskárně, která byla lákadlem letošního ročníku. 3D tiskárny jsou prostě in."'),
+  (none, '<a href="http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/">LinuxAlt 2012, sobota: Firefox, kalendáře a DNS</a>'),
+  (none, '<a href="http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/">LinuxAlt 2012, neděle: 3D tisk, SSH a Nagios</a>'),
 }
 
 # fill empty translations with english terms (if not existing in en,
