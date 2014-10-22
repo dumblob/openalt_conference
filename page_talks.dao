@@ -35,7 +35,7 @@ routine page_talks(
 
       h3(_class='section') { t['talks'] }
 
-      div(_class='talks') {
+      div(id='talks') {
         # FIXME all the tracks should be in DB and here shouldn't be
         #   anything fixed - only loops over existing data
         #   alse CSS should be generated from the data in DB

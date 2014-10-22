@@ -23,34 +23,56 @@ invar conf = (
   # FIXME
   meta_description = 'some short human readable description in english of the content of the web page',
   rootdir   = curdir,
-  uri       = (
-    # shared between all pages (no exceptions)
-    css       = curdir + '/style.css',
-    twitter   = 'https://twitter.com/OpenAlt',
-    gplus     = 'http://plus.google.com/100946575675112811528',
-    fb        = 'https://www.facebook.com/OpenAlt',
-  ),
+
   # mime='image/x-icon'
   favicon   = (mime='image/x-svg', path=curdir + '/img/favicon.svg',
                sizes='any'),
-  img       = (
-    # FIXME request from Michaela
-    rss          = curdir + '/img/icon-rss.svg',
-    twitter      = curdir + '/img/icon-twitter.svg',
-    gplus        = curdir + '/img/icon-gplus.svg',
-    fb           = curdir + '/img/icon-facebook.svg',
-    location     = curdir + '/img/map_fit_vutbr.jpg',
 
-    # FIXME use SVG everywhere!
+  # look at uri-corresponding images below (if applicable)
+  uri       = (
+    # shared between all pages (no exceptions)
+    css                 = curdir + '/style.css',
+
+    twitter             = 'https://twitter.com/OpenAlt',
+    gplus               = 'http://plus.google.com/100946575675112811528',
+    fb                  = 'https://www.facebook.com/OpenAlt',
+
+    logo_oa_conf        = 'http://www.openalt.org/spolek/logo_openalt_conference.svg',
+    logo_oa_org         = 'http://www.openalt.org/spolek/logo_openalt.svg',
+    banner_print        = 'http://www.openalt.org/spolek/OA_2014/OA_2014_tisk.pdf',
+    banner_web          = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
+    qr_oa_conf          = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
+    # FIXME
+    qr_oa_org           = 'http://www.openalt.org/spolek/',
+    graph_man_oa_conf = 'http://www.openalt.org/spolek/oa_graficky_manual_konference.zip',
+    graph_man_oa_org  = 'http://www.openalt.org/spolek/oa_graficky_manual.zip',
+  ),
+
+  # FIXME use SVG everywhere!
+  img       = (
+    location     = curdir + '/img/map_fit_vutbr.jpg',
+    logo_sufit   = curdir + '/img/logo-sufit.gif',
     audio        = curdir + '/img/icon-audio.svg',
     clock        = curdir + '/img/icon-clock.svg',
     door         = curdir + '/img/icon-door.svg',
     on_in_circle = curdir + '/img/icon-stream.svg',
     pdf          = curdir + '/img/icon-pdf.svg',
     video        = curdir + '/img/icon-video.svg',
+    rss          = curdir + '/img/icon-rss.svg',
+
+    twitter      = curdir + '/img/icon-twitter.svg',
+    gplus        = curdir + '/img/icon-gplus.svg',
+    fb           = curdir + '/img/icon-facebook.svg',
+
     logo_oa_conf = curdir + '/img/logo-openalt-conference.svg',
     logo_oa_org  = curdir + '/img/logo-openalt-org.svg',
-    logo_sufit   = curdir + '/img/logo-sufit.gif',
+    banner_print = curdir + '/img/thumbnail-OA_2014_tisk.pdf.png',
+    banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
+    qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
+    # FIXME
+    qr_oa_org    = 'http://www.openalt.org/spolek/',
+    graph_man_oa_conf = curdir + '/img/thumbnail-oa_graficky_manual_konference.zip.png',
+    graph_man_oa_org  = curdir + '/img/thumbnail-oa_graficky_manual.zip.png',
   ),
 )
 
@@ -65,8 +87,8 @@ invar partners: list<Partner> = {
    curdir + '/img/partners/honeywell.png',          'http://honeywell.com/'),
   ($main, 'ICT Pro s. r. o.',
    curdir + '/img/partners/ict-pro.png',            'http://www.skoleni-ict.cz/'),
-  ($main, 'DataScript s. r. o.',
-   curdir + '/img/partners/logo_DataScript_cz.jpg', 'http://www.datascript.cz/'),
+#  ($main, 'DataScript s. r. o.',
+#   curdir + '/img/partners/logo_DataScript_cz.jpg', 'http://www.datascript.cz/'),
   ($main, 'OKsystem',
    curdir + '/img/partners/oksystem.png',           'http://www.oksystem.cz/'),
   ($main, 'Perspektiva - ITJobs',

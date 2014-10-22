@@ -56,6 +56,9 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'track_challenges_desc' -> 'Mobile systems, less-known systems, brave projects',
     'track_establishment' -> 'Open world',
     'track_establishment_desc' -> 'State, establishment, schooling...',
+    'propagation' -> 'Propagation',
+    'propagation_hint_oa_conf' -> 'Pokud se chystáte navštívit naši konferenci, nebo Vám přijde zajímavá a chtěli byste dát vědět i ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
+    'propagation_hint_oa_org' -> 'Pokud byste chtěli o nás dát vědět ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
   },
   $cs -> {
     '_locale' -> 'cs_CZ.UTF-8',
@@ -103,6 +106,9 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'track_challenges_desc' -> 'obecné i pro mobily',
     'track_establishment' -> 'Otevřený svět',
     'track_establishment_desc' -> 've státním sektoru, školství',
+    'propagation' -> 'Propagace',
+    'propagation_hint_oa_conf' -> 'Pokud se chystáte navštívit naši konferenci, nebo Vám přijde zajímavá a chtěli byste dát vědět i ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
+    'propagation_hint_oa_org' -> 'Pokud byste chtěli o nás dát vědět ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
   },
 #  $sk -> {
 #    '_locale' -> 'sk_SK.UTF-8',

@@ -392,6 +392,15 @@ body {
   margin: 20pt 0 0 0;
   vertical-align: middle;
 }
+
+
+.img_example {
+  height: 180px;
+  width: auto;
+  max-width: 180px;
+}
+
+
 #footer * {
   margin: auto 0 0 0;
   background-color: @[] + dark_grey + @[];
