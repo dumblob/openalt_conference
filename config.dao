@@ -43,7 +43,7 @@ invar conf = (
     banner_web          = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
     qr_oa_conf          = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     # FIXME
-    qr_oa_org           = 'http://www.openalt.org/spolek/',
+    qr_oa_org           = 'http://www.openalt.org/o-spolku/',
     graph_man_oa_conf = 'http://www.openalt.org/spolek/oa_graficky_manual_konference.zip',
     graph_man_oa_org  = 'http://www.openalt.org/spolek/oa_graficky_manual.zip',
   ),
@@ -70,7 +70,7 @@ invar conf = (
     banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
     qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     # FIXME
-    qr_oa_org    = 'http://www.openalt.org/spolek/',
+    qr_oa_org    = 'http://www.openalt.org/o-spolku/',
     graph_man_oa_conf = curdir + '/img/thumbnail-oa_graficky_manual_konference.zip.png',
     graph_man_oa_org  = curdir + '/img/thumbnail-oa_graficky_manual.zip.png',
   ),
