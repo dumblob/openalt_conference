@@ -39,20 +39,25 @@ routine page_about(
       h4 { t['propagation'] }
       paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_conf'] }
       div(_class='propagation') {
-        anchor(href=cu.banner_print) { img(_class='img_example',
-          src=ci.banner_print, alt=ci.banner_print, title=cu.banner_print)
+        anchor(href=cu.banner_print) {
+          img(_class='img_example', src=rel(ci.banner_print),
+              alt=rel(ci.banner_print), title=cu.banner_print)
         }
-        anchor(href=cu.logo_oa_conf) { img(_class='img_example',
-          src=ci.logo_oa_conf, alt=ci.logo_oa_conf, title=cu.logo_oa_conf)
+        anchor(href=cu.logo_oa_conf) {
+          img(_class='img_example', src=rel(ci.logo_oa_conf),
+              alt=rel(ci.logo_oa_conf), title=cu.logo_oa_conf)
         }
-        anchor(href=cu.banner_web) { img(_class='img_example',
-          src=ci.banner_web, alt=ci.banner_web, title=cu.banner_web)
+        anchor(href=cu.banner_web) {
+          img(_class='img_example', src=rel(ci.banner_web),
+              alt=rel(ci.banner_web), title=cu.banner_web)
         }
-        anchor(href=cu.qr_oa_conf) { img(_class='img_example',
-          src=ci.qr_oa_conf, alt=ci.qr_oa_conf, title=cu.qr_oa_conf)
+        anchor(href=cu.qr_oa_conf) {
+          img(_class='img_example', src=rel(ci.qr_oa_conf),
+              alt=rel(ci.qr_oa_conf), title=cu.qr_oa_conf)
         }
-        anchor(href=cu.graph_man_oa_conf) { img(_class='img_example',
-          src=ci.graph_man_oa_conf, alt=ci.graph_man_oa_conf, title=cu.graph_man_oa_conf)
+        anchor(href=cu.graph_man_oa_conf) {
+          img(_class='img_example', src=rel(ci.graph_man_oa_conf),
+              alt=rel(ci.graph_man_oa_conf), title=cu.graph_man_oa_conf)
         }
       }
 
@@ -62,14 +67,17 @@ routine page_about(
       h4 { t['propagation'] }
       paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_org'] }
       div(_class='propagation') {
-        anchor(href=cu.logo_oa_org) { img(_class='img_example',
-          src=ci.logo_oa_org, alt=ci.logo_oa_org, title=cu.logo_oa_org)
+        anchor(href=cu.logo_oa_org) {
+          img(_class='img_example', src=rel(ci.logo_oa_org),
+              alt=rel(ci.logo_oa_org), title=cu.logo_oa_org)
         }
-        anchor(href=cu.qr_oa_org) { img(_class='img_example',
-          src=ci.qr_oa_org, alt=ci.qr_oa_org, title=cu.qr_oa_org)
+        anchor(href=cu.qr_oa_org) {
+          img(_class='img_example', src=rel(ci.qr_oa_org),
+              alt=rel(ci.qr_oa_org), title=cu.qr_oa_org)
         }
-        anchor(href=cu.graph_man_oa_org) { img(_class='img_example',
-          src=ci.graph_man_oa_org, alt=ci.graph_man_oa_org, title=cu.graph_man_oa_org)
+        anchor(href=cu.graph_man_oa_org) {
+          img(_class='img_example', src=rel(ci.graph_man_oa_org),
+              alt=rel(ci.graph_man_oa_org), title=cu.graph_man_oa_org)
         }
       }
 
