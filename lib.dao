@@ -149,7 +149,9 @@ namespace participants_ns { participants }
 
 _participants: list<Participant> = {
 '
-  for (invar _line in csv[1:]) {
+  # FIXME use [1:] instead of [:]
+  #for (invar _line in csv[1:]) {
+  for (invar _line in csv[:]) {
     # escape everything for sure
     line = _line.collect { X.replace('\\', '\\\\').replace("'", "\\'") }
     #{
@@ -227,7 +229,7 @@ for (_p in _participants) {
     _p.events.iterate { p.value.events.append(X) }
 }
 
-# FIXME
+# FIXME update according to the current participants.dao
 #load web.json
 #io.writeln(json.serialize((list<json.Data>)participants))'
 }

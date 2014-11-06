@@ -16,7 +16,8 @@ type Partner = tuple<
 invar conf = (
   time_from = time.make(2014, 11, 1),
   time_to   = time.make(2014, 11, 2),
-  coord_gps = '49.2263872°N, 16.5963531°E',
+  coord_gps_n = '49.2263872',
+  coord_gps_e = '16.5963531',
   # FIXME
   #base_uri  = 'http://www.openalt.cz/',
   base_uri  = '',

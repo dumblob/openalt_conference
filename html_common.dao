@@ -143,8 +143,7 @@ routine html_top_stripe(
       }
     }
 
-    # FIXME why need to use value?
-    if (time.now().add(days=-1).value > conf.time_to.value) {
+    if (time.now().add(days=-1) > conf.time_to) {
       paragraph(_class='urgent') { t['warn_past_annual'] }
     }
   }

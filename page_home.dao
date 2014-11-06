@@ -37,7 +37,8 @@ routine page_home(
       ((%tup[1]) ? '#' + tup[1] : '')
   }
 
-  # FIXME it should be somehow allowed
+  # FIXME html module should somehow allow (temporary) nested subdocuments
+  #   creation or transitive code section calls through functions
   _html_head = html_head(trans, dst, pages)
   _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
 
@@ -47,7 +48,8 @@ routine page_home(
       text(_html_top_stripe)
 
       div(id='header') {
-        img(src=rel(ci.logo_oa_conf), alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
+        img(src=rel(ci.logo_oa_conf),
+            alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
         paragraph(_class='narrow_paragraph') { t['motivation'] }
         paragraph(id='time_range') {
           strong {
@@ -57,6 +59,12 @@ routine page_home(
               t['_locale'], conf.time_to, '%-d. %B %Y')
           }
         }
+        # FIXME paragraph {
+        paragraph(_class='narrow_paragraph') {
+          anchor(href='http://www.openalt.cz/2014/registrace') {
+            t['registration']
+          }
+        }
       }
       div(id='main_buttons') {
         anchor(href=rel2($talks)) { t['talks'] }
@@ -64,8 +72,7 @@ routine page_home(
         anchor(href=rel2($schedule)) { t['schedule'] }
       }
 
-      # FIXME why need to use value?
-      if (my_time.time.now().add(days=-1).value > conf.time_to.value) {
+      if (my_time.time.now().add(days=-1) > conf.time_to) {
         div(id='feedback') {
           h3(_class='section') { t['feedback'] }
 
@@ -100,29 +107,29 @@ routine page_home(
         places = (map<string, int>){->}
         days = (map<int, map<int, map<string, @T>>>){->}
         participants.iterate { [p]
-          p.events.iterate {
-            if (X.kind != $party) {
+          p.events.iterate { [ev]
+            if (ev.kind != $party) {
               # rank ~ number of occurences
-              if (X.trans[trans].place in places)
-                ++places[X.trans[trans].place]
+              if (ev.trans[trans].place in places)
+                ++places[ev.trans[trans].place]
               else
-                places[X.trans[trans].place] = 1
+                places[ev.trans[trans].place] = 1
             }
 
-            day = my_time.time.make(X.from.year, X.from.month, X.from.day)
+            day = my_time.time.make(ev.from.year, ev.from.month, ev.from.day)
             # each day separately
             if (day.value not in days)
               days[day.value] = {->}
             # each event
-            if (X.from.value not in days[day.value])
-              days[day.value][X.from.value] = {->}
+            if (ev.from.value not in days[day.value])
+              days[day.value][ev.from.value] = {->}
             # each place
-            if (X.trans[trans].place not in days[day.value][X.from.value])
-              days[day.value][X.from.value][X.trans[trans].place] =
-                (author=p, event=X)
+            if (ev.trans[trans].place not in days[day.value][ev.from.value])
+              days[day.value][ev.from.value][ev.trans[trans].place] =
+                (author=p, event=ev)
             else
-              io.stderr.writeln('WARN >1 events in venue',
-                  X.trans[trans].place, 'at time', X.from)
+              io.stderr.writeln('WARN >1 events at a venue',
+                  ev.trans[trans].place, 'at time', ev.from)
           }
         }
 
@@ -145,21 +152,29 @@ routine page_home(
         }
 
         day_sets = routine(m: map<int, map<string, @T>>)
-            => list<tuple<kind: enum, cells: list<@T>>> {
-          res = (list<tuple<kind: enum, cells: list<@T>>>){}
-          kind: none|@T = none
+            => list<tuple<kind: enum, cell_lines: list<list<@T>>>> {
+
+          res = (list<tuple<kind: enum, cell_lines: list<list<@T>>>>){}
+          last_event: none|@T = none
 
           m.keys().sort().iterate { [time_point]
-            m[time_point].iterate { [place, tup]
-              if (tup.event.kind == kind || (kind != none &&
-                  # both of them must be non-party
-                  kind != $party && tup.event.kind != $party)) {
-                res[-1].cells.append(tup)
+            m[time_point].iterate { [place, cell]
+              if (last_event != none && (
+                  (last_event.kind == $party && cell.event.kind == $party) ||
+                  (
+                   # all non-party events are in the same cluster
+                   last_event.kind != $party && cell.event.kind != $party)
+              )) {
+                if (last_event.from == cell.event.from)
+                  res[-1].cell_lines[-1].append(cell)
+                else
+                  res[-1].cell_lines.append({cell})
               }
               else {
-                kind = tup.event.kind
-                res.append((kind=kind, cells={tup}))
+                res.append( (kind=cell.event.kind, cell_lines={{cell}}) )
               }
+
+              last_event = cell.event
             }
           }
 
@@ -176,32 +191,36 @@ routine page_home(
 
           day_sets(days[day]).iterate { [set]
             if (set.kind == $party) {
-              set.cells.iterate { [tup]
-                div {
-                  paragraph { tup.event.trans[trans].name }
-                  paragraph { tup.event.trans[trans].description }
-                  paragraph { tup.event.trans[trans].requirements }
-                  paragraph { tup.event.trans[trans].place }
+              set.cell_lines.iterate { [cell_line]
+                cell_line.iterate { [cell]
+                  div {
+                    paragraph { cell.event.from.format('%H:%M') }
+                    paragraph { cell.event.trans[trans].name }
+                    paragraph { cell.event.trans[trans].description }
+                    paragraph { cell.event.trans[trans].requirements }
+                    paragraph { cell.event.trans[trans].place }
+                  }
                 }
               }
             }
             else {
               table {
-                tr { th {}; places2.iterate { [r] th { r.id } } }
+                tr { th {}; places2.iterate { [place] th { place.id } } }
 
-                set.cells.iterate { [tup]
+                set.cell_lines.iterate { [cell_line]
                   tr {
-                    td { tup.event.from.format('%H:%M') }
-                    places2.iterate { [place]
-                      if (place.id in days[day][tup.event.from.value]) {
-                        td {
-                          span { tup.event.trans[trans].name }
-                          span { tup.author.name }
+                    # there is at least 1 cell
+                    td { cell_line[0].event.from.format('%H:%M') }
+
+                    cell_line.iterate { [cell]
+                      # tight-loop to preserve order
+                      places2.iterate { [place]
+                        if (place.id == cell.event.trans[trans].place) {
+                          td {
+                            span { cell.event.trans[trans].name }
+                            span { cell.author.name }
+                          }
                         }
-                      }
-                      # FIXME debug
-                      else {
-io.writeln(place.id, 'NOT IN', tup.event.trans[trans].name)
                       }
                     }
                   }
@@ -214,14 +233,22 @@ io.writeln(place.id, 'NOT IN', tup.event.trans[trans].name)
 
       div(id='location') {
         h3(_class='section') { t['location'] }
-        paragraph { t['address'] }
+        paragraph {
+          text(t['address'])
+          br()
+          anchor(href='geo:' + conf.coord_gps_n + ',' + conf.coord_gps_e) {
+            t['gps_coordinates'] + ' ' +
+              conf.coord_gps_n + ' N, ' + conf.coord_gps_e + ' E'
+          }
+        }
         img(src=rel(ci.location),
-            alt=t['location'] + ': ' + conf.coord_gps,
-            title=t['location'] + ': ' + conf.coord_gps)
+            alt=t['location'] + ': ' +
+              conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E',
+            title=t['location'] + ': ' +
+              conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E')
       }
 
-      # FIXME why need to use value?
-      if (my_time.time.now().add(days=-1).value > conf.time_to.value) {
+      if (my_time.time.now().add(days=-1) > conf.time_to) {
         div(id='thanks') {
           h3(_class='section') { t['thanks'] }
           paragraph(_class='narrow_paragraph') { t['thank_you'] }

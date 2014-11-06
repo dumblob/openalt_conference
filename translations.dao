@@ -37,7 +37,33 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 registrováno MVČR dne 18.11.2010 pod č.j. VS-1-1/82038/10-R<br>
 IČO: 22848037<br>
 Lamačova 634/2<br>
-Praha 52, 152 00',
+Praha 52, 152 00<br>
+<br>
+Navštivte nás na naší Jabber konferenci: <a href="mailto:conf@openalt.org">conf@openalt.org</a><br>
+<br>
+Pokud nás chcete kontaktovat přímo, můžete zaslat e-mail na níže uvedené adresy:<br>
+Dotazy týkající se konference: <a href="mailto:informace@openalt.cz">informace@openalt.cz</a><br>
+Pro obecné dotazy ohledně naší činnosti: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
+Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
+<br>
+Předchozí ročníky konference OpenMobility:
+<a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>
+<a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>
+<a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>
+<a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
+<br>
+Předchozí ročníky konference LinuxAlt:
+<a href="http://www.linuxalt.cz/2013">2013</a>
+<a href="http://www.linuxalt.cz/2012">2012</a>
+<a href="http://www.linuxalt.cz/2011">2011</a>
+<a href="http://www.linuxalt.cz/2010">2010</a>
+<a href="http://www.linuxalt.cz/2009">2009</a>
+<a href="http://www.linuxalt.cz/2008">2008</a>
+<a href="http://www.linuxalt.cz/2007">2007</a>
+<a href="http://www.linuxalt.cz/2006">2006</a>
+<br>
+<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play</a>
+<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish openrepos</a>',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
     'footer' -> 'last updated on ' + time.now().format(),
@@ -52,7 +78,7 @@ Praha 52, 152 00',
     'conference_about_content' -> 'The best conference ever about open*',
     'organization' -> 'Organization',
     'organization_about_content' -> 'The most impressive and progressive organization dealing with open* stuff.',
-    'address' -> 'Brno University of Technology<br>Faculty of Information Technology<br>Božetěchova 1/2<br>61266 Brno',
+    'address' -> 'Brno University of Technology<br>Faculty of Information Technology<br>Božetěchova 1/2<br>61266 Brno<br><a href="www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
     'track_tips' -> 'Tips, hints and ideas on how to make it better',
     'track_tips_desc' -> 'Interesting applications showcase, SSD, SQL news',
     'track_world_around' -> 'World around us',
@@ -68,6 +94,8 @@ Praha 52, 152 00',
     'propagation_hint_oa_org' -> 'Pokud byste chtěli o nás dát vědět ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
     'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
     'feedback' -> 'Feedback and media',
+    'gps_coordinates' -> 'GPS coordinates',
+    'registration' -> 'Registration',
   },
   $cs -> {
     '_locale' -> 'cs_CZ.UTF-8',
@@ -94,7 +122,33 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 registrováno MVČR dne 18.11.2010 pod č.j. VS-1-1/82038/10-R<br>
 IČO: 22848037<br>
 Lamačova 634/2<br>
-Praha 52, 152 00',
+Praha 52, 152 00<br>
+<br>
+Navštivte nás na naší Jabber konferenci: <a href="mailto:conf@openalt.org">conf@openalt.org</a><br>
+<br>
+Pokud nás chcete kontaktovat přímo, můžete zaslat e-mail na níže uvedené adresy:<br>
+Dotazy týkající se konference: <a href="mailto:informace@openalt.cz">informace@openalt.cz</a><br>
+Pro obecné dotazy ohledně naší činnosti: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
+Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
+<br>
+Předchozí ročníky konference OpenMobility:
+<a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>
+<a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>
+<a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>
+<a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
+<br>
+Předchozí ročníky konference LinuxAlt:
+<a href="http://www.linuxalt.cz/2013">2013</a>
+<a href="http://www.linuxalt.cz/2012">2012</a>
+<a href="http://www.linuxalt.cz/2011">2011</a>
+<a href="http://www.linuxalt.cz/2010">2010</a>
+<a href="http://www.linuxalt.cz/2009">2009</a>
+<a href="http://www.linuxalt.cz/2008">2008</a>
+<a href="http://www.linuxalt.cz/2007">2007</a>
+<a href="http://www.linuxalt.cz/2006">2006</a>
+<br>
+<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play</a>
+<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish openrepos</a>',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
     'footer' -> 'Poslední aktualizace ' + time.now().format(),
@@ -109,7 +163,7 @@ Praha 52, 152 00',
     'conference_about_content' -> 'Úplně nejlepší konference ze všech o čemkoliv otevřeném (sháníme přednášející o dveřích dokořán...).',
     'organization' -> 'Spolek',
     'organization_about_content' -> 'Nejpokrokovější a nejpůsobivější spolek zabývající se otevřenými záležitostmi.',
-    'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno',
+    'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno<br><a href="www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
     'track_tips' -> 'Rady a nápady, aneb jak to lze dělat lépe',
     'track_tips_desc' -> 'ukázka zajímavých aplikací, SSD, SQL novinky',
     'track_world_around' -> 'Svět kolem nás',
@@ -125,6 +179,8 @@ Praha 52, 152 00',
     'propagation_hint_oa_org' -> 'Pokud byste chtěli o nás dát vědět ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
     'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
     'feedback' -> 'Napsali o nás',
+    'gps_coordinates' -> 'GPS souřadnice',
+    'registration' -> 'Registrace',
   },
 #  $sk -> {
 #    '_locale' -> 'sk_SK.UTF-8',

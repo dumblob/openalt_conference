@@ -105,6 +105,17 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
     }),
 
+    # FIXME testing party
+   ($party,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 23, 59),
+    trans = {
+      $en -> ('After-lunch siesta-party!', 'Being prepared to pay 10000 CZK for fly tickets.', 'Please see the leaflets for further information.', 'In my flat in Finland.',),
+      $cs -> ('Poobědová siesta-párty', 'Byt odhodlany zaplatit 10000 CZK za letenky.', 'Vizte letáky pro podrobnější informace.', 'V mem byte ve Finsku.',),
+    }),
+
     # party
    ($party,
     $establishment,
@@ -114,6 +125,17 @@ _participants: list<Participant> = {
     trans = {
       $en -> ('Party', 'no reqs', 'Please see the leaflets for further information.', 'Industra, 1. floor',),
       $cs -> ('Párty', 'žádné pož.', 'Vizte letáky pro podrobnější informace.', 'Industra, 1. partro',),
+    }),
+
+    # lottery
+   ($internal,
+    $establishment,
+    uri = ('', ''),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
+    trans = {
+      $en -> ('Final lottery', 'Having filled the feedback form.', 'For those who filled the feedback forms there are valuable prices (RHEL certification exam, T-Shirts, cups etc.).', 'D105',),
+      $cs -> ('Závěrečné slosování', 'Vyplnění formuláře pro zpětnou vazbu.', 'Pro ty, kteří vyplnili formulář zpětné vazby jsou připraveny hodnotné ceny (RHEL certifikační zkouška, třička, hrníčky atd.)', 'D105',),
     }),
   }),
 
