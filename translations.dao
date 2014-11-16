@@ -20,7 +20,7 @@ var translations = {
     'twitter' -> 'official twitter stream for OpenAlt conference',
     'gplus' -> 'official Google+ page for OpenAlt conference',
     'fb' -> 'official Facebook page for OpenAlt conference',
-    'motivation' -> 'Become a part of the ninth anniversary proceeding of the Brno open-source, open-hardware and open-mind conference!',
+    'motivation' -> '<a href="http://www.openalt.cz/2014/registrace" title="Registration">Become a part</a> of the ninth anniversary proceeding of the Brno open-source, open-hardware and open-mind conference!',
     'home' -> 'Home',
     'about' -> 'About',
     'thanks' -> 'Thanks',
@@ -192,9 +192,12 @@ Předchozí ročníky konference LinuxAlt:
 }
 
 var feedback: list<FeedbackPiece> = {
-  ('Jiří Eischmann (z <a href="http://www.linuxexpres.cz/blog/jaky-byl-linuxalt-2012-myma-ocima">Jaký byl LinuxAlt 2012 mýma očima</a>)', '"Myslím, že velkou zásluhu na slušné návštěvnosti druhého dne měla přednáška Mira Hrončoka o 3D tiskárně, která byla lákadlem letošního ročníku. 3D tiskárny jsou prostě in."'),
-  (none, '<a href="http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/">LinuxAlt 2012, sobota: Firefox, kalendáře a DNS</a>'),
-  (none, '<a href="http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/">LinuxAlt 2012, neděle: 3D tisk, SSH a Nagios</a>'),
+  # ('Jiří Eischmann (z <a href="http://www.linuxexpres.cz/blog/jaky-byl-linuxalt-2012-myma-ocima">Jaký byl LinuxAlt 2012 mýma očima</a>)', '"Myslím, že velkou zásluhu na slušné návštěvnosti druhého dne měla přednáška Mira Hrončoka o 3D tiskárně, která byla lákadlem letošního ročníku. 3D tiskárny jsou prostě in."'),
+  # (none, '<a href="http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/">LinuxAlt 2012, sobota: Firefox, kalendáře a DNS</a>'),
+  # (none, '<a href="http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/">LinuxAlt 2012, neděle: 3D tisk, SSH a Nagios</a>'),
+
+  ('Brněnští Toastmástři (z <a href="http://www.projevse.cz/clanky/moderujeme-openalt">Moderujeme OpenAlt!</a>)', '"Je nám ctí oznámit, že se náš klub aktivně zapojí do dění konference OpenAlt 2014 ..."'),
+  ('Pavel Cvrček (z <a href="http://www.mozilla.cz/zpravicky/mozilla-na-letosnim-openaltu-v-brne/">Mozilla na letošním OpenAltu v Brně</a>)', '"Pro letošek jsme si pro vás připravili přednášku o fungování projektu Mozilla na lokální úrovni, kde jsme shrnuli naše dosavadní zkušenosti."'),
 }
 
 # fill empty translations with english terms (if not existing in en,

@@ -25,19 +25,21 @@ type Event = tuple<
   trans:map<Locale, tuple<
     name:string,
     requirements:string,
-    # FIXME separate additional speakers so that we can put
-    #   e.g. "et al." to the person in charge for this event
-    # if there are more speakers, they should be mentioned in description
     description:string,
     place:string,
   >>,
 >
 
 type Participant = tuple<
-  name:string,  # one and only one person
+  # subject name (e.g. 'Name Surname', 'My Cool Company')
+  name:string,
+  # none ~ person; list<string> ~ references to Participants
+  members:none|list<string>,
   photo:string,
   trans:map<Locale, tuple<
-    role:string,  # primary professional role (designer, analyst, manager, programmer, ...)
+    # primary role of this subject (designer(s), analyst(s), manager(s),
+    #   programmer, ...)
+    role:string,
     note:string,
   >>,
   events:list<Event>,  # events, this person is in charge for
@@ -139,7 +141,7 @@ routine parse_csv(invar path: string) => list<list<string>> {
   return res
 }
 
-# FIXME add obed, vecere, atd.
+# FIXME add lunch, dinner, etc.
 # FIXME update to the current version of types Event, Participant...
 routine gen_participants(invar csv: list<list<string>>) => string {
   res = 'load config import configuration . { conf, curdir }
@@ -149,9 +151,7 @@ namespace participants_ns { participants }
 
 _participants: list<Participant> = {
 '
-  # FIXME use [1:] instead of [:]
-  #for (invar _line in csv[1:]) {
-  for (invar _line in csv[:]) {
+  for (invar _line in csv[1:]) {
     # escape everything for sure
     line = _line.collect { X.replace('\\', '\\\\').replace("'", "\\'") }
     #{

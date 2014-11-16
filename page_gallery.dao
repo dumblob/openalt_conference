@@ -35,7 +35,16 @@ routine page_gallery(
 
       h3(_class='section_red') { t['gallery'] }
       # FIXME
-      paragraph { 'Nothing yet :(' }
+      paragraph {
+        anchor(href='http://www.root.cz/galerie/openalt-2014-sobota/') {
+          'root.cz/galerie/openalt-2014-sobota/'
+        }
+      }
+      paragraph {
+        anchor(href='http://www.root.cz/galerie/openalt-2014-nedele/') {
+          'root.cz/galerie/openalt-2014-nedele/'
+        }
+      }
 
       text(_html_footer)
     }
