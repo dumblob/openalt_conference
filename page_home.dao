@@ -61,9 +61,7 @@ routine page_home(
         }
         # FIXME paragraph {
         paragraph(_class='narrow_paragraph') {
-          anchor(href='http://www.openalt.cz/2014/registrace') {
-            t['registration']
-          }
+          anchor(href=conf.uri.registration) { t['registration'] }
         }
       }
       div(id='main_buttons') {
