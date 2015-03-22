@@ -95,9 +95,9 @@ routine main(...: Locale as args) {
   invar stripe_hover = '#BF1F2E'
   invar schedule_bg = '#C22E38'
   invar schedule_bg_dark = '#981925'
-  invar light_red = '#D47A69',
-  #invar middle_red = '';
-  invar dark_red = '#6B0A12';
+  invar light_red = '#D47A69'
+  #invar middle_red = ''
+  invar dark_red = '#6B0A12'
   invar dark_grey = '#28292a'
 
   css.write(

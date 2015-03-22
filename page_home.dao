@@ -34,7 +34,7 @@ routine page_home(
   rel2 = routine(invar ref: LocalRefs) => string {
     tup = html_local_refs[ref]
     return mkrel(dst, dst + '/' + pages[tup[0]]) +
-      ((%tup[1]) ? '#' + tup[1] : '')
+      (%tup[1] ? '#' + tup[1] : '')
   }
 
   # FIXME html module should somehow allow (temporary) nested subdocuments

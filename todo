@@ -1,5 +1,13 @@
 for items not mentioned here, please grep FIXME from all *dao files
 
+add simple Makefile
+
+API
+  http://pcmlich.fit.vutbr.cz/openalt/
+  http://pcmlich.fit.vutbr.cz/openalt/?debug
+  http://pcmlich.fit.vutbr.cz/openalt/?ts
+
+RSS feed should be accessible under .../feed
 Sponsori / Partneri
   dat na zapati kazde strany
   always visible bar with random logos

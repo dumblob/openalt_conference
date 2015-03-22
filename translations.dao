@@ -12,7 +12,7 @@ type FeedbackPiece = tuple<author:none|string, msg:string>
 # FIXME use some existing format supporting plurals
 #   http://docs.transifex.com/developer/formats/
 var translations = {
-  (Locale)$en -> {
+  (Locale)$eng -> {
     '_locale' -> 'en_US.UTF-8',  # locale -a
     'title' -> 'OpenAlt conference ' + (string)conf.time_from.year,
     'logo_oa_conf' -> 'a big logo of the OpenAlt conference',
@@ -20,7 +20,7 @@ var translations = {
     'twitter' -> 'official twitter stream for OpenAlt conference',
     'gplus' -> 'official Google+ page for OpenAlt conference',
     'fb' -> 'official Facebook page for OpenAlt conference',
-    'motivation' -> '<a href="http://www.openalt.cz/2014/registrace" title="Registration">Become a part</a> of the ninth anniversary proceeding of the Brno open-source, open-hardware and open-mind conference!',
+    'motivation' -> '<a href="http://www.openalt.cz/2014/registrace" title="Registration">Become a part</a> of the tenth anniversary proceeding of the Brno open-source, open-hardware and open-mind conference!',
     'home' -> 'Home',
     'about' -> 'About',
     'thanks' -> 'Thanks',
@@ -33,26 +33,25 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'downloads' -> 'Downloads',
     'contact' -> 'Contact',
     'contact_openalt_content' ->
-'Openmobility, občanské sdružení<br>
-registrováno MVČR dne 18.11.2010 pod č.j. VS-1-1/82038/10-R<br>
+'<a href="http://openalt.org/">OpenAlt z.s.</a><br>
+registered by MVČR on 18.11.2010 under the ID <i>VS-1-1/82038/10-R</i><br>
 IČO: 22848037<br>
 Lamačova 634/2<br>
-Praha 52, 152 00<br>
+Prague 52, 152 00<br>
 <br>
-Navštivte nás na naší Jabber konferenci: <a href="mailto:conf@openalt.org">conf@openalt.org</a><br>
+If you want to contact us directly, please send us an email:<br>
+Questions about the conference: <a href="mailto:informace@openalt.cz">informace@openalt.cz</a><br>
+General questions about our work and activities: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
+Cooperation offers or any other requests at our council: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
 <br>
-Pokud nás chcete kontaktovat přímo, můžete zaslat e-mail na níže uvedené adresy:<br>
-Dotazy týkající se konference: <a href="mailto:informace@openalt.cz">informace@openalt.cz</a><br>
-Pro obecné dotazy ohledně naší činnosti: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
-Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
-<br>
-Předchozí ročníky konference OpenMobility:
+Previous runs of the OpenMobility conference:
 <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>
 <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>
 <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>
 <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
 <br>
-Předchozí ročníky konference LinuxAlt:
+Previous runs of the OpenAlt (formerly LinuxAlt) conference:
+<a href="http://openalt.cz/2014">2014</a>
 <a href="http://www.linuxalt.cz/2013">2013</a>
 <a href="http://www.linuxalt.cz/2012">2012</a>
 <a href="http://www.linuxalt.cz/2011">2011</a>
@@ -66,7 +65,8 @@ Předchozí ročníky konference LinuxAlt:
 <a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish openrepos</a>',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
-    'footer' -> 'last updated on ' + time.now().format(),
+    # FIXME 'footer' -> 'last updated on ' + time.now().format(),
+    'footer' -> 'last updated on ' + (string)time.now(),
     'talks' -> 'Talks',
     'talk' -> 'Talk',
     'workshops' -> 'Workshops',
@@ -97,7 +97,7 @@ Předchozí ročníky konference LinuxAlt:
     'gps_coordinates' -> 'GPS coordinates',
     'registration' -> 'Registration',
   },
-  $cs -> {
+  $cze -> {
     '_locale' -> 'cs_CZ.UTF-8',
     'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
     'logo_oa_conf' -> 'velké logo konference OpenAlt',
@@ -105,7 +105,7 @@ Předchozí ročníky konference LinuxAlt:
     'twitter' -> 'oficiální stránka konference OpenAlt na Twitter',
     'gplus' -> 'oficiální stránka konference OpenAlt na Google+',
     'fb' -> 'oficiální stránka konference OpenAlt na Facebook',
-    'motivation' -> '<a href="http://www.openalt.cz/2014/registrace" title="Registrace">Staňte se i Vy</a> součástí již devátého pokračování brněnské open-source, open-hardware a open-mind konference!',
+    'motivation' -> '<a href="http://www.openalt.cz/2014/registrace" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-hardware a open-mind konference!',
     'home' -> 'Domů',
     'about' -> 'O nás',
     'thanks' -> 'Poděkování',
@@ -118,13 +118,11 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
     'contact_openalt_content' ->
-'Openmobility, občanské sdružení<br>
-registrováno MVČR dne 18.11.2010 pod č.j. VS-1-1/82038/10-R<br>
+'<a href="http://openalt.org/">OpenAlt z.s.</a><br>
+registrován MVČR dne 18.11.2010 pod č.j. <i>VS-1-1/82038/10-R</i><br>
 IČO: 22848037<br>
 Lamačova 634/2<br>
 Praha 52, 152 00<br>
-<br>
-Navštivte nás na naší Jabber konferenci: <a href="mailto:conf@openalt.org">conf@openalt.org</a><br>
 <br>
 Pokud nás chcete kontaktovat přímo, můžete zaslat e-mail na níže uvedené adresy:<br>
 Dotazy týkající se konference: <a href="mailto:informace@openalt.cz">informace@openalt.cz</a><br>
@@ -138,6 +136,7 @@ Předchozí ročníky konference OpenMobility:
 <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
 <br>
 Předchozí ročníky konference LinuxAlt:
+<a href="http://openalt.cz/2014">2014</a>
 <a href="http://www.linuxalt.cz/2013">2013</a>
 <a href="http://www.linuxalt.cz/2012">2012</a>
 <a href="http://www.linuxalt.cz/2011">2011</a>
@@ -151,7 +150,8 @@ Předchozí ročníky konference LinuxAlt:
 <a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish openrepos</a>',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
-    'footer' -> 'Poslední aktualizace ' + time.now().format(),
+    # FIXME 'footer' -> 'Poslední aktualizace ' + time.now().format(),
+    'footer' -> 'Poslední aktualizace ' + (string)time.now(),
     'talks' -> 'Přednášky',
     'talk' -> 'Přednáška',
     'workshops' -> 'Dílny',
@@ -182,12 +182,15 @@ Předchozí ročníky konference LinuxAlt:
     'gps_coordinates' -> 'GPS souřadnice',
     'registration' -> 'Registrace',
   },
-#  $sk -> {
+#  $slo -> {
 #    '_locale' -> 'sk_SK.UTF-8',
-#    'motivation' -> 'Staňte sa aj Vy súčasťou už deviateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie!',
+#    'motivation' -> 'Staňte sa aj Vy súčasťou už desiateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie!',
 #  },
-#  $de -> {
+#  $ger -> {
 #    '_locale' -> 'de_DE.UTF-8',
+#  },
+#  $fin -> {
+#    '_locale' -> '.UTF-8',
 #  },
 }
 
@@ -206,8 +209,8 @@ translations.iterate { [k, v]
   if ('_locale' not in v)
     io.stderr.writeln('ERR _locale not specified for ' + (string)k)
 
-  if (k != $en) {
-    translations[$en].iterate { [k2, v2]
+  if (k != $eng) {
+    translations[$eng].iterate { [k2, v2]
       if (k2 not in v) {
         io.stderr.writeln('WARN missing translation [' + (string)k +
                           ']: ' + (string)k2)
@@ -226,9 +229,9 @@ translations.iterate { [k, v]
       p.events.iterate { [e]
         if (k not in e.trans) {
           io.stderr.writeln('WARN missing translation [' + (string)k +
-                            '] in ' + e.trans[$en].name +
+                            '] in ' + e.trans[$eng].name +
                             ' in `' + p.name + "'")
-          e.trans[k] = e.trans[$en]
+          e.trans[k] = e.trans[$eng]
         }
       }
     }

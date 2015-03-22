@@ -9,7 +9,7 @@ namespace lib {
   events_satisfying, localized_time_format, mkrel, parse_csv, gen_participants
 }
 
-type Locale = enum<cs, en, sk, de, fi>
+type Locale = enum<cze, eng, slo, ger, fin>
 type Kind = enum<talk, workshop, internal, party>
 type Track = enum<tips, world_around, security, challenges, establishment>
 
@@ -151,7 +151,7 @@ namespace participants_ns { participants }
 
 _participants: list<Participant> = {
 '
-  for (invar _line in csv[1:]) {
+  csv[1:].iterate { [_line]
     # escape everything for sure
     line = _line.collect { X.replace('\\', '\\\\').replace("'", "\\'") }
     #{
@@ -193,19 +193,19 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day" +
       ((line[4].trim().match('^sobota$') != none) ? ' -1' : '') + ", 8, 45),
     trans = {
-      $en -> ('" + line[9] + "',
+      $eng -> ('" + line[9] + "',
               '" + line[14] + "',
               '" + line[10] + "',
               'UNKNOWN_PLACE',),
-      $cs -> ('" + line[9] + "',
+      $cze -> ('" + line[9] + "',
               '" + line[14] + "',
               '" + line[10] + "',
               'UNKNOWN_PLACE',),
-      $sk -> ('" + line[9] + "',
+      $slo -> ('" + line[9] + "',
               '" + line[14] + "',
               '" + line[10] + "',
               'UNKNOWN_PLACE',),
-      $de -> ('" + line[9] + "',
+      $ger -> ('" + line[9] + "',
               '" + line[14] + "',
               '" + line[10] + "',
               'UNKNOWN_PLACE',),

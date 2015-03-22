@@ -55,6 +55,8 @@ routine html_head(
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
+  # FIXME add </link> element for feeds (RSS...)
+
   return fragment {
     head {
       title { t['title'] }
@@ -64,8 +66,30 @@ routine html_head(
       meta(charset='utf-8')
       meta(http_equiv=$content_type, content='text/html')
       meta(name='viewport', content='width=device-width')
-      meta(name='Keywords', content='k1,k2,k3')
+      meta(name='Keywords', content=conf.meta_keywords)
       meta(name='Description', content=conf.meta_description)
+# FIXME
+@[]
+       <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="www.webwings.cz" />
+        <meta name="robots" content="follow,all" />
+        <meta name="copyright" content="(C) 2014 Webwings" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+                <title>
+            Naši pedagógovia
+             | Dúhová škôlka
+        </title>
+
+         
+        <link rel="shortcut icon" href="/custom/images/favicon.ico" type="image/x-icon" />
+
+                        <link rel="stylesheet" media="screen,projection,tv" type="text/css" href="/custom/css/style.css?v=1" />  
+@[]
       link(rel=$icon, _type=conf.favicon.mime, href=rel(conf.favicon.path),
            sizes=conf.favicon.sizes)
       link(rel=$stylesheet, _type='text/css', href=rel(cu.css))

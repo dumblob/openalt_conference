@@ -1,7 +1,7 @@
 OpenAlt conference
 ==================
 
-See [OpenAlt](openalt.eu).
+See [OpenAlt](https://openalt.eu).
 
 Steps for updating the webpage
 ------------------------------
