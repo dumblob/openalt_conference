@@ -1,0 +1,38 @@
+                 Příjmení, jméno
+                 Bydliště (město)
+                 Email (chcete-li)
+                 Jaky je váš vztah k open-source?          a b c d e f
+                 Profesně mě nejlúpe vystihuje:            a b c d e f g h
+                 Co vás k účasti zlákalo?                  a b c d e f
+                 Jakým způsobem jste se o OA dozvěděl/a?   a b c d e f g
+                 Převážně působíte:                        a b
+                 Včetně letošního je to má účast číslo
+                                                                                 
+                 Která přednáška/dilna se Vám dnes nejvíce líbila?
+                 Co se vam na konferenci OpenAlt (ne)líbilo?
+                 Jakou přednášku/dílnu byste uvítali příští rok?
+                 Chtěli byste spolupracovat s OpenAlt z.s.?  y
+                                                                                 
+                 1. Zálohou dat ke klidnějšímu spaní
+                 2. Docker: Kontejnery v praxi
+                 3. Současný svět Internet věcí
+                 4. Novinky ve starém dobrém SQL světě
+                 5. Novinky v systemd
+                 6. Docker ve Fedoře
+                 7. Svobodný cloud a virtualizace
+                 8. Asterisk 13 - komunikace pro každého
+                 9. oVirt - virtualizace datacentra aneb správa...
+                 10. Novinky v PostreSQL 9.4, přepracované...
+                 11. SQL a XML jako alternativa...
+                 12. Open source nástroje v knihovnách...
+                 13. Domácí laserový střelecký simulátor HomeLESS 2014
+                 14. Processing
+                 15. SCAP: Otevřený standard pro bezpečnostní audit
+                 16. Mé zařízení na mé straně, mnou kontrolovaná...
+                                                                                 
+                 17. Firefox OS/Web apps
+                 18. Show me your command line
+                 19. Evaluce Fedora.next v praxi
+                 20. Úvod do programování v Qt/Qml
+                                                                                 
+                 sobotní párty v Industře

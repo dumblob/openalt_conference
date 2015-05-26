@@ -1,0 +1,81 @@
+Konference OpenAlt 201x - Sobota/Neděle a.b.201x
+
+Příjmení, jméno
+Bydliště (město)
+Email (chcete-li)
+Údaje z ankety budou zpracovávány anonymně. Osobní údaje je nutné vyplnit pouze pro účely slosování o ceny. Email je pro účely zpětného kontaktování a je nepovinný.
+
+Jaky je váš vztah k open-source?
+zde první kontakt
+nijak mě nezaujal
+čerstvě sympatizuji
+dlouhodobě sympatizuji
+budu podporovat
+podporuji
+
+Profesně mě nejlúpe vystihuje:
+student FIT VUT Brno
+student IT
+student mimo IT
+spravce
+vyvojář
+manager IT
+neuvedeno
+
+Co vás k účasti zlákalo?
+software
+hardware
+soukromí a bezpečnost
+společenské přesahy open source
+osobní setkávání se
+omyl
+
+Jakým způsobem jste se o OpenAltu dozvěděl/a?
+z odborných portálů (LinuxExpress, Root, ABCLinuxu, ...)
+z webu www.openalt.cz / .org
+doporučením od známých
+ze sociálních sítí
+z plakátu
+chodím každým rokem a termín si hlídám
+jinak
+
+Převážně působíte:
+v Brně a okolí
+jinde
+
+Včetně letošního je to má účast číslo
+
+Která přednáška nebo dílna se Vám v tomto dni nejvíce líbila?
+Co se vam na konferenci OpenAlt (ne)líbilo (vzkaz organizátorům)?
+Jakou přednášku nebo dílnu byste uvítali příští rok? (napište i více)
+Chtěli byste spolupracovat s OpenAlt z.s. (pořadatel)? Pokud ano, vyplňte email pro kontaktování.
+
+Prosím ohodnoťte přednášky z druhé strany tohoto dotazníku jako ve škole (1-5 tj. kladné celé číslo).
+
+Prosím ohodnoťte přednášky tohoto dotazníku jako ve škole (1-5 tj. kladné celé číslo) a vyplňte anketu na druhé straně pro zařazení do slosování o ceny.
+
+Sál D105 - přednášky
+Zálohou dat ke klidnějšímu spaní
+Docker: Kontejnery v praxi
+Současný svět Internet věcí
+Novinky ve starém dobrém SQL světě
+Novinky v systemd
+Docker ve Fedoře
+Svobodný cloud a virtualizace
+Asterisk 13 - komunikace pro každého
+oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém
+Novinky v PostreSQL 9.4, přepracované ukládání a indexace JSON dat
+SQL a XML jako alternativa ke klasickým unixovým nástrojům
+Open source nástroje v knihovnách, aneb peníze raději na knihy!
+Domácí laserový střelecký simulátor HomeLESS 2014
+Processing
+SCAP: Otevřený standard pro bezpečnostní audit
+Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně
+
+Místnost A112 - dílny (workshopy)
+Firefox OS/Web apps
+Show me your command line
+Evaluce Fedora.next v praxi
+Úvod do programování v Qt/Qml
+
+sobotní párty v Industře

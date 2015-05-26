@@ -8,6 +8,7 @@ API
   http://pcmlich.fit.vutbr.cz/openalt/?ts
 
 RSS feed should be accessible under .../feed
+events should be generated according to RDFa Lite (http://rdfa.info/play/)
 Sponsori / Partneri
   dat na zapati kazde strany
   always visible bar with random logos

@@ -1,5 +1,12 @@
 #!/usr/bin/env dao
 
+# FIXME
+#                Ty myslíš toto, to máš pravdu. Nyní jsme zapsáni ve spolkovém rejstříku
+#                vedený městským soudem v Praze k 1.1.2014 pod spisovou značkou L 22154.
+#                https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY
+#                  Asi by se hodilo to dát lepší věty. Vznikli jsme registrací ... a nyní
+#                jsme vedený pod sp. značkou ....
+
 load config import configuration . { conf, curdir, check_path }
 load participants import participants_ns
 load lib import lib
