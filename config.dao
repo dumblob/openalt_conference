@@ -16,6 +16,7 @@ type Partner = tuple<
 invar conf = (
   time_from        = time.make(2015, 11, 7),
   time_to          = time.make(2015, 11, 8),
+  time_show_sched  = time.make(2015, 9, 7 + 7),  # 1 week for CFP processing
   coord_gps_n      = '49.2263872',
   coord_gps_e      = '16.5963531',
   base_uri         = '',  # http://www.openalt.cz/
@@ -37,6 +38,7 @@ invar conf = (
     # shared between all pages (no exceptions)
     css          = curdir + '/style.css',
 
+    diaspora     = 'https://diasp.eu/u/openalt',
     twitter      = 'https://twitter.com/OpenAlt',
     gplus        = 'http://plus.google.com/100946575675112811528',
     fb           = 'https://www.facebook.com/OpenAlt',
@@ -46,7 +48,7 @@ invar conf = (
     banner_print = 'http://www.openalt.org/spolek/OA_2014/OA_2014_tisk.pdf',
     banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
     qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
-    registration = 'http://www.openalt.cz/2014/registrace',
+    registration = 'http://www.openalt.cz/2015/registrace',
     # FIXME
     qr_oa_org    = 'http://www.openalt.org/o-spolku/',
     graph_man_oa_conf = 'http://www.openalt.org/spolek/oa_graficky_manual_konference.zip',
@@ -65,6 +67,7 @@ invar conf = (
     video        = curdir + '/img/icon-video.svg',
     rss          = curdir + '/img/icon-rss.svg',
 
+    diaspora     = curdir + '/img/icon-diaspora.svg',
     twitter      = curdir + '/img/icon-twitter.svg',
     gplus        = curdir + '/img/icon-gplus.svg',
     fb           = curdir + '/img/icon-facebook.svg',
@@ -81,7 +84,9 @@ invar conf = (
   ),
 )
 
-invar partners: list<Partner> = {
+# FIXME
+# invar partners: list<Partner> = {
+var partners: list<Partner> = {
   ($general, 'FIT VUT',
    curdir + '/img/partners/logo_fit.gif',           'http://www.fit.vutbr.cz/'),
   ($general, 'Red Hat',

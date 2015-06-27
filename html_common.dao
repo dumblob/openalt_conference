@@ -124,9 +124,9 @@ routine html_top_stripe(
             html_local_refs[$contact], }) {
           current = ref[0] == page_name
           anchor(
-            _class='page_link' + ((current) ? ' page_link_selected' : ''),
-            href=(current) ? '#' + ref[1] :
-                 rel(dst + '/' + pages[ref[0]] + '#' + ref[1])) {
+              _class='page_link' + ((current) ? ' page_link_selected' : ''),
+              href=(current) ? '#' + ref[1] :
+                 rel(dst + '/' + pages[ref[0]] + '#' + ref[1]) ) {
             t[(%ref[1]) ? ref[1] : ref[0]]
           }
         }
@@ -135,6 +135,9 @@ routine html_top_stripe(
       div(_class='segment') {
         anchor(_class='ext_link', href=rel(dst + '/' + pages['feed_rss'])) {
           img(src=rel(ci.rss), alt=t['rss'], title=t['rss'])
+        }
+        anchor(_class='ext_link', href=rel(cu.diaspora)) {
+          img(src=rel(ci.diaspora), alt=t['diaspora'], title=t['diaspora'])
         }
         anchor(_class='ext_link', href=rel(cu.twitter)) {
           img(src=rel(ci.twitter), alt=t['twitter'], title=t['twitter'])
@@ -149,11 +152,16 @@ routine html_top_stripe(
 
       div(_class='segment') {
         i = 0
-        for (invar lang in translations) {
+
+        # FIXME
+        #for (invar lang in translations) {
+        translations.iterate { [_lang]
+          invar lang = (_lang,)
+
           if (i)
             text(' / ')
           else
-            i += 1
+            ++i
 
           lang_str = ((string)lang[0])[1:]
           if (lang[0] == trans)

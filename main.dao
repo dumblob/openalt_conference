@@ -71,20 +71,22 @@ routine main(...: Locale as args) {
   # FIXME bug?
   #defer (any) { return 0 }
 
-  # FIXME
   invar chosen_trs = std.exec {
-    if (%args)
-      return translations.associate(1) {
-        if (X in args)
-          return (X, Y)
-        else
-          return none
-      }
-    else
+    # FIXME
+    #if (%args)
+    #  return translations.associate(1) {
+    #    if (X in args)
+    #      return (X, Y)
+    #    else
+    #      return none
+    #  }
+    #else
       return translations
   }
 
-  for (invar trans in chosen_trs) {
+  # FIXME
+  #for (invar trans in chosen_trs) {
+  for (trans in chosen_trs) {
     fut = gen_pages(trans[0]) !!
     defer { fut.value() }
   }

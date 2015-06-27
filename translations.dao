@@ -19,15 +19,16 @@ type FeedbackPiece = tuple<author:none|string, msg:string>
 # FIXME use some existing format supporting plurals
 #   http://docs.transifex.com/developer/formats/
 var translations = {
-  (Locale)$eng -> {
+  (Locale)$en -> {
     '_locale' -> 'en_US.UTF-8',  # locale -a
     'title' -> 'OpenAlt conference ' + (string)conf.time_from.year,
     'logo_oa_conf' -> 'a big logo of the OpenAlt conference',
     'rss' -> 'RSS channel for conference news and changes on this web',
-    'twitter' -> 'official twitter stream for OpenAlt conference',
-    'gplus' -> 'official Google+ page for OpenAlt conference',
-    'fb' -> 'official Facebook page for OpenAlt conference',
-    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the tenth anniversary proceeding of the Brno open-source, open-hardware and open-mind conference!',
+    'diaspora' -> 'official Diaspora social network stream for OpenAlt z. s.',
+    'twitter' -> 'official Twitter social network stream for OpenAlt conference',
+    'gplus' -> 'official Google+ social network page of OpenAlt conference',
+    'fb' -> 'official Facebook social network page of OpenAlt conference',
+    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the eleventh proceeding of the Brno open-source, open-mind and open-hardware conference!',
     'home' -> 'Home',
     'about' -> 'About',
     'thanks' -> 'Thanks',
@@ -37,6 +38,7 @@ témata si připravili.<br>
 Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat, a na něž z kapacitních důvodů nedošlo.<br>
 Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, která vydržela po dva dny a dvě noci. Bez nich by konference pochopitelně postrádala smysl.',
     'gallery' -> 'Gallery',
+    'gallery_empty' -> 'There are no pictures yet. The should appear here around ' + conf.time_from.format('%-d.%-m.') + ' Stay tuned!',
     'downloads' -> 'Downloads',
     'contact' -> 'Contact',
     'contact_openalt_content' ->
@@ -72,11 +74,12 @@ Previous runs of the OpenAlt (formerly LinuxAlt) conference:
 <a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish openrepos</a>',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
-    # FIXME 'footer' -> 'last updated on ' + time.now().format(),
-    'footer' -> 'last updated on ' + (string)time.now(),
+    'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Page updated on ' + (string)time.now(),
     'talks' -> 'Talks',
     'talk' -> 'Talk',
+    'talks_empty' -> 'There are no talks yet. The should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',
     'workshops' -> 'Workshops',
+    'workshops_empty' -> 'There are no workshops yet. The should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',
     'workshop' -> 'Workshop',
     'schedule' -> 'Schedule',
     'location' -> 'Location',
@@ -104,15 +107,16 @@ Previous runs of the OpenAlt (formerly LinuxAlt) conference:
     'gps_coordinates' -> 'GPS coordinates',
     'registration' -> 'Registration',
   },
-  $cze -> {
+  $cs -> {
     '_locale' -> 'cs_CZ.UTF-8',
     'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
     'logo_oa_conf' -> 'velké logo konference OpenAlt',
     'rss' -> 'kanál RSS s konferenčními aktualitami a změnami na tomto webu',
-    'twitter' -> 'oficiální stránka konference OpenAlt na Twitter',
-    'gplus' -> 'oficiální stránka konference OpenAlt na Google+',
-    'fb' -> 'oficiální stránka konference OpenAlt na Facebook',
-    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-hardware a open-mind konference!',
+    'diaspora' -> 'oficiální stránka spolku OpenAlt z. s. na sociální síti Diaspora',
+    'twitter' -> 'oficiální stránka konference OpenAlt na sociální síti Twitter',
+    'gplus' -> 'oficiální stránka konference OpenAlt na sociální síti Google+',
+    'fb' -> 'oficiální stránka konference OpenAlt na sociální síti Facebook',
+    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již jedenáctého pokračování brněnské open-source, open-mind a open-hardware konference!',
     'home' -> 'Domů',
     'about' -> 'O nás',
     'thanks' -> 'Poděkování',
@@ -122,6 +126,7 @@ témata si připravili.<br>
 Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat, a na něž z kapacitních důvodů nedošlo.<br>
 Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, která vydržela po dva dny a dvě noci. Bez nich by konference pochopitelně postrádala smysl.',
     'gallery' -> 'Fotogalerie',  # Fotografie
+    'gallery_empty' -> 'Žádné fotografie ještě nejsou k&nbsp;dispozici. Okolo ' + conf.time_from.format('%-d.%-m.') + ' by se zde měly objevit!',
     'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
     'contact_openalt_content' ->
@@ -157,11 +162,12 @@ Předchozí ročníky konference LinuxAlt:
 <a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish openrepos</a>',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
-    # FIXME 'footer' -> 'Poslední aktualizace ' + time.now().format(),
-    'footer' -> 'Poslední aktualizace ' + (string)time.now(),
+    'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Stránka aktualizována ' + (string)time.now(),
     'talks' -> 'Přednášky',
     'talk' -> 'Přednáška',
+    'talks_empty' -> 'Přednášky ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
     'workshops' -> 'Dílny',
+    'workshops_empty' -> 'Dílny ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
     'workshop' -> 'Dílna',
     'schedule' -> 'Rozvrh',
     'location' -> 'Místo konání',
@@ -189,14 +195,14 @@ Předchozí ročníky konference LinuxAlt:
     'gps_coordinates' -> 'GPS souřadnice',
     'registration' -> 'Registrace',
   },
-#  $slo -> {
+#  $sk  -> {
 #    '_locale' -> 'sk_SK.UTF-8',
 #    'motivation' -> 'Staňte sa aj Vy súčasťou už desiateho pokračovania brnenskej open-source, open-hardware a open-mind konferencie!',
 #  },
-#  $ger -> {
+#  $de  -> {
 #    '_locale' -> 'de_DE.UTF-8',
 #  },
-#  $fin -> {
+#  $fi  -> {
 #    '_locale' -> '.UTF-8',
 #  },
 }
@@ -216,8 +222,8 @@ translations.iterate { [k, v]
   if ('_locale' not in v)
     io.stderr.writeln('ERR _locale not specified for ' + (string)k)
 
-  if (k != $eng) {
-    translations[$eng].iterate { [k2, v2]
+  if (k != $en) {
+    translations[$en].iterate { [k2, v2]
       if (k2 not in v) {
         io.stderr.writeln('WARN missing translation [' + (string)k +
                           ']: ' + (string)k2)
@@ -236,9 +242,9 @@ translations.iterate { [k, v]
       p.events.iterate { [e]
         if (k not in e.trans) {
           io.stderr.writeln('WARN missing translation [' + (string)k +
-                            '] in ' + e.trans[$eng].name +
+                            '] in ' + e.trans[$en].name +
                             ' in `' + p.name + "'")
-          e.trans[k] = e.trans[$eng]
+          e.trans[k] = e.trans[$en]
         }
       }
     }

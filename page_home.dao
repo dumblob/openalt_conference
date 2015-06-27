@@ -64,159 +64,162 @@ routine page_home(
           anchor(href=conf.uri.registration) { t['registration'] }
         }
       }
-      div(id='main_buttons') {
-        anchor(href=rel2($talks)) { t['talks'] }
-        anchor(href=rel2($workshops)) { t['workshops'] }
-        anchor(href=rel2($schedule)) { t['schedule'] }
-      }
 
-      if (my_time.time.now().add(days=-1) > conf.time_to) {
-        div(id='feedback') {
-          h3(_class='section') { t['feedback'] }
-
-          for (piece in feedback) {
-            paragraph(_class='feedback_msg narrow_paragraph') { piece.msg }
-            if (piece.author != none)
-              paragraph(_class='feedback_author narrow_paragraph') { piece.author }
-          }
+      if (my_time.time.now() >= conf.time_show_sched) {
+        div(id='main_buttons') {
+          anchor(href=rel2($talks)) { t['talks'] }
+          anchor(href=rel2($workshops)) { t['workshops'] }
+          anchor(href=rel2($schedule)) { t['schedule'] }
         }
-      }
 
-      div(id='speakers') {
-        h3(_class='section') { t['speakers'] }
-        div {
-          paragraph {
-            for (pa in participants) {
-              if (pa.events.find { X.kind == $internal } == none) {
-                img(_class='speaker', src=rel(pa.photo), alt=pa.name, title=pa.name)
-              }
+        if (my_time.time.now().add(days=-1) > conf.time_to) {
+          div(id='feedback') {
+            h3(_class='section') { t['feedback'] }
+
+            for (piece in feedback) {
+              paragraph(_class='feedback_msg narrow_paragraph') { piece.msg }
+              if (piece.author != none)
+                paragraph(_class='feedback_author narrow_paragraph') { piece.author }
             }
           }
         }
-        div(_class='clear_float') {}
-      }
 
-      div(id='schedule') {
-        h3(_class='section') { t['schedule'] }
-
-        # construct reversed event mappings
-
-        # FIXME remove casting
-        places = (map<string, int>){->}
-        days = (map<int, map<int, map<string, @T>>>){->}
-        participants.iterate { [p]
-          p.events.iterate { [ev]
-            if (ev.kind != $party) {
-              # rank ~ number of occurences
-              if (ev.trans[trans].place in places)
-                ++places[ev.trans[trans].place]
-              else
-                places[ev.trans[trans].place] = 1
-            }
-
-            day = my_time.time.make(ev.from.year, ev.from.month, ev.from.day)
-            # each day separately
-            if (day.value not in days)
-              days[day.value] = {->}
-            # each event
-            if (ev.from.value not in days[day.value])
-              days[day.value][ev.from.value] = {->}
-            # each place
-            if (ev.trans[trans].place not in days[day.value][ev.from.value])
-              days[day.value][ev.from.value][ev.trans[trans].place] =
-                (author=p, event=ev)
-            else
-              io.stderr.writeln('WARN >1 events at a venue',
-                  ev.trans[trans].place, 'at time', ev.from)
-          }
-        }
-
-        # adjust reverse mappings
-
-        orig_ind = 0
-        places2 = places.collect {
-          (orig_ind = 0, id = X, rank = Y)
-        } .sort {
-          X.id > Y.id
-        } .apply {
-          # FIXME imitate stable sort by remembering the index
-          X.orig_ind = ++orig_ind
-          return X
-        } .sort {
-          if (X.rank == Y.rank)
-            return X.orig_ind > Y.orig_ind
-          else
-            return X.rank > Y.rank
-        }
-
-        day_sets = routine(m: map<int, map<string, @T>>)
-            => list<tuple<kind: enum, cell_lines: list<list<@T>>>> {
-
-          res = (list<tuple<kind: enum, cell_lines: list<list<@T>>>>){}
-          last_event: none|@T = none
-
-          m.keys().sort().iterate { [time_point]
-            m[time_point].iterate { [place, cell]
-              if (last_event != none && (
-                  (last_event.kind == $party && cell.event.kind == $party) ||
-                  (
-                   # all non-party events are in the same cluster
-                   last_event.kind != $party && cell.event.kind != $party)
-              )) {
-                if (last_event.from == cell.event.from)
-                  res[-1].cell_lines[-1].append(cell)
-                else
-                  res[-1].cell_lines.append({cell})
-              }
-              else {
-                res.append( (kind=cell.event.kind, cell_lines={{cell}}) )
-              }
-
-              last_event = cell.event
-            }
-          }
-
-          return res
-        }
-
-        # create tables and paragraphs from the reversed mappings
-
-        days.keys().sort().iterate { [day]
-          paragraph {
-            localized_time_format(
-              t['_locale'], my_time.time.fromValue(day), '%A %-d. %-m. %Y')
-          }
-
-          day_sets(days[day]).iterate { [set]
-            if (set.kind == $party) {
-              set.cell_lines.iterate { [cell_line]
-                cell_line.iterate { [cell]
-                  div {
-                    paragraph { cell.event.from.format('%H:%M') }
-                    paragraph { cell.event.trans[trans].name }
-                    paragraph { cell.event.trans[trans].description }
-                    paragraph { cell.event.trans[trans].requirements }
-                    paragraph { cell.event.trans[trans].place }
-                  }
+        div(id='speakers') {
+          h3(_class='section') { t['speakers'] }
+          div {
+            paragraph {
+              for (pa in participants) {
+                if (pa.events.find { X.kind == $internal } == none) {
+                  img(_class='speaker', src=rel(pa.photo), alt=pa.name, title=pa.name)
                 }
               }
             }
-            else {
-              table {
-                tr { th {}; places2.iterate { [place] th { place.id } } }
+          }
+          div(_class='clear_float') {}
+        }
 
+        div(id='schedule') {
+          h3(_class='section') { t['schedule'] }
+
+          # construct reversed event mappings
+
+          # FIXME remove casting
+          places = (map<string, int>){->}
+          days = (map<int, map<int, map<string, @T>>>){->}
+          participants.iterate { [p]
+            p.events.iterate { [ev]
+              if (ev.kind != $party) {
+                # rank ~ number of occurences
+                if (ev.trans[trans].place in places)
+                  ++places[ev.trans[trans].place]
+                else
+                  places[ev.trans[trans].place] = 1
+              }
+
+              day = my_time.time.make(ev.from.year, ev.from.month, ev.from.day)
+              # each day separately
+              if (day.value not in days)
+                days[day.value] = {->}
+              # each event
+              if (ev.from.value not in days[day.value])
+                days[day.value][ev.from.value] = {->}
+              # each place
+              if (ev.trans[trans].place not in days[day.value][ev.from.value])
+                days[day.value][ev.from.value][ev.trans[trans].place] =
+                  (author=p, event=ev)
+              else
+                io.stderr.writeln('WARN >1 events at a venue',
+                    ev.trans[trans].place, 'at time', ev.from)
+            }
+          }
+
+          # adjust reverse mappings
+
+          orig_ind = 0
+          places2 = places.collect {
+            (orig_ind = 0, id = X, rank = Y)
+          } .sort {
+            X.id > Y.id
+          } .apply {
+            # FIXME imitate stable sort by remembering the index
+            X.orig_ind = ++orig_ind
+            return X
+          } .sort {
+            if (X.rank == Y.rank)
+              return X.orig_ind > Y.orig_ind
+            else
+              return X.rank > Y.rank
+          }
+
+          day_sets = routine(m: map<int, map<string, @T>>)
+              => list<tuple<kind: enum, cell_lines: list<list<@T>>>> {
+
+            res = (list<tuple<kind: enum, cell_lines: list<list<@T>>>>){}
+            last_event: none|@T = none
+
+            m.keys().sort().iterate { [time_point]
+              m[time_point].iterate { [place, cell]
+                if (last_event != none && (
+                    (last_event.kind == $party && cell.event.kind == $party) ||
+                    (
+                    # all non-party events are in the same cluster
+                    last_event.kind != $party && cell.event.kind != $party)
+                )) {
+                  if (last_event.from == cell.event.from)
+                    res[-1].cell_lines[-1].append(cell)
+                  else
+                    res[-1].cell_lines.append({cell})
+                }
+                else {
+                  res.append( (kind=cell.event.kind, cell_lines={{cell}}) )
+                }
+
+                last_event = cell.event
+              }
+            }
+
+            return res
+          }
+
+          # create tables and paragraphs from the reversed mappings
+
+          days.keys().sort().iterate { [day]
+            paragraph {
+              localized_time_format(
+                t['_locale'], my_time.time.fromValue(day), '%A %-d. %-m. %Y')
+            }
+
+            day_sets(days[day]).iterate { [set]
+              if (set.kind == $party) {
                 set.cell_lines.iterate { [cell_line]
-                  tr {
-                    # there is at least 1 cell
-                    td { cell_line[0].event.from.format('%H:%M') }
+                  cell_line.iterate { [cell]
+                    div {
+                      paragraph { cell.event.from.format('%H:%M') }
+                      paragraph { cell.event.trans[trans].name }
+                      paragraph { cell.event.trans[trans].description }
+                      paragraph { cell.event.trans[trans].requirements }
+                      paragraph { cell.event.trans[trans].place }
+                    }
+                  }
+                }
+              }
+              else {
+                table {
+                  tr { th {}; places2.iterate { [place] th { place.id } } }
 
-                    cell_line.iterate { [cell]
-                      # tight-loop to preserve order
-                      places2.iterate { [place]
-                        if (place.id == cell.event.trans[trans].place) {
-                          td {
-                            span { cell.event.trans[trans].name }
-                            span { cell.author.name }
+                  set.cell_lines.iterate { [cell_line]
+                    tr {
+                      # there is at least 1 cell
+                      td { cell_line[0].event.from.format('%H:%M') }
+
+                      cell_line.iterate { [cell]
+                        # tight-loop to preserve order
+                        places2.iterate { [place]
+                          if (place.id == cell.event.trans[trans].place) {
+                            td {
+                              span { cell.event.trans[trans].name }
+                              span { cell.author.name }
+                            }
                           }
                         }
                       }
@@ -246,20 +249,22 @@ routine page_home(
               conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E')
       }
 
-      if (my_time.time.now().add(days=-1) > conf.time_to) {
-        div(id='thanks') {
-          h3(_class='section') { t['thanks'] }
-          paragraph(_class='narrow_paragraph') { t['thank_you'] }
+      if (my_time.time.now() >= conf.time_show_sched) {
+        if (my_time.time.now().add(days=-1) > conf.time_to) {
+          div(id='thanks') {
+            h3(_class='section') { t['thanks'] }
+            paragraph(_class='narrow_paragraph') { t['thank_you'] }
+          }
         }
-      }
 
-      div(id='partners') {
-        h3(_class='section') { t['partners'] }
-        # FIXME distinguish $general and $main
-        paragraph {
-          for (invar p in partners) {
-            anchor(href=p.uri) {
-              img(_class='partner', src=rel(p.img), alt=p.name, title=p.name)
+        div(id='partners') {
+          h3(_class='section') { t['partners'] }
+          # FIXME distinguish $general and $main
+          paragraph {
+            for (invar p in partners) {
+              #anchor(href=p.uri) {
+              #  img(_class='partner', src=rel(p.img), alt=p.name, title=p.name)
+              #}
             }
           }
         }

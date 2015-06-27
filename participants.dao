@@ -8,8 +8,8 @@ _participants: list<Participant> = {
   members = none,
   curdir + '/img/participants/openalt_z_s.jpg',
   trans = {
-    $eng -> ('', '',),
-    $cze -> ('', '',),
+    $en -> ('', '',),
+    $cs -> ('', '',),
   },
   events = {
     # lunch - saturday
@@ -19,8 +19,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
     }),
    ($internal,
     $establishment,
@@ -28,8 +28,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
     }),
    ($internal,
     $establishment,
@@ -37,8 +37,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
     }),
    ($internal,
     $establishment,
@@ -46,8 +46,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
     }),
    ($internal,
     $establishment,
@@ -55,8 +55,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
     }),
 
     # lunch - sunday
@@ -66,8 +66,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
     }),
    ($internal,
     $establishment,
@@ -75,8 +75,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
     }),
    ($internal,
     $establishment,
@@ -84,8 +84,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
     }),
    ($internal,
     $establishment,
@@ -93,8 +93,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
     }),
    ($internal,
     $establishment,
@@ -102,8 +102,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
-      $eng -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
-      $cze -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
+      $en -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
+      $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
     }),
 
     # FIXME testing party
@@ -113,8 +113,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 23, 59),
     trans = {
-      $eng -> ('After-lunch siesta-party!', 'Being prepared to pay 10000 CZK for fly tickets.', 'Please see the leaflets for further information.', 'In my flat in Finland.',),
-      $cze -> ('Poobědová siesta-párty', 'Byt odhodlany zaplatit 10000 CZK za letenky.', 'Vizte letáky pro podrobnější informace.', 'V mem byte ve Finsku.',),
+      $en -> ('After-lunch siesta-party!', 'Being prepared to pay 10000 CZK for fly tickets.', 'Please see the leaflets for further information.', 'In my flat in Finland.',),
+      $cs -> ('Poobědová siesta-párty', 'Byt odhodlany zaplatit 10000 CZK za letenky.', 'Vizte letáky pro podrobnější informace.', 'V mem byte ve Finsku.',),
     }),
 
     # party
@@ -124,8 +124,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 22, 00),
     trans = {
-      $eng -> ('Party', 'no reqs', 'Please see the leaflets for further information.', 'Industra, 1. floor',),
-      $cze -> ('Párty', 'žádné pož.', 'Vizte letáky pro podrobnější informace.', 'Industra, 1. partro',),
+      $en -> ('Party', 'no reqs', 'Please see the leaflets for further information.', 'Industra, 1. floor',),
+      $cs -> ('Párty', 'žádné pož.', 'Vizte letáky pro podrobnější informace.', 'Industra, 1. partro',),
     }),
 
     # lottery
@@ -135,8 +135,8 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
     trans = {
-      $eng -> ('Final lottery', 'Having filled the feedback form.', 'For those who filled the feedback forms there are valuable prices (RHEL certification exam, T-Shirts, cups etc.).', 'D105',),
-      $cze -> ('Závěrečné slosování', 'Vyplnění formuláře pro zpětnou vazbu.', 'Pro ty, kteří vyplnili formulář zpětné vazby jsou připraveny hodnotné ceny (RHEL certifikační zkouška, třička, hrníčky atd.)', 'D105',),
+      $en -> ('Final lottery', 'Having filled the feedback form.', 'For those who filled the feedback forms there are valuable prices (RHEL certification exam, T-Shirts, cups etc.).', 'D105',),
+      $cs -> ('Závěrečné slosování', 'Vyplnění formuláře pro zpětnou vazbu.', 'Pro ty, kteří vyplnili formulář zpětné vazby jsou připraveny hodnotné ceny (RHEL certifikační zkouška, třička, hrníčky atd.)', 'D105',),
     }),
   }),
 
@@ -145,9 +145,9 @@ _participants: list<Participant> = {
   members = none,
   curdir + '/img/participants/štěpán_bechynský.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -160,19 +160,19 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     trans = {
-      $eng -> ('Arduino a Linux na jedné desce',
+      $en -> ('Arduino a Linux na jedné desce',
                '',
                'Arduino Yún, Arduino Tre, Intel Galileo a pcDuino - vývojové desky, které jsou kompatibilní s Arduino a zároveň na nich běží Linux. K čemu je to dobré? Jak tyto desky využít? A kdy se těmto deskám vyhnout? Během přednášky uvidíte všechny desky na živo včetně praktických ukázek.',
                'D105',),
-      $cze -> ('Arduino a Linux na jedné desce',
+      $cs -> ('Arduino a Linux na jedné desce',
                '',
                'Arduino Yún, Arduino Tre, Intel Galileo a pcDuino - vývojové desky, které jsou kompatibilní s Arduino a zároveň na nich běží Linux. K čemu je to dobré? Jak tyto desky využít? A kdy se těmto deskám vyhnout? Během přednášky uvidíte všechny desky na živo včetně praktických ukázek.',
                'D105',),
-      $slo -> ('Arduino a Linux na jedné desce',
+      $sk -> ('Arduino a Linux na jedné desce',
                '',
                'Arduino Yún, Arduino Tre, Intel Galileo a pcDuino - vývojové desky, které jsou kompatibilní s Arduino a zároveň na nich běží Linux. K čemu je to dobré? Jak tyto desky využít? A kdy se těmto deskám vyhnout? Během přednášky uvidíte všechny desky na živo včetně praktických ukázek.',
                'D105',),
-      $ger -> ('Arduino a Linux na jedné desce',
+      $de -> ('Arduino a Linux na jedné desce',
                '',
                'Arduino Yún, Arduino Tre, Intel Galileo a pcDuino - vývojové desky, které jsou kompatibilní s Arduino a zároveň na nich běží Linux. K čemu je to dobré? Jak tyto desky využít? A kdy se těmto deskám vyhnout? Během přednášky uvidíte všechny desky na živo včetně praktických ukázek.',
                'D105',),
@@ -184,9 +184,9 @@ _participants: list<Participant> = {
   members = none,
   curdir + '/img/participants/tomáš_tomeček.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -199,7 +199,7 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
     trans = {
-      $cze -> ('Show me your command line',
+      $cs -> ('Show me your command line',
                'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
                'Pracujete často s príkazovou riadkov v svojej obľúbenej linuxovej distribúcii? Avšak, príde vám to neefektívne? Či už ste začiatočník, alebo pokročilý užívateľ, a máte záujem si rozšíriť obzory čo sa týka nástrojov pre príkazovú riadku, budete na tomto workshope vítaný.
 
@@ -222,7 +222,7 @@ V prípade dostatku času:
 
 ',
                'A113',),
-      $eng -> ('Show me your command line',
+      $en -> ('Show me your command line',
                'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
                'Pracujete často s príkazovou riadkov v svojej obľúbenej linuxovej distribúcii? Avšak, príde vám to neefektívne? Či už ste začiatočník, alebo pokročilý užívateľ, a máte záujem si rozšíriť obzory čo sa týka nástrojov pre príkazovú riadku, budete na tomto workshope vítaný.
 
@@ -245,7 +245,7 @@ V prípade dostatku času:
 
 ',
                'A113',),
-      $slo -> ('Show me your command line',
+      $sk -> ('Show me your command line',
                'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
                'Pracujete často s príkazovou riadkov v svojej obľúbenej linuxovej distribúcii? Avšak, príde vám to neefektívne? Či už ste začiatočník, alebo pokročilý užívateľ, a máte záujem si rozšíriť obzory čo sa týka nástrojov pre príkazovú riadku, budete na tomto workshope vítaný.
 
@@ -268,7 +268,7 @@ V prípade dostatku času:
 
 ',
                'A113',),
-      $ger -> ('Show me your command line',
+      $de -> ('Show me your command line',
                'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
                'Pracujete často s príkazovou riadkov v svojej obľúbenej linuxovej distribúcii? Avšak, príde vám to neefektívne? Či už ste začiatočník, alebo pokročilý užívateľ, a máte záujem si rozšíriť obzory čo sa týka nástrojov pre príkazovú riadku, budete na tomto workshope vítaný.
 
@@ -299,9 +299,9 @@ V prípade dostatku času:
   members = none,
   curdir + '/img/participants/honza_horák.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -314,19 +314,19 @@ V prípade dostatku času:
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     trans = {
-      $cze -> ('Novinky ve starém dobrém SQL světě ',
+      $cs -> ('Novinky ve starém dobrém SQL světě ',
                '',
                'I v době plné NoSQL databází a hype technologií má klasické SQL své místo, ba dokonce prochází neustálou evolucí. Pojďme se podívat, co nového přináší poslední verze PostgreSQL a MySQL, potažmo MariaDB. Letmý průlet nejžhavějšími funkcemi doplní několik praktických ukázek.',
                'D105',),
-      $eng -> ('Novinky ve starém dobrém SQL světě ',
+      $en -> ('Novinky ve starém dobrém SQL světě ',
                '',
                'I v době plné NoSQL databází a hype technologií má klasické SQL své místo, ba dokonce prochází neustálou evolucí. Pojďme se podívat, co nového přináší poslední verze PostgreSQL a MySQL, potažmo MariaDB. Letmý průlet nejžhavějšími funkcemi doplní několik praktických ukázek.',
                'D105',),
-      $slo -> ('Novinky ve starém dobrém SQL světě ',
+      $sk -> ('Novinky ve starém dobrém SQL světě ',
                '',
                'I v době plné NoSQL databází a hype technologií má klasické SQL své místo, ba dokonce prochází neustálou evolucí. Pojďme se podívat, co nového přináší poslední verze PostgreSQL a MySQL, potažmo MariaDB. Letmý průlet nejžhavějšími funkcemi doplní několik praktických ukázek.',
                'D105',),
-      $ger -> ('Novinky ve starém dobrém SQL světě ',
+      $de -> ('Novinky ve starém dobrém SQL světě ',
                '',
                'I v době plné NoSQL databází a hype technologií má klasické SQL své místo, ba dokonce prochází neustálou evolucí. Pojďme se podívat, co nového přináší poslední verze PostgreSQL a MySQL, potažmo MariaDB. Letmý průlet nejžhavějšími funkcemi doplní několik praktických ukázek.',
                'D105',),
@@ -338,9 +338,9 @@ V prípade dostatku času:
   members = none,
   curdir + '/img/participants/miroslav_šido.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -354,22 +354,22 @@ V prípade dostatku času:
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     trans = {
-      $cze -> ('Raspberry Pi ako penetračný nástroj',
+      $cs -> ('Raspberry Pi ako penetračný nástroj',
                '',
                'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
 Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
                'D105',),
-      $eng -> ('Raspberry Pi ako penetračný nástroj',
+      $en -> ('Raspberry Pi ako penetračný nástroj',
                '',
                'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
 Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
                'D105',),
-      $slo -> ('Raspberry Pi ako penetračný nástroj',
+      $sk -> ('Raspberry Pi ako penetračný nástroj',
                '',
                'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
 Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
                'D105',),
-      $ger -> ('Raspberry Pi ako penetračný nástroj',
+      $de -> ('Raspberry Pi ako penetračný nástroj',
                '',
                'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
 Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
@@ -383,9 +383,9 @@ Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scann
 #  members = none,
 #  curdir + '/img/participants/tomáš_kantůrek.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -398,19 +398,19 @@ Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scann
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Virtualizace linuxu na Microsoft technologiích?! Ale ano, jde to.',
+#      $cs -> ('Virtualizace linuxu na Microsoft technologiích?! Ale ano, jde to.',
 #               '',
 #               'Technologie Microsoftu jsou historicky vnímány jako zaměřené pouze na Microsoft. Tato premisa ovšem už nějakou dobu neplatí a zejména ve virtualizačním prostředí Hyper-V má linux stejné možnosti jako Windows Server. V přednášce se dozvíte více právě o možnostech virtualizace linuxu na Hyper-V a v cloudové službě Microsoft Azure.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Virtualizace linuxu na Microsoft technologiích?! Ale ano, jde to.',
+#      $en -> ('Virtualizace linuxu na Microsoft technologiích?! Ale ano, jde to.',
 #               '',
 #               'Technologie Microsoftu jsou historicky vnímány jako zaměřené pouze na Microsoft. Tato premisa ovšem už nějakou dobu neplatí a zejména ve virtualizačním prostředí Hyper-V má linux stejné možnosti jako Windows Server. V přednášce se dozvíte více právě o možnostech virtualizace linuxu na Hyper-V a v cloudové službě Microsoft Azure.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Virtualizace linuxu na Microsoft technologiích?! Ale ano, jde to.',
+#      $sk -> ('Virtualizace linuxu na Microsoft technologiích?! Ale ano, jde to.',
 #               '',
 #               'Technologie Microsoftu jsou historicky vnímány jako zaměřené pouze na Microsoft. Tato premisa ovšem už nějakou dobu neplatí a zejména ve virtualizačním prostředí Hyper-V má linux stejné možnosti jako Windows Server. V přednášce se dozvíte více právě o možnostech virtualizace linuxu na Hyper-V a v cloudové službě Microsoft Azure.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Virtualizace linuxu na Microsoft technologiích?! Ale ano, jde to.',
+#      $de -> ('Virtualizace linuxu na Microsoft technologiích?! Ale ano, jde to.',
 #               '',
 #               'Technologie Microsoftu jsou historicky vnímány jako zaměřené pouze na Microsoft. Tato premisa ovšem už nějakou dobu neplatí a zejména ve virtualizačním prostředí Hyper-V má linux stejné možnosti jako Windows Server. V přednášce se dozvíte více právě o možnostech virtualizace linuxu na Hyper-V a v cloudové službě Microsoft Azure.',
 #               'UNKNOWN_PLACE',),
@@ -423,9 +423,9 @@ Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scann
   members = none,
   curdir + '/img/participants/tomáš_vondra.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -439,25 +439,25 @@ Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scann
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     trans = {
-      $cze -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
+      $cs -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
                '',
                'Stručný přehled hlavních novinek v PostgreSQL 9.4 (která by v době konference měla být již vydána).
 
 Mezi hlavní změny patří od základu přepracovaná podpora ukládání a indexace strukturovaných dat, ukládaných ve formátu JSON. Druhá část přednášky se proto bude blíže věnovat právě této oblasti - podíváme se na hlavní vylepšení, výkon a srovnání s jinými databázemi které umožňují ukládání JSON dat apod.',
                'D0206',),
-      $eng -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
+      $en -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
                '',
                'Stručný přehled hlavních novinek v PostgreSQL 9.4 (která by v době konference měla být již vydána).
 
 Mezi hlavní změny patří od základu přepracovaná podpora ukládání a indexace strukturovaných dat, ukládaných ve formátu JSON. Druhá část přednášky se proto bude blíže věnovat právě této oblasti - podíváme se na hlavní vylepšení, výkon a srovnání s jinými databázemi které umožňují ukládání JSON dat apod.',
                'D0206',),
-      $slo -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
+      $sk -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
                '',
                'Stručný přehled hlavních novinek v PostgreSQL 9.4 (která by v době konference měla být již vydána).
 
 Mezi hlavní změny patří od základu přepracovaná podpora ukládání a indexace strukturovaných dat, ukládaných ve formátu JSON. Druhá část přednášky se proto bude blíže věnovat právě této oblasti - podíváme se na hlavní vylepšení, výkon a srovnání s jinými databázemi které umožňují ukládání JSON dat apod.',
                'D0206',),
-      $ger -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
+      $de -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
                '',
                'Stručný přehled hlavních novinek v PostgreSQL 9.4 (která by v době konference měla být již vydána).
 
@@ -471,9 +471,9 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
   members = none,
   curdir + '/img/participants/pavel_šnajdr.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -487,19 +487,19 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     trans = {
-      $cze -> ('Nebojte se SSD v serveru',
+      $cs -> ('Nebojte se SSD v serveru',
                '',
                'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
                'D105',),
-      $eng -> ('Nebojte se SSD v serveru',
+      $en -> ('Nebojte se SSD v serveru',
                '',
                'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
                'D105',),
-      $slo -> ('Nebojte se SSD v serveru',
+      $sk -> ('Nebojte se SSD v serveru',
                '',
                'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
                'D105',),
-      $ger -> ('Nebojte se SSD v serveru',
+      $de -> ('Nebojte se SSD v serveru',
                '',
                'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
                'D105',),
@@ -511,9 +511,9 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
   members = none,
   curdir + '/img/participants/jirka_folta.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -526,7 +526,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     trans = {
-      $cze -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
+      $cs -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
                'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
                '* Zakladni seznameni s Darktablem (moznosti instalace, konfigurace, zakladni rozhrani a jeho funkcnionalita, web, komunita, zapojeni do komunity)
 * Nastaveni systemu pro rychlejsi beh Darktablu
@@ -534,7 +534,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
 * Prace s maskami
 * Zakladni workflow upravy a export fotografii',
                'A112',),
-      $eng -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
+      $en -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
                'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
                '* Zakladni seznameni s Darktablem (moznosti instalace, konfigurace, zakladni rozhrani a jeho funkcnionalita, web, komunita, zapojeni do komunity)
 * Nastaveni systemu pro rychlejsi beh Darktablu
@@ -542,7 +542,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
 * Prace s maskami
 * Zakladni workflow upravy a export fotografii',
                'A112',),
-      $slo -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
+      $sk -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
                'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
                '* Zakladni seznameni s Darktablem (moznosti instalace, konfigurace, zakladni rozhrani a jeho funkcnionalita, web, komunita, zapojeni do komunity)
 * Nastaveni systemu pro rychlejsi beh Darktablu
@@ -550,7 +550,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
 * Prace s maskami
 * Zakladni workflow upravy a export fotografii',
                'A112',),
-      $ger -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
+      $de -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
                'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
                '* Zakladni seznameni s Darktablem (moznosti instalace, konfigurace, zakladni rozhrani a jeho funkcnionalita, web, komunita, zapojeni do komunity)
 * Nastaveni systemu pro rychlejsi beh Darktablu
@@ -567,9 +567,9 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
   members = none,
   curdir + '/img/participants/martin_stránský.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -582,7 +582,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     trans = {
-      $cze -> ('Firefox OS/Web apps',
+      $cs -> ('Firefox OS/Web apps',
                'Povedomi o HTML & JS a/nebo C, pocitac s prohlizecem Firefox',
                'Naprogramujte si vlastni aplikaci pro Firefox nebo Firefox OS, at uz v HTML nebo C/C++ nebo vyzkousejte uz existujici.
 
@@ -590,7 +590,7 @@ Ukazeme si zakladni "Hello World" aplikaci, budeme mluvit o pixi.js pro rychlou 
 
 Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkouseni budou k dispozici telefony s Firefox OS, pokud se zadari i tablet.',
                'A112',),
-      $eng -> ('Firefox OS/Web apps',
+      $en -> ('Firefox OS/Web apps',
                'Povedomi o HTML & JS a/nebo C, pocitac s prohlizecem Firefox',
                'Naprogramujte si vlastni aplikaci pro Firefox nebo Firefox OS, at uz v HTML nebo C/C++ nebo vyzkousejte uz existujici.
 
@@ -598,7 +598,7 @@ Ukazeme si zakladni "Hello World" aplikaci, budeme mluvit o pixi.js pro rychlou 
 
 Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkouseni budou k dispozici telefony s Firefox OS, pokud se zadari i tablet.',
                'A112',),
-      $slo -> ('Firefox OS/Web apps',
+      $sk -> ('Firefox OS/Web apps',
                'Povedomi o HTML & JS a/nebo C, pocitac s prohlizecem Firefox',
                'Naprogramujte si vlastni aplikaci pro Firefox nebo Firefox OS, at uz v HTML nebo C/C++ nebo vyzkousejte uz existujici.
 
@@ -606,7 +606,7 @@ Ukazeme si zakladni "Hello World" aplikaci, budeme mluvit o pixi.js pro rychlou 
 
 Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkouseni budou k dispozici telefony s Firefox OS, pokud se zadari i tablet.',
                'A112',),
-      $ger -> ('Firefox OS/Web apps',
+      $de -> ('Firefox OS/Web apps',
                'Povedomi o HTML & JS a/nebo C, pocitac s prohlizecem Firefox',
                'Naprogramujte si vlastni aplikaci pro Firefox nebo Firefox OS, at uz v HTML nebo C/C++ nebo vyzkousejte uz existujici.
 
@@ -623,9 +623,9 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 #  members = none,
 #  curdir + '/img/participants/petr_hráček.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -638,7 +638,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Rebase-helper - nástroj pro rebase balíčků',
+#      $cs -> ('Rebase-helper - nástroj pro rebase balíčků',
 #               '',
 #               'Rebase-helper je nástroj pro rebasování balíčků ve Fedore.
 #Rebase-helper má za cíl usnadnit a částečně zautomatizovat práci vývojářům při rebasování balíčků na poslední verzi oznámenou upstreamem.
@@ -653,7 +653,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 #Více informaci na GitHubových stránkách:
 #https://github.com/phracek/rebase-helper',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Rebase-helper - nástroj pro rebase balíčků',
+#      $en -> ('Rebase-helper - nástroj pro rebase balíčků',
 #               '',
 #               'Rebase-helper je nástroj pro rebasování balíčků ve Fedore.
 #Rebase-helper má za cíl usnadnit a částečně zautomatizovat práci vývojářům při rebasování balíčků na poslední verzi oznámenou upstreamem.
@@ -668,7 +668,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 #Více informaci na GitHubových stránkách:
 #https://github.com/phracek/rebase-helper',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Rebase-helper - nástroj pro rebase balíčků',
+#      $sk -> ('Rebase-helper - nástroj pro rebase balíčků',
 #               '',
 #               'Rebase-helper je nástroj pro rebasování balíčků ve Fedore.
 #Rebase-helper má za cíl usnadnit a částečně zautomatizovat práci vývojářům při rebasování balíčků na poslední verzi oznámenou upstreamem.
@@ -683,7 +683,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 #Více informaci na GitHubových stránkách:
 #https://github.com/phracek/rebase-helper',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Rebase-helper - nástroj pro rebase balíčků',
+#      $de -> ('Rebase-helper - nástroj pro rebase balíčků',
 #               '',
 #               'Rebase-helper je nástroj pro rebasování balíčků ve Fedore.
 #Rebase-helper má za cíl usnadnit a částečně zautomatizovat práci vývojářům při rebasování balíčků na poslední verzi oznámenou upstreamem.
@@ -707,9 +707,9 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
   members = none,
   curdir + '/img/participants/martin_sivák.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -723,7 +723,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     trans = {
-      $cze -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
+      $cs -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
                '',
                'Přednáška představí projekt oVirt, který je komunitní verzí Red Hatem podporovaného nástroje na správu virtuálních strojů v datacentru. S jeho pomocí je možné spravovat několik (desítek) fyzických počítačů a několik (tisíc) na nich běžících virtuálních mašin. Samozřejmě je podporována migrace, určitá forma vysoké dostupnosti (HA), několik různých metod pro uložení a migraci dat...
 
@@ -736,7 +736,7 @@ Součástí přednášky tedy budou zhruba následující body:
 - over-booking a alokace zdrojů (paměť, cpu)
 - hosted-engine aneb správce jako VM',
                'D0206',),
-      $eng -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
+      $en -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
                '',
                'Přednáška představí projekt oVirt, který je komunitní verzí Red Hatem podporovaného nástroje na správu virtuálních strojů v datacentru. S jeho pomocí je možné spravovat několik (desítek) fyzických počítačů a několik (tisíc) na nich běžících virtuálních mašin. Samozřejmě je podporována migrace, určitá forma vysoké dostupnosti (HA), několik různých metod pro uložení a migraci dat...
 
@@ -749,7 +749,7 @@ Součástí přednášky tedy budou zhruba následující body:
 - over-booking a alokace zdrojů (paměť, cpu)
 - hosted-engine aneb správce jako VM',
                'D0206',),
-      $slo -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
+      $sk -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
                '',
                'Přednáška představí projekt oVirt, který je komunitní verzí Red Hatem podporovaného nástroje na správu virtuálních strojů v datacentru. S jeho pomocí je možné spravovat několik (desítek) fyzických počítačů a několik (tisíc) na nich běžících virtuálních mašin. Samozřejmě je podporována migrace, určitá forma vysoké dostupnosti (HA), několik různých metod pro uložení a migraci dat...
 
@@ -762,7 +762,7 @@ Součástí přednášky tedy budou zhruba následující body:
 - over-booking a alokace zdrojů (paměť, cpu)
 - hosted-engine aneb správce jako VM',
                'D0206',),
-      $ger -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
+      $de -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
                '',
                'Přednáška představí projekt oVirt, který je komunitní verzí Red Hatem podporovaného nástroje na správu virtuálních strojů v datacentru. S jeho pomocí je možné spravovat několik (desítek) fyzických počítačů a několik (tisíc) na nich běžících virtuálních mašin. Samozřejmě je podporována migrace, určitá forma vysoké dostupnosti (HA), několik různých metod pro uložení a migraci dat...
 
@@ -784,9 +784,9 @@ Součástí přednášky tedy budou zhruba následující body:
   members = none,
   curdir + '/img/participants/michal_černý.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -799,19 +799,19 @@ Součástí přednášky tedy budou zhruba následující body:
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     trans = {
-      $cze -> ('Open source a budoucnost školství',
+      $cs -> ('Open source a budoucnost školství',
                '',
                'Příspěvek bude analyzovat budoucnost školství a využití technologií v něm. Zaměří se na možnosti, výhody i výzvy, které budou spojené s open source, včetně otevřeného hardwaru. Bude čerpat z Hype Cycle od Gartner a dalších predikční zpráv.',
                'D0206',),
-      $eng -> ('Open source a budoucnost školství',
+      $en -> ('Open source a budoucnost školství',
                '',
                'Příspěvek bude analyzovat budoucnost školství a využití technologií v něm. Zaměří se na možnosti, výhody i výzvy, které budou spojené s open source, včetně otevřeného hardwaru. Bude čerpat z Hype Cycle od Gartner a dalších predikční zpráv.',
                'D0206',),
-      $slo -> ('Open source a budoucnost školství',
+      $sk -> ('Open source a budoucnost školství',
                '',
                'Příspěvek bude analyzovat budoucnost školství a využití technologií v něm. Zaměří se na možnosti, výhody i výzvy, které budou spojené s open source, včetně otevřeného hardwaru. Bude čerpat z Hype Cycle od Gartner a dalších predikční zpráv.',
                'D0206',),
-      $ger -> ('Open source a budoucnost školství',
+      $de -> ('Open source a budoucnost školství',
                '',
                'Příspěvek bude analyzovat budoucnost školství a využití technologií v něm. Zaměří se na možnosti, výhody i výzvy, které budou spojené s open source, včetně otevřeného hardwaru. Bude čerpat z Hype Cycle od Gartner a dalších predikční zpráv.',
                'D0206',),
@@ -824,9 +824,9 @@ Součástí přednášky tedy budou zhruba následující body:
   members = none,
   curdir + '/img/participants/martin_čežík.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -840,7 +840,7 @@ Součástí přednášky tedy budou zhruba následující body:
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     trans = {
-      $cze -> ('Jak náročné je získat data o poloze vozidel MHD?',
+      $cs -> ('Jak náročné je získat data o poloze vozidel MHD?',
                'Dobrá nálada vyžadována, zajímavé otázky k tématu vítány.',
                'Jsem provozovatelem aplikace Šotoris ( http://sotoris.cz ), která využívá data o aktuální poloze a stavu vozidel od Dopravního podniku města Brna s. s. (DPMB) a zobrazuje je veřejnosti ať už na webu, tak v mobilních telefonech.
 
@@ -852,7 +852,7 @@ V mém bloku budu povídat o tom, jak jsme získávali data neoficiálně. Co se
 Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální povolení používání dat. Byl to náročný proces a rád bych se o něj s vámi podělil.
 ',
                'D105',),
-      $eng -> ('Jak náročné je získat data o poloze vozidel MHD?',
+      $en -> ('Jak náročné je získat data o poloze vozidel MHD?',
                'Dobrá nálada vyžadována, zajímavé otázky k tématu vítány.',
                'Jsem provozovatelem aplikace Šotoris ( http://sotoris.cz ), která využívá data o aktuální poloze a stavu vozidel od Dopravního podniku města Brna s. s. (DPMB) a zobrazuje je veřejnosti ať už na webu, tak v mobilních telefonech.
 
@@ -864,7 +864,7 @@ V mém bloku budu povídat o tom, jak jsme získávali data neoficiálně. Co se
 Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální povolení používání dat. Byl to náročný proces a rád bych se o něj s vámi podělil.
 ',
                'D105',),
-      $slo -> ('Jak náročné je získat data o poloze vozidel MHD?',
+      $sk -> ('Jak náročné je získat data o poloze vozidel MHD?',
                'Dobrá nálada vyžadována, zajímavé otázky k tématu vítány.',
                'Jsem provozovatelem aplikace Šotoris ( http://sotoris.cz ), která využívá data o aktuální poloze a stavu vozidel od Dopravního podniku města Brna s. s. (DPMB) a zobrazuje je veřejnosti ať už na webu, tak v mobilních telefonech.
 
@@ -876,7 +876,7 @@ V mém bloku budu povídat o tom, jak jsme získávali data neoficiálně. Co se
 Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální povolení používání dat. Byl to náročný proces a rád bych se o něj s vámi podělil.
 ',
                'D105',),
-      $ger -> ('Jak náročné je získat data o poloze vozidel MHD?',
+      $de -> ('Jak náročné je získat data o poloze vozidel MHD?',
                'Dobrá nálada vyžadována, zajímavé otázky k tématu vítány.',
                'Jsem provozovatelem aplikace Šotoris ( http://sotoris.cz ), která využívá data o aktuální poloze a stavu vozidel od Dopravního podniku města Brna s. s. (DPMB) a zobrazuje je veřejnosti ať už na webu, tak v mobilních telefonech.
 
@@ -897,9 +897,9 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
   members = none,
   curdir + '/img/participants/jan_mareš.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -912,19 +912,19 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     trans = {
-      $cze -> ('Současný svět "Internet věcí"',
+      $cs -> ('Současný svět "Internet věcí"',
                '',
                'S rozmachem trendu "Internet věcí" se na trhu objevilo spousta nových zařízení rozmanitých rozměrů, která jsou cenově dostupná a zároveň poskytují jednoduchý způsob programování. Tato přednáška poskytne přehled dostupných řešení, jejich možností a kam se vlastně ubírá současný svět. Můžete se těšit na Spark Core, mBuino, Digispark či UDOO a spoustu dalších zařízení.',
                'D0206',),
-      $eng -> ('Současný svět "Internet věcí"',
+      $en -> ('Současný svět "Internet věcí"',
                '',
                'S rozmachem trendu "Internet věcí" se na trhu objevilo spousta nových zařízení rozmanitých rozměrů, která jsou cenově dostupná a zároveň poskytují jednoduchý způsob programování. Tato přednáška poskytne přehled dostupných řešení, jejich možností a kam se vlastně ubírá současný svět. Můžete se těšit na Spark Core, mBuino, Digispark či UDOO a spoustu dalších zařízení.',
                'D0206',),
-      $slo -> ('Současný svět "Internet věcí"',
+      $sk -> ('Současný svět "Internet věcí"',
                '',
                'S rozmachem trendu "Internet věcí" se na trhu objevilo spousta nových zařízení rozmanitých rozměrů, která jsou cenově dostupná a zároveň poskytují jednoduchý způsob programování. Tato přednáška poskytne přehled dostupných řešení, jejich možností a kam se vlastně ubírá současný svět. Můžete se těšit na Spark Core, mBuino, Digispark či UDOO a spoustu dalších zařízení.',
                'D0206',),
-      $ger -> ('Současný svět "Internet věcí"',
+      $de -> ('Současný svět "Internet věcí"',
                '',
                'S rozmachem trendu "Internet věcí" se na trhu objevilo spousta nových zařízení rozmanitých rozměrů, která jsou cenově dostupná a zároveň poskytují jednoduchý způsob programování. Tato přednáška poskytne přehled dostupných řešení, jejich možností a kam se vlastně ubírá současný svět. Můžete se těšit na Spark Core, mBuino, Digispark či UDOO a spoustu dalších zařízení.',
                'D0206',),
@@ -937,9 +937,9 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
   members = none,
   curdir + '/img/participants/jiří_eischmann.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -952,19 +952,19 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
-      $cze -> ('Fedora.Next: F21 a dál',
+      $cs -> ('Fedora.Next: F21 a dál',
                'otevřená mysl :)',
                'Distribuce Fedora momentálně prochází v rámci iniciativy Fedora.Next nejvýraznější změnou za celou dobu své existence. Fedora bude od verze 21 nabízet tři oficiální produkty: Workstation, Server a Cloud. Přednášká odpoví na to, čím se budou tyto produkty vyznačovat, na jakou skupinu uživatelů cílí. Dále se bude zabývat také tím, jak se budou distribuce a její produkty vyvíjet v dalších vydáních.',
                'D0207',),
-      $eng -> ('Fedora.Next: F21 a dál',
+      $en -> ('Fedora.Next: F21 a dál',
                'otevřená mysl :)',
                'Distribuce Fedora momentálně prochází v rámci iniciativy Fedora.Next nejvýraznější změnou za celou dobu své existence. Fedora bude od verze 21 nabízet tři oficiální produkty: Workstation, Server a Cloud. Přednášká odpoví na to, čím se budou tyto produkty vyznačovat, na jakou skupinu uživatelů cílí. Dále se bude zabývat také tím, jak se budou distribuce a její produkty vyvíjet v dalších vydáních.',
                'D0207',),
-      $slo -> ('Fedora.Next: F21 a dál',
+      $sk -> ('Fedora.Next: F21 a dál',
                'otevřená mysl :)',
                'Distribuce Fedora momentálně prochází v rámci iniciativy Fedora.Next nejvýraznější změnou za celou dobu své existence. Fedora bude od verze 21 nabízet tři oficiální produkty: Workstation, Server a Cloud. Přednášká odpoví na to, čím se budou tyto produkty vyznačovat, na jakou skupinu uživatelů cílí. Dále se bude zabývat také tím, jak se budou distribuce a její produkty vyvíjet v dalších vydáních.',
                'D0207',),
-      $ger -> ('Fedora.Next: F21 a dál',
+      $de -> ('Fedora.Next: F21 a dál',
                'otevřená mysl :)',
                'Distribuce Fedora momentálně prochází v rámci iniciativy Fedora.Next nejvýraznější změnou za celou dobu své existence. Fedora bude od verze 21 nabízet tři oficiální produkty: Workstation, Server a Cloud. Přednášká odpoví na to, čím se budou tyto produkty vyznačovat, na jakou skupinu uživatelů cílí. Dále se bude zabývat také tím, jak se budou distribuce a její produkty vyvíjet v dalších vydáních.',
                'D0207',),
@@ -977,9 +977,9 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
   members = none,
   curdir + '/img/participants/šimon_lukašík.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -992,7 +992,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     trans = {
-      $cze -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
+      $cs -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
                '',
                ' * SCAP je otevřený standard za kterým formálně stojí americká vláda, nicméně na jeho vývoji spolupracovalo široké spektrum agentur, a IT firem.
  * OpenSCAP je free software implementace tohoto standardu, OpenSCAP je tedy intepreter bezpečnostní politiky ve formě SCAP.
@@ -1005,7 +1005,7 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
  * Vývoj bezpečnostní politiky, nástroje a zkušenosti
 ',
                'D0207',),
-      $eng -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
+      $en -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
                '',
                ' * SCAP je otevřený standard za kterým formálně stojí americká vláda, nicméně na jeho vývoji spolupracovalo široké spektrum agentur, a IT firem.
  * OpenSCAP je free software implementace tohoto standardu, OpenSCAP je tedy intepreter bezpečnostní politiky ve formě SCAP.
@@ -1018,7 +1018,7 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
  * Vývoj bezpečnostní politiky, nástroje a zkušenosti
 ',
                'D0207',),
-      $slo -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
+      $sk -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
                '',
                ' * SCAP je otevřený standard za kterým formálně stojí americká vláda, nicméně na jeho vývoji spolupracovalo široké spektrum agentur, a IT firem.
  * OpenSCAP je free software implementace tohoto standardu, OpenSCAP je tedy intepreter bezpečnostní politiky ve formě SCAP.
@@ -1031,7 +1031,7 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
  * Vývoj bezpečnostní politiky, nástroje a zkušenosti
 ',
                'D0207',),
-      $ger -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
+      $de -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
                '',
                ' * SCAP je otevřený standard za kterým formálně stojí americká vláda, nicméně na jeho vývoji spolupracovalo široké spektrum agentur, a IT firem.
  * OpenSCAP je free software implementace tohoto standardu, OpenSCAP je tedy intepreter bezpečnostní politiky ve formě SCAP.
@@ -1052,9 +1052,9 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
   members = none,
   curdir + '/img/participants/věroš_kaplan.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1067,7 +1067,7 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
     trans = {
-      $cze -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
+      $cs -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
                '',
                'Ansible je legrační nástroj na automatizaci počítačů. Můžete s ním rychle  nainstalovat farmu webových serverů nebo připravit celou počítačovou učebnu pro svoje studenty. A nebo obojí.
 
@@ -1075,7 +1075,7 @@ Jeho velikou výhodou je jednoduchost, dá se pochopit za 10 minut a za dalšíc
 
 V přednášce předvedeme k čemu to může být dobré a jak se to používá. A když bude čas, tak si nainstalujeme i nějaký ten server.',
                'D105',),
-      $eng -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
+      $en -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
                '',
                'Ansible je legrační nástroj na automatizaci počítačů. Můžete s ním rychle  nainstalovat farmu webových serverů nebo připravit celou počítačovou učebnu pro svoje studenty. A nebo obojí.
 
@@ -1083,7 +1083,7 @@ Jeho velikou výhodou je jednoduchost, dá se pochopit za 10 minut a za dalšíc
 
 V přednášce předvedeme k čemu to může být dobré a jak se to používá. A když bude čas, tak si nainstalujeme i nějaký ten server.',
                'D105',),
-      $slo -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
+      $sk -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
                '',
                'Ansible je legrační nástroj na automatizaci počítačů. Můžete s ním rychle  nainstalovat farmu webových serverů nebo připravit celou počítačovou učebnu pro svoje studenty. A nebo obojí.
 
@@ -1091,7 +1091,7 @@ Jeho velikou výhodou je jednoduchost, dá se pochopit za 10 minut a za dalšíc
 
 V přednášce předvedeme k čemu to může být dobré a jak se to používá. A když bude čas, tak si nainstalujeme i nějaký ten server.',
                'D105',),
-      $ger -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
+      $de -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
                '',
                'Ansible je legrační nástroj na automatizaci počítačů. Můžete s ním rychle  nainstalovat farmu webových serverů nebo připravit celou počítačovou učebnu pro svoje studenty. A nebo obojí.
 
@@ -1108,9 +1108,9 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 #  members = none,
 #  curdir + '/img/participants/marek_bryša.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1124,19 +1124,19 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Automatizace hlášení chyb ve Fedora Linuxu',
+#      $cs -> ('Automatizace hlášení chyb ve Fedora Linuxu',
 #               '',
 #               'Úvod do projektu ABRT, přínosy automatizace hlášení chyb aneb každý může pomoct opravit chybu, aktuální stav a plány do budoucna.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Automatizace hlášení chyb ve Fedora Linuxu',
+#      $en -> ('Automatizace hlášení chyb ve Fedora Linuxu',
 #               '',
 #               'Úvod do projektu ABRT, přínosy automatizace hlášení chyb aneb každý může pomoct opravit chybu, aktuální stav a plány do budoucna.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Automatizace hlášení chyb ve Fedora Linuxu',
+#      $sk -> ('Automatizace hlášení chyb ve Fedora Linuxu',
 #               '',
 #               'Úvod do projektu ABRT, přínosy automatizace hlášení chyb aneb každý může pomoct opravit chybu, aktuální stav a plány do budoucna.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Automatizace hlášení chyb ve Fedora Linuxu',
+#      $de -> ('Automatizace hlášení chyb ve Fedora Linuxu',
 #               '',
 #               'Úvod do projektu ABRT, přínosy automatizace hlášení chyb aneb každý může pomoct opravit chybu, aktuální stav a plány do budoucna.',
 #               'UNKNOWN_PLACE',),
@@ -1149,9 +1149,9 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 #  members = none,
 #  curdir + '/img/participants/jan_zelený.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1164,19 +1164,19 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
 #    trans = {
-#      $cze -> ('Fedora pro vývojáře',
+#      $cs -> ('Fedora pro vývojáře',
 #               '',
 #               'Cílem přednášky bude představit nově startující projekt, který se zaměřuje na úpravy distribuce Fedora tak, aby byla co možná nejpřívětivější pro vývojáře. Během přednášky budou zodpovězeny otázky jako "Kdo?", "Proč?" nebo "Pro které vývojáře?" a budou nastíněny některé z nápadů, jak dosáhnout vytyčeného cíle. Důležitou součástí také bude diskuze, jejímž cílem bude sesbírat od posluchačů jejich vlastní představy o tom, jak by taková distribuce pro vývojáře měla vypadat.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Fedora pro vývojáře',
+#      $en -> ('Fedora pro vývojáře',
 #               '',
 #               'Cílem přednášky bude představit nově startující projekt, který se zaměřuje na úpravy distribuce Fedora tak, aby byla co možná nejpřívětivější pro vývojáře. Během přednášky budou zodpovězeny otázky jako "Kdo?", "Proč?" nebo "Pro které vývojáře?" a budou nastíněny některé z nápadů, jak dosáhnout vytyčeného cíle. Důležitou součástí také bude diskuze, jejímž cílem bude sesbírat od posluchačů jejich vlastní představy o tom, jak by taková distribuce pro vývojáře měla vypadat.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Fedora pro vývojáře',
+#      $sk -> ('Fedora pro vývojáře',
 #               '',
 #               'Cílem přednášky bude představit nově startující projekt, který se zaměřuje na úpravy distribuce Fedora tak, aby byla co možná nejpřívětivější pro vývojáře. Během přednášky budou zodpovězeny otázky jako "Kdo?", "Proč?" nebo "Pro které vývojáře?" a budou nastíněny některé z nápadů, jak dosáhnout vytyčeného cíle. Důležitou součástí také bude diskuze, jejímž cílem bude sesbírat od posluchačů jejich vlastní představy o tom, jak by taková distribuce pro vývojáře měla vypadat.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Fedora pro vývojáře',
+#      $de -> ('Fedora pro vývojáře',
 #               '',
 #               'Cílem přednášky bude představit nově startující projekt, který se zaměřuje na úpravy distribuce Fedora tak, aby byla co možná nejpřívětivější pro vývojáře. Během přednášky budou zodpovězeny otázky jako "Kdo?", "Proč?" nebo "Pro které vývojáře?" a budou nastíněny některé z nápadů, jak dosáhnout vytyčeného cíle. Důležitou součástí také bude diskuze, jejímž cílem bude sesbírat od posluchačů jejich vlastní představy o tom, jak by taková distribuce pro vývojáře měla vypadat.',
 #               'UNKNOWN_PLACE',),
@@ -1189,9 +1189,9 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
   members = none,
   curdir + '/img/participants/václav_pavlín.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1204,19 +1204,19 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
     trans = {
-      $cze -> ('Docker ve Fedoře',
+      $cs -> ('Docker ve Fedoře',
                '',
                'Docker, Docker, Docker. Pokud se pohybujete v DevOps světě, nemohly vás kontejnery a packaging v podání Dockeru minout. Pokud vás zajímá, jak je se k Dockeru staví Fedora a co by mohla přinést společná budoucnost těchto dvou Open Source projektů, určitě si tuto přednášku nenechte ujít.',
                'D0206',),
-      $eng -> ('Docker ve Fedoře',
+      $en -> ('Docker ve Fedoře',
                '',
                'Docker, Docker, Docker. Pokud se pohybujete v DevOps světě, nemohly vás kontejnery a packaging v podání Dockeru minout. Pokud vás zajímá, jak je se k Dockeru staví Fedora a co by mohla přinést společná budoucnost těchto dvou Open Source projektů, určitě si tuto přednášku nenechte ujít.',
                'D0206',),
-      $slo -> ('Docker ve Fedoře',
+      $sk -> ('Docker ve Fedoře',
                '',
                'Docker, Docker, Docker. Pokud se pohybujete v DevOps světě, nemohly vás kontejnery a packaging v podání Dockeru minout. Pokud vás zajímá, jak je se k Dockeru staví Fedora a co by mohla přinést společná budoucnost těchto dvou Open Source projektů, určitě si tuto přednášku nenechte ujít.',
                'D0206',),
-      $ger -> ('Docker ve Fedoře',
+      $de -> ('Docker ve Fedoře',
                '',
                'Docker, Docker, Docker. Pokud se pohybujete v DevOps světě, nemohly vás kontejnery a packaging v podání Dockeru minout. Pokud vás zajímá, jak je se k Dockeru staví Fedora a co by mohla přinést společná budoucnost těchto dvou Open Source projektů, určitě si tuto přednášku nenechte ujít.',
                'D0206',),
@@ -1229,9 +1229,9 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
   members = none,
   curdir + '/img/participants/lukáš_nykrýn.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1244,19 +1244,19 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     trans = {
-      $cze -> ('Novinky v systemd',
+      $cs -> ('Novinky v systemd',
                '',
                'Pojďme se podívat, jaké změny a novinky se objevily v systemd od loňské přednášky a podiskutovat o tom, jaký mají význam.',
                'D105',),
-      $eng -> ('Novinky v systemd',
+      $en -> ('Novinky v systemd',
                '',
                'Pojďme se podívat, jaké změny a novinky se objevily v systemd od loňské přednášky a podiskutovat o tom, jaký mají význam.',
                'D105',),
-      $slo -> ('Novinky v systemd',
+      $sk -> ('Novinky v systemd',
                '',
                'Pojďme se podívat, jaké změny a novinky se objevily v systemd od loňské přednášky a podiskutovat o tom, jaký mají význam.',
                'D105',),
-      $ger -> ('Novinky v systemd',
+      $de -> ('Novinky v systemd',
                '',
                'Pojďme se podívat, jaké změny a novinky se objevily v systemd od loňské přednášky a podiskutovat o tom, jaký mají význam.',
                'D105',),
@@ -1269,9 +1269,9 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
   members = none,
   curdir + '/img/participants/tomáš_tomeček.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1285,22 +1285,22 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     trans = {
-      $cze -> ('Docker: Kontejnery v praxi',
+      $cs -> ('Docker: Kontejnery v praxi',
                '',
                'Znáte Docker? Odpověděli jste “ne”? V tom případě si určitě přijdtě poslechnout naši přednášku o této zajímavé technologii usnadující kontejnerizaci aplikací. Pokud vaše odpověd zní ano, pak vám můžeme slíbit, že se pokusíme vyhnout ohrané omáčce a nabídneme zajímavosti a doporučení, které jsme sami posbírali při hrátkách s Dockerem a kontejnery. Těšit se můžete například na ukázku vytvoření kontejneru s vlastní aplikací a jeho nasazaní na server. 
 A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příkazů v terminálu) týkajících se nejnovějšího Openshiftu (založeného na Dockeru) a jeho integrace Kubernetes - nástroje pro cluster management.',
                'D105',),
-      $eng -> ('Docker: Kontejnery v praxi',
+      $en -> ('Docker: Kontejnery v praxi',
                '',
                'Znáte Docker? Odpověděli jste “ne”? V tom případě si určitě přijdtě poslechnout naši přednášku o této zajímavé technologii usnadující kontejnerizaci aplikací. Pokud vaše odpověd zní ano, pak vám můžeme slíbit, že se pokusíme vyhnout ohrané omáčce a nabídneme zajímavosti a doporučení, které jsme sami posbírali při hrátkách s Dockerem a kontejnery. Těšit se můžete například na ukázku vytvoření kontejneru s vlastní aplikací a jeho nasazaní na server. 
 A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příkazů v terminálu) týkajících se nejnovějšího Openshiftu (založeného na Dockeru) a jeho integrace Kubernetes - nástroje pro cluster management.',
                'D105',),
-      $slo -> ('Docker: Kontejnery v praxi',
+      $sk -> ('Docker: Kontejnery v praxi',
                '',
                'Znáte Docker? Odpověděli jste “ne”? V tom případě si určitě přijdtě poslechnout naši přednášku o této zajímavé technologii usnadující kontejnerizaci aplikací. Pokud vaše odpověd zní ano, pak vám můžeme slíbit, že se pokusíme vyhnout ohrané omáčce a nabídneme zajímavosti a doporučení, které jsme sami posbírali při hrátkách s Dockerem a kontejnery. Těšit se můžete například na ukázku vytvoření kontejneru s vlastní aplikací a jeho nasazaní na server. 
 A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příkazů v terminálu) týkajících se nejnovějšího Openshiftu (založeného na Dockeru) a jeho integrace Kubernetes - nástroje pro cluster management.',
                'D105',),
-      $ger -> ('Docker: Kontejnery v praxi',
+      $de -> ('Docker: Kontejnery v praxi',
                '',
                'Znáte Docker? Odpověděli jste “ne”? V tom případě si určitě přijdtě poslechnout naši přednášku o této zajímavé technologii usnadující kontejnerizaci aplikací. Pokud vaše odpověd zní ano, pak vám můžeme slíbit, že se pokusíme vyhnout ohrané omáčce a nabídneme zajímavosti a doporučení, které jsme sami posbírali při hrátkách s Dockerem a kontejnery. Těšit se můžete například na ukázku vytvoření kontejneru s vlastní aplikací a jeho nasazaní na server. 
 A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příkazů v terminálu) týkajících se nejnovějšího Openshiftu (založeného na Dockeru) a jeho integrace Kubernetes - nástroje pro cluster management.',
@@ -1314,9 +1314,9 @@ A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příka
   members = none,
   curdir + '/img/participants/martin_kolman.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1329,7 +1329,7 @@ A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příka
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     trans = {
-      $cze -> ('otevřený navigační systém modRana',
+      $cs -> ('otevřený navigační systém modRana',
                '',
                'Přednáška pojednává o otevřeném navigačním systému modRana, který se snaží pokrýt požadavky na plnohodnotný moderní multiplatformní navigační systém s použitím otevřených technologií a svobodných zdrojů geografických dat, jako je například projekt OpenStreetMap. 
 
@@ -1337,7 +1337,7 @@ Již v současnsné podobě modRana zvládá online i offline hledání cesty, "
 
 Bude představena historie projektu, podporované platformy, přehled dostupné funkcionality i plány do budoucna.',
                'D0206',),
-      $eng -> ('otevřený navigační systém modRana',
+      $en -> ('otevřený navigační systém modRana',
                '',
                'Přednáška pojednává o otevřeném navigačním systému modRana, který se snaží pokrýt požadavky na plnohodnotný moderní multiplatformní navigační systém s použitím otevřených technologií a svobodných zdrojů geografických dat, jako je například projekt OpenStreetMap. 
 
@@ -1345,7 +1345,7 @@ Již v současnsné podobě modRana zvládá online i offline hledání cesty, "
 
 Bude představena historie projektu, podporované platformy, přehled dostupné funkcionality i plány do budoucna.',
                'D0206',),
-      $slo -> ('otevřený navigační systém modRana',
+      $sk -> ('otevřený navigační systém modRana',
                '',
                'Přednáška pojednává o otevřeném navigačním systému modRana, který se snaží pokrýt požadavky na plnohodnotný moderní multiplatformní navigační systém s použitím otevřených technologií a svobodných zdrojů geografických dat, jako je například projekt OpenStreetMap. 
 
@@ -1353,7 +1353,7 @@ Již v současnsné podobě modRana zvládá online i offline hledání cesty, "
 
 Bude představena historie projektu, podporované platformy, přehled dostupné funkcionality i plány do budoucna.',
                'D0206',),
-      $ger -> ('otevřený navigační systém modRana',
+      $de -> ('otevřený navigační systém modRana',
                '',
                'Přednáška pojednává o otevřeném navigačním systému modRana, který se snaží pokrýt požadavky na plnohodnotný moderní multiplatformní navigační systém s použitím otevřených technologií a svobodných zdrojů geografických dat, jako je například projekt OpenStreetMap. 
 
@@ -1370,9 +1370,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
   members = none,
   curdir + '/img/participants/barbora_ančincová.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1385,19 +1385,19 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     trans = {
-      $cze -> ('Open source vládnutí',
+      $cs -> ('Open source vládnutí',
                '',
                'Přednáška se zaměří na možnosti přenesení základních principů z oblasti vývoje otevřeného softwaru na demokratické vládnutí (tzv. open source government). Blíže se budeme zabývat otevřenými daty či O\'Reillyho konceptem vlády jako platformy. Nebudou chybět ani ukázky toho, jak jsou tyto principy uváděny do praxe u nás i v zahraničí.',
                'D0206',),
-      $eng -> ('Open source vládnutí',
+      $en -> ('Open source vládnutí',
                '',
                'Přednáška se zaměří na možnosti přenesení základních principů z oblasti vývoje otevřeného softwaru na demokratické vládnutí (tzv. open source government). Blíže se budeme zabývat otevřenými daty či O\'Reillyho konceptem vlády jako platformy. Nebudou chybět ani ukázky toho, jak jsou tyto principy uváděny do praxe u nás i v zahraničí.',
                'D0206',),
-      $slo -> ('Open source vládnutí',
+      $sk -> ('Open source vládnutí',
                '',
                'Přednáška se zaměří na možnosti přenesení základních principů z oblasti vývoje otevřeného softwaru na demokratické vládnutí (tzv. open source government). Blíže se budeme zabývat otevřenými daty či O\'Reillyho konceptem vlády jako platformy. Nebudou chybět ani ukázky toho, jak jsou tyto principy uváděny do praxe u nás i v zahraničí.',
                'D0206',),
-      $ger -> ('Open source vládnutí',
+      $de -> ('Open source vládnutí',
                '',
                'Přednáška se zaměří na možnosti přenesení základních principů z oblasti vývoje otevřeného softwaru na demokratické vládnutí (tzv. open source government). Blíže se budeme zabývat otevřenými daty či O\'Reillyho konceptem vlády jako platformy. Nebudou chybět ani ukázky toho, jak jsou tyto principy uváděny do praxe u nás i v zahraničí.',
                'D0206',),
@@ -1410,9 +1410,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
   members = none,
   curdir + '/img/participants/tomáš_raděj.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1425,19 +1425,19 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     trans = {
-      $cze -> ('DevAssistant - ',
+      $cs -> ('DevAssistant - ',
                'Nic.',
                'Ať už jste začátečník, nebo pokročilý, a chcete začít vývoj softwaru v nějakém jazyce či frameworku, spoustu času Vám zabere nastavení prostředí, stažení závislostí a podobně. Totéž platí, pokud chcete upravit kód někoho jiného, a chybí vám třeba závislosti pro testy nebo ten správný plugin do vašeho oblíbeného editoru. Tento problém řeší DevAssistant - flexibilní nástroj pro nastavení prostředí a provádění automatizovatelných úkonů, které byste jinak museli dělat sami. Na této přednášce uvidíte, jak a kde můžete DevAssistant používat, a předvedeme si i několik příkladů v praxi.',
                'D0207',),
-      $eng -> ('DevAssistant - ',
+      $en -> ('DevAssistant - ',
                'Nic.',
                'Ať už jste začátečník, nebo pokročilý, a chcete začít vývoj softwaru v nějakém jazyce či frameworku, spoustu času Vám zabere nastavení prostředí, stažení závislostí a podobně. Totéž platí, pokud chcete upravit kód někoho jiného, a chybí vám třeba závislosti pro testy nebo ten správný plugin do vašeho oblíbeného editoru. Tento problém řeší DevAssistant - flexibilní nástroj pro nastavení prostředí a provádění automatizovatelných úkonů, které byste jinak museli dělat sami. Na této přednášce uvidíte, jak a kde můžete DevAssistant používat, a předvedeme si i několik příkladů v praxi.',
                'D0207',),
-      $slo -> ('DevAssistant - ',
+      $sk -> ('DevAssistant - ',
                'Nic.',
                'Ať už jste začátečník, nebo pokročilý, a chcete začít vývoj softwaru v nějakém jazyce či frameworku, spoustu času Vám zabere nastavení prostředí, stažení závislostí a podobně. Totéž platí, pokud chcete upravit kód někoho jiného, a chybí vám třeba závislosti pro testy nebo ten správný plugin do vašeho oblíbeného editoru. Tento problém řeší DevAssistant - flexibilní nástroj pro nastavení prostředí a provádění automatizovatelných úkonů, které byste jinak museli dělat sami. Na této přednášce uvidíte, jak a kde můžete DevAssistant používat, a předvedeme si i několik příkladů v praxi.',
                'D0207',),
-      $ger -> ('DevAssistant - ',
+      $de -> ('DevAssistant - ',
                'Nic.',
                'Ať už jste začátečník, nebo pokročilý, a chcete začít vývoj softwaru v nějakém jazyce či frameworku, spoustu času Vám zabere nastavení prostředí, stažení závislostí a podobně. Totéž platí, pokud chcete upravit kód někoho jiného, a chybí vám třeba závislosti pro testy nebo ten správný plugin do vašeho oblíbeného editoru. Tento problém řeší DevAssistant - flexibilní nástroj pro nastavení prostředí a provádění automatizovatelných úkonů, které byste jinak museli dělat sami. Na této přednášce uvidíte, jak a kde můžete DevAssistant používat, a předvedeme si i několik příkladů v praxi.',
                'D0207',),
@@ -1450,9 +1450,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
   members = none,
   curdir + '/img/participants/pavel_cvrček.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1465,19 +1465,19 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     trans = {
-      $cze -> ('Jak bych to v Mozille (ne)dělal lépe  ',
+      $cs -> ('Jak bych to v Mozille (ne)dělal lépe  ',
                '',
                'Lokální komunita Mozilly existuje v České republice již 12 let. Za tu dobu si prošla generační obměnou, lecos se jí povedlo a řadu věcí by dělala zpětně jinak. Přednáška o soukromém náhledu, jak komunitní projekty mohou či nemohou fungovat, o častých omylech a vztahu Mozilly k lokálním komunitám. ',
                'D0207',),
-      $eng -> ('Jak bych to v Mozille (ne)dělal lépe  ',
+      $en -> ('Jak bych to v Mozille (ne)dělal lépe  ',
                '',
                'Lokální komunita Mozilly existuje v České republice již 12 let. Za tu dobu si prošla generační obměnou, lecos se jí povedlo a řadu věcí by dělala zpětně jinak. Přednáška o soukromém náhledu, jak komunitní projekty mohou či nemohou fungovat, o častých omylech a vztahu Mozilly k lokálním komunitám. ',
                'D0207',),
-      $slo -> ('Jak bych to v Mozille (ne)dělal lépe  ',
+      $sk -> ('Jak bych to v Mozille (ne)dělal lépe  ',
                '',
                'Lokální komunita Mozilly existuje v České republice již 12 let. Za tu dobu si prošla generační obměnou, lecos se jí povedlo a řadu věcí by dělala zpětně jinak. Přednáška o soukromém náhledu, jak komunitní projekty mohou či nemohou fungovat, o častých omylech a vztahu Mozilly k lokálním komunitám. ',
                'D0207',),
-      $ger -> ('Jak bych to v Mozille (ne)dělal lépe  ',
+      $de -> ('Jak bych to v Mozille (ne)dělal lépe  ',
                '',
                'Lokální komunita Mozilly existuje v České republice již 12 let. Za tu dobu si prošla generační obměnou, lecos se jí povedlo a řadu věcí by dělala zpětně jinak. Přednáška o soukromém náhledu, jak komunitní projekty mohou či nemohou fungovat, o častých omylech a vztahu Mozilly k lokálním komunitám. ',
                'D0207',),
@@ -1490,9 +1490,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #  members = none,
 #  curdir + '/img/participants/pavel_cvrček.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1505,19 +1505,19 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Jak Firefox OS ovlivňuje trh s mobilními zařízeními',
+#      $cs -> ('Jak Firefox OS ovlivňuje trh s mobilními zařízeními',
 #               '',
 #               'Často je slyšet, že Firefox OS nemůže na trhu s mobilními zařízeními nic změnit. V rámci přednášky si povíme, jak Firefox OS ovlivňuje trh s mobilními zařízeními, ostatní systémy a jak z jeho existence profitujete, i když ho neznáte či nepoužíváte. Zmíníme i aktuální postavení na trhu a vyhlídky do budoucna.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Jak Firefox OS ovlivňuje trh s mobilními zařízeními',
+#      $en -> ('Jak Firefox OS ovlivňuje trh s mobilními zařízeními',
 #               '',
 #               'Často je slyšet, že Firefox OS nemůže na trhu s mobilními zařízeními nic změnit. V rámci přednášky si povíme, jak Firefox OS ovlivňuje trh s mobilními zařízeními, ostatní systémy a jak z jeho existence profitujete, i když ho neznáte či nepoužíváte. Zmíníme i aktuální postavení na trhu a vyhlídky do budoucna.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Jak Firefox OS ovlivňuje trh s mobilními zařízeními',
+#      $sk -> ('Jak Firefox OS ovlivňuje trh s mobilními zařízeními',
 #               '',
 #               'Často je slyšet, že Firefox OS nemůže na trhu s mobilními zařízeními nic změnit. V rámci přednášky si povíme, jak Firefox OS ovlivňuje trh s mobilními zařízeními, ostatní systémy a jak z jeho existence profitujete, i když ho neznáte či nepoužíváte. Zmíníme i aktuální postavení na trhu a vyhlídky do budoucna.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Jak Firefox OS ovlivňuje trh s mobilními zařízeními',
+#      $de -> ('Jak Firefox OS ovlivňuje trh s mobilními zařízeními',
 #               '',
 #               'Často je slyšet, že Firefox OS nemůže na trhu s mobilními zařízeními nic změnit. V rámci přednášky si povíme, jak Firefox OS ovlivňuje trh s mobilními zařízeními, ostatní systémy a jak z jeho existence profitujete, i když ho neznáte či nepoužíváte. Zmíníme i aktuální postavení na trhu a vyhlídky do budoucna.',
 #               'UNKNOWN_PLACE',),
@@ -1530,9 +1530,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #  members = none,
 #  curdir + '/img/participants/pavel_cvrček.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1545,19 +1545,19 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Webové služby Mozilly',
+#      $cs -> ('Webové služby Mozilly',
 #               '',
 #               'Mozillu znáte hlavně jako tvůrce webového prohlížeče Firefox. Méně se ale ví, že vyvíjí také několik zajímavých webových služeb. V přednášce si povíme o službách jako jsou Mozilla Location Service, účet Firefox, synchronizace kontaktů a dalších.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Webové služby Mozilly',
+#      $en -> ('Webové služby Mozilly',
 #               '',
 #               'Mozillu znáte hlavně jako tvůrce webového prohlížeče Firefox. Méně se ale ví, že vyvíjí také několik zajímavých webových služeb. V přednášce si povíme o službách jako jsou Mozilla Location Service, účet Firefox, synchronizace kontaktů a dalších.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Webové služby Mozilly',
+#      $sk -> ('Webové služby Mozilly',
 #               '',
 #               'Mozillu znáte hlavně jako tvůrce webového prohlížeče Firefox. Méně se ale ví, že vyvíjí také několik zajímavých webových služeb. V přednášce si povíme o službách jako jsou Mozilla Location Service, účet Firefox, synchronizace kontaktů a dalších.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Webové služby Mozilly',
+#      $de -> ('Webové služby Mozilly',
 #               '',
 #               'Mozillu znáte hlavně jako tvůrce webového prohlížeče Firefox. Méně se ale ví, že vyvíjí také několik zajímavých webových služeb. V přednášce si povíme o službách jako jsou Mozilla Location Service, účet Firefox, synchronizace kontaktů a dalších.',
 #               'UNKNOWN_PLACE',),
@@ -1570,9 +1570,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
   members = none,
   curdir + '/img/participants/ondřej_caletka.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1585,19 +1585,19 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     trans = {
-      $cze -> ('Jak se měří Internet',
+      $cs -> ('Jak se měří Internet',
                '',
                'Funguje Internet? Odpověď na takovou otázku nemusí být vždy tak jednoduchá, jak se na první pohled zdá, protože Internet nemá žádný centrální uzel. Jedním z projektů, který se o takovéto zkoumání dostupnosti stará, je měřicí systém RIPE Atlas s více než 6000 sondami po celé planetě. V přednášce budou představeny možnosti takového systému včetně výsledků, které již přinesl. Zájemci také budou moci získat vlastní sondu RIPE Atlas k hostování ve své síti.',
                'D105',),
-      $eng -> ('Jak se měří Internet',
+      $en -> ('Jak se měří Internet',
                '',
                'Funguje Internet? Odpověď na takovou otázku nemusí být vždy tak jednoduchá, jak se na první pohled zdá, protože Internet nemá žádný centrální uzel. Jedním z projektů, který se o takovéto zkoumání dostupnosti stará, je měřicí systém RIPE Atlas s více než 6000 sondami po celé planetě. V přednášce budou představeny možnosti takového systému včetně výsledků, které již přinesl. Zájemci také budou moci získat vlastní sondu RIPE Atlas k hostování ve své síti.',
                'D105',),
-      $slo -> ('Jak se měří Internet',
+      $sk -> ('Jak se měří Internet',
                '',
                'Funguje Internet? Odpověď na takovou otázku nemusí být vždy tak jednoduchá, jak se na první pohled zdá, protože Internet nemá žádný centrální uzel. Jedním z projektů, který se o takovéto zkoumání dostupnosti stará, je měřicí systém RIPE Atlas s více než 6000 sondami po celé planetě. V přednášce budou představeny možnosti takového systému včetně výsledků, které již přinesl. Zájemci také budou moci získat vlastní sondu RIPE Atlas k hostování ve své síti.',
                'D105',),
-      $ger -> ('Jak se měří Internet',
+      $de -> ('Jak se měří Internet',
                '',
                'Funguje Internet? Odpověď na takovou otázku nemusí být vždy tak jednoduchá, jak se na první pohled zdá, protože Internet nemá žádný centrální uzel. Jedním z projektů, který se o takovéto zkoumání dostupnosti stará, je měřicí systém RIPE Atlas s více než 6000 sondami po celé planetě. V přednášce budou představeny možnosti takového systému včetně výsledků, které již přinesl. Zájemci také budou moci získat vlastní sondu RIPE Atlas k hostování ve své síti.',
                'D105',),
@@ -1610,9 +1610,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #  members = none,
 #  curdir + '/img/participants/martin_večeřa.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1626,7 +1626,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Good, better, PerfCake',
+#      $cs -> ('Good, better, PerfCake',
 #               '',
 #               'In this presentation, we will guide you through all the aspects of performance testing and show you how to compose a fresh performance test out of some basic building blocks. 
 #
@@ -1636,7 +1636,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #
 #PerfCake cool! You use PerfCake! You cool!',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Good, better, PerfCake',
+#      $en -> ('Good, better, PerfCake',
 #               '',
 #               'In this presentation, we will guide you through all the aspects of performance testing and show you how to compose a fresh performance test out of some basic building blocks. 
 #
@@ -1646,7 +1646,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #
 #PerfCake cool! You use PerfCake! You cool!',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Good, better, PerfCake',
+#      $sk -> ('Good, better, PerfCake',
 #               '',
 #               'In this presentation, we will guide you through all the aspects of performance testing and show you how to compose a fresh performance test out of some basic building blocks. 
 #
@@ -1656,7 +1656,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #
 #PerfCake cool! You use PerfCake! You cool!',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Good, better, PerfCake',
+#      $de -> ('Good, better, PerfCake',
 #               '',
 #               'In this presentation, we will guide you through all the aspects of performance testing and show you how to compose a fresh performance test out of some basic building blocks. 
 #
@@ -1675,9 +1675,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
   members = none,
   curdir + '/img/participants/petr_hodač.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1690,19 +1690,19 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     trans = {
-      $cze -> ('Vim Vim Vim',
+      $cs -> ('Vim Vim Vim',
                'Vim',
                'Vim je jeden z nejlepších editorů, které si můžete přát. Znát alespoň základy  vám zrychlí vaši práci. Na workshopu se naučíme základy tohoto skvělého pomocníka a ukážeme si i některé nejšikovnější pokročilejší funkce. ',
                'A113',),
-      $eng -> ('Vim Vim Vim',
+      $en -> ('Vim Vim Vim',
                'Vim',
                'Vim je jeden z nejlepších editorů, které si můžete přát. Znát alespoň základy  vám zrychlí vaši práci. Na workshopu se naučíme základy tohoto skvělého pomocníka a ukážeme si i některé nejšikovnější pokročilejší funkce. ',
                'A113',),
-      $slo -> ('Vim Vim Vim',
+      $sk -> ('Vim Vim Vim',
                'Vim',
                'Vim je jeden z nejlepších editorů, které si můžete přát. Znát alespoň základy  vám zrychlí vaši práci. Na workshopu se naučíme základy tohoto skvělého pomocníka a ukážeme si i některé nejšikovnější pokročilejší funkce. ',
                'A113',),
-      $ger -> ('Vim Vim Vim',
+      $de -> ('Vim Vim Vim',
                'Vim',
                'Vim je jeden z nejlepších editorů, které si můžete přát. Znát alespoň základy  vám zrychlí vaši práci. Na workshopu se naučíme základy tohoto skvělého pomocníka a ukážeme si i některé nejšikovnější pokročilejší funkce. ',
                'A113',),
@@ -1715,9 +1715,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
   members = none,
   curdir + '/img/participants/petr_hodač.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1730,25 +1730,25 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     trans = {
-      $cze -> ('Finty v shellu',
+      $cs -> ('Finty v shellu',
                '',
                'Shell je mocný nástroj, ale pokud jej ovládáte některé finty, může být ještě
 mocnější. Používáte v shellu klávesové zkratky jako Ctrl+A, Ctrl+E, Ctrl+R/S, Ctrl+W, Ctrl+\, Alt+., Ctrl+D? Víte, co udělá cd -, echo $_, !!, bg ,fg,mkdir -p {a,b}/{1..14} ?
 Pojďme se společně podívat na finty v shellu a také na to jaké skrývají úskalí. ',
                'D105',),
-      $eng -> ('Finty v shellu',
+      $en -> ('Finty v shellu',
                '',
                'Shell je mocný nástroj, ale pokud jej ovládáte některé finty, může být ještě
 mocnější. Používáte v shellu klávesové zkratky jako Ctrl+A, Ctrl+E, Ctrl+R/S, Ctrl+W, Ctrl+\, Alt+., Ctrl+D? Víte, co udělá cd -, echo $_, !!, bg ,fg,mkdir -p {a,b}/{1..14} ?
 Pojďme se společně podívat na finty v shellu a také na to jaké skrývají úskalí. ',
                'D105',),
-      $slo -> ('Finty v shellu',
+      $sk -> ('Finty v shellu',
                '',
                'Shell je mocný nástroj, ale pokud jej ovládáte některé finty, může být ještě
 mocnější. Používáte v shellu klávesové zkratky jako Ctrl+A, Ctrl+E, Ctrl+R/S, Ctrl+W, Ctrl+\, Alt+., Ctrl+D? Víte, co udělá cd -, echo $_, !!, bg ,fg,mkdir -p {a,b}/{1..14} ?
 Pojďme se společně podívat na finty v shellu a také na to jaké skrývají úskalí. ',
                'D105',),
-      $ger -> ('Finty v shellu',
+      $de -> ('Finty v shellu',
                '',
                'Shell je mocný nástroj, ale pokud jej ovládáte některé finty, může být ještě
 mocnější. Používáte v shellu klávesové zkratky jako Ctrl+A, Ctrl+E, Ctrl+R/S, Ctrl+W, Ctrl+\, Alt+., Ctrl+D? Víte, co udělá cd -, echo $_, !!, bg ,fg,mkdir -p {a,b}/{1..14} ?
@@ -1763,9 +1763,9 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
   members = none,
   curdir + '/img/participants/tomáš_ehrlich.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1778,19 +1778,19 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 30),
     trans = {
-      $cze -> ('Django -- webový framework',
+      $cs -> ('Django -- webový framework',
                'Povědomí o HTTP, znalost programování v Pythonu, nainstalovaný Python 3 (voliteně 2.7) a volitelně virtualenv (popřípadě docker nebo virtualbox).',
                'Představení webového frameworku Django. Seznámení s principy a průlet do šířky jednotlivými komponentami frameworku. Vytvoření jednoduché webové aplikace (dle výběru účastníků).',
                'A112',),
-      $eng -> ('Django -- webový framework',
+      $en -> ('Django -- webový framework',
                'Povědomí o HTTP, znalost programování v Pythonu, nainstalovaný Python 3 (voliteně 2.7) a volitelně virtualenv (popřípadě docker nebo virtualbox).',
                'Představení webového frameworku Django. Seznámení s principy a průlet do šířky jednotlivými komponentami frameworku. Vytvoření jednoduché webové aplikace (dle výběru účastníků).',
                'A112',),
-      $slo -> ('Django -- webový framework',
+      $sk -> ('Django -- webový framework',
                'Povědomí o HTTP, znalost programování v Pythonu, nainstalovaný Python 3 (voliteně 2.7) a volitelně virtualenv (popřípadě docker nebo virtualbox).',
                'Představení webového frameworku Django. Seznámení s principy a průlet do šířky jednotlivými komponentami frameworku. Vytvoření jednoduché webové aplikace (dle výběru účastníků).',
                'A112',),
-      $ger -> ('Django -- webový framework',
+      $de -> ('Django -- webový framework',
                'Povědomí o HTTP, znalost programování v Pythonu, nainstalovaný Python 3 (voliteně 2.7) a volitelně virtualenv (popřípadě docker nebo virtualbox).',
                'Představení webového frameworku Django. Seznámení s principy a průlet do šířky jednotlivými komponentami frameworku. Vytvoření jednoduché webové aplikace (dle výběru účastníků).',
                'A112',),
@@ -1803,9 +1803,9 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #  members = none,
 #  curdir + '/img/participants/dalibor_šulc.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1818,19 +1818,19 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Využití open-source v sondové mikroskopii',
+#      $cs -> ('Využití open-source v sondové mikroskopii',
 #               '',
 #               'Představení open-source softwaru a hardwaru z projektu GXSM a jeho využití v zobrazování jednotlivých atomů pomocí rastrovacích sondových mikroskopů. Výhody svobodného softwaru v současné vědě.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Využití open-source v sondové mikroskopii',
+#      $en -> ('Využití open-source v sondové mikroskopii',
 #               '',
 #               'Představení open-source softwaru a hardwaru z projektu GXSM a jeho využití v zobrazování jednotlivých atomů pomocí rastrovacích sondových mikroskopů. Výhody svobodného softwaru v současné vědě.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Využití open-source v sondové mikroskopii',
+#      $sk -> ('Využití open-source v sondové mikroskopii',
 #               '',
 #               'Představení open-source softwaru a hardwaru z projektu GXSM a jeho využití v zobrazování jednotlivých atomů pomocí rastrovacích sondových mikroskopů. Výhody svobodného softwaru v současné vědě.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Využití open-source v sondové mikroskopii',
+#      $de -> ('Využití open-source v sondové mikroskopii',
 #               '',
 #               'Představení open-source softwaru a hardwaru z projektu GXSM a jeho využití v zobrazování jednotlivých atomů pomocí rastrovacích sondových mikroskopů. Výhody svobodného softwaru v současné vědě.',
 #               'UNKNOWN_PLACE',),
@@ -1843,9 +1843,9 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #  members = none,
 #  curdir + '/img/participants/david_kolibáč.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1860,7 +1860,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Rockbox a spol. aneb hodně muziky za málo peněz',
+#      $cs -> ('Rockbox a spol. aneb hodně muziky za málo peněz',
 #               '',
 #               'Pro trh s vybavením pro audio reprodukci jsou charakteristické dva extrémy: velmi levné nekvalitní spotřební zboží na jednom konci a velmi drahá technika profesionální, zaměřená na audiofily nebo stylová. Existuje ale také zlatá střední cesta, která nabízí dobrou kvalitu za možná až překvapivě málo peněz.
 #
@@ -1868,7 +1868,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #
 #Druhá část pak představí jednak Rockbox, alternativní open-source firmware nabitý funkcemi, který je kompatibilní mj. s cenově výhodnou řady přehrávačů SanDisk Sansa Clip, jednak desktopové hudební aplikace pro GNU/Linux.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Rockbox a spol. aneb hodně muziky za málo peněz',
+#      $en -> ('Rockbox a spol. aneb hodně muziky za málo peněz',
 #               '',
 #               'Pro trh s vybavením pro audio reprodukci jsou charakteristické dva extrémy: velmi levné nekvalitní spotřební zboží na jednom konci a velmi drahá technika profesionální, zaměřená na audiofily nebo stylová. Existuje ale také zlatá střední cesta, která nabízí dobrou kvalitu za možná až překvapivě málo peněz.
 #
@@ -1876,7 +1876,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #
 #Druhá část pak představí jednak Rockbox, alternativní open-source firmware nabitý funkcemi, který je kompatibilní mj. s cenově výhodnou řady přehrávačů SanDisk Sansa Clip, jednak desktopové hudební aplikace pro GNU/Linux.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Rockbox a spol. aneb hodně muziky za málo peněz',
+#      $sk -> ('Rockbox a spol. aneb hodně muziky za málo peněz',
 #               '',
 #               'Pro trh s vybavením pro audio reprodukci jsou charakteristické dva extrémy: velmi levné nekvalitní spotřební zboží na jednom konci a velmi drahá technika profesionální, zaměřená na audiofily nebo stylová. Existuje ale také zlatá střední cesta, která nabízí dobrou kvalitu za možná až překvapivě málo peněz.
 #
@@ -1884,7 +1884,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #
 #Druhá část pak představí jednak Rockbox, alternativní open-source firmware nabitý funkcemi, který je kompatibilní mj. s cenově výhodnou řady přehrávačů SanDisk Sansa Clip, jednak desktopové hudební aplikace pro GNU/Linux.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Rockbox a spol. aneb hodně muziky za málo peněz',
+#      $de -> ('Rockbox a spol. aneb hodně muziky za málo peněz',
 #               '',
 #               'Pro trh s vybavením pro audio reprodukci jsou charakteristické dva extrémy: velmi levné nekvalitní spotřební zboží na jednom konci a velmi drahá technika profesionální, zaměřená na audiofily nebo stylová. Existuje ale také zlatá střední cesta, která nabízí dobrou kvalitu za možná až překvapivě málo peněz.
 #
@@ -1901,9 +1901,9 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #  members = none,
 #  curdir + '/img/participants/david_kolibáč.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1917,19 +1917,19 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Přístupnost nejen pro hendikepované',
+#      $cs -> ('Přístupnost nejen pro hendikepované',
 #               '',
 #               'O přístupnosti uživatelských rozhraní se často hovoří především v souvislosti s uživateli se zrakovým postižením. Např. syntéza hlasu však není to jediné, co se pod použitelností skrývá. Přednáška se zaměří na alternativní vstupní metody primárně zamýšlené pro pohybově hendikepované uživatele, které ale mohou ovládání počítače zpříjemnit či zefektivnit i lidem bez omezení. Např. ze specializovaných softwarových klávesnic a emulace polohovacích zařízení benefitují i uživatelé zařízení s dotykovým displejem, ergonomické klávesnice nebo doplňování textu může pomoci programátorům, zapisovatelům aj.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Přístupnost nejen pro hendikepované',
+#      $en -> ('Přístupnost nejen pro hendikepované',
 #               '',
 #               'O přístupnosti uživatelských rozhraní se často hovoří především v souvislosti s uživateli se zrakovým postižením. Např. syntéza hlasu však není to jediné, co se pod použitelností skrývá. Přednáška se zaměří na alternativní vstupní metody primárně zamýšlené pro pohybově hendikepované uživatele, které ale mohou ovládání počítače zpříjemnit či zefektivnit i lidem bez omezení. Např. ze specializovaných softwarových klávesnic a emulace polohovacích zařízení benefitují i uživatelé zařízení s dotykovým displejem, ergonomické klávesnice nebo doplňování textu může pomoci programátorům, zapisovatelům aj.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Přístupnost nejen pro hendikepované',
+#      $sk -> ('Přístupnost nejen pro hendikepované',
 #               '',
 #               'O přístupnosti uživatelských rozhraní se často hovoří především v souvislosti s uživateli se zrakovým postižením. Např. syntéza hlasu však není to jediné, co se pod použitelností skrývá. Přednáška se zaměří na alternativní vstupní metody primárně zamýšlené pro pohybově hendikepované uživatele, které ale mohou ovládání počítače zpříjemnit či zefektivnit i lidem bez omezení. Např. ze specializovaných softwarových klávesnic a emulace polohovacích zařízení benefitují i uživatelé zařízení s dotykovým displejem, ergonomické klávesnice nebo doplňování textu může pomoci programátorům, zapisovatelům aj.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Přístupnost nejen pro hendikepované',
+#      $de -> ('Přístupnost nejen pro hendikepované',
 #               '',
 #               'O přístupnosti uživatelských rozhraní se často hovoří především v souvislosti s uživateli se zrakovým postižením. Např. syntéza hlasu však není to jediné, co se pod použitelností skrývá. Přednáška se zaměří na alternativní vstupní metody primárně zamýšlené pro pohybově hendikepované uživatele, které ale mohou ovládání počítače zpříjemnit či zefektivnit i lidem bez omezení. Např. ze specializovaných softwarových klávesnic a emulace polohovacích zařízení benefitují i uživatelé zařízení s dotykovým displejem, ergonomické klávesnice nebo doplňování textu může pomoci programátorům, zapisovatelům aj.',
 #               'UNKNOWN_PLACE',),
@@ -1942,9 +1942,9 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #  members = none,
 #  curdir + '/img/participants/michal_hrušecký.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -1957,19 +1957,19 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
 #    trans = {
-#      $cze -> ('TNTnet - web dynamite',
+#      $cs -> ('TNTnet - web dynamite',
 #               '',
 #               'Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('TNTnet - web dynamite',
+#      $en -> ('TNTnet - web dynamite',
 #               '',
 #               'Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('TNTnet - web dynamite',
+#      $sk -> ('TNTnet - web dynamite',
 #               '',
 #               'Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('TNTnet - web dynamite',
+#      $de -> ('TNTnet - web dynamite',
 #               '',
 #               'Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
 #               'UNKNOWN_PLACE',),
@@ -1982,9 +1982,9 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
   members = none,
   curdir + '/img/participants/michal_hrušecký.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -1997,25 +1997,25 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     trans = {
-      $cze -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
+      $cs -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
                'Zadny pocitac dnes neni sam, ale psani sitovych aplikaci neni uplne jednoduche. Otvirat si socket, definovat protokoly, serializaci, resit aby kazdy kdo ma zpravy dostat ji opravdu dostal a jine nezabavne podruznosti. Prednaska nabidne lehky uvod do knihoven ZeroMQ a ukaze, jak je pouzit ke zjednoduseni prace a posilani zprav mezi procesy (at uz lokalnimi nebo vzdalenymi). Aby se clovek mohl zabyvat funkcionalitou a nemusel tolik resit jak dostat data pres sit.<br>
 <br>
 Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
                'D0207',),
-      $eng -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
+      $en -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
                'Zadny pocitac dnes neni sam, ale psani sitovych aplikaci neni uplne jednoduche. Otvirat si socket, definovat protokoly, serializaci, resit aby kazdy kdo ma zpravy dostat ji opravdu dostal a jine nezabavne podruznosti. Prednaska nabidne lehky uvod do knihoven ZeroMQ a ukaze, jak je pouzit ke zjednoduseni prace a posilani zprav mezi procesy (at uz lokalnimi nebo vzdalenymi). Aby se clovek mohl zabyvat funkcionalitou a nemusel tolik resit jak dostat data pres sit.<br>
 <br>
 Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
                'D0207',),
-      $slo -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
+      $sk -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
                'Zadny pocitac dnes neni sam, ale psani sitovych aplikaci neni uplne jednoduche. Otvirat si socket, definovat protokoly, serializaci, resit aby kazdy kdo ma zpravy dostat ji opravdu dostal a jine nezabavne podruznosti. Prednaska nabidne lehky uvod do knihoven ZeroMQ a ukaze, jak je pouzit ke zjednoduseni prace a posilani zprav mezi procesy (at uz lokalnimi nebo vzdalenymi). Aby se clovek mohl zabyvat funkcionalitou a nemusel tolik resit jak dostat data pres sit.<br>
 <br>
 Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvojare ve scriptovacich jazycich (Ruby, Perl, Python, ...). V prednasce se podivame na webovy framework TNTnet urceny pro programatory v C++. Chcete si napsat vlastni webovou sluzbu, ale citite se jako C++ programator diskriminovan? Prijdte se podivat ze i v C++ lze psat weby.',
                'D0207',),
-      $ger -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
+      $de -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
                'Zadny pocitac dnes neni sam, ale psani sitovych aplikaci neni uplne jednoduche. Otvirat si socket, definovat protokoly, serializaci, resit aby kazdy kdo ma zpravy dostat ji opravdu dostal a jine nezabavne podruznosti. Prednaska nabidne lehky uvod do knihoven ZeroMQ a ukaze, jak je pouzit ke zjednoduseni prace a posilani zprav mezi procesy (at uz lokalnimi nebo vzdalenymi). Aby se clovek mohl zabyvat funkcionalitou a nemusel tolik resit jak dostat data pres sit.<br>
 <br>
@@ -2030,9 +2030,9 @@ Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvoj
   members = none,
   curdir + '/img/participants/pavel_borecki.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2046,22 +2046,22 @@ Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvoj
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     trans = {
-      $cze -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
+      $cs -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
                '',
                'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
 Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
                'D0207',),
-      $eng -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
+      $en -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
                '',
                'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
 Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
                'D0207',),
-      $slo -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
+      $sk -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
                '',
                'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
 Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
                'D0207',),
-      $ger -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
+      $de -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
                '',
                'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
 Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
@@ -2075,9 +2075,9 @@ Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložen�
 #  members = none,
 #  curdir + '/img/participants/honza_horak.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2090,19 +2090,19 @@ Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložen�
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Evoluce Fedora.next v praxi',
+#      $cs -> ('Evoluce Fedora.next v praxi',
 #               'Pro aktivní účast je potřeba mít Fedoru verze 20 nebo novější',
 #               'Fedora prochází jednou z největších evolucí ve své historii. Pod označením Fedora.next se do distribuce dostávají nové nápady, technologie a principy. Workshop je založen na praktickém představení výše uvedeného a mezi tématy se objeví nový buildící nástroj copr, práce s docker imagem, nové možnosti automatizace, první kroky ke continuous integration nebo nové prvky v software managementu.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Evoluce Fedora.next v praxi',
+#      $en -> ('Evoluce Fedora.next v praxi',
 #               'Pro aktivní účast je potřeba mít Fedoru verze 20 nebo novější',
 #               'Fedora prochází jednou z největších evolucí ve své historii. Pod označením Fedora.next se do distribuce dostávají nové nápady, technologie a principy. Workshop je založen na praktickém představení výše uvedeného a mezi tématy se objeví nový buildící nástroj copr, práce s docker imagem, nové možnosti automatizace, první kroky ke continuous integration nebo nové prvky v software managementu.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Evoluce Fedora.next v praxi',
+#      $sk -> ('Evoluce Fedora.next v praxi',
 #               'Pro aktivní účast je potřeba mít Fedoru verze 20 nebo novější',
 #               'Fedora prochází jednou z největších evolucí ve své historii. Pod označením Fedora.next se do distribuce dostávají nové nápady, technologie a principy. Workshop je založen na praktickém představení výše uvedeného a mezi tématy se objeví nový buildící nástroj copr, práce s docker imagem, nové možnosti automatizace, první kroky ke continuous integration nebo nové prvky v software managementu.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Evoluce Fedora.next v praxi',
+#      $de -> ('Evoluce Fedora.next v praxi',
 #               'Pro aktivní účast je potřeba mít Fedoru verze 20 nebo novější',
 #               'Fedora prochází jednou z největších evolucí ve své historii. Pod označením Fedora.next se do distribuce dostávají nové nápady, technologie a principy. Workshop je založen na praktickém představení výše uvedeného a mezi tématy se objeví nový buildící nástroj copr, práce s docker imagem, nové možnosti automatizace, první kroky ke continuous integration nebo nové prvky v software managementu.',
 #               'UNKNOWN_PLACE',),
@@ -2115,9 +2115,9 @@ Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložen�
   members = none,
   curdir + '/img/participants/jan_kaláb.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2130,23 +2130,23 @@ Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložen�
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
     trans = {
-      $cze -> ('Browser jako platforma pro vývoj aplikací',
+      $cs -> ('Browser jako platforma pro vývoj aplikací',
                '',
                'Webový prohlížeč už neslouží jen na prohlížení koťátek. Stala se z něj plnohodnotná platforma pro vývoj aplikací.
 
 Přednáška vám představí ty nejzajímavější vychytávky co dnešní browsery poskytují.',
                'D0206',),
-      $eng -> ('Web browser as appliacation development platform',
+      $en -> ('Web browser as appliacation development platform',
               '',
               'Web browser is no longer just for viewing kittens. It has become a full-fledged platform for application development.',
               'D0206',),
-      $slo -> ('Browser jako platforma pro vývoj aplikací',
+      $sk -> ('Browser jako platforma pro vývoj aplikací',
                '',
                'Webový prohlížeč už neslouží jen na prohlížení koťátek. Stala se z něj plnohodnotná platforma pro vývoj aplikací.
 
 Přednáška vám představí ty nejzajímavější vychytávky co dnešní browsery poskytují.',
                'D0206',),
-      $ger -> ('Browser jako platforma pro vývoj aplikací',
+      $de -> ('Browser jako platforma pro vývoj aplikací',
                '',
                'Webový prohlížeč už neslouží jen na prohlížení koťátek. Stala se z něj plnohodnotná platforma pro vývoj aplikací.
 
@@ -2161,9 +2161,9 @@ Přednáška vám představí ty nejzajímavější vychytávky co dnešní brow
   members = none,
   curdir + '/img/participants/michal_strnad.jpg',
   trans = {
-    $eng -> ('Specialista datových úložišť',
+    $en -> ('Specialista datových úložišť',
              'Vystudoval softwarové inženýrství na FEL ČVUT. V současnosti pracuje ve sdružení CESNET, provozujícím národní síť vědy a výzkumu.',),
-    $cze -> ('Specialista datových úložišť',
+    $cs -> ('Specialista datových úložišť',
              'Vystudoval softwarové inženýrství na FEL ČVUT. V současnosti pracuje ve sdružení CESNET, provozujícím národní síť vědy a výzkumu.',),
   },
   events = {
@@ -2176,7 +2176,7 @@ Přednáška vám představí ty nejzajímavější vychytávky co dnešní brow
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
     trans = {
-      $cze -> ('Zálohou dat ke klidnějšímu spaní ',
+      $cs -> ('Zálohou dat ke klidnějšímu spaní ',
                '',
                'Klíčem ke klidnému spaní bez prášků, je správně nastavený proces zálohovaní, aby v případě smazání dat, přírodní katastrofy, selhání softwaru nebo hardwaru, bylo možné se vrátit do původního stavu a pokračovat v rozdělané práci. V opačném případě to může skončit vytrhanými vlasy, závislostí na nějakém uklidňujícím preparátu, hledáním nové pracovní pozice ...
 
@@ -2185,7 +2185,7 @@ FileSender - Služba pro jednorázové zasílání velkých souborů (až 500 GB
 ownCloud - Cloudové úložiště, synchronizace souborů napříč různými zařízeními
 Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFTP a NFS',
                'D105',),
-      $eng -> ('Zálohou dat ke klidnějšímu spaní ',
+      $en -> ('Zálohou dat ke klidnějšímu spaní ',
                '',
                'Klíčem ke klidnému spaní bez prášků, je správně nastavený proces zálohovaní, aby v případě smazání dat, přírodní katastrofy, selhání softwaru nebo hardwaru, bylo možné se vrátit do původního stavu a pokračovat v rozdělané práci. V opačném případě to může skončit vytrhanými vlasy, závislostí na nějakém uklidňujícím preparátu, hledáním nové pracovní pozice ...
 
@@ -2194,7 +2194,7 @@ FileSender - Služba pro jednorázové zasílání velkých souborů (až 500 GB
 ownCloud - Cloudové úložiště, synchronizace souborů napříč různými zařízeními
 Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFTP a NFS',
                'D105',),
-      $slo -> ('Zálohou dat ke klidnějšímu spaní ',
+      $sk -> ('Zálohou dat ke klidnějšímu spaní ',
                '',
                'Klíčem ke klidnému spaní bez prášků, je správně nastavený proces zálohovaní, aby v případě smazání dat, přírodní katastrofy, selhání softwaru nebo hardwaru, bylo možné se vrátit do původního stavu a pokračovat v rozdělané práci. V opačném případě to může skončit vytrhanými vlasy, závislostí na nějakém uklidňujícím preparátu, hledáním nové pracovní pozice ...
 
@@ -2203,7 +2203,7 @@ FileSender - Služba pro jednorázové zasílání velkých souborů (až 500 GB
 ownCloud - Cloudové úložiště, synchronizace souborů napříč různými zařízeními
 Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFTP a NFS',
                'D105',),
-      $ger -> ('Zálohou dat ke klidnějšímu spaní ',
+      $de -> ('Zálohou dat ke klidnějšímu spaní ',
                '',
                'Klíčem ke klidnému spaní bez prášků, je správně nastavený proces zálohovaní, aby v případě smazání dat, přírodní katastrofy, selhání softwaru nebo hardwaru, bylo možné se vrátit do původního stavu a pokračovat v rozdělané práci. V opačném případě to může skončit vytrhanými vlasy, závislostí na nějakém uklidňujícím preparátu, hledáním nové pracovní pozice ...
 
@@ -2221,9 +2221,9 @@ Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFT
   members = none,
   curdir + '/img/participants/marek_červenka.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2236,7 +2236,7 @@ Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFT
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     trans = {
-      $cze -> ('Asterisk 13 - komunikace pro každého',
+      $cs -> ('Asterisk 13 - komunikace pro každého',
                '',
                'Obecný úvod - k čemu Asterisk je a jak se dá využít
 Novinky ve verzi 13 - na co se můžeme těšit v nové verzi
@@ -2246,7 +2246,7 @@ Diagnostika - jak řešit problémy při běžném používání
 WebRTC - základní informace
 Asterisk a WebRTC - propojení do světa webových aplikací ',
                'D0207',),
-      $eng -> ('Asterisk 13 - komunikace pro každého',
+      $en -> ('Asterisk 13 - komunikace pro každého',
                '',
                'Obecný úvod - k čemu Asterisk je a jak se dá využít
 Novinky ve verzi 13 - na co se můžeme těšit v nové verzi
@@ -2256,7 +2256,7 @@ Diagnostika - jak řešit problémy při běžném používání
 WebRTC - základní informace
 Asterisk a WebRTC - propojení do světa webových aplikací ',
                'D0207',),
-      $slo -> ('Asterisk 13 - komunikace pro každého',
+      $sk -> ('Asterisk 13 - komunikace pro každého',
                '',
                'Obecný úvod - k čemu Asterisk je a jak se dá využít
 Novinky ve verzi 13 - na co se můžeme těšit v nové verzi
@@ -2266,7 +2266,7 @@ Diagnostika - jak řešit problémy při běžném používání
 WebRTC - základní informace
 Asterisk a WebRTC - propojení do světa webových aplikací ',
                'D0207',),
-      $ger -> ('Asterisk 13 - komunikace pro každého',
+      $de -> ('Asterisk 13 - komunikace pro každého',
                '',
                'Obecný úvod - k čemu Asterisk je a jak se dá využít
 Novinky ve verzi 13 - na co se můžeme těšit v nové verzi
@@ -2285,9 +2285,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #  members = none,
 #  curdir + '/img/participants/jaroslav_řezník.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2301,19 +2301,19 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
 #    trans = {
-#      $cze -> ('BB10 - další platforma (skoro) zadarmo',
+#      $cs -> ('BB10 - další platforma (skoro) zadarmo',
 #               '',
 #               'BB 10 je poslední verze mobilního operačního systému společnosti BlackBerry a ačkoliv je samotný operační systém bohužel uzavřený, tak z velké části staví právě na open source technologiích. Hlavní z nich jsou Android runtime a framework Qt. V přednášce si ukážeme, jak se vaše stávající Android a Qt aplikace dají skoro zadarmo publikovat v obchodu BlackBerry World.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('BB10 - další platforma (skoro) zadarmo',
+#      $en -> ('BB10 - další platforma (skoro) zadarmo',
 #               '',
 #               'BB 10 je poslední verze mobilního operačního systému společnosti BlackBerry a ačkoliv je samotný operační systém bohužel uzavřený, tak z velké části staví právě na open source technologiích. Hlavní z nich jsou Android runtime a framework Qt. V přednášce si ukážeme, jak se vaše stávající Android a Qt aplikace dají skoro zadarmo publikovat v obchodu BlackBerry World.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('BB10 - další platforma (skoro) zadarmo',
+#      $sk -> ('BB10 - další platforma (skoro) zadarmo',
 #               '',
 #               'BB 10 je poslední verze mobilního operačního systému společnosti BlackBerry a ačkoliv je samotný operační systém bohužel uzavřený, tak z velké části staví právě na open source technologiích. Hlavní z nich jsou Android runtime a framework Qt. V přednášce si ukážeme, jak se vaše stávající Android a Qt aplikace dají skoro zadarmo publikovat v obchodu BlackBerry World.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('BB10 - další platforma (skoro) zadarmo',
+#      $de -> ('BB10 - další platforma (skoro) zadarmo',
 #               '',
 #               'BB 10 je poslední verze mobilního operačního systému společnosti BlackBerry a ačkoliv je samotný operační systém bohužel uzavřený, tak z velké části staví právě na open source technologiích. Hlavní z nich jsou Android runtime a framework Qt. V přednášce si ukážeme, jak se vaše stávající Android a Qt aplikace dají skoro zadarmo publikovat v obchodu BlackBerry World.',
 #               'UNKNOWN_PLACE',),
@@ -2326,9 +2326,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
   members = none,
   curdir + '/img/participants/ladislav_hagara.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              'Collective of army specialists - Martin Grmela, Ladislav Hagara, Petr Hvižď, Miroslav Lábr and Petr Strnad.',),
-    $cze -> ('',
+    $cs -> ('',
              'Kolektiv armádních specialistů - Martin Grmela, Ladislav Hagara, Petr Hvižď, Miroslav Lábr and Petr Strnad.',),
   },
   events = {
@@ -2341,19 +2341,19 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
     trans = {
-      $cze -> ('Processing',
+      $cs -> ('Processing',
                '',
                'Představení Processingu, multiplatformního otevřeného programovacího jazyka, vývojového prostředí a online komunity. Jedná se o relativně jednoduchý programovací jazyk, který vznikl proto, aby mohli neprogramátoři, především umělci a designéři, snadno a rychle vytvářet obrázky, vizualizace a animace. Dnes je Processing oblíben nejenom mezi umělci. Rádi po něm sáhnou i opravdoví programátoři nebo učitelé, kteří jej používají při výuce programování. Společně s Processingem budou představeny také některé z rozšiřujících knihoven pro práci se zvukem, 2D i 3D grafikou, videem nebo sítí. Zmíněny budou projekty jako Processing.js a OpenProcessing. Součástí přednášky bude řada praktických ukázek. Demonstrována bude podpora snímacích zařízení Kinect a Leap Motion. Předvedeno bude také vytváření aplikací pro Android.',
                'D0207',),
-      $eng -> ('Processing',
+      $en -> ('Processing',
                '',
                'Představení Processingu, multiplatformního otevřeného programovacího jazyka, vývojového prostředí a online komunity. Jedná se o relativně jednoduchý programovací jazyk, který vznikl proto, aby mohli neprogramátoři, především umělci a designéři, snadno a rychle vytvářet obrázky, vizualizace a animace. Dnes je Processing oblíben nejenom mezi umělci. Rádi po něm sáhnou i opravdoví programátoři nebo učitelé, kteří jej používají při výuce programování. Společně s Processingem budou představeny také některé z rozšiřujících knihoven pro práci se zvukem, 2D i 3D grafikou, videem nebo sítí. Zmíněny budou projekty jako Processing.js a OpenProcessing. Součástí přednášky bude řada praktických ukázek. Demonstrována bude podpora snímacích zařízení Kinect a Leap Motion. Předvedeno bude také vytváření aplikací pro Android.',
                'D0207',),
-      $slo -> ('Processing',
+      $sk -> ('Processing',
                '',
                'Představení Processingu, multiplatformního otevřeného programovacího jazyka, vývojového prostředí a online komunity. Jedná se o relativně jednoduchý programovací jazyk, který vznikl proto, aby mohli neprogramátoři, především umělci a designéři, snadno a rychle vytvářet obrázky, vizualizace a animace. Dnes je Processing oblíben nejenom mezi umělci. Rádi po něm sáhnou i opravdoví programátoři nebo učitelé, kteří jej používají při výuce programování. Společně s Processingem budou představeny také některé z rozšiřujících knihoven pro práci se zvukem, 2D i 3D grafikou, videem nebo sítí. Zmíněny budou projekty jako Processing.js a OpenProcessing. Součástí přednášky bude řada praktických ukázek. Demonstrována bude podpora snímacích zařízení Kinect a Leap Motion. Předvedeno bude také vytváření aplikací pro Android.',
                'D0207',),
-      $ger -> ('Processing',
+      $de -> ('Processing',
                '',
                'Představení Processingu, multiplatformního otevřeného programovacího jazyka, vývojového prostředí a online komunity. Jedná se o relativně jednoduchý programovací jazyk, který vznikl proto, aby mohli neprogramátoři, především umělci a designéři, snadno a rychle vytvářet obrázky, vizualizace a animace. Dnes je Processing oblíben nejenom mezi umělci. Rádi po něm sáhnou i opravdoví programátoři nebo učitelé, kteří jej používají při výuce programování. Společně s Processingem budou představeny také některé z rozšiřujících knihoven pro práci se zvukem, 2D i 3D grafikou, videem nebo sítí. Zmíněny budou projekty jako Processing.js a OpenProcessing. Součástí přednášky bude řada praktických ukázek. Demonstrována bude podpora snímacích zařízení Kinect a Leap Motion. Předvedeno bude také vytváření aplikací pro Android.',
                'D0207',),
@@ -2366,9 +2366,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
   members = none,
   curdir + '/img/participants/hynek_štětina.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2381,19 +2381,19 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
-      $cze -> ('Stavba 3D tiskárny Kossel mini',
+      $cs -> ('Stavba 3D tiskárny Kossel mini',
                'notebook',
                'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
                'A113',),
-      $eng -> ('Stavba 3D tiskárny Kossel mini',
+      $en -> ('Stavba 3D tiskárny Kossel mini',
                'notebook',
                'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
                'A113',),
-      $slo -> ('Stavba 3D tiskárny Kossel mini',
+      $sk -> ('Stavba 3D tiskárny Kossel mini',
                'notebook',
                'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
                'A113',),
-      $ger -> ('Stavba 3D tiskárny Kossel mini',
+      $de -> ('Stavba 3D tiskárny Kossel mini',
                'notebook',
                'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
                'A113',),
@@ -2406,9 +2406,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #  members = none,
 #  curdir + '/img/participants/ladislav_hagara.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2421,19 +2421,19 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
 #    trans = {
-#      $cze -> ('Domácí laserový střelecký simulátor HomeLESS 2014',
+#      $cs -> ('Domácí laserový střelecký simulátor HomeLESS 2014',
 #               '',
 #               'Volné pokračování přednášky "Domácí laserový střelecký simulátor HomeLESS" z LinuxAltu 2013. Stručné představení domácího laserového střeleckého simulátoru HomeLESS (Home LASER Shooting Simulator, http://homeless-eng.webnode.com/ceske-info/), otevřené alternativy k proprietárním střeleckým simulátorům. Představení nových vlastností simulátoru jako je zpětná projekce, zpracování a vizualizace střeleckého logu nebo generování výsledkových listin a diplomů ve formátech HTML a PDF. Praktická demonstrace. Letos se bude střílet i na pohyblivé terče.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Domácí laserový střelecký simulátor HomeLESS 2014',
+#      $en -> ('Domácí laserový střelecký simulátor HomeLESS 2014',
 #               '',
 #               'Volné pokračování přednášky "Domácí laserový střelecký simulátor HomeLESS" z LinuxAltu 2013. Stručné představení domácího laserového střeleckého simulátoru HomeLESS (Home LASER Shooting Simulator, http://homeless-eng.webnode.com/ceske-info/), otevřené alternativy k proprietárním střeleckým simulátorům. Představení nových vlastností simulátoru jako je zpětná projekce, zpracování a vizualizace střeleckého logu nebo generování výsledkových listin a diplomů ve formátech HTML a PDF. Praktická demonstrace. Letos se bude střílet i na pohyblivé terče.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Domácí laserový střelecký simulátor HomeLESS 2014',
+#      $sk -> ('Domácí laserový střelecký simulátor HomeLESS 2014',
 #               '',
 #               'Volné pokračování přednášky "Domácí laserový střelecký simulátor HomeLESS" z LinuxAltu 2013. Stručné představení domácího laserového střeleckého simulátoru HomeLESS (Home LASER Shooting Simulator, http://homeless-eng.webnode.com/ceske-info/), otevřené alternativy k proprietárním střeleckým simulátorům. Představení nových vlastností simulátoru jako je zpětná projekce, zpracování a vizualizace střeleckého logu nebo generování výsledkových listin a diplomů ve formátech HTML a PDF. Praktická demonstrace. Letos se bude střílet i na pohyblivé terče.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Domácí laserový střelecký simulátor HomeLESS 2014',
+#      $de -> ('Domácí laserový střelecký simulátor HomeLESS 2014',
 #               '',
 #               'Volné pokračování přednášky "Domácí laserový střelecký simulátor HomeLESS" z LinuxAltu 2013. Stručné představení domácího laserového střeleckého simulátoru HomeLESS (Home LASER Shooting Simulator, http://homeless-eng.webnode.com/ceske-info/), otevřené alternativy k proprietárním střeleckým simulátorům. Představení nových vlastností simulátoru jako je zpětná projekce, zpracování a vizualizace střeleckého logu nebo generování výsledkových listin a diplomů ve formátech HTML a PDF. Praktická demonstrace. Letos se bude střílet i na pohyblivé terče.',
 #               'UNKNOWN_PLACE',),
@@ -2446,9 +2446,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
   members = none,
   curdir + '/img/participants/františek_kučera.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2462,25 +2462,25 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
     trans = {
-      $cze -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
+      $cs -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
                '',
                'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
 S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
 Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dotaz nad souborovým systémem.',
                'D0207',),
-      $eng -> ('SQL and XML as an alternative to classic unix tools',
+      $en -> ('SQL and XML as an alternative to classic unix tools',
                '',
                'Grep, sed, cut, awk… we all know them and use everyday. They are basic tools and will be always relevant.
 However, there are also other ways to work with operating system – sometimes more comfortable, safe, efficient…
 We will show how to SELECT users or running processes or how to run XPath query on the filesystem.',
                'D0207',),
-      $slo -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
+      $sk -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
                '',
                'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
 S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
 Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dotaz nad souborovým systémem.',
                'D0207',),
-      $ger -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
+      $de -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
                '',
                'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
 S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
@@ -2495,9 +2495,9 @@ Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dota
   members = none,
   curdir + '/img/participants/františek_kučera.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2511,28 +2511,28 @@ Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dota
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     trans = {
-      $cze -> ('Svobodný cloud a virtualizace',
+      $cs -> ('Svobodný cloud a virtualizace',
                '',
                'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
 Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
 Síť, kterou vám mohou poskytovat různí dodavatelé a do které můžete připojit spotřebiče všech značek i svoje vlastní.
 Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt závislý na konkrétním výrobci.',
                'D0206',),
-      $eng -> ('Free (libre) cloud and virtualization',
+      $en -> ('Free (libre) cloud and virtualization',
                '',
                'The word „cloud“ is nowadays often perceived as marketing buzzword or pejorative (lost or leaked important/private data).
 Despite this sad facts, we should not forget the original idea and meaning of the cloud – or better – the IaaS, PaaS, SaaS.
 The idea of making a commodity – like electric power supply – that can be scaled and used by appliances made by any vendor or your own ones.
 We will show how to achieve this goal with free software a be independent from particular cloud provider.',
                'D0206',),
-      $slo -> ('Svobodný cloud a virtualizace',
+      $sk -> ('Svobodný cloud a virtualizace',
                '',
                'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
 Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
 Síť, kterou vám mohou poskytovat různí dodavatelé a do které můžete připojit spotřebiče všech značek i svoje vlastní.
 Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt závislý na konkrétním výrobci.',
                'D0206',),
-      $ger -> ('Svobodný cloud a virtualizace',
+      $de -> ('Svobodný cloud a virtualizace',
                '',
                'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
 Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
@@ -2548,9 +2548,9 @@ Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt z
   members = none,
   curdir + '/img/participants/františek_kučera.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2563,27 +2563,27 @@ Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt z
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     trans = {
-      $cze -> ('Šifrování pro úplné začátečníky',
+      $cs -> ('Šifrování pro úplné začátečníky',
                'Notebook, ideálně s nějakou současnou distribucí GNU/Linuxu',
                'Poštovní či telekomunikační tajemství je sice hezká věc, ale při ochraně svého soukromí se spoléhejte raději na technologie než na zákony.
 Přijďte si vytvořit svůj první pár klíčů a poslat si svůj první šifrovaný e-mail.
 Vysvětlíme si základy symetrické a asymetrické kryptografie a seznámíme se se svobodným softwarem,
 pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
                'A112',),
-      $eng -> ('Cryptography for beginners',
+      $en -> ('Cryptography for beginners',
                'Own laptop, preferably with an current GNU/Linux distribution',
                'Laws protecting user privacy are fine but it is safer to rely on strong cryptography because these laws are often ineffective, tampered or simply absent.
 Let\'s learn how to generate our first key pair and send our first encrypted e-mail.
 We will show the basics of symetric and asymetric cryptography and get familiar with free software packages for e-mail/file encryption and signing.',
                'A112',),
-      $slo -> ('Šifrování pro úplné začátečníky',
+      $sk -> ('Šifrování pro úplné začátečníky',
                'Notebook, ideálně s nějakou současnou distribucí GNU/Linuxu',
                'Poštovní či telekomunikační tajemství je sice hezká věc, ale při ochraně svého soukromí se spoléhejte raději na technologie než na zákony.
 Přijďte si vytvořit svůj první pár klíčů a poslat si svůj první šifrovaný e-mail.
 Vysvětlíme si základy symetrické a asymetrické kryptografie a seznámíme se se svobodným softwarem,
 pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
                'A112',),
-      $ger -> ('Šifrování pro úplné začátečníky',
+      $de -> ('Šifrování pro úplné začátečníky',
                'Notebook, ideálně s nějakou současnou distribucí GNU/Linuxu',
                'Poštovní či telekomunikační tajemství je sice hezká věc, ale při ochraně svého soukromí se spoléhejte raději na technologie než na zákony.
 Přijďte si vytvořit svůj první pár klíčů a poslat si svůj první šifrovaný e-mail.
@@ -2598,9 +2598,9 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
   members = none,
   curdir + '/img/participants/zdeněk_hruška.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2613,19 +2613,19 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     trans = {
-      $cze -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
+      $cs -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
                '',
                'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
                'D0207',),
-      $eng -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
+      $en -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
                '',
                'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
                'D0207',),
-      $slo -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
+      $sk -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
                '',
                'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
                'D0207',),
-      $ger -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
+      $de -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
                '',
                'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
                'D0207',),
@@ -2638,9 +2638,9 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #  members = none,
 #  curdir + '/img/participants/martin_holec.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2653,19 +2653,19 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
 #    trans = {
-#      $cze -> ('Stopařův průvodce po cestování',
+#      $cs -> ('Stopařův průvodce po cestování',
 #               '',
 #               'Bude upresneno',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Stopařův průvodce po cestování',
+#      $en -> ('Stopařův průvodce po cestování',
 #               '',
 #               'Bude upresneno',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Stopařův průvodce po cestování',
+#      $sk -> ('Stopařův průvodce po cestování',
 #               '',
 #               'Bude upresneno',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Stopařův průvodce po cestování',
+#      $de -> ('Stopařův průvodce po cestování',
 #               '',
 #               'Bude upresneno',
 #               'UNKNOWN_PLACE',),
@@ -2678,9 +2678,9 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
   members = none,
   curdir + '/img/participants/tomáš_kaplan.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2693,19 +2693,19 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     trans = {
-      $cze -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
+      $cs -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
                'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
                'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
                'D0206',),
-      $eng -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
+      $en -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
                'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
                'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
                'D0206',),
-      $slo -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
+      $sk -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
                'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
                'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
                'D0206',),
-      $ger -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
+      $de -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
                'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
                'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
                'D0206',),
@@ -2718,9 +2718,9 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #  members = none,
 #  curdir + '/img/participants/radek_dostál.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2736,19 +2736,19 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
 #    trans = {
-#      $cze -> ('Efficient development of streaming SDK using Yocto',
+#      $cs -> ('Efficient development of streaming SDK using Yocto',
 #               '',
 #               'StreamSDK is a complete package for Internet connected audio music players. This talk presents four years of lessons learned during the development process. First I describe advantages of using Qt as the fundamental framework on top of which StreamSDK is built and the ways how it allows us to speed up development. Second I discuss the overall architecture and present the developed modular approach and API used for communication between the modules. Third PlayLogic is introduced as a solution for satisfying demanding music services. Finally I present how everything is integrated together using Yocto including tips for speeding up the development.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Efficient development of streaming SDK using Yocto',
+#      $en -> ('Efficient development of streaming SDK using Yocto',
 #               '',
 #               'StreamSDK is a complete package for Internet connected audio music players. This talk presents four years of lessons learned during the development process. First I describe advantages of using Qt as the fundamental framework on top of which StreamSDK is built and the ways how it allows us to speed up development. Second I discuss the overall architecture and present the developed modular approach and API used for communication between the modules. Third PlayLogic is introduced as a solution for satisfying demanding music services. Finally I present how everything is integrated together using Yocto including tips for speeding up the development.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Efficient development of streaming SDK using Yocto',
+#      $sk -> ('Efficient development of streaming SDK using Yocto',
 #               '',
 #               'StreamSDK is a complete package for Internet connected audio music players. This talk presents four years of lessons learned during the development process. First I describe advantages of using Qt as the fundamental framework on top of which StreamSDK is built and the ways how it allows us to speed up development. Second I discuss the overall architecture and present the developed modular approach and API used for communication between the modules. Third PlayLogic is introduced as a solution for satisfying demanding music services. Finally I present how everything is integrated together using Yocto including tips for speeding up the development.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Efficient development of streaming SDK using Yocto',
+#      $de -> ('Efficient development of streaming SDK using Yocto',
 #               '',
 #               'StreamSDK is a complete package for Internet connected audio music players. This talk presents four years of lessons learned during the development process. First I describe advantages of using Qt as the fundamental framework on top of which StreamSDK is built and the ways how it allows us to speed up development. Second I discuss the overall architecture and present the developed modular approach and API used for communication between the modules. Third PlayLogic is introduced as a solution for satisfying demanding music services. Finally I present how everything is integrated together using Yocto including tips for speeding up the development.',
 #               'UNKNOWN_PLACE',),
@@ -2761,9 +2761,9 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #  members = none,
 #  curdir + '/img/participants/michal_černý.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2776,19 +2776,19 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Otevřené vzdělávání: od programového vybavení k občanské vědě a informačním systémům',
+#      $cs -> ('Otevřené vzdělávání: od programového vybavení k občanské vědě a informačním systémům',
 #               '',
 #               'Příspěvek se podívá na problematiku open source ve školství v širších perspektivách. Nejde jen o software, který je bezplatný a dobře přizpůsobitelný, což je z pedagogického pohledu velice důležité, ale také o další aspekty vzdělávání. Open access nabízí možnost pracovat s reálnými vědeckými daty a v prostředí školy provozovat skutečnou vědu na velice dobré úrovni. Otevřená data z nejrůznějších testů a chování studentů umožňují optimalizovat výuku a vzdělávání, ale také přináší netriviální problémy. Přednáška se pokusí o integrující pohled na to, jak open source proměňuje (a bude proměňovat) vzdělávání od základních škol po celoživotní učení.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Otevřené vzdělávání: od programového vybavení k občanské vědě a informačním systémům',
+#      $en -> ('Otevřené vzdělávání: od programového vybavení k občanské vědě a informačním systémům',
 #               '',
 #               'Příspěvek se podívá na problematiku open source ve školství v širších perspektivách. Nejde jen o software, který je bezplatný a dobře přizpůsobitelný, což je z pedagogického pohledu velice důležité, ale také o další aspekty vzdělávání. Open access nabízí možnost pracovat s reálnými vědeckými daty a v prostředí školy provozovat skutečnou vědu na velice dobré úrovni. Otevřená data z nejrůznějších testů a chování studentů umožňují optimalizovat výuku a vzdělávání, ale také přináší netriviální problémy. Přednáška se pokusí o integrující pohled na to, jak open source proměňuje (a bude proměňovat) vzdělávání od základních škol po celoživotní učení.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Otevřené vzdělávání: od programového vybavení k občanské vědě a informačním systémům',
+#      $sk -> ('Otevřené vzdělávání: od programového vybavení k občanské vědě a informačním systémům',
 #               '',
 #               'Příspěvek se podívá na problematiku open source ve školství v širších perspektivách. Nejde jen o software, který je bezplatný a dobře přizpůsobitelný, což je z pedagogického pohledu velice důležité, ale také o další aspekty vzdělávání. Open access nabízí možnost pracovat s reálnými vědeckými daty a v prostředí školy provozovat skutečnou vědu na velice dobré úrovni. Otevřená data z nejrůznějších testů a chování studentů umožňují optimalizovat výuku a vzdělávání, ale také přináší netriviální problémy. Přednáška se pokusí o integrující pohled na to, jak open source proměňuje (a bude proměňovat) vzdělávání od základních škol po celoživotní učení.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Otevřené vzdělávání: od programového vybavení k občanské vědě a informačním systémům',
+#      $de -> ('Otevřené vzdělávání: od programového vybavení k občanské vědě a informačním systémům',
 #               '',
 #               'Příspěvek se podívá na problematiku open source ve školství v širších perspektivách. Nejde jen o software, který je bezplatný a dobře přizpůsobitelný, což je z pedagogického pohledu velice důležité, ale také o další aspekty vzdělávání. Open access nabízí možnost pracovat s reálnými vědeckými daty a v prostředí školy provozovat skutečnou vědu na velice dobré úrovni. Otevřená data z nejrůznějších testů a chování studentů umožňují optimalizovat výuku a vzdělávání, ale také přináší netriviální problémy. Přednáška se pokusí o integrující pohled na to, jak open source proměňuje (a bude proměňovat) vzdělávání od základních škol po celoživotní učení.',
 #               'UNKNOWN_PLACE',),
@@ -2801,9 +2801,9 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #  members = none,
 #  curdir + '/img/participants/pavel_stratil.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2816,7 +2816,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
 #    trans = {
-#      $cze -> ('Industra',
+#      $cs -> ('Industra',
 #               '',
 #               'Industra je brněnský nezávislý neziskový urban space jehož posláním je iniciovat proměnu ve společnosti k udržitelnosti a všeobecné úžasnosti. 
 #
@@ -2827,7 +2827,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #Industra: bicycle friendly / international / freedom-loving / open / fun / hasgreatcoffee / geek friendly / in-need-of-you
 #',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Industra',
+#      $en -> ('Industra',
 #               '',
 #               'Industra je brněnský nezávislý neziskový urban space jehož posláním je iniciovat proměnu ve společnosti k udržitelnosti a všeobecné úžasnosti. 
 #
@@ -2838,7 +2838,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #Industra: bicycle friendly / international / freedom-loving / open / fun / hasgreatcoffee / geek friendly / in-need-of-you
 #',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Industra',
+#      $sk -> ('Industra',
 #               '',
 #               'Industra je brněnský nezávislý neziskový urban space jehož posláním je iniciovat proměnu ve společnosti k udržitelnosti a všeobecné úžasnosti. 
 #
@@ -2849,7 +2849,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #Industra: bicycle friendly / international / freedom-loving / open / fun / hasgreatcoffee / geek friendly / in-need-of-you
 #',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Industra',
+#      $de -> ('Industra',
 #               '',
 #               'Industra je brněnský nezávislý neziskový urban space jehož posláním je iniciovat proměnu ve společnosti k udržitelnosti a všeobecné úžasnosti. 
 #
@@ -2869,9 +2869,9 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
   members = none,
   curdir + '/img/participants/ľubor_jurena.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -2884,22 +2884,22 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     trans = {
-      $cze -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
+      $cs -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
                '',
                '
 Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
                'D0207',),
-      $eng -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
+      $en -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
                '',
                '
 Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
                'D0207',),
-      $slo -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
+      $sk -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
                '',
                '
 Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
                'D0207',),
-      $ger -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
+      $de -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
                '',
                '
 Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
@@ -2913,9 +2913,9 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #  members = none,
 #  curdir + '/img/participants/františek_dalecký.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2928,19 +2928,19 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Otevřené vzdělávání: MOOC jako nástroj šíření vzdělanosti ',
+#      $cs -> ('Otevřené vzdělávání: MOOC jako nástroj šíření vzdělanosti ',
 #               '',
 #               'Přednáška nabídne exkurz do světa vzdělávání a představí žhavý trend současnosti - MOOC.  V první části přinese přednáška teoretické minimum a seznámí vás s historií, charakteristikou a hlavními výzvami, kterým MOOC čelí. Nečekejte však teoretickou akademickou přednášku, ale praktické pojetí tématu. Zjistíte totiž také to, jak můžete efektivně MOOC studovat, ale také to, jak MOOC vytvořit. Část přednášky bude věnována i metodice vytváření MOOC kurzů a představení několika nástrojů, díky nimž se můžete stát vzdělavatelem pro stovky a tisíce lidí i vy! ',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Otevřené vzdělávání: MOOC jako nástroj šíření vzdělanosti ',
+#      $en -> ('Otevřené vzdělávání: MOOC jako nástroj šíření vzdělanosti ',
 #               '',
 #               'Přednáška nabídne exkurz do světa vzdělávání a představí žhavý trend současnosti - MOOC.  V první části přinese přednáška teoretické minimum a seznámí vás s historií, charakteristikou a hlavními výzvami, kterým MOOC čelí. Nečekejte však teoretickou akademickou přednášku, ale praktické pojetí tématu. Zjistíte totiž také to, jak můžete efektivně MOOC studovat, ale také to, jak MOOC vytvořit. Část přednášky bude věnována i metodice vytváření MOOC kurzů a představení několika nástrojů, díky nimž se můžete stát vzdělavatelem pro stovky a tisíce lidí i vy! ',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Otevřené vzdělávání: MOOC jako nástroj šíření vzdělanosti ',
+#      $sk -> ('Otevřené vzdělávání: MOOC jako nástroj šíření vzdělanosti ',
 #               '',
 #               'Přednáška nabídne exkurz do světa vzdělávání a představí žhavý trend současnosti - MOOC.  V první části přinese přednáška teoretické minimum a seznámí vás s historií, charakteristikou a hlavními výzvami, kterým MOOC čelí. Nečekejte však teoretickou akademickou přednášku, ale praktické pojetí tématu. Zjistíte totiž také to, jak můžete efektivně MOOC studovat, ale také to, jak MOOC vytvořit. Část přednášky bude věnována i metodice vytváření MOOC kurzů a představení několika nástrojů, díky nimž se můžete stát vzdělavatelem pro stovky a tisíce lidí i vy! ',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Otevřené vzdělávání: MOOC jako nástroj šíření vzdělanosti ',
+#      $de -> ('Otevřené vzdělávání: MOOC jako nástroj šíření vzdělanosti ',
 #               '',
 #               'Přednáška nabídne exkurz do světa vzdělávání a představí žhavý trend současnosti - MOOC.  V první části přinese přednáška teoretické minimum a seznámí vás s historií, charakteristikou a hlavními výzvami, kterým MOOC čelí. Nečekejte však teoretickou akademickou přednášku, ale praktické pojetí tématu. Zjistíte totiž také to, jak můžete efektivně MOOC studovat, ale také to, jak MOOC vytvořit. Část přednášky bude věnována i metodice vytváření MOOC kurzů a představení několika nástrojů, díky nimž se můžete stát vzdělavatelem pro stovky a tisíce lidí i vy! ',
 #               'UNKNOWN_PLACE',),
@@ -2953,9 +2953,9 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #  members = none,
 #  curdir + '/img/participants/zdeněk_záhora.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -2970,19 +2970,19 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
 #    trans = {
-#      $cze -> ('Participativní kultura a její využití v marketingu aneb co nás může naučit kultura hráčů',
+#      $cs -> ('Participativní kultura a její využití v marketingu aneb co nás může naučit kultura hráčů',
 #               '',
 #               'Herní průmysl nabral v posledních letech obrátky a je patrná změna užívání her. Streamování, komentovaný gameplay, hra jako divadelní parket, fenomén twich a kultury subscriberů, to vše odkrývá komunikační mechanizmy uživatele a poskytovatele. V krátké sondě do komunitních trendů se vydáme od kreativních subkultur přes crowdfunding a digitální hry až po náhled na obecný produkt (či službu) v rámci jiných médií. Nakonec si položíme klíčovou otázku modelového CEO: "Hodí se mi investovat do participativního marketingu?"',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Participativní kultura a její využití v marketingu aneb co nás může naučit kultura hráčů',
+#      $en -> ('Participativní kultura a její využití v marketingu aneb co nás může naučit kultura hráčů',
 #               '',
 #               'Herní průmysl nabral v posledních letech obrátky a je patrná změna užívání her. Streamování, komentovaný gameplay, hra jako divadelní parket, fenomén twich a kultury subscriberů, to vše odkrývá komunikační mechanizmy uživatele a poskytovatele. V krátké sondě do komunitních trendů se vydáme od kreativních subkultur přes crowdfunding a digitální hry až po náhled na obecný produkt (či službu) v rámci jiných médií. Nakonec si položíme klíčovou otázku modelového CEO: "Hodí se mi investovat do participativního marketingu?"',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Participativní kultura a její využití v marketingu aneb co nás může naučit kultura hráčů',
+#      $sk -> ('Participativní kultura a její využití v marketingu aneb co nás může naučit kultura hráčů',
 #               '',
 #               'Herní průmysl nabral v posledních letech obrátky a je patrná změna užívání her. Streamování, komentovaný gameplay, hra jako divadelní parket, fenomén twich a kultury subscriberů, to vše odkrývá komunikační mechanizmy uživatele a poskytovatele. V krátké sondě do komunitních trendů se vydáme od kreativních subkultur přes crowdfunding a digitální hry až po náhled na obecný produkt (či službu) v rámci jiných médií. Nakonec si položíme klíčovou otázku modelového CEO: "Hodí se mi investovat do participativního marketingu?"',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Participativní kultura a její využití v marketingu aneb co nás může naučit kultura hráčů',
+#      $de -> ('Participativní kultura a její využití v marketingu aneb co nás může naučit kultura hráčů',
 #               '',
 #               'Herní průmysl nabral v posledních letech obrátky a je patrná změna užívání her. Streamování, komentovaný gameplay, hra jako divadelní parket, fenomén twich a kultury subscriberů, to vše odkrývá komunikační mechanizmy uživatele a poskytovatele. V krátké sondě do komunitních trendů se vydáme od kreativních subkultur přes crowdfunding a digitální hry až po náhled na obecný produkt (či službu) v rámci jiných médií. Nakonec si položíme klíčovou otázku modelového CEO: "Hodí se mi investovat do participativního marketingu?"',
 #               'UNKNOWN_PLACE',),
@@ -2995,9 +2995,9 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
   members = none,
   curdir + '/img/participants/jozef_mlích.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -3010,19 +3010,19 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     trans = {
-      $cze -> ('Jolla SailfishOS',
+      $cs -> ('Jolla SailfishOS',
                '',
                'Neni to vaporware! Jolla je nový linuxový telefon z Finska, který byl vydán v prosinci minulého roku. Podivame se jak Jolla naplnila ocakavani.',
                'D0206',),
-      $eng -> ('Jolla SailfishOS',
+      $en -> ('Jolla SailfishOS',
                '',
                'Neni to vaporware! Jolla je nový linuxový telefon z Finska, který byl vydán v prosinci minulého roku. Podivame se jak Jolla naplnila ocakavani.',
                'D0206',),
-      $slo -> ('Jolla SailfishOS',
+      $sk -> ('Jolla SailfishOS',
                '',
                'Neni to vaporware! Jolla je nový linuxový telefon z Finska, který byl vydán v prosinci minulého roku. Podivame se jak Jolla naplnila ocakavani.',
                'D0206',),
-      $ger -> ('Jolla SailfishOS',
+      $de -> ('Jolla SailfishOS',
                '',
                'Neni to vaporware! Jolla je nový linuxový telefon z Finska, který byl vydán v prosinci minulého roku. Podivame se jak Jolla naplnila ocakavani.',
                'D0206',),
@@ -3035,9 +3035,9 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #  members = none,
 #  curdir + '/img/participants/jozef_mlích.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -3051,19 +3051,19 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
 #    trans = {
-#      $cze -> ('S linuxem blizko cloudu',
+#      $cs -> ('S linuxem blizko cloudu',
 #               '',
 #               'V tehle prednasce se pokusime zjistit jak nam linux muze pomoct ve vetsich vyskach. Zjistime, ze PostGIS je vlastne strasne jednoduchy a tilemill dokaze zobrazit vse co je potreba. Zusatava jen otazka kde vzit data a nekrast.',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('S linuxem blizko cloudu',
+#      $en -> ('S linuxem blizko cloudu',
 #               '',
 #               'V tehle prednasce se pokusime zjistit jak nam linux muze pomoct ve vetsich vyskach. Zjistime, ze PostGIS je vlastne strasne jednoduchy a tilemill dokaze zobrazit vse co je potreba. Zusatava jen otazka kde vzit data a nekrast.',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('S linuxem blizko cloudu',
+#      $sk -> ('S linuxem blizko cloudu',
 #               '',
 #               'V tehle prednasce se pokusime zjistit jak nam linux muze pomoct ve vetsich vyskach. Zjistime, ze PostGIS je vlastne strasne jednoduchy a tilemill dokaze zobrazit vse co je potreba. Zusatava jen otazka kde vzit data a nekrast.',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('S linuxem blizko cloudu',
+#      $de -> ('S linuxem blizko cloudu',
 #               '',
 #               'V tehle prednasce se pokusime zjistit jak nam linux muze pomoct ve vetsich vyskach. Zjistime, ze PostGIS je vlastne strasne jednoduchy a tilemill dokaze zobrazit vse co je potreba. Zusatava jen otazka kde vzit data a nekrast.',
 #               'UNKNOWN_PLACE',),
@@ -3076,9 +3076,9 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
   members = none,
   curdir + '/img/participants/jozef_mlích.jpg',
   trans = {
-    $eng -> ('',
+    $en -> ('',
              '',),
-    $cze -> ('',
+    $cs -> ('',
              '',),
   },
   events = {
@@ -3091,22 +3091,22 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 12, 30),
     trans = {
-      $cze -> ('Uvod do programovani v Qt/Qml',
+      $cs -> ('Uvod do programovani v Qt/Qml',
                'Vlastni notebook s predinstalovanym Qt z qt-project.org
 (idealne Qt 5.3 a novejsi). Zakladni povedomi o programovani.',
                'V ramci tohoto workshopu si zkusite vytvorit hello world v jazyku Qml jez je soucasti Qt.',
                'A113',),
-      $eng -> ('Uvod do programovani v Qt/Qml',
+      $en -> ('Uvod do programovani v Qt/Qml',
                'Vlastni notebook s predinstalovanym Qt z qt-project.org
 (idealne Qt 5.3 a novejsi). Zakladni povedomi o programovani.',
                'V ramci tohoto workshopu si zkusite vytvorit hello world v jazyku Qml jez je soucasti Qt.',
                'A113',),
-      $slo -> ('Uvod do programovani v Qt/Qml',
+      $sk -> ('Uvod do programovani v Qt/Qml',
                'Vlastni notebook s predinstalovanym Qt z qt-project.org
 (idealne Qt 5.3 a novejsi). Zakladni povedomi o programovani.',
                'V ramci tohoto workshopu si zkusite vytvorit hello world v jazyku Qml jez je soucasti Qt.',
                'A113',),
-      $ger -> ('Uvod do programovani v Qt/Qml',
+      $de -> ('Uvod do programovani v Qt/Qml',
                'Vlastni notebook s predinstalovanym Qt z qt-project.org
 (idealne Qt 5.3 a novejsi). Zakladni povedomi o programovani.',
                'V ramci tohoto workshopu si zkusite vytvorit hello world v jazyku Qml jez je soucasti Qt.',
@@ -3120,9 +3120,9 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #  members = none,
 #  curdir + '/img/participants/martin_holec.jpg',
 #  trans = {
-#    $eng -> ('',
+#    $en -> ('',
 #             '',),
-#    $cze -> ('',
+#    $cs -> ('',
 #             '',),
 #  },
 #  events = {
@@ -3133,19 +3133,19 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
 #    trans = {
-#      $cze -> ('Wearable computing: Od hodinek ke smartwatches',
+#      $cs -> ('Wearable computing: Od hodinek ke smartwatches',
 #               '',
 #               'bude upřesněno (možná)',
 #               'UNKNOWN_PLACE',),
-#      $eng -> ('Wearable computing: Od hodinek ke smartwatches',
+#      $en -> ('Wearable computing: Od hodinek ke smartwatches',
 #               '',
 #               'bude upřesněno (možná)',
 #               'UNKNOWN_PLACE',),
-#      $slo -> ('Wearable computing: Od hodinek ke smartwatches',
+#      $sk -> ('Wearable computing: Od hodinek ke smartwatches',
 #               '',
 #               'bude upřesněno (možná)',
 #               'UNKNOWN_PLACE',),
-#      $ger -> ('Wearable computing: Od hodinek ke smartwatches',
+#      $de -> ('Wearable computing: Od hodinek ke smartwatches',
 #               '',
 #               'bude upřesněno (možná)',
 #               'UNKNOWN_PLACE',),

@@ -9,7 +9,8 @@ namespace lib {
   events_satisfying, localized_time_format, mkrel, parse_csv, gen_participants
 }
 
-type Locale = enum<cze, eng, slo, ger, fin>
+#type Locale = enum<cze, eng, slo, ger, fin>
+type Locale = enum<cs, en, sk, de, fi>
 type Kind = enum<talk, workshop, internal, party>
 type Track = enum<tips, world_around, security, challenges, establishment>
 
@@ -58,7 +59,7 @@ routine events_satisfying(
   return res
 }
 
-var mutex_locale = sync.Mutex()
+var mutex_locale = mt.Mutex()
 routine localized_time_format(invar locale: string,
     invar t: time.DateTime, invar pattern: string) => string {
   mutex_locale.lock()
@@ -193,22 +194,22 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day" +
       ((line[4].trim().match('^sobota$') != none) ? ' -1' : '') + ", 8, 45),
     trans = {
-      $eng -> ('" + line[9] + "',
-              '" + line[14] + "',
-              '" + line[10] + "',
-              'UNKNOWN_PLACE',),
-      $cze -> ('" + line[9] + "',
-              '" + line[14] + "',
-              '" + line[10] + "',
-              'UNKNOWN_PLACE',),
-      $slo -> ('" + line[9] + "',
-              '" + line[14] + "',
-              '" + line[10] + "',
-              'UNKNOWN_PLACE',),
-      $ger -> ('" + line[9] + "',
-              '" + line[14] + "',
-              '" + line[10] + "',
-              'UNKNOWN_PLACE',),
+      $en -> ('" + line[9] + "',
+             '" + line[14] + "',
+             '" + line[10] + "',
+             'UNKNOWN_PLACE',),
+      $cs -> ('" + line[9] + "',
+             '" + line[14] + "',
+             '" + line[10] + "',
+             'UNKNOWN_PLACE',),
+      $sk -> ('" + line[9] + "',
+             '" + line[14] + "',
+             '" + line[10] + "',
+             'UNKNOWN_PLACE',),
+      $de -> ('" + line[9] + "',
+             '" + line[14] + "',
+             '" + line[10] + "',
+             'UNKNOWN_PLACE',),
     }
    )
   }),
