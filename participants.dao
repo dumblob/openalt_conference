@@ -1,3 +1,6 @@
+# FIXME change the tree model to relational SQL-like model - see
+#   http://code.activestate.com/recipes/159974-sql-like-set-operations-with-list-comprehension-on/
+
 load config import configuration . { conf, curdir }
 load lib import lib
 load time import time

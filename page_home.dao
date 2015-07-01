@@ -51,18 +51,16 @@ routine page_home(
         img(src=rel(ci.logo_oa_conf),
             alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
         paragraph(_class='narrow_paragraph') { t['motivation'] }
-        paragraph(id='time_range') {
-          strong {
-            localized_time_format(
-              t['_locale'], conf.time_from, '%-d.') + '-' +
-            localized_time_format(
-              t['_locale'], conf.time_to, '%-d. %B %Y')
-          }
+        paragraph(_class='time_range_big') {
+          localized_time_format(
+            t['_locale'], conf.time_from, '%-d.') + '-' +
+          localized_time_format(
+            t['_locale'], conf.time_to, '%-d. %B %Y')
         }
         # FIXME paragraph {
-        paragraph(_class='narrow_paragraph') {
-          anchor(href=conf.uri.registration) { t['registration'] }
-        }
+        paragraph(_class='narrow_paragraph') { t['cfp'] }
+        paragraph(_class='narrow_paragraph') { t['registration'] }
+        paragraph                            { t['previous_runs'] }
       }
 
       if (my_time.time.now() >= conf.time_show_sched) {

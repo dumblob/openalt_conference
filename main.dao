@@ -27,7 +27,7 @@ routine gen_pages(invar trans: lib.Locale) {
   if (! d.exists(_trans)) d.mkdir(_trans)
   invar dst = conf.rootdir + '/' + _trans
 
-  # FIXME better name as there are not only pages (
+  # FIXME better name as these are not only pages (
   #   we need all generated files accessible from this
   #   structure as references/links to these are generated
   #   based on the content of this structure)
@@ -224,7 +224,8 @@ a:active {
   margin-left: auto;
   margin-right: auto;
 }
-#header > p:nth-child(2) {
+#header > p:nth-child(2),
+#header > p:nth-child(4) {
   font-size: 16pt;
   font-weight: lighter;
   margin-bottom: 0;
@@ -234,8 +235,9 @@ a:active {
   margin-right: auto;
   max-width: 440pt;
 }
-#time_range {
+.time_range_big {
   font-size: 20pt;
+  font-weight: bold;
   margin-top: 6pt;
   margin-bottom: 13pt;
 }

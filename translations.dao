@@ -28,7 +28,19 @@ var translations = {
     'twitter' -> 'official Twitter social network stream for OpenAlt conference',
     'gplus' -> 'official Google+ social network page of OpenAlt conference',
     'fb' -> 'official Facebook social network page of OpenAlt conference',
-    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the eleventh proceeding of the Brno open-source, open-mind and open-hardware conference!',
+    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
+    'cfp' -> '<a href="' + conf.uri.cfp + '">Call for Proposals</a> is out (<a href="' + conf.uri.cfp_form + '">submission form</a>)!',
+    'registration' -> 'Voluntary <a href="' + conf.uri.registration + '">registration</a> of attendees.',
+    'previous_runs' -> 'Previous runs of the OpenAlt (formerly LinuxAlt) conference:
+<a href="http://openalt.cz/2014">OA2014</a>,
+<a href="http://www.linuxalt.cz/2013">LA2013</a> and <a href="http://www.openmobility.eu/konference/om2013/program/">OM2013</a>,
+<a href="http://www.linuxalt.cz/2012">LA2012</a> and <a href="http://www.openmobility.eu/konference/om2012/program/">OM2012</a>,
+<a href="http://www.linuxalt.cz/2011">LA2011</a> and <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">OM2011</a>,
+<a href="http://www.linuxalt.cz/2010">LA2010</a> and <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">OM2010</a>,
+<a href="http://www.linuxalt.cz/2009">LA2009</a>,
+<a href="http://www.linuxalt.cz/2008">LA2008</a>,
+<a href="http://www.linuxalt.cz/2007">LA2007</a>,
+<a href="http://www.linuxalt.cz/2006">LA2006</a>',
     'home' -> 'Home',
     'about' -> 'About',
     'thanks' -> 'Thanks',
@@ -59,19 +71,8 @@ Previous runs of the OpenMobility conference:
 <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>
 <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
 <br>
-Previous runs of the OpenAlt (formerly LinuxAlt) conference:
-<a href="http://openalt.cz/2014">2014</a>
-<a href="http://www.linuxalt.cz/2013">2013</a>
-<a href="http://www.linuxalt.cz/2012">2012</a>
-<a href="http://www.linuxalt.cz/2011">2011</a>
-<a href="http://www.linuxalt.cz/2010">2010</a>
-<a href="http://www.linuxalt.cz/2009">2009</a>
-<a href="http://www.linuxalt.cz/2008">2008</a>
-<a href="http://www.linuxalt.cz/2007">2007</a>
-<a href="http://www.linuxalt.cz/2006">2006</a>
-<br>
-<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play</a>
-<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish openrepos</a>',
+<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>, 
+<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
     'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Page updated on ' + (string)time.now(),
@@ -105,7 +106,6 @@ Previous runs of the OpenAlt (formerly LinuxAlt) conference:
     'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
     'feedback' -> 'Feedback and media',
     'gps_coordinates' -> 'GPS coordinates',
-    'registration' -> 'Registration',
   },
   $cs -> {
     '_locale' -> 'cs_CZ.UTF-8',
@@ -116,7 +116,19 @@ Previous runs of the OpenAlt (formerly LinuxAlt) conference:
     'twitter' -> 'oficiální stránka konference OpenAlt na sociální síti Twitter',
     'gplus' -> 'oficiální stránka konference OpenAlt na sociální síti Google+',
     'fb' -> 'oficiální stránka konference OpenAlt na sociální síti Facebook',
-    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již jedenáctého pokračování brněnské open-source, open-mind a open-hardware konference!',
+    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
+    'cfp' -> '<a href="' + conf.uri.cfp + '">Call for Proposals</a> je venku (<a href="' + conf.uri.cfp_form + '">odevzdávací formulář</a>)!',
+    'registration' -> 'Dobrovolná <a href="' + conf.uri.registration + '">registrace</a> účastníků.',
+    'previous_runs' -> 'Předchozí ročníky:
+<a href="http://openalt.cz/2014">OA2014</a>,
+<a href="http://www.linuxalt.cz/2013">LA2013</a> a <a href="http://www.openmobility.eu/konference/om2013/program/">OM2013</a>,
+<a href="http://www.linuxalt.cz/2012">LA2012</a> a <a href="http://www.openmobility.eu/konference/om2012/program/">OM2012</a>,
+<a href="http://www.linuxalt.cz/2011">LA2011</a> a <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">OM2011</a>,
+<a href="http://www.linuxalt.cz/2010">LA2010</a> a <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">OM2010</a>,
+<a href="http://www.linuxalt.cz/2009">LA2009</a>,
+<a href="http://www.linuxalt.cz/2008">LA2008</a>,
+<a href="http://www.linuxalt.cz/2007">LA2007</a>,
+<a href="http://www.linuxalt.cz/2006">LA2006</a>',
     'home' -> 'Domů',
     'about' -> 'O nás',
     'thanks' -> 'Poděkování',
@@ -141,25 +153,8 @@ Dotazy týkající se konference: <a href="mailto:informace@openalt.cz">informac
 Pro obecné dotazy ohledně naší činnosti: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
 Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
 <br>
-Předchozí ročníky konference OpenMobility:
-<a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>
-<a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>
-<a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>
-<a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
-<br>
-Předchozí ročníky konference LinuxAlt:
-<a href="http://openalt.cz/2014">2014</a>
-<a href="http://www.linuxalt.cz/2013">2013</a>
-<a href="http://www.linuxalt.cz/2012">2012</a>
-<a href="http://www.linuxalt.cz/2011">2011</a>
-<a href="http://www.linuxalt.cz/2010">2010</a>
-<a href="http://www.linuxalt.cz/2009">2009</a>
-<a href="http://www.linuxalt.cz/2008">2008</a>
-<a href="http://www.linuxalt.cz/2007">2007</a>
-<a href="http://www.linuxalt.cz/2006">2006</a>
-<br>
-<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play</a>
-<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish openrepos</a>',
+<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>, 
+<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
     'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Stránka aktualizována ' + (string)time.now(),
@@ -193,7 +188,6 @@ Předchozí ročníky konference LinuxAlt:
     'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
     'feedback' -> 'Napsali o nás',
     'gps_coordinates' -> 'GPS souřadnice',
-    'registration' -> 'Registrace',
   },
 #  $sk  -> {
 #    '_locale' -> 'sk_SK.UTF-8',

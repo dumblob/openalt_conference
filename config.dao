@@ -47,10 +47,15 @@ invar conf = (
     logo_oa_org  = 'http://www.openalt.org/spolek/logo_openalt.svg',
     banner_print = 'http://www.openalt.org/spolek/OA_2014/OA_2014_tisk.pdf',
     banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
-    qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     registration = 'http://www.openalt.cz/2015/registrace',
     # FIXME
-    qr_oa_org    = 'http://www.openalt.org/o-spolku/',
+    #   why "papers" and not "proposals"?
+    #   remove the .php extension (symlink on the server)?
+    cfp          = 'http://www.openalt.cz/2015/call-for-papers.php',
+    cfp_form     = 'https://www.openalt.org/2015/cfp-form',
+    qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
+    # FIXME where is the QR code?
+    qr_oa_org    = 'https://www.openalt.org/o-spolku/',
     graph_man_oa_conf = 'http://www.openalt.org/spolek/oa_graficky_manual_konference.zip',
     graph_man_oa_org  = 'http://www.openalt.org/spolek/oa_graficky_manual.zip',
   ),
