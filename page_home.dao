@@ -253,7 +253,6 @@ routine page_home(
               conf.coord_gps_n + ' N, ' + conf.coord_gps_e + ' E'
           }
         }
-        # FIXME remove this div
         div(id='map_div') {
           img(src=rel(ci.location),
               alt=t['location'] + ': ' +
@@ -272,8 +271,6 @@ routine page_home(
 
       div(id='previous_runs') {
         h3(_class='section') { t['previous_runs'] }
-        # FIXME should be left justified
-        #paragraph(_class='narrow_paragraph') { t['thank_you'] }
         paragraph(_class='narrow_paragraph') { t['previous_runs_content'] }
       }
 
