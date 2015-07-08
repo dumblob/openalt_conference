@@ -31,7 +31,7 @@ var translations = {
     # FIXME registrace
     #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
     'motivation' -> 'Become a part of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
-    'cfp' -> 'Call for Papers',
+    'cfp' -> 'Call for Proposals',
 # FIXME Pepa's rewrite
 #    'cfp_content' -> '
 #Už nyní pro vás máme připravený blok, který Vás seznámí jak si v domácích podmínkách navrhnout plošný spoj, otestovat a v zahraničí nechat levně a kvalitně vyrobit. <br/><br/>
@@ -69,6 +69,8 @@ Vaše návrhy uvítáme skrze registrační formulář odkazovaný výše a to <
     'register_speaker' -> 'Speakers<br/>(registration)',
     'register_visitor' -> 'Visitors<br/>(registration)',
     'register_partner' -> 'Partners<br/>(contact)',
+    'register_tip' -> 'I&nbsp;have a tip for<br/>topic/person!',
+    'register_tip_tooltip' -> "If you know about a topic/someone who you'd like to see as a speaker or a workshop leader, let us know. Except for the sweet feeling, you'll also get a conference t-shirt and a unique flashing light for a very good tip (see the link target for criteria)!",
     'previous_runs' -> 'Previous runs of the conference',
     'previous_runs_content' -> '
 OpenAlt:
@@ -205,6 +207,8 @@ Vaše návrhy uvítáme skrze registrační formulář odkazovaný výše a to <
     'register_speaker' -> 'Přednášející<br/>(registrace)',
     'register_visitor' -> 'Návštěvníky<br/>(registrace)',
     'register_partner' -> 'Partnery<br/>(kontakt)',
+    'register_tip' -> 'Mám tip na<br/>téma/osobu!',
+    'register_tip_tooltip' -> 'Víte-li o něčem/někom koho byste rádi viděli přednášet nebo vést dílnu, podělte se. Krom hřejivého pocitu na vás čeká konferenční tričko a unikátní blikátko za kvalitní tip (viz. kritéria v&nbsp;odkazovaném formuláři)!',
     'previous_runs' -> 'Předchozí ročníky konference',
     'previous_runs_content' -> '
 OpenAlt:

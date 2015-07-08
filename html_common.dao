@@ -91,8 +91,7 @@ routine html_head(
       meta(name='viewport', content='width=device-width')
       meta(name='Keywords', content=conf.meta_keywords)
       meta(name='Description', content=conf.meta_description)
-      # FIXME
-      #meta(http_equiv=$expires, content='0')
+      # not HTML5-compliant
       text('<meta http-equiv="Expires" content="0">')
 
 # FIXME

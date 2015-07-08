@@ -53,7 +53,8 @@ invar conf = (
     #   remove the .php extension (symlink on the server)?
     reg_speaker  = 'https://www.openalt.org/2015/cfp-form',
     reg_visitor  = 'https://www.openalt.org/2015/registrace',
-    #cfp          = 'http://www.openalt.cz/2015/call-for-papers.php',
+    reg_tip      = 'https://www.openalt.org/2015/cfp-tip',
+    #cfp          = 'http://www.openalt.cz/2015/call-for-proposals.php',
     #cfp_form     = 'https://www.openalt.org/2015/cfp-form',
     qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     # FIXME where is the QR code?

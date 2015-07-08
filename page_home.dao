@@ -235,7 +235,10 @@ routine page_home(
           #h3(_class='section') { t['looking_for'] }
           anchor(href=cu.reg_speaker) { t['register_speaker'] }
           anchor(href=cu.reg_visitor) { t['register_visitor'] }
-          anchor(href=rel2($contact)) { t['register_partner'] }
+          #anchor(href=rel2($contact)) { t['register_partner'] }
+          anchor(href=cu.reg_tip, title=t['register_tip_tooltip']) {
+            t['register_tip']
+          }
         }
 
         div(id='cfp') {
