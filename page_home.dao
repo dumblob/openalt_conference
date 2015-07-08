@@ -41,6 +41,7 @@ routine page_home(
   #   creation or transitive code section calls through functions
   _html_head = html_head(trans, dst, pages)
   _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
+  _html_footer = html_footer(trans, dst)
 
   html5.write(document {
     text(_html_head)
@@ -57,10 +58,6 @@ routine page_home(
           localized_time_format(
             t['_locale'], conf.time_to, '%-d. %B %Y')
         }
-        # FIXME paragraph {
-        paragraph(_class='narrow_paragraph') { t['cfp'] }
-        paragraph(_class='narrow_paragraph') { t['registration'] }
-        paragraph                            { t['previous_runs'] }
       }
 
       if (my_time.time.now() >= conf.time_show_sched) {
@@ -229,6 +226,22 @@ routine page_home(
           }
         }
       }
+      else {
+        paragraph(_class='narrow_paragraph light_bigger_bottom') {
+          t['looking_for']
+        }
+        div(id='main_buttons') {
+          #h3(_class='section') { t['looking_for'] }
+          anchor(href=cu.reg_speaker) { t['register_speaker'] }
+          anchor(href=cu.reg_visitor) { t['register_visitor'] }
+          anchor(href=rel2($contact)) { t['register_partner'] }
+        }
+
+        div(id='cfp') {
+          h3(_class='section') { t['cfp'] }
+          div(_class='narrow_paragraph') { text(t['cfp_content']) }
+        }
+      }
 
       div(id='location') {
         h3(_class='section') { t['location'] }
@@ -240,37 +253,31 @@ routine page_home(
               conf.coord_gps_n + ' N, ' + conf.coord_gps_e + ' E'
           }
         }
-        img(src=rel(ci.location),
-            alt=t['location'] + ': ' +
-              conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E',
-            title=t['location'] + ': ' +
-              conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E')
-      }
-
-      if (my_time.time.now() >= conf.time_show_sched) {
-        if (my_time.time.now().add(days=-1) > conf.time_to) {
-          div(id='thanks') {
-            h3(_class='section') { t['thanks'] }
-            paragraph(_class='narrow_paragraph') { t['thank_you'] }
-          }
-        }
-
-        div(id='partners') {
-          h3(_class='section') { t['partners'] }
-          # FIXME distinguish $general and $main
-          paragraph {
-            for (invar p in partners) {
-              #anchor(href=p.uri) {
-              #  img(_class='partner', src=rel(p.img), alt=p.name, title=p.name)
-              #}
-            }
-          }
+        # FIXME remove this div
+        div(id='map_div') {
+          img(src=rel(ci.location),
+              alt=t['location'] + ': ' +
+                conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E',
+              title=t['location'] + ': ' +
+                conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E')
         }
       }
 
-      div(id='footer') {
-        paragraph { t['footer'] }
+      if (my_time.time.now().add(days=-1) > conf.time_to) {
+        div(id='thanks') {
+          h3(_class='section') { t['thanks'] }
+          paragraph(_class='narrow_paragraph') { t['thank_you'] }
+        }
       }
+
+      div(id='previous_runs') {
+        h3(_class='section') { t['previous_runs'] }
+        # FIXME should be left justified
+        #paragraph(_class='narrow_paragraph') { t['thank_you'] }
+        paragraph(_class='narrow_paragraph') { t['previous_runs_content'] }
+      }
+
+      text(_html_footer)
     }
   })
 }

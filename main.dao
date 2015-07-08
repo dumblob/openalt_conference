@@ -73,14 +73,14 @@ routine main(...: Locale as args) {
 
   invar chosen_trs = std.exec {
     # FIXME
-    #if (%args)
-    #  return translations.associate(1) {
-    #    if (X in args)
-    #      return (X, Y)
-    #    else
-    #      return none
-    #  }
-    #else
+    if (%args)
+      return translations.associate(1) {
+        if (X in args)
+          return (X, Y)
+        else
+          return none
+      }
+    else
       return translations
   }
 
@@ -154,7 +154,7 @@ a:active {
 @media (min-width: 410pt) {
   /*.segment:nth-of-type(1) {*/
   nav {
-    width: 420pt;
+    width: 410pt;
   }
 }
 .segment:nth-of-type(1) * {
@@ -243,6 +243,13 @@ a:active {
 }
 
 
+.light_bigger_bottom {
+  font-size: 16pt;
+  font-weight: lighter;
+  margin-bottom: 5pt;
+}
+
+
 #main_buttons {
   display: block;
   margin: 0;
@@ -300,12 +307,14 @@ a:active {
 
 
 #feedback,
+#cfp,
 #speakers,
 #talks,
 #workshops,
 #schedule,
 #location,
 #thanks,
+#previous_runs,
 #partners {
   display: block;
   padding-top: 10pt;
@@ -361,9 +370,17 @@ a:active {
 
 
 
-#speakers, #thanks {
+#cfp, #speakers, #thanks, #previous_runs {
   background-color: @[] + dark_grey + @[];
   color: white;
+}
+#cfp > div * {
+  text-align: justify;
+  max-width: 450pt;
+}
+#previous_runs > p {
+  text-align: left;
+  max-width: 450pt;
 }
 #speakers > div {
   margin-left: auto;
@@ -448,6 +465,8 @@ a:active {
 #location {
   padding: 0;
   margin: 0;
+  width: 100%;
+  overflow: hidden;
 }
 #location > p {
   text-transform: uppercase;
@@ -456,11 +475,13 @@ a:active {
   line-height: 20pt;
 }
 #location > img {
-  height: 420px;
-  width: 100%;
+  height: 280px;
+  min-width: 100%;
   padding: 0;
   margin: 20pt 0 0 0;
   vertical-align: middle;
+  horizontal-align: middle;
+  transform: translate(-50%, 0);
 }
 
 
@@ -478,6 +499,25 @@ a:active {
   line-height: 40px;
   padding-right: 40px;
   /*background: transparent url(../img/icon-android.png) center left no-repeat;*/
+}
+
+
+#partners * {
+  margin: 0 2pt;
+  padding: 0;
+  height: 44px;
+}
+#partners {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: solid @[] + dark_red + @[] 2pt;
+  border-bottom: solid @[] + dark_red + @[] 2pt;
+  vertical-align: middle;
+  text-align: center;
+  background: none repeat scroll 0 0 white;
 }
 
 

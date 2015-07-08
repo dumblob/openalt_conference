@@ -37,6 +37,7 @@ invar conf = (
   uri              = (
     # shared between all pages (no exceptions)
     css          = curdir + '/style.css',
+    jquery1      = curdir + '/jquery.min.js',
 
     diaspora     = 'https://diasp.eu/u/openalt',
     twitter      = 'https://twitter.com/OpenAlt',
@@ -47,12 +48,13 @@ invar conf = (
     logo_oa_org  = 'http://www.openalt.org/spolek/logo_openalt.svg',
     banner_print = 'http://www.openalt.org/spolek/OA_2014/OA_2014_tisk.pdf',
     banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
-    registration = 'http://www.openalt.cz/2015/registrace',
     # FIXME
-    #   why "papers" and not "proposals"?
+    #   why "papers" and not "proposals"? because Marsik said, that papers are more common
     #   remove the .php extension (symlink on the server)?
-    cfp          = 'http://www.openalt.cz/2015/call-for-papers.php',
-    cfp_form     = 'https://www.openalt.org/2015/cfp-form',
+    reg_speaker  = 'https://www.openalt.org/2015/cfp-form',
+    reg_visitor  = 'https://www.openalt.org/2015/registrace',
+    #cfp          = 'http://www.openalt.cz/2015/call-for-papers.php',
+    #cfp_form     = 'https://www.openalt.org/2015/cfp-form',
     qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     # FIXME where is the QR code?
     qr_oa_org    = 'https://www.openalt.org/o-spolku/',
@@ -89,31 +91,35 @@ invar conf = (
   ),
 )
 
-# FIXME
-# invar partners: list<Partner> = {
-var partners: list<Partner> = {
+invar partners: list<Partner> = {
+  # FIXME this should be built-in logic dependent on the least date of becoming a sponsor
+  # multilanguage support is not necessary for this one
+  ($general, 'Staňte se naším sponzorem!',
+   curdir + '/img/partners/logo_become_a_sponsor.png', 'http://openalt.cz/2015/cs/contact.html'),
   ($general, 'FIT VUT',
-   curdir + '/img/partners/logo_fit.gif',           'http://www.fit.vutbr.cz/'),
-  ($general, 'Red Hat',
-   curdir + '/img/partners/RHLogo.jpg',             'http://cz.redhat.com/'),
-  ($main, 'ABRA FlexiBee',
-   curdir + '/img/partners/logo-abraflexibee.jpg',  'http://www.flexibee.eu/'),
-  ($main, 'Honeywell',
-   curdir + '/img/partners/honeywell.png',          'http://honeywell.com/'),
-  ($main, 'ICT Pro s. r. o.',
-   curdir + '/img/partners/ict-pro.png',            'http://www.skoleni-ict.cz/'),
+   curdir + '/img/partners/logo_fit.gif',              'http://www.fit.vutbr.cz/'),
+  ($general, 'SU FIT VUT',
+   curdir + '/img/partners/logo_su_fit.jpg',           'http://www.su.fit.vutbr.cz/'),
+#  ($general, 'Red Hat',
+#   curdir + '/img/partners/RHLogo.jpg',                'http://cz.redhat.com/'),
+#  ($main, 'ABRA FlexiBee',
+#   curdir + '/img/partners/logo-abraflexibee.jpg',     'http://www.flexibee.eu/'),
+#  ($main, 'Honeywell',
+#   curdir + '/img/partners/honeywell.png',             'http://honeywell.com/'),
+#  ($main, 'ICT Pro s. r. o.',
+#   curdir + '/img/partners/ict-pro.png',               'http://www.skoleni-ict.cz/'),
 #  ($main, 'DataScript s. r. o.',
-#   curdir + '/img/partners/logo_DataScript_cz.jpg', 'http://www.datascript.cz/'),
-  ($main, 'OKsystem',
-   curdir + '/img/partners/oksystem.png',           'http://www.oksystem.cz/'),
-  ($main, 'Perspektiva - ITJobs',
-   curdir + '/img/partners/perspektiva.png',        'http://www.perspektiva.eu/'),
-  ($main, 'Root.cz - linux, open source a free software',
-   curdir + '/img/partners/root.png',               'http://www.root.cz/'),
-  ($main, 'skHosting.eu s. r. o.',
-   curdir + '/img/partners/skhosting_eu.png',       'https://skhosting.eu/'),
-  ($main, 'Toastmasters International',
-   curdir + '/img/partners/toastmasters.png',       'http://www.projevse.cz/'),
+#   curdir + '/img/partners/logo_DataScript_cz.jpg',    'http://www.datascript.cz/'),
+#  ($main, 'OKsystem',
+#   curdir + '/img/partners/oksystem.png',              'http://www.oksystem.cz/'),
+#  ($main, 'Perspektiva - ITJobs',
+#   curdir + '/img/partners/perspektiva.png',           'http://www.perspektiva.eu/'),
+#  ($main, 'Root.cz - linux, open source a free software',
+#   curdir + '/img/partners/root.png',                  'http://www.root.cz/'),
+#  ($main, 'skHosting.eu s. r. o.',
+#   curdir + '/img/partners/skhosting_eu.png',          'https://skhosting.eu/'),
+#  ($main, 'Toastmasters International',
+#   curdir + '/img/partners/toastmasters.png',          'http://www.projevse.cz/'),
 }
 
 # blackbox testing...

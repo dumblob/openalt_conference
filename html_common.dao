@@ -13,6 +13,7 @@ type LocalRefs = enum<
   home,
   about,
   schedule,
+  cfp,
   gallery,
   contact,
   talks,
@@ -28,17 +29,39 @@ var html_local_refs: map<LocalRefs, tuple<
   $home      -> ('home',      ''),
   $about     -> ('about',     ''),
   $schedule  -> ('home',      'schedule'),
+  $cfp       -> ('home',      'cfp'),
   $gallery   -> ('gallery',   ''),
   $contact   -> ('contact',   ''),
   $talks     -> ('talks',     ''),
   $workshops -> ('workshops', ''),
 }
 
-routine html_footer(invar trans: Locale) => string {
+routine html_footer(invar trans: Locale, invar dst: string) => string {
   # just convenient shortcuts
   invar t = translations[trans]
 
+  rel = routine(invar target: string) { return mkrel(dst, target) }
+
   return fragment {
+    div(id='partners') {
+      #h3(_class='section') { t['partners'] }
+      # FIXME distinguish $general and $main
+      paragraph {
+        for (invar p in partners) {
+          anchor(href=p.uri) {
+            img(_class='partner', src=rel(p.img), alt=p.name, title=p.name)
+          }
+        }
+      }
+    }
+
+    script { @[]
+var $ul = $('#partners > p');
+$('a', $ul).sort(function(){
+   return ( Math.round( Math.random() ) - 0.5 )
+}).appendTo($ul);
+@[] }
+
     div(id='footer') {
       paragraph { t['footer'] }
     }
@@ -95,6 +118,10 @@ routine html_head(
       link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
       link(rel=$alternate, _type='application/rss+xml',
            href=rel(dst + '/' + pages['feed_rss']))
+
+      # FIXME
+      #script(_type='text/javascript', src='jquery.min.js')
+      script(_type='text/javascript', src=rel(cu.jquery1)){}
     }
   }
 }
@@ -123,11 +150,12 @@ routine html_top_stripe(
             html_local_refs[$gallery],
             html_local_refs[$contact], }) {
           current = ref[0] == page_name
+          ref1 = %ref[1] ? '#' + ref[1] : ''
           anchor(
-              _class='page_link' + ((current) ? ' page_link_selected' : ''),
-              href=(current) ? '#' + ref[1] :
-                 rel(dst + '/' + pages[ref[0]] + '#' + ref[1]) ) {
-            t[(%ref[1]) ? ref[1] : ref[0]]
+              _class='page_link' + (current ? ' page_link_selected' : ''),
+              href= current ? ref1 : rel(
+                  dst + '/' + pages[ref[0]] + ref1) ) {
+            t[%ref[1] ? ref[1] : ref[0]]
           }
         }
       }
@@ -152,12 +180,7 @@ routine html_top_stripe(
 
       div(_class='segment') {
         i = 0
-
-        # FIXME
-        #for (invar lang in translations) {
-        translations.iterate { [_lang]
-          invar lang = (_lang,)
-
+        for (invar lang in translations) {
           if (i)
             text(' / ')
           else
@@ -168,9 +191,7 @@ routine html_top_stripe(
             strong(_class='lang_link') { lang_str }
           else
             anchor(_class='lang_link',
-                   href='../' + lang_str + '/' + pages[page_name]) {
-              lang_str
-            }
+                href='../' + lang_str + '/' + pages[page_name]) { lang_str }
         }
       }
     }

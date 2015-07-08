@@ -28,19 +28,77 @@ var translations = {
     'twitter' -> 'official Twitter social network stream for OpenAlt conference',
     'gplus' -> 'official Google+ social network page of OpenAlt conference',
     'fb' -> 'official Facebook social network page of OpenAlt conference',
-    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
-    'cfp' -> '<a href="' + conf.uri.cfp + '">Call for Proposals</a> is out (<a href="' + conf.uri.cfp_form + '">submission form</a>)!',
-    'registration' -> 'Voluntary <a href="' + conf.uri.registration + '">registration</a> of attendees.',
-    'previous_runs' -> 'Previous runs of the OpenAlt (formerly LinuxAlt) conference:
-<a href="http://openalt.cz/2014">OA2014</a>,
-<a href="http://www.linuxalt.cz/2013">LA2013</a> and <a href="http://www.openmobility.eu/konference/om2013/program/">OM2013</a>,
-<a href="http://www.linuxalt.cz/2012">LA2012</a> and <a href="http://www.openmobility.eu/konference/om2012/program/">OM2012</a>,
-<a href="http://www.linuxalt.cz/2011">LA2011</a> and <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">OM2011</a>,
-<a href="http://www.linuxalt.cz/2010">LA2010</a> and <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">OM2010</a>,
-<a href="http://www.linuxalt.cz/2009">LA2009</a>,
-<a href="http://www.linuxalt.cz/2008">LA2008</a>,
-<a href="http://www.linuxalt.cz/2007">LA2007</a>,
-<a href="http://www.linuxalt.cz/2006">LA2006</a>',
+    # FIXME registrace
+    #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
+    'motivation' -> 'Become a part of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
+    'cfp' -> 'Call for Papers',
+# FIXME Pepa's rewrite
+#    'cfp_content' -> '
+#Už nyní pro vás máme připravený blok, který Vás seznámí jak si v domácích podmínkách navrhnout plošný spoj, otestovat a v zahraničí nechat levně a kvalitně vyrobit. <br/><br/>
+#Také se budete moci zeptat na strasti s QR platbami přímo autora řešení. <br/><br/>
+#Zejména hráči počítačových her pak mohou zjistit co obnáší vývoj her nejen pro počítače, ale i pro telefony nebo prohlížeč. <br/><br/>
+#Tradičně můžete představit veřejnosti svůj projekt a získat tak pro něj nové podporovatele a dát Vám nový impuls ještě k lepším výsledkům. Nemusí jít o software, ale i hardware spadající do tzv. domácí tvorby alias DIY, které je v nás stále zakořeněno po našich rodičích. <br/><br/>
+#Nejen díky akademické snaze se nám otevírají nové informační zdroje (open data), které čekají na využití a proto uvítáme přednášející, kteří by předvedli co lze s daty tvořit. Ať už se jedná o jejich agregaci a analýzu nebo publikování v srozumitelné podobě.<br/><br/>
+#S rostoucí gramotností obyvatelstva v informatice si na nás nejen  úřady připravují nové a nové překážky, které spoléhají na znalost. Proto připravujeme cyklus přednášek Život a svět	pojednávající o všem na co můžete narazit a je vhodné si zapamatovat. Například jak se starat o svoji datovou schránku, internetové bankovnictví a mnoho dalšího včetně ochrany.<br/><br/>
+#Nejrychleji se zkušenosti získávají z praxe a tak chceme poskytnout velký prostor pro dílny/workshopy či přednášky „Jak to funguje“. Ať se jedná o stavbu 3D tiskárny, tvorbu mobilní aplikace nebo jak správně prezentovat a kreslit.<br/><br/>
+#',
+    'cfp_content' -> '
+<p>
+Vážení přednášející a návštěvníci,<br/><br/>
+V letošním roce nás čeká 7. a 8. listopadu desátý ročník brněnské konference OpenAlt, která navazuje na LinuxAlt a Openmobilty. S&nbsp;ohledem na toto jubileum chceme, aby tento ročník patřil k těm nezapomenutelným a hledáme přednášející, kteří nám s&nbsp;tím pomohou.<br/><br/>
+Přednášky a dílny jsme rozdělili do témat, které by měly pomoci s nastíněním koncepce celé konference.<br/><br/>
+Už nyní pro vás máme připravený blok, který Vás seznámí jak si v&nbsp;domácích podmínkách navrhnout plošný spoj, otestovat a v&nbsp;zahraničí nechat levně a kvalitně vyrobit.
+Také se budete moci zeptat na strasti s QR platbami přímo autora řešení.
+Zejména hráči počítačových her pak mohou zjistit co obnáší vývoj her nejen pro počítače, ale i pro telefony nebo prohlížeč.<br/><br/>
+<strong>Témata OpenAlt 2015:</strong>
+</p>
+<ul>
+<li>Tradičně můžete <strong>představit veřejnosti svůj projekt</strong> a získat tak pro něj nové podporovatele a dát Vám nový impuls ještě k&nbsp;lepším výsledkům. Nemusí jít o software, ale i hardware spadající do tzv. <strong>domácí tvorby alias DIY</strong>, které je v nás stále zakořeněno po našich rodičích.</li>
+<li>Nejen díky akademické snaze se nám otevírají nové informační zdroje (<strong>open data</strong>), které čekají na využití a proto uvítáme přednášející, kteří by předvedli co lze s&nbsp;daty tvořit. Ať už se jedná o jejich <strong>agregaci a analýzu</strong> nebo <strong>publikování v&nbsp;srozumitelné podobě</strong>.</li>
+<li>S&nbsp;rostoucí gramotností obyvatelstva v informatice si na nás nejen úřady připravují nové a nové překážky, které spoléhají na znalost. Proto připravujeme cyklus přednášek <strong>Život a svět</strong> pojednávající o všem na co můžete narazit a je vhodné si zapamatovat. Například jak se starat o svoji datovou schránku, internetové bankovnictví a mnoho dalšího včetně ochrany.</li>
+<li>Nejrychleji se zkušenosti získávají z&nbsp;praxe, a tak chceme poskytnout velký prostor pro <strong>dílny/workshopy či přednášky</strong> „Jak to funguje“. Ať se jedná o stavbu 3D tiskárny, tvorbu mobilní aplikace nebo jak správně prezentovat a kreslit.</li>
+</ul>
+<p>
+Buďte součástí <strong>jubilejního ročníku</strong> a pomozte nám uspořádat výjimečnou akci, kterou nastavíme novou laťku pro další ročníky.<br/><br/>
+Vaše návrhy uvítáme skrze registrační formulář odkazovaný výše a to <strong>do 7. září 2015</strong>.
+</p>
+',
+    'looking_for' -> "We're looking for:",
+    #FIXME remove
+    #'registration' -> 'Voluntary <a href="' + conf.uri.registration + '">registration</a> of attendees.',
+    'register_speaker' -> 'Speakers<br/>(registration)',
+    'register_visitor' -> 'Visitors<br/>(registration)',
+    'register_partner' -> 'Partners<br/>(contact)',
+    'previous_runs' -> 'Previous runs of the conference',
+    'previous_runs_content' -> '
+OpenAlt:
+  <a href="http://openalt.cz/2014">2014</a> <br/>
+LinuxAlt:
+  <a href="http://www.linuxalt.cz/2013">2013</a>,
+  <a href="http://www.linuxalt.cz/2012">2012</a>,
+  <a href="http://www.linuxalt.cz/2011">2011</a>,
+  <a href="http://www.linuxalt.cz/2010">2010</a>,
+  <a href="http://www.linuxalt.cz/2009">2009</a>,
+  <a href="http://www.linuxalt.cz/2008">2008</a>,
+  <a href="http://www.linuxalt.cz/2007">2007</a>,
+  <a href="http://www.linuxalt.cz/2006">2006</a>
+  <br/>
+OpenMobility:
+  <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>,
+  <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>,
+  <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>,
+  <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
+  <br/>',
+#    'previous_runs' -> 'Previous runs of the OpenAlt (formerly LinuxAlt) conference:
+#<a href="http://openalt.cz/2014">OA2014</a>,
+#<a href="http://www.linuxalt.cz/2013">LA2013</a> and <a href="http://www.openmobility.eu/konference/om2013/program/">OM2013</a>,
+#<a href="http://www.linuxalt.cz/2012">LA2012</a> and <a href="http://www.openmobility.eu/konference/om2012/program/">OM2012</a>,
+#<a href="http://www.linuxalt.cz/2011">LA2011</a> and <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">OM2011</a>,
+#<a href="http://www.linuxalt.cz/2010">LA2010</a> and <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">OM2010</a>,
+#<a href="http://www.linuxalt.cz/2009">LA2009</a>,
+#<a href="http://www.linuxalt.cz/2008">LA2008</a>,
+#<a href="http://www.linuxalt.cz/2007">LA2007</a>,
+#<a href="http://www.linuxalt.cz/2006">LA2006</a>',
     'home' -> 'Home',
     'about' -> 'About',
     'thanks' -> 'Thanks',
@@ -79,9 +137,9 @@ Previous runs of the OpenMobility conference:
     'talks' -> 'Talks',
     'talk' -> 'Talk',
     'talks_empty' -> 'There are no talks yet. The should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',
+    'workshop' -> 'Workshop',
     'workshops' -> 'Workshops',
     'workshops_empty' -> 'There are no workshops yet. The should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',
-    'workshop' -> 'Workshop',
     'schedule' -> 'Schedule',
     'location' -> 'Location',
     'participation_reqs' -> 'Requirements for participation:',
@@ -89,7 +147,7 @@ Previous runs of the OpenMobility conference:
     'conference_about_content' -> 'The best conference ever about open*',
     'organization' -> 'Organization',
     'organization_about_content' -> 'The most impressive and progressive organization dealing with open* stuff.',
-    'address' -> 'Brno University of Technology<br>Faculty of Information Technology<br>Božetěchova 1/2<br>61266 Brno<br><a href="www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
+    'address' -> 'Brno University of Technology<br>Faculty of Information Technology<br>Božetěchova 1/2<br>61266 Brno<br><a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
     'track_tips' -> 'Tips, hints and ideas on how to make it better',
     'track_tips_desc' -> 'Interesting applications showcase, SSD, SQL news',
     'track_world_around' -> 'World around us',
@@ -116,19 +174,67 @@ Previous runs of the OpenMobility conference:
     'twitter' -> 'oficiální stránka konference OpenAlt na sociální síti Twitter',
     'gplus' -> 'oficiální stránka konference OpenAlt na sociální síti Google+',
     'fb' -> 'oficiální stránka konference OpenAlt na sociální síti Facebook',
-    'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
-    'cfp' -> '<a href="' + conf.uri.cfp + '">Call for Proposals</a> je venku (<a href="' + conf.uri.cfp_form + '">odevzdávací formulář</a>)!',
-    'registration' -> 'Dobrovolná <a href="' + conf.uri.registration + '">registrace</a> účastníků.',
-    'previous_runs' -> 'Předchozí ročníky:
-<a href="http://openalt.cz/2014">OA2014</a>,
-<a href="http://www.linuxalt.cz/2013">LA2013</a> a <a href="http://www.openmobility.eu/konference/om2013/program/">OM2013</a>,
-<a href="http://www.linuxalt.cz/2012">LA2012</a> a <a href="http://www.openmobility.eu/konference/om2012/program/">OM2012</a>,
-<a href="http://www.linuxalt.cz/2011">LA2011</a> a <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">OM2011</a>,
-<a href="http://www.linuxalt.cz/2010">LA2010</a> a <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">OM2010</a>,
-<a href="http://www.linuxalt.cz/2009">LA2009</a>,
-<a href="http://www.linuxalt.cz/2008">LA2008</a>,
-<a href="http://www.linuxalt.cz/2007">LA2007</a>,
-<a href="http://www.linuxalt.cz/2006">LA2006</a>',
+    # FIXME registrace
+    #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
+    'motivation' -> 'Staňte se i Vy součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
+    'cfp' -> 'Call for Papers',
+    'cfp_content' -> '
+<p>
+Vážení přednášející a návštěvníci,<br/><br/>
+V letošním roce nás čeká 7. a 8. listopadu desátý ročník brněnské konference OpenAlt, která navazuje na LinuxAlt a Openmobilty. S&nbsp;ohledem na toto jubileum chceme, aby tento ročník patřil k těm nezapomenutelným a hledáme přednášející, kteří nám s&nbsp;tím pomohou.<br/><br/>
+Přednášky a dílny jsme rozdělili do témat, které by měly pomoci s nastíněním koncepce celé konference.<br/><br/>
+Už nyní pro vás máme připravený blok, který Vás seznámí jak si v&nbsp;domácích podmínkách navrhnout plošný spoj, otestovat a v&nbsp;zahraničí nechat levně a kvalitně vyrobit.
+Také se budete moci zeptat na strasti s QR platbami přímo autora řešení.
+Zejména hráči počítačových her pak mohou zjistit co obnáší vývoj her nejen pro počítače, ale i pro telefony nebo prohlížeč.<br/><br/>
+<strong>Témata OpenAlt 2015:</strong>
+</p>
+<ul>
+<li>Tradičně můžete <strong>představit veřejnosti svůj projekt</strong> a získat tak pro něj nové podporovatele a dát Vám nový impuls ještě k&nbsp;lepším výsledkům. Nemusí jít o software, ale i hardware spadající do tzv. <strong>domácí tvorby alias DIY</strong>, které je v nás stále zakořeněno po našich rodičích.</li>
+<li>Nejen díky akademické snaze se nám otevírají nové informační zdroje (<strong>open data</strong>), které čekají na využití a proto uvítáme přednášející, kteří by předvedli co lze s&nbsp;daty tvořit. Ať už se jedná o jejich <strong>agregaci a analýzu</strong> nebo <strong>publikování v&nbsp;srozumitelné podobě</strong>.</li>
+<li>S&nbsp;rostoucí gramotností obyvatelstva v informatice si na nás nejen úřady připravují nové a nové překážky, které spoléhají na znalost. Proto připravujeme cyklus přednášek <strong>Život a svět</strong> pojednávající o všem na co můžete narazit a je vhodné si zapamatovat. Například jak se starat o svoji datovou schránku, internetové bankovnictví a mnoho dalšího včetně ochrany.</li>
+<li>Nejrychleji se zkušenosti získávají z&nbsp;praxe, a tak chceme poskytnout velký prostor pro <strong>dílny/workshopy či přednášky</strong> „Jak to funguje“. Ať se jedná o stavbu 3D tiskárny, tvorbu mobilní aplikace nebo jak správně prezentovat a kreslit.</li>
+</ul>
+<p>
+Buďte součástí <strong>jubilejního ročníku</strong> a pomozte nám uspořádat výjimečnou akci, kterou nastavíme novou laťku pro další ročníky.<br/><br/>
+Vaše návrhy uvítáme skrze registrační formulář odkazovaný výše a to <strong>do 7. září 2015</strong>.
+</p>
+',
+    'looking_for' -> "Hledáme:",
+    #FIXME remove
+    #'registration' -> 'Dobrovolná <a href="' + conf.uri.registration + '">registrace</a> účastníků.',
+    'register_speaker' -> 'Přednášející<br/>(registrace)',
+    'register_visitor' -> 'Návštěvníky<br/>(registrace)',
+    'register_partner' -> 'Partnery<br/>(kontakt)',
+    'previous_runs' -> 'Předchozí ročníky konference',
+    'previous_runs_content' -> '
+OpenAlt:
+  <a href="http://openalt.cz/2014">2014</a> <br/>
+LinuxAlt:
+  <a href="http://www.linuxalt.cz/2013">2013</a>,
+  <a href="http://www.linuxalt.cz/2012">2012</a>,
+  <a href="http://www.linuxalt.cz/2011">2011</a>,
+  <a href="http://www.linuxalt.cz/2010">2010</a>,
+  <a href="http://www.linuxalt.cz/2009">2009</a>,
+  <a href="http://www.linuxalt.cz/2008">2008</a>,
+  <a href="http://www.linuxalt.cz/2007">2007</a>,
+  <a href="http://www.linuxalt.cz/2006">2006</a>
+  <br/>
+OpenMobility:
+  <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>,
+  <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>,
+  <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>,
+  <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
+  <br/>',
+#    'previous_runs' -> 'Předchozí ročníky:
+#<a href="http://openalt.cz/2014">OA2014</a>,
+#<a href="http://www.linuxalt.cz/2013">LA2013</a> a <a href="http://www.openmobility.eu/konference/om2013/program/">OM2013</a>,
+#<a href="http://www.linuxalt.cz/2012">LA2012</a> a <a href="http://www.openmobility.eu/konference/om2012/program/">OM2012</a>,
+#<a href="http://www.linuxalt.cz/2011">LA2011</a> a <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">OM2011</a>,
+#<a href="http://www.linuxalt.cz/2010">LA2010</a> a <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">OM2010</a>,
+#<a href="http://www.linuxalt.cz/2009">LA2009</a>,
+#<a href="http://www.linuxalt.cz/2008">LA2008</a>,
+#<a href="http://www.linuxalt.cz/2007">LA2007</a>,
+#<a href="http://www.linuxalt.cz/2006">LA2006</a>',
     'home' -> 'Domů',
     'about' -> 'O nás',
     'thanks' -> 'Poděkování',
@@ -161,9 +267,9 @@ Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt
     'talks' -> 'Přednášky',
     'talk' -> 'Přednáška',
     'talks_empty' -> 'Přednášky ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
+    'workshop' -> 'Dílna',
     'workshops' -> 'Dílny',
     'workshops_empty' -> 'Dílny ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
-    'workshop' -> 'Dílna',
     'schedule' -> 'Rozvrh',
     'location' -> 'Místo konání',
     'participation_reqs' -> 'Požadavky pro účast:',
@@ -171,7 +277,7 @@ Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt
     'conference_about_content' -> 'Úplně nejlepší konference ze všech o čemkoliv otevřeném (sháníme přednášející o dveřích dokořán...).',
     'organization' -> 'Spolek',
     'organization_about_content' -> 'Nejpokrokovější a nejpůsobivější spolek zabývající se otevřenými záležitostmi.',
-    'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno<br><a href="www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
+    'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno<br><a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
     'track_tips' -> 'Rady a nápady, aneb jak to lze dělat lépe',
     'track_tips_desc' -> 'ukázka zajímavých aplikací, SSD, SQL novinky',
     'track_world_around' -> 'Svět kolem nás',
@@ -202,10 +308,12 @@ Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt
 }
 
 var feedback: list<FeedbackPiece> = {
+  # 2012
   # ('Jiří Eischmann (z <a href="http://www.linuxexpres.cz/blog/jaky-byl-linuxalt-2012-myma-ocima">Jaký byl LinuxAlt 2012 mýma očima</a>)', '"Myslím, že velkou zásluhu na slušné návštěvnosti druhého dne měla přednáška Mira Hrončoka o 3D tiskárně, která byla lákadlem letošního ročníku. 3D tiskárny jsou prostě in."'),
   # (none, '<a href="http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/">LinuxAlt 2012, sobota: Firefox, kalendáře a DNS</a>'),
   # (none, '<a href="http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/">LinuxAlt 2012, neděle: 3D tisk, SSH a Nagios</a>'),
 
+  # 2014
   ('Brněnští Toastmástři (z <a href="http://www.projevse.cz/clanky/moderujeme-openalt">Moderujeme OpenAlt!</a>)', '"Je nám ctí oznámit, že se náš klub aktivně zapojí do dění konference OpenAlt 2014 ..."'),
   ('Pavel Cvrček (z <a href="http://www.mozilla.cz/zpravicky/mozilla-na-letosnim-openaltu-v-brne/">Mozilla na letošním OpenAltu v Brně</a>)', '"Pro letošek jsme si pro vás připravili přednášku o fungování projektu Mozilla na lokální úrovni, kde jsme shrnuli naše dosavadní zkušenosti."'),
 }

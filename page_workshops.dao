@@ -27,7 +27,7 @@ routine page_workshops(
   # FIXME it should be somehow allowed
   _html_head = html_head(trans, dst, pages)
   _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
-  _html_footer = html_footer(trans)
+  _html_footer = html_footer(trans, dst)
 
   html5.write(document {
     text(_html_head)
