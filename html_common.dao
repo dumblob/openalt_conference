@@ -138,7 +138,7 @@ routine html_top_stripe(
         for (ref in {
             html_local_refs[$home],
             html_local_refs[$about],
-            html_local_refs[$schedule],
+            #html_local_refs[$schedule],
             html_local_refs[$talks],
             html_local_refs[$workshops],
             html_local_refs[$gallery],
