@@ -39,6 +39,7 @@ routine page_home(
 
   # FIXME html module should somehow allow (temporary) nested subdocuments
   #   creation or transitive code section calls through functions
+  #   i.e. basically running fragment{} from document{}
   _html_head = html_head(trans, dst, pages)
   _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
   _html_footer = html_footer(trans, dst)

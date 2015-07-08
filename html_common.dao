@@ -91,27 +91,23 @@ routine html_head(
       meta(name='viewport', content='width=device-width')
       meta(name='Keywords', content=conf.meta_keywords)
       meta(name='Description', content=conf.meta_description)
+      # FIXME
+      #meta(http_equiv=$expires, content='0')
+      text('<meta http-equiv="Expires" content="0">')
+
 # FIXME
 @[]
-       <meta charset="utf-8" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta name="author" content="www.webwings.cz" />
-        <meta name="robots" content="follow,all" />
-        <meta name="copyright" content="(C) 2014 Webwings" />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-                <title>
-            Naši pedagógovia
-             | Dúhová škôlka
-        </title>
-
-         
-        <link rel="shortcut icon" href="/custom/images/favicon.ico" type="image/x-icon" />
-
-                        <link rel="stylesheet" media="screen,projection,tv" type="text/css" href="/custom/css/style.css?v=1" />  
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="www.webwings.cz" />
+  <meta name="robots" content="follow,all" />
+  <meta name="copyright" content="(C) 2014 Webwings" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Naši pedagógovia | Dúhová škôlka</title>
+  <link rel="shortcut icon" href="/custom/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" media="screen,projection,tv" type="text/css" href="/custom/css/style.css?v=1" />
 @[]
       link(rel=$icon, _type=conf.favicon.mime, href=rel(conf.favicon.path),
            sizes=conf.favicon.sizes)
@@ -119,8 +115,6 @@ routine html_head(
       link(rel=$alternate, _type='application/rss+xml',
            href=rel(dst + '/' + pages['feed_rss']))
 
-      # FIXME
-      #script(_type='text/javascript', src='jquery.min.js')
       script(_type='text/javascript', src=rel(cu.jquery1)){}
     }
   }

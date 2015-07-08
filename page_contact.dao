@@ -22,7 +22,7 @@ routine page_contact(
 
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
-  # FIXME it should be somehow allowed
+  # FIXME it should be somehow allowed to run fragment{} from document{}
   _html_head = html_head(trans, dst, pages)
   _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
   _html_footer = html_footer(trans, dst)

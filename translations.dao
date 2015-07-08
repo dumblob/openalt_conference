@@ -177,7 +177,7 @@ Previous runs of the OpenMobility conference:
     # FIXME registrace
     #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
     'motivation' -> 'Staňte se i Vy součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
-    'cfp' -> 'Call for Papers',
+    'cfp' -> 'Výzva k&nbsp;přihlašování příspěvků',
     'cfp_content' -> '
 <p>
 Vážení přednášející a návštěvníci,<br/><br/>
@@ -259,8 +259,8 @@ Dotazy týkající se konference: <a href="mailto:informace@openalt.cz">informac
 Pro obecné dotazy ohledně naší činnosti: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
 Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
 <br>
-<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>, 
-<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
+<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobilní aplikace</a>, 
+<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobilní aplikace</a>',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
     'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Stránka aktualizována ' + (string)time.now(),

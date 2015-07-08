@@ -508,7 +508,7 @@ a:active {
 
 
 #partners * {
-  margin: 0 2pt;
+  margin: 0 3px;
   padding: 0;
   height: 44px;
 }
@@ -527,10 +527,11 @@ a:active {
 
 
 #footer * {
-  margin: auto 0 0 0;
+  margin: auto 0 48px 0;  /* 44px + 2*3px - 2px */
   background-color: @[] + dark_grey + @[];
   color: white;
   text-transform: uppercase;
+  font-size: 11pt;
 }@[]
   )
 }
