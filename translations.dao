@@ -1,12 +1,5 @@
 #!/usr/bin/env dao
 
-# FIXME
-#                Ty myslíš toto, to máš pravdu. Nyní jsme zapsáni ve spolkovém rejstříku
-#                vedený městským soudem v Praze k 1.1.2014 pod spisovou značkou L 22154.
-#                https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY
-#                  Asi by se hodilo to dát lepší věty. Vznikli jsme registrací ... a nyní
-#                jsme vedený pod sp. značkou ....
-
 load config import configuration . { conf, curdir, check_path }
 load participants import participants_ns
 load lib import lib
@@ -60,12 +53,14 @@ Zejména hráči počítačových her pak mohou zjistit co obnáší vývoj her 
 </ul>
 <p>
 Buďte součástí <strong>jubilejního ročníku</strong> a pomozte nám uspořádat výjimečnou akci, kterou nastavíme novou laťku pro další ročníky.<br/><br/>
-Vaše návrhy uvítáme skrze registrační formulář odkazovaný výše a to <strong>do 7. září 2015</strong>.
+Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registrační formulář</a> (odkaz též výše) a to <strong>do 7. září 2015</strong>.
 </p>
 ',
     'looking_for' -> "We're looking for:",
     #FIXME remove
     #'registration' -> 'Voluntary <a href="' + conf.uri.registration + '">registration</a> of attendees.',
+    #'register_speaker' -> 'Speakers<br/>(registration)',
+    #'register_visitor' -> 'Visitors<br/>(registration)',
     'register_speaker' -> 'Speakers<br/>(registration)',
     'register_visitor' -> 'Visitors<br/>(registration)',
     'register_partner' -> 'Partners<br/>(contact)',
@@ -114,24 +109,18 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'downloads' -> 'Downloads',
     'contact' -> 'Contact',
     'contact_openalt_content' ->
-'<a href="http://openalt.org/">OpenAlt z.s.</a><br>
-registered by MVČR on 18.11.2010 under the ID <i>VS-1-1/82038/10-R</i><br>
+'<a href="http://openalt.org/">OpenAlt&nbsp;z.&nbsp;s.</a><br>
+registered at the City Court Prague on 1.&nbsp;1.&nbsp;2014 under the ID <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L 22154</a><br>
 IČO: 22848037<br>
 Lamačova 634/2<br>
-Prague 52, 152 00<br>
-<br>
-If you want to contact us directly, please send us an email:<br>
-Questions about the conference: <a href="mailto:informace@openalt.cz">informace@openalt.cz</a><br>
-General questions about our work and activities: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
-Cooperation offers or any other requests at our council: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
-<br>
-Previous runs of the OpenMobility conference:
-<a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>
-<a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>
-<a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>
-<a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
-<br>
-<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>, 
+Prague 52, 152 00<br><br>
+
+To contact us directly, please send us an email or call us:<br>
+Questions about the conference: <a href="mailto:info@openalt.cz">info@openalt.<strong>cz</strong></a><br>
+Any other questions (about our activities, etc.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br>
+Phone call: +420 910 117 377<br><br>
+
+<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>,
 <a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
@@ -179,7 +168,8 @@ Previous runs of the OpenMobility conference:
     # FIXME registrace
     #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
     'motivation' -> 'Staňte se i Vy součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
-    'cfp' -> 'Výzva k&nbsp;přihlašování příspěvků',
+    #'cfp' -> 'Výzva k&nbsp;přihlašování příspěvků',
+    'cfp' -> 'Hledáme přednášející',
     'cfp_content' -> '
 <p>
 Vážení přednášející a návštěvníci,<br/><br/>
@@ -198,14 +188,16 @@ Zejména hráči počítačových her pak mohou zjistit co obnáší vývoj her 
 </ul>
 <p>
 Buďte součástí <strong>jubilejního ročníku</strong> a pomozte nám uspořádat výjimečnou akci, kterou nastavíme novou laťku pro další ročníky.<br/><br/>
-Vaše návrhy uvítáme skrze registrační formulář odkazovaný výše a to <strong>do 7. září 2015</strong>.
+Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registrační formulář</a> (odkaz též výše) a to <strong>do 7. září 2015</strong>.
 </p>
 ',
     'looking_for' -> "Hledáme:",
     #FIXME remove
     #'registration' -> 'Dobrovolná <a href="' + conf.uri.registration + '">registrace</a> účastníků.',
+    #'register_speaker' -> 'Přednášející<br/>(registrace)',
+    #'register_visitor' -> 'Návštěvníky<br/>(registrace)',
     'register_speaker' -> 'Přednášející<br/>(registrace)',
-    'register_visitor' -> 'Návštěvníky<br/>(registrace)',
+    'register_visitor' -> 'Návštěvník<br/>(registrace)',
     'register_partner' -> 'Partnery<br/>(kontakt)',
     'register_tip' -> 'Mám tip na<br/>téma/osobu!',
     'register_tip_tooltip' -> 'Víte-li o něčem/někom koho byste rádi viděli přednášet nebo vést dílnu, podělte se. Krom hřejivého pocitu na vás čeká konferenční tričko a unikátní blikátko za kvalitní tip (viz. kritéria v&nbsp;odkazovaném formuláři)!',
@@ -252,19 +244,19 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
     'contact_openalt_content' ->
-'<a href="http://openalt.org/">OpenAlt z.s.</a><br>
-registrován MVČR dne 18.11.2010 pod č.j. <i>VS-1-1/82038/10-R</i><br>
+'<a href="http://openalt.org/">OpenAlt&nbsp;z.&nbsp;s.</a><br>
+Spolek vznikl registrací městským soudem v&nbsp;Praze k&nbsp;1.&nbsp;1.&nbsp;2014 pod spisovou značkou <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L&nbsp;22154</a><br>
 IČO: 22848037<br>
 Lamačova 634/2<br>
-Praha 52, 152 00<br>
-<br>
-Pokud nás chcete kontaktovat přímo, můžete zaslat e-mail na níže uvedené adresy:<br>
-Dotazy týkající se konference: <a href="mailto:informace@openalt.cz">informace@openalt.cz</a><br>
-Pro obecné dotazy ohledně naší činnosti: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
-Dotazy na radu sdružení, nabídky ke spolupráci: <a href="mailto:rada@openalt.org">rada@openalt.org</a><br>
-<br>
-<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobilní aplikace</a>, 
-<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobilní aplikace</a>',
+Prague 52, 152 00<br><br>
+
+Pro přímý kontakt zašlete prosím email nebo nám zavolejte:<br/>
+Dotazy týkající se konference: <a href="mailto:info@openalt.cz">info@openalt.<strong>cz</strong></a><br>
+Jakékoliv jiné dotazy (o&nbsp;našich aktivitách, atd.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br><br>
+Telefon: +420 910 117 377<br><br>
+
+<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>,
+<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
     'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Stránka aktualizována ' + (string)time.now(),

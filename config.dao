@@ -44,10 +44,13 @@ invar conf = (
     gplus        = 'http://plus.google.com/100946575675112811528',
     fb           = 'https://www.facebook.com/OpenAlt',
 
-    logo_oa_conf = 'http://www.openalt.org/spolek/logo_openalt_conference.svg',
-    logo_oa_org  = 'http://www.openalt.org/spolek/logo_openalt.svg',
-    banner_print = 'http://www.openalt.org/spolek/OA_2014/OA_2014_tisk.pdf',
-    banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
+    #logo_oa_conf = 'http://www.openalt.org/spolek/logo_openalt_conference.svg',
+    logo_oa_conf = 'https://files.openalt.org/index.php/s/MNWegoGbcbCHnpz/download',
+    #logo_oa_org  = 'http://www.openalt.org/spolek/logo_openalt.svg',
+    logo_oa_org  = 'https://files.openalt.org/index.php/s/mPPaAlakbgLnpPB/download',
+    # FIXME none
+    banner_print = '',  #'http://www.openalt.org/spolek/OA_2014/OA_2014_tisk.pdf',
+    banner_web   = '',  #'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
     # FIXME
     #   why "papers" and not "proposals"? because Marsik said, that papers are more common
     #   remove the .php extension (symlink on the server)?
@@ -56,11 +59,15 @@ invar conf = (
     reg_tip      = 'https://www.openalt.org/2015/cfp-tip',
     #cfp          = 'http://www.openalt.cz/2015/call-for-proposals.php',
     #cfp_form     = 'https://www.openalt.org/2015/cfp-form',
-    qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
+    # FIXME none
+    qr_oa_conf   = '',  #'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     # FIXME where is the QR code?
-    qr_oa_org    = 'https://www.openalt.org/o-spolku/',
-    graph_man_oa_conf = 'http://www.openalt.org/spolek/oa_graficky_manual_konference.zip',
-    graph_man_oa_org  = 'http://www.openalt.org/spolek/oa_graficky_manual.zip',
+    #qr_oa_org    = 'https://www.openalt.org/o-spolku/',
+    qr_oa_org    = '',
+    #graph_man_oa_conf = 'http://www.openalt.org/spolek/oa_graficky_manual_konference.zip',
+    graph_man_oa_conf = 'https://files.openalt.org/index.php/s/uwadpjMGSbqFyW3/download',
+    #graph_man_oa_org  = 'http://www.openalt.org/spolek/oa_graficky_manual.zip',
+    graph_man_oa_org  = 'https://files.openalt.org/index.php/s/HXX1juMFK9LRz88/download',
   ),
 
   # FIXME use SVG everywhere!
@@ -83,10 +90,11 @@ invar conf = (
     logo_oa_conf = curdir + '/img/logo-openalt-conference.svg',
     logo_oa_org  = curdir + '/img/logo-openalt-org.svg',
     banner_print = curdir + '/img/thumbnail-OA_2014_tisk.pdf.png',
-    banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
-    qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
-    # FIXME
-    qr_oa_org    = 'http://www.openalt.org/o-spolku/',
+    # FIXME none + URL
+    banner_web   = '',  #'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
+    qr_oa_conf   = '',  #'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
+    # FIXME none + URL
+    qr_oa_org    = '',  #'http://www.openalt.org/o-spolku/',
     graph_man_oa_conf = curdir + '/img/thumbnail-oa_graficky_manual_konference.zip.png',
     graph_man_oa_org  = curdir + '/img/thumbnail-oa_graficky_manual.zip.png',
   ),
@@ -125,9 +133,12 @@ invar partners: list<Partner> = {
 
 # blackbox testing...
 # FIXME use for_local_existence in auto-generated content (participants...)
-routine check_path(invar uri: string, for_local_existence = false) {
+routine check_path(invar uri: none|string, for_local_existence = false) {
+  if (uri == none or %uri <= 0) return
+
   if (for_local_existence) {
-    if (! fs.exists(uri))
+    #if (! fs.exists(uri))
+    if (! fs.exists((string)uri))
       std.error('"' + uri + '" doesn\'t exist')
   }
   else {

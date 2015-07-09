@@ -73,9 +73,9 @@ routine localized_time_format(invar locale: string,
 routine mkrel(from: string, invar target: string) => string {
   # FIXME assert that paths are normalized (can't use fs.realpath(), because
   #   it requires file existence)
-  if (from  [0] != '/'[0]) std.error('"from" is not a full path')
+  if (%from <= 0 or from[0] != '/'[0]) std.error('"from" is not a full path')
   if (from [-1] != '/'[0]) from += '/'
-  if (target[0] != '/'[0]) {
+  if (%target > 0 and target[0] != '/'[0]) {
     if (target.match('^[^:/]+') == none)
       std.error('"target" is not a full path nor URI')
     else

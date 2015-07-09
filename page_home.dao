@@ -228,9 +228,10 @@ routine page_home(
         }
       }
       else {
-        paragraph(_class='narrow_paragraph light_bigger_bottom') {
-          t['looking_for']
-        }
+        # FIXME will stay here or not?
+        #paragraph(_class='narrow_paragraph light_bigger_bottom') {
+        #  t['looking_for']
+        #}
         div(id='main_buttons') {
           #h3(_class='section') { t['looking_for'] }
           anchor(href=cu.reg_speaker) { t['register_speaker'] }

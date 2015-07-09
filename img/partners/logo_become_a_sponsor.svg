@@ -71,7 +71,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -82,17 +82,17 @@
     <rect
        style="opacity:1;fill:#6b0a12;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4185"
-       width="229.30463"
+       width="172.73608"
        height="68.690376"
-       x="207.08127"
-       y="139.33061"
+       x="235.07843"
+       y="137.16069"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot4136"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:semi-condensed;font-size:24px;line-height:120%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold Semi-Condensed';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-       transform="translate(3.7706985,72.754052)"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:semi-condensed;font-size:24px;line-height:120.00000477%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold Semi-Condensed';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(3.7706985,70.754052)"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200"><flowRegion
          id="flowRegion4138"
@@ -102,9 +102,9 @@
            height="254.55844"
            x="58.588848"
            y="72.514236"
-           style="fill:#ffffff;fill-opacity:1;line-height:120%;" /></flowRegion><flowPara
-         id="flowPara4150"
-         style="fill:#ffffff;fill-opacity:1;line-height:120%;">STAŇTE SE NAŠÍM</flowPara><flowPara
-         id="flowPara4152"
-         style="fill:#ffffff;fill-opacity:1;line-height:120%;">SPONZOREM!</flowPara></flowRoot>  </g>
+           style="line-height:120.00000477%;fill:#ffffff;fill-opacity:1" /></flowRegion><flowPara
+         style="line-height:120.00000477%;fill:#ffffff;fill-opacity:1"
+         id="flowPara4224">STAŇTE SE</flowPara><flowPara
+         style="line-height:120.00000477%;fill:#ffffff;fill-opacity:1"
+         id="flowPara4232">PARTNEREM!</flowPara></flowRoot>  </g>
 </svg>
