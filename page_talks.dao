@@ -35,7 +35,7 @@ routine page_talks(
     body {
       text(_html_top_stripe)
 
-      h3(_class='section') { t['talks'] }
+      h3(_class='section_red') { t['talks'] }
 
       if (my_time.time.now() >= conf.time_show_sched) {
         div(id='talks') {
