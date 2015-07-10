@@ -80,7 +80,7 @@ LinuxAlt:
   <a href="http://www.linuxalt.cz/2007">2007</a>,
   <a href="http://www.linuxalt.cz/2006">2006</a>
   <br/>
-OpenMobility:
+Openmobility:
   <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>,
   <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>,
   <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>,
@@ -109,18 +109,18 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'downloads' -> 'Downloads',
     'contact' -> 'Contact',
     'contact_openalt_content' ->
-'<a href="http://openalt.org/">OpenAlt&nbsp;z.&nbsp;s.</a><br>
-registered at the City Court Prague on 1.&nbsp;1.&nbsp;2014 under the ID <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L 22154</a><br>
-IČO: 22848037<br>
-Lamačova 634/2<br>
-Prague 52, 152 00<br><br>
+'Organization <a href="http://openalt.org/">OpenAlt&nbsp;z.&nbsp;s.</a><br>' +
+#registered at the City Court Prague on 1.&nbsp;1.&nbsp;2014 under the ID <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L 22154</a><br>
+#IČO: 22848037<br>
+#Lamačova 634/2<br>
+#Prague 52, 152 00<br><br>
+#
+#To contact us directly, please send us an email or call us:<br>
+'Questions about the conference: <a href="mailto:info@openalt.cz">info@openalt.<strong>cz</strong></a><br>' +
+#Any other questions (about our activities, etc.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br>
+#Phone call: +420 910 117 377<br><br>
 
-To contact us directly, please send us an email or call us:<br>
-Questions about the conference: <a href="mailto:info@openalt.cz">info@openalt.<strong>cz</strong></a><br>
-Any other questions (about our activities, etc.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br>
-Phone call: +420 910 117 377<br><br>
-
-<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>,
+'<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>,
 <a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
@@ -215,7 +215,7 @@ LinuxAlt:
   <a href="http://www.linuxalt.cz/2007">2007</a>,
   <a href="http://www.linuxalt.cz/2006">2006</a>
   <br/>
-OpenMobility:
+Openmobility:
   <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>,
   <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>,
   <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>,
@@ -244,18 +244,18 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
     'contact_openalt_content' ->
-'<a href="http://openalt.org/">OpenAlt&nbsp;z.&nbsp;s.</a><br>
-Spolek vznikl registrací městským soudem v&nbsp;Praze k&nbsp;1.&nbsp;1.&nbsp;2014 pod spisovou značkou <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L&nbsp;22154</a><br>
-IČO: 22848037<br>
-Lamačova 634/2<br>
-Prague 52, 152 00<br><br>
+'Spolek <a href="http://openalt.org/kontakt">OpenAlt&nbsp;z.&nbsp;s.</a><br>' +
+#Spolek vznikl registrací městským soudem v&nbsp;Praze k&nbsp;1.&nbsp;1.&nbsp;2014 pod spisovou značkou <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L&nbsp;22154</a><br>
+#IČO: 22848037<br>
+#Lamačova 634/2<br>
+#Prague 52, 152 00<br><br>
+#
+#Pro přímý kontakt zašlete prosím email nebo nám zavolejte:<br/>
+'Dotazy týkající se výhradně konference: <a href="mailto:info@openalt.cz">info@openalt.<strong>cz</strong></a><br>' +
+#Jakékoliv jiné dotazy (o&nbsp;našich aktivitách, atd.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br><br>
+#Telefon: +420 910 117 377<br><br>
 
-Pro přímý kontakt zašlete prosím email nebo nám zavolejte:<br/>
-Dotazy týkající se konference: <a href="mailto:info@openalt.cz">info@openalt.<strong>cz</strong></a><br>
-Jakékoliv jiné dotazy (o&nbsp;našich aktivitách, atd.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br><br>
-Telefon: +420 910 117 377<br><br>
-
-<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>,
+'<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>,
 <a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
