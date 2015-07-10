@@ -46,27 +46,22 @@ invar conf = (
 
     #logo_oa_conf = 'http://www.openalt.org/spolek/logo_openalt_conference.svg',
     logo_oa_conf = 'https://files.openalt.org/index.php/s/MNWegoGbcbCHnpz/download',
-    #logo_oa_org  = 'http://www.openalt.org/spolek/logo_openalt.svg',
     logo_oa_org  = 'https://files.openalt.org/index.php/s/mPPaAlakbgLnpPB/download',
-    # FIXME none
-    banner_print = '',  #'http://www.openalt.org/spolek/OA_2014/OA_2014_tisk.pdf',
-    banner_web   = '',  #'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
-    # FIXME
-    #   why "papers" and not "proposals"? because Marsik said, that papers are more common
-    #   remove the .php extension (symlink on the server)?
+    # FIXME URL
+    #banner_print = 'http://www.openalt.org/spolek/OA_2014/OA_2014_tisk.pdf',
+    # FIXME URL
+    #banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
     reg_speaker  = 'https://www.openalt.org/2015/cfp-form',
     reg_visitor  = 'https://www.openalt.org/2015/registrace',
     reg_tip      = 'https://www.openalt.org/2015/cfp-tip',
     #cfp          = 'http://www.openalt.cz/2015/call-for-proposals.php',
     #cfp_form     = 'https://www.openalt.org/2015/cfp-form',
-    # FIXME none
-    qr_oa_conf   = '',  #'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
+    # FIXME where is the QR code?
+    #qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     # FIXME where is the QR code?
     #qr_oa_org    = 'https://www.openalt.org/o-spolku/',
-    qr_oa_org    = '',
     #graph_man_oa_conf = 'http://www.openalt.org/spolek/oa_graficky_manual_konference.zip',
     graph_man_oa_conf = 'https://files.openalt.org/index.php/s/uwadpjMGSbqFyW3/download',
-    #graph_man_oa_org  = 'http://www.openalt.org/spolek/oa_graficky_manual.zip',
     graph_man_oa_org  = 'https://files.openalt.org/index.php/s/HXX1juMFK9LRz88/download',
   ),
 
@@ -90,11 +85,12 @@ invar conf = (
     logo_oa_conf = curdir + '/img/logo-openalt-conference.svg',
     logo_oa_org  = curdir + '/img/logo-openalt-org.svg',
     banner_print = curdir + '/img/thumbnail-OA_2014_tisk.pdf.png',
-    # FIXME none + URL
-    banner_web   = '',  #'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
-    qr_oa_conf   = '',  #'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
-    # FIXME none + URL
-    qr_oa_org    = '',  #'http://www.openalt.org/o-spolku/',
+    # FIXME URL
+    #banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
+    # FIXME URL
+    #qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
+    # FIXME URL
+    #qr_oa_org    = 'http://www.openalt.org/o-spolku/',
     graph_man_oa_conf = curdir + '/img/thumbnail-oa_graficky_manual_konference.zip.png',
     graph_man_oa_org  = curdir + '/img/thumbnail-oa_graficky_manual.zip.png',
   ),
