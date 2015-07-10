@@ -108,8 +108,11 @@ routine html_head(
   <link rel="shortcut icon" href="/custom/images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" media="screen,projection,tv" type="text/css" href="/custom/css/style.css?v=1" />
 @[]
-      link(rel=$icon, _type=conf.favicon.mime, href=rel(conf.favicon.path),
-           sizes=conf.favicon.sizes)
+      # Firefox, Chrome, Safari, IE 11+ and Opera (PNG 196x196 px)
+      link(rel=$icon, _type=conf.favicon196.mime, href=rel(conf.favicon196.path))
+      # Touch Icons - iOS, Android 2.1+, Blackberry (PNG 180x180 px)
+      text('<link rel="apple-touch-icon-precomposed" href="' +
+           rel(conf.favicon180.path) + '">')
       link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
       link(rel=$alternate, _type='application/rss+xml',
            href=rel(dst + '/' + pages['feed_rss']))

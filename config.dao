@@ -29,9 +29,8 @@ invar conf = (
     ',open-hardware,open-HW,open-software,open-SW',
   rootdir          = curdir,
 
-  # mime='image/x-icon'
-  favicon          = (mime='image/x-svg', path=curdir + '/img/favicon.svg',
-                      sizes='any'),
+  favicon196       = (mime='image/x-png', path=curdir + '/img/favicon196.png'),
+  favicon180       = (mime='image/x-png', path=curdir + '/img/favicon180.png'),
 
   # look at uri-corresponding images below (if applicable)
   uri              = (
@@ -145,16 +144,18 @@ routine check_path(invar uri: none|string, for_local_existence = false) {
 
 check_path(conf.rootdir)
 for (t in conf.uri) check_path(t[1])
-check_path(conf.favicon.path)
-if ('svg' in conf.favicon.mime) {
-  if (conf.favicon.sizes != 'any')
-    std.error('scalable favicons demand "any" in the `sizes\' attribute')
-}
-else {
-  conf.favicon.sizes.split(' ').iterate {
-    if (X.match('^[0-9]+x[0-9]+$') == none)
-      std.error('bitmap favicons demand "NxM N2xM2 ..." in the `sizes\' attribute')
-  }
+for (fav in {conf.favicon196, conf.favicon180}) {
+  check_path(fav.path)
+  #if ('svg' in fav.mime) {
+  #  if (conf.favicon.sizes != 'any')
+  #    std.error('scalable favicons demand "any" in the `sizes\' attribute')
+  #}
+  #else {
+  #  conf.favicon.sizes.split(' ').iterate {
+  #    if (X.match('^[0-9]+x[0-9]+$') == none)
+  #      std.error('bitmap favicons demand "NxM N2xM2 ..." in the `sizes\' attribute')
+  #  }
+  #}
 }
 for (t in conf.img) check_path(t[1])
 for (p in partners) check_path(p.img)
