@@ -84,8 +84,7 @@ Openmobility:
   <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>,
   <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>,
   <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>,
-  <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
-  <br/>',
+  <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>',
 #    'previous_runs' -> 'Previous runs of the OpenAlt (formerly LinuxAlt) conference:
 #<a href="http://openalt.cz/2014">OA2014</a>,
 #<a href="http://www.linuxalt.cz/2013">LA2013</a> and <a href="http://www.openmobility.eu/konference/om2013/program/">OM2013</a>,
@@ -120,8 +119,8 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 #Any other questions (about our activities, etc.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br>
 #Phone call: +420 910 117 377<br><br>
 
-'<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>,
-<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
+'<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a><br/>
+<a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
     'speakers' -> 'Speakers',
     'partners' -> 'Partners',
     'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Page updated on ' + (string)time.now() + '<br/>Graphic design by Michaela Slaninková, implementation by <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
@@ -219,8 +218,7 @@ Openmobility:
   <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>,
   <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>,
   <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>,
-  <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>
-  <br/>',
+  <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>',
 #    'previous_runs' -> 'Předchozí ročníky:
 #<a href="http://openalt.cz/2014">OA2014</a>,
 #<a href="http://www.linuxalt.cz/2013">LA2013</a> a <a href="http://www.openmobility.eu/konference/om2013/program/">OM2013</a>,
@@ -255,8 +253,8 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 #Jakékoliv jiné dotazy (o&nbsp;našich aktivitách, atd.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br><br>
 #Telefon: +420 910 117 377<br><br>
 
-'<a class="with_icon" style="background: transparent url(../img/icon-android.png) center left no-repeat;" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a>,
-<a class="with_icon" style="background: transparent url(../img/icon-sailfish.png) center left no-repeat;" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
+'<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobilní aplikace</a><br/>
+<a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobilní aplikace</a>',
     'speakers' -> 'Přednášející',
     'partners' -> 'Partneři',
     'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Stránka aktualizována ' + (string)time.now() + '<br/>Grafický návrh Michaela Slaninková, implementace <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',

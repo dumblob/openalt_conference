@@ -114,6 +114,24 @@ body {
   text-align: center;
   min-height: 100%;
 }
+body > * {
+  padding-top: 10pt;
+  padding-bottom: 42pt;
+}
+body > *:nth-last-child(3) {
+  padding-bottom: 0;
+}
+/* #cfp, #speakers, #thanks, #previous_runs */
+body > *:nth-child(3n+3) {
+  background-color: @[] + dark_grey + @[];
+  color: white;
+}
+/* #location, #feedback */
+body > *:nth-child(3n+4) {
+  background-color: @[] + schedule_bg + @[];
+  /*background-color: #D0D1D1;*/
+  color: white;
+}
 a,
 a:link {
   color: @[] + schedule_bg + @[];
@@ -127,6 +145,11 @@ a:hover,
 a:active {
   color: red;
   text-decoration: underline;
+}
+.narrow_paragraph {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 450pt;
 }
 
 
@@ -156,12 +179,6 @@ a:active {
   nav {
     width: 410pt;
   }
-}
-.segment:nth-of-type(1) * {
-  /* FIXME the narrow space between page links */
-  /*background-color: #00ff00;
-  /*padding-left: auto;
-  padding-right: auto;*/
 }
 .segment:nth-last-of-type(-n+2) {
   margin-left: 12pt;
@@ -210,6 +227,7 @@ a:active {
 }
 
 
+
 .urgent {
   color: red;
   font-size: 14pt;
@@ -217,9 +235,10 @@ a:active {
 }
 
 
+
 #header {
-  margin: 27pt 0 0 0;
-  width: 100%;
+  margin-top: 10pt;
+  padding-bottom: 0;
 }
 #header img {
   width: 180pt;
@@ -234,11 +253,6 @@ a:active {
   font-weight: lighter;
   margin-bottom: 0;
 }
-.narrow_paragraph {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 440pt;
-}
 .time_range_big {
   font-size: 20pt;
   font-weight: bold;
@@ -246,12 +260,6 @@ a:active {
   margin-bottom: 13pt;
 }
 
-
-.light_bigger_bottom {
-  font-size: 16pt;
-  font-weight: lighter;
-  margin-bottom: 5pt;
-}
 
 
 #main_buttons {
@@ -310,20 +318,6 @@ a:active {
 }
 
 
-#feedback,
-#cfp,
-#speakers,
-#talks,
-#workshops,
-#schedule,
-#location,
-#thanks,
-#previous_runs,
-#partners {
-  display: block;
-  padding-top: 10pt;
-  padding-bottom: 42pt;
-}
 .section, .section_red {
   font-size: 35pt;
   font-weight: normal;
@@ -334,7 +328,7 @@ a:active {
 .section_red {
   color: @[] + schedule_bg + @[];
 }
-/*
+/* FIXME
 #schedule .section {
   color: white;
 }
@@ -356,7 +350,7 @@ a:active {
 .event_desc {
   font-size: 11pt;
   text-align: center;
-  max-width: 460pt;
+  max-width: 450pt;
   margin: 7pt auto 0 auto;
   padding: 0;
   line-height: 17pt;
@@ -374,10 +368,6 @@ a:active {
 
 
 
-#cfp, #speakers, #thanks, #previous_runs {
-  background-color: @[] + dark_grey + @[];
-  color: white;
-}
 #cfp > div * {
   text-align: justify;
   max-width: 450pt;
@@ -385,6 +375,9 @@ a:active {
 #previous_runs > p {
   text-align: left;
   max-width: 450pt;
+}
+#previous_runs {
+  margin-bottom: 0;
 }
 #speakers > div {
   margin-left: auto;
@@ -402,9 +395,6 @@ a:active {
 }
 .clear_float {
   clear: left;
-}
-#workshops {
-  background-color: #D0D1D1;
 }
 
 
@@ -453,10 +443,6 @@ a:active {
 
 
 
-#location, #feedback {
-  background-color: @[] + schedule_bg + @[];
-  color: white;
-}
 #location a, #feedback a {
   color: white;
 }
@@ -496,7 +482,7 @@ a:active {
 
 .propagation {
   margin: 14pt auto;
-  max-width: 800px;
+  max-width: 600pt;
 }
 .img_example {
   height: auto;
@@ -509,9 +495,11 @@ a:active {
 
 .with_icon {
   display: inline-block;
-  line-height: 40px;
-  padding-right: 40px;
-  /*background: transparent url(../img/icon-android.png) center left no-repeat;*/
+  line-height: 32px;
+  padding-left: 32px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
 }
 
 
@@ -535,11 +523,12 @@ a:active {
 
 
 #footer {
-  margin: 0 0 48px 0;  /* 44px +2*3px -2px +10px */
+  margin: 30px 0 48px 0;  /* 44px +2*3px -2px */
+  padding: 0;
 }
 #footer > * {
   margin: 0;
-  padding: 5pt;
+  padding: 5pt !important;
 }
 #footer * {
   background-color: @[] + dark_grey + @[];

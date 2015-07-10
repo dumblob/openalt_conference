@@ -49,6 +49,7 @@ routine page_home(
     body {
       text(_html_top_stripe)
 
+      # full header (including buttons)
       div(id='header') {
         img(src=rel(ci.logo_oa_conf),
             alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
@@ -59,15 +60,28 @@ routine page_home(
           localized_time_format(
             t['_locale'], conf.time_to, '%-d. %B %Y')
         }
+
+        if (my_time.time.now() >= conf.time_show_sched) {
+          div(id='main_buttons') {
+            anchor(href=rel2($talks)) { t['talks'] }
+            anchor(href=rel2($workshops)) { t['workshops'] }
+            anchor(href=rel2($schedule)) { t['schedule'] }
+          }
+        }
+        else {
+          div(id='main_buttons') {
+            anchor(href=cu.reg_speaker) { t['register_speaker'] }
+            # FIXME don't forget to add date+time to config
+            #anchor(href=cu.reg_visitor) { t['register_visitor'] }
+            anchor(href=rel2($contact)) { t['register_partner'] }
+            anchor(href=cu.reg_tip, title=t['register_tip_tooltip']) {
+              t['register_tip']
+            }
+          }
+        }
       }
 
       if (my_time.time.now() >= conf.time_show_sched) {
-        div(id='main_buttons') {
-          anchor(href=rel2($talks)) { t['talks'] }
-          anchor(href=rel2($workshops)) { t['workshops'] }
-          anchor(href=rel2($schedule)) { t['schedule'] }
-        }
-
         if (my_time.time.now().add(days=-1) > conf.time_to) {
           div(id='feedback') {
             h3(_class='section') { t['feedback'] }
@@ -228,20 +242,6 @@ routine page_home(
         }
       }
       else {
-        # FIXME will stay here or not?
-        #paragraph(_class='narrow_paragraph light_bigger_bottom') {
-        #  t['looking_for']
-        #}
-        div(id='main_buttons') {
-          #h3(_class='section') { t['looking_for'] }
-          anchor(href=cu.reg_speaker) { t['register_speaker'] }
-          #anchor(href=cu.reg_visitor) { t['register_visitor'] }
-          anchor(href=rel2($contact)) { t['register_partner'] }
-          anchor(href=cu.reg_tip, title=t['register_tip_tooltip']) {
-            t['register_tip']
-          }
-        }
-
         div(id='cfp') {
           h3(_class='section') { t['cfp'] }
           div(_class='narrow_paragraph') { text(t['cfp_content']) }

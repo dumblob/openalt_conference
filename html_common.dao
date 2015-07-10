@@ -43,6 +43,10 @@ routine html_footer(invar trans: Locale, invar dst: string) => string {
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
   return fragment {
+    div(id='footer') {
+      paragraph { t['footer'] }
+    }
+
     div(id='partners') {
       #h3(_class='section') { t['partners'] }
       # FIXME distinguish $general and $main
@@ -53,17 +57,15 @@ routine html_footer(invar trans: Locale, invar dst: string) => string {
           }
         }
       }
-    }
 
-    script { @[]
+      script {
+@[]
 var $ul = $('#partners > p');
 $('a', $ul).sort(function(){
    return ( Math.round( Math.random() ) - 0.5 )
 }).appendTo($ul);
-@[] }
-
-    div(id='footer') {
-      paragraph { t['footer'] }
+@[]
+      }
     }
   }
 }

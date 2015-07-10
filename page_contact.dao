@@ -33,8 +33,10 @@ routine page_contact(
     body {
       text(_html_top_stripe)
 
-      h3(_class='section_red') { t['contact'] }
-      paragraph(_class='narrow_paragraph') { t['contact_openalt_content'] }
+      div {
+        h3(_class='section_red') { t['contact'] }
+        paragraph(_class='narrow_paragraph') { t['contact_openalt_content'] }
+      }
 
       text(_html_footer)
     }
