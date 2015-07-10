@@ -61,25 +61,25 @@ routine page_about(
         }
       }
 
-      h3(_class='section_red') { t['organization'] }
-      paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
+      #h3(_class='section_red') { t['organization'] }
+      #paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
 
-      h4 { t['propagation'] }
-      paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_org'] }
-      div(_class='propagation') {
-        anchor(href=cu.logo_oa_org) {
-          img(_class='img_example', src=rel(ci.logo_oa_org),
-              alt=rel(ci.logo_oa_org), title=cu.logo_oa_org)
-        }
-        #anchor(href=cu.qr_oa_org) {
-        #  img(_class='img_example', src=rel(ci.qr_oa_org),
-        #      alt=rel(ci.qr_oa_org), title=cu.qr_oa_org)
-        #}
-        anchor(href=cu.graph_man_oa_org) {
-          img(_class='img_example', src=rel(ci.graph_man_oa_org),
-              alt=rel(ci.graph_man_oa_org), title=cu.graph_man_oa_org)
-        }
-      }
+      #h4 { t['propagation'] }
+      #paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_org'] }
+      #div(_class='propagation') {
+      #  anchor(href=cu.logo_oa_org) {
+      #    img(_class='img_example', src=rel(ci.logo_oa_org),
+      #        alt=rel(ci.logo_oa_org), title=cu.logo_oa_org)
+      #  }
+      #  #anchor(href=cu.qr_oa_org) {
+      #  #  img(_class='img_example', src=rel(ci.qr_oa_org),
+      #  #      alt=rel(ci.qr_oa_org), title=cu.qr_oa_org)
+      #  #}
+      #  anchor(href=cu.graph_man_oa_org) {
+      #    img(_class='img_example', src=rel(ci.graph_man_oa_org),
+      #        alt=rel(ci.graph_man_oa_org), title=cu.graph_man_oa_org)
+      #  }
+      #}
 
       text(_html_footer)
     }
