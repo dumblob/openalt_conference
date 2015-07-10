@@ -198,7 +198,7 @@ Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registračn
     #'register_visitor' -> 'Návštěvníky<br/>(registrace)',
     'register_speaker' -> 'Přednášející<br/>(registrace)',
     'register_visitor' -> 'Návštěvník<br/>(registrace)',
-    'register_partner' -> 'Partnery<br/>(kontakt)',
+    'register_partner' -> 'Partneři<br/>(kontakt)',
     'register_tip' -> 'Mám tip na<br/>téma/osobu!',
     'register_tip_tooltip' -> 'Víte-li o něčem/někom koho byste rádi viděli přednášet nebo vést dílnu, podělte se. Krom hřejivého pocitu na vás čeká konferenční tričko a unikátní blikátko za kvalitní tip (viz. kritéria v&nbsp;odkazovaném formuláři)!',
     'previous_runs' -> 'Předchozí ročníky konference',
