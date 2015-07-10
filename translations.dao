@@ -105,7 +105,7 @@ témata si připravili.<br>
 Nechceme zapomenout ani na ty, kteří věnovali svůj čas zaslání témat, a na něž z kapacitních důvodů nedošlo.<br>
 Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, která vydržela po dva dny a dvě noci. Bez nich by konference pochopitelně postrádala smysl.',
     'gallery' -> 'Gallery',
-    'gallery_empty' -> 'There are no pictures yet. The should appear here around ' + conf.time_from.format('%-d.%-m.') + ' Stay tuned!',
+    'gallery_empty' -> 'There are no pictures yet. They should appear here around ' + conf.time_from.format('%-d.%-m.') + ' Stay tuned!',
     'downloads' -> 'Downloads',
     'contact' -> 'Contact',
     'contact_openalt_content' ->
@@ -127,10 +127,10 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'footer' -> 'Powered by <a href="http://daovm.net">Dao</a>. Page updated on ' + (string)time.now() + '<br/>Graphic design by Michaela Slaninková, implementation by <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
     'talks' -> 'Talks',
     'talk' -> 'Talk',
-    'talks_empty' -> 'There are no talks yet. The should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',
+    'talks_empty' -> 'There are no talks yet. They should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',
     'workshop' -> 'Workshop',
     'workshops' -> 'Workshops',
-    'workshops_empty' -> 'There are no workshops yet. The should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',
+    'workshops_empty' -> 'There are no workshops yet. They should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',
     'schedule' -> 'Schedule',
     'location' -> 'Location',
     'participation_reqs' -> 'Requirements for participation:',

@@ -98,7 +98,7 @@ invar conf = (
 invar partners: list<Partner> = {
   # FIXME this should be built-in logic dependent on the least date of becoming a sponsor
   # multilanguage support is not necessary for this one
-  ($general, 'Staňte se naším sponzorem!',
+  ($general, 'Staňte se naším partnerem!',
    curdir + '/img/partners/logo_become_a_sponsor.png', 'http://openalt.cz/2015/cs/contact.html'),
   ($general, 'FIT VUT',
    curdir + '/img/partners/logo_fit.gif',              'http://www.fit.vutbr.cz/'),
