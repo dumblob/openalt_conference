@@ -39,7 +39,7 @@ invar conf = (
     jquery1      = curdir + '/jquery.min.js',
 
     diaspora     = 'https://diasp.eu/u/openalt',
-    twitter      = 'https://twitter.com/OpenAlt',
+    twitter      = 'https://twitter.com/hashtag/OA2015?src=hash',
     gplus        = 'http://plus.google.com/100946575675112811528',
     fb           = 'https://www.facebook.com/OpenAlt',
 
