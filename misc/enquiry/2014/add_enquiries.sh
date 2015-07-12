@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# print emails of those, who wanted to cooperate with OpenAlt z. s. (if there is an empty line, it means somebody forgot to give us an email)
+# awk '{if (FNR == 3) { email = $0 } else if (FNR == 14) { if ($0 ~ /.+/) {print email}; quit; } }' *
+# print all emails
+# awk '{if (FNR == 3 && $0 ~ /.+/) { print $0; quit; } }' *
+
 dir=responses
 pre=enquiry_response_
 post=.txt
