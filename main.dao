@@ -237,11 +237,11 @@ a:active {
 
 
 #header {
-  margin-top: 10pt;
+  margin-top: 6pt;
   padding-bottom: 0;
 }
 #header img {
-  width: 180pt;
+  width: 170pt;
 }
 #header > * {
   margin-left: auto;
@@ -256,8 +256,8 @@ a:active {
 .time_range_big {
   font-size: 20pt;
   font-weight: bold;
-  margin-top: 6pt;
-  margin-bottom: 13pt;
+  margin-top: 5pt;
+  margin-bottom: 11pt;
 }
 
 
