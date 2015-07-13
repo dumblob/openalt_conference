@@ -135,7 +135,13 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'location' -> 'Location',
     'participation_reqs' -> 'Requirements for participation:',
     'conference' -> 'Conference',
-    'conference_about_content' -> 'The best conference ever about open*',
+    'conference_about_content' -> '
+OpenAlt - <i>"Otevřeným přístupem k otevřené společnosti."</i><br/><br/>
+
+Konference OpenAlt vznikla v roce 2014 jako výsledek spojení konferencí LinuxAlt a Openmobility. LinuxAlt jako konference s dlouhodobou tradicí se již od roku 2006 věnovala otevřenému softwaru a technologiím. Záhy se LinuxAlt s více jak 500 návštěvníky stal největší akcí tohoto typu v České republice. Openmobility konference vznikla v roce 2010 a přinesla českým a slovenským návštěvníkům témata otevřených mobilních platforem a otevřeného hardware formou klasických přednášek a praktických workshopů.<br/><br/>
+
+OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje oblast svého zájmu o témata otevřených dat ve státní správě a soukromém sektoru (Open Data) a otevřeného přístupu k vědeckým informacím (Open Access). OpenAlt se věnuje také participativní a svobodné kultuře, zejména online spolupráci, učícím se komunitám a v souvislosti s tím i alternativnímu vzdělávání. Na své si přijdou i novodobí kutilové (Makers) řídící se pravidlem „Udělej si sám“ (DIY).
+',
     'organization' -> 'Organization',
     'organization_about_content' -> 'The most impressive and progressive organization dealing with open* stuff.',
     'address' -> 'Brno University of Technology<br>Faculty of Information Technology<br>Božetěchova 1/2<br>61266 Brno<br><a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
@@ -270,7 +276,13 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'location' -> 'Místo konání',
     'participation_reqs' -> 'Požadavky pro účast:',
     'conference' -> 'Konference',
-    'conference_about_content' -> 'Úplně nejlepší konference ze všech o čemkoliv otevřeném (sháníme přednášející o dveřích dokořán...).',
+    'conference_about_content' -> '
+OpenAlt - <i>"Otevřeným přístupem k otevřené společnosti."</i><br/><br/>
+
+Konference OpenAlt vznikla v roce 2014 jako výsledek spojení konferencí LinuxAlt a Openmobility. LinuxAlt jako konference s dlouhodobou tradicí se již od roku 2006 věnovala otevřenému softwaru a technologiím. Záhy se LinuxAlt s více jak 500 návštěvníky stal největší akcí tohoto typu v České republice. Openmobility konference vznikla v roce 2010 a přinesla českým a slovenským návštěvníkům témata otevřených mobilních platforem a otevřeného hardware formou klasických přednášek a praktických workshopů.<br/><br/>
+
+OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje oblast svého zájmu o témata otevřených dat ve státní správě a soukromém sektoru (Open Data) a otevřeného přístupu k vědeckým informacím (Open Access). OpenAlt se věnuje také participativní a svobodné kultuře, zejména online spolupráci, učícím se komunitám a v souvislosti s tím i alternativnímu vzdělávání. Na své si přijdou i novodobí kutilové (Makers) řídící se pravidlem „Udělej si sám“ (DIY).
+',
     'organization' -> 'Spolek',
     'organization_about_content' -> 'Nejpokrokovější a nejpůsobivější spolek zabývající se otevřenými záležitostmi.',
     'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno<br><a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
@@ -348,3 +360,5 @@ translations.iterate { [k, v]
     }
   }
 }
+
+# vim: set wrap:
