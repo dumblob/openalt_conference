@@ -24,6 +24,7 @@ var translations = {
     # FIXME registrace
     #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
     'motivation' -> 'Become a part of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
+    'motivation_thanks' -> 'Thank you for taking part on the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
     'cfp' -> 'Call for Proposals',
 # FIXME Pepa's rewrite
 #    'cfp_content' -> '
@@ -167,6 +168,7 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     # FIXME registrace
     #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
     'motivation' -> 'Staňte se i Vy součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
+    'motivation_thanks' -> 'Děkujeme za účast na na desátém pokračování brněnské open-source, open-mind a open-hardware konference!',
     #'cfp' -> 'Výzva k&nbsp;přihlašování příspěvků',
     'cfp' -> 'Hledáme přednášející',
     'cfp_content' -> '

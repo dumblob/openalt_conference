@@ -53,7 +53,12 @@ routine page_home(
       div(id='header') {
         img(src=rel(ci.logo_oa_conf),
             alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
-        paragraph(_class='narrow_paragraph') { t['motivation'] }
+
+        if (my_time.time.now().add(days=-1) > conf.time_to)
+          paragraph(_class='narrow_paragraph') { t['motivation_thanks'] }
+        else
+          paragraph(_class='narrow_paragraph') { t['motivation'] }
+
         paragraph(_class='time_range_big') {
           localized_time_format(
             t['_locale'], conf.time_from, '%-d.') + '-' +
