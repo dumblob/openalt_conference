@@ -16,7 +16,7 @@ var translations = {
     '_locale' -> 'en_US.UTF-8',  # locale -a
     'title' -> 'OpenAlt conference ' + (string)conf.time_from.year,
     'logo_oa_conf' -> 'a big logo of the OpenAlt conference',
-    'rss' -> 'RSS channel for conference news and changes on this web',
+    'feed' -> 'RSS channel for conference news and changes on this web',
     'diaspora' -> 'Diaspora social network stream for OpenAlt z. s.',
     'twitter' -> 'Twitter social network stream for OpenAlt conference',
     'gplus' -> 'Google+ social network page of OpenAlt conference',
@@ -166,7 +166,7 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
     '_locale' -> 'cs_CZ.UTF-8',
     'title' -> 'Konference OpenAlt ' + (string)conf.time_from.year,
     'logo_oa_conf' -> 'velké logo konference OpenAlt',
-    'rss' -> 'kanál RSS s konferenčními aktualitami a změnami na tomto webu',
+    'feed' -> 'kanál RSS s konferenčními aktualitami a změnami na tomto webu',
     'diaspora' -> 'stránka spolku OpenAlt z. s. na sociální síti Diaspora',
     'twitter' -> 'stránka konference OpenAlt na sociální síti Twitter',
     'gplus' -> 'stránka konference OpenAlt na sociální síti Google+',

@@ -159,8 +159,9 @@ routine html_top_stripe(
       }
 
       div(_class='segment') {
-        anchor(_class='ext_link', href=rel(dst + '/' + pages['feed_rss'])) {
-          img(src=rel(ci.rss), alt=t['rss'], title=t['rss'])
+        #anchor(_class='ext_link', href=rel(dst + '/' + pages['feed_rss'])) {
+        anchor(_class='ext_link', href=rel(cu.feed)) {
+          img(src=rel(ci.feed), alt=t['feed'], title=t['feed'])
         }
         anchor(_class='ext_link', href=rel(cu.diaspora)) {
           img(src=rel(ci.diaspora), alt=t['diaspora'], title=t['diaspora'])
