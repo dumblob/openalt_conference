@@ -46,6 +46,26 @@ type Participant = tuple<
   events:list<Event>,  # events, this person is in charge for
 >
 
+interface DateTimee {
+  routine add(...: tuple<enum<years, months, days, seconds>, int> as vargs) => time.DateTime
+}
+interface DateTimee for time.DateTime {
+  routine add(self: time.DateTime, ...: tuple<enum<years, months, days, seconds>, int> as vargs) => time.DateTime {
+    io.writeln('self', self)
+    r = self
+    io.writeln('r', r)
+    io.writeln('...', vargs, ...)
+    # FIXME should have thrown an error when it received tripledot string!
+    r.add(vargs, ...)
+    io.writeln('r [add]', r)
+    return r
+  }
+}
+x = (DateTimee)time.now()
+io.writeln(x)
+y = x.add(days=-10)
+io.writeln(y)
+
 routine events_satisfying(
     participants: list<Participant>,
     invar kind: Kind,
