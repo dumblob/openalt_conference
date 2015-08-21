@@ -1,0 +1,21 @@
+load lib import lib
+
+namespace iar { iar_redir_cfp_form }
+
+routine iar_redir_cfp_form(
+    invar iar_name: string,
+    invar full_path: string,
+    invar iars: map<string, string>) => none {
+  redir = io.open(full_path, 'w')
+  defer { redir.close() }
+
+  # FIXME use conf paths
+  redir.write(@[]
+<?php
+
+header('location: https://www.openalt.org/2015/cfp-form');
+exit();
+
+?>
+@[])
+}

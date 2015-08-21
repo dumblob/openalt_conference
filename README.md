@@ -1,27 +1,23 @@
-OpenAlt conference
-==================
+# OpenAlt conference
 
-See [OpenAlt](https://openalt.eu).
+See https://openalt.eu .
 
-Steps for updating the webpage
-------------------------------
+## Steps for updating the webpage
 
-1. Check for new external resources and put them to `config.dao` (*note that internal resources can't be managed without changing the source code*).
+1. Check for new *external resources* and put them to `config.dao`. Other resources (*internal resources*) can't be changed without changing the source code.
 
-    Don't forget about `conf.base_uri`.
-
-1. Update `feed_rss.dao`.
+    Don't forget about `conf.uri.prefix`.
 
 1. Update `translations.dao`.
 
 1. Update the `participants.dao` database.
 
-1. Run `dao main.dao` to generate everything (HTML pages, RSS feeds, etc.)
+1. Run `dao main.dao` to generate IARs (Individually Addressable Resources - e.g. an HTML file or an RSS feed) and assemble the web.
 
-1. Fix the warnings after running the generation (usually, there are missing translations).
+    1. Fix the warnings (usually, there are missing translations).
 
-1. Re-run `dao main.dao`.
+    1. Re-run `dao main.dao`.
 
-1. Copy all directories and the file `style.css` to a web server.
+1. `scp */ *.css *.php *.js user@openalt.eu:/directory/with/the/web/`
 
-1. Point the web server to one of `en/home.html` or `cs/home.html` or ... as default.
+1. Point the web server to `en/home.html` (or use `header('location:...')` from php).

@@ -13,54 +13,65 @@ load lib
 load config import configuration
 load translations import translation
 
-load page_home import html_content
-load page_about import html_content
-load page_gallery import html_content
-load page_contact import html_content
-load page_talks import html_content
-load page_workshops import html_content
-load feed_rss import feed_content
+# IAR (Individually Addressable Resource) generators
+load iar_gens.home                     import iar
+load iar_gens.about                    import iar
+load iar_gens.gallery                  import iar
+load iar_gens.contact                  import iar
+load iar_gens.talks                    import iar
+load iar_gens.workshops                import iar
+load iar_gens.rss                      import iar
+load iar_gens.css                      import iar
+load iar_gens.redir_call_for_proposals import iar
+load iar_gens.redir_cfp_form           import iar
+load iar_gens.redir_cfp                import iar
+load iar_gens.redir_feed               import iar
 
-routine gen_pages(invar trans: lib.Locale) {
-  d = fs.dir(conf.rootdir)
-  _trans = ((string)trans)[1:]
-  if (! d.exists(_trans)) d.mkdir(_trans)
-  invar dst = conf.rootdir + '/' + _trans
+invar iars = {
+  'home'      -> 'home.html',
+  'about'     -> 'about.html',
+  'gallery'   -> 'gallery.html',
+  'contact'   -> 'contact.html',
+  'talks'     -> 'talks.html',
+  'workshops' -> 'workshops.html',
+  'rss'       -> 'feed.rss',
 
-  # FIXME better name as these are not only pages (
-  #   we need all generated files accessible from this
-  #   structure as references/links to these are generated
-  #   based on the content of this structure)
-  invar pages = {
-    'home'      -> 'home.html',
-    'about'     -> 'about.html',
-    'gallery'   -> 'gallery.html',
-    'contact'   -> 'contact.html',
-    'talks'     -> 'talks.html',
-    'workshops' -> 'workshops.html',
-    'feed_rss'  -> 'feed.rss',
-  }
+  'css'                      -> conf.uri.css,
+  'redir_call_for_proposals' -> conf.uri.redir_call_for_proposals,
+  'redir_cfp_form'           -> conf.uri.redir_cfp_form,
+  'redir_cfp'                -> conf.uri.redir_cfp,
+  'redir_feed'               -> conf.uri.redir_feed,
+}
 
-  for (p in pages) {
+routine gen_iars(invar iars: map<string, string>, invar trans: lib.Locale) {
+  invar dst = conf.rootdir / ((string)trans)[1:]
+  if (! fs.exists(dst)) fs.mkdir(dst)
+
+  for (r in iars) {
+    if (! isrel(r[1]) ) skip
+
     fut = std.exec {
-      switch (p[0]) {
+      # FIXME use one-liner using meta?
+      switch (r[0]) {
         case 'home':
-          return (none|@T)page_home(p[0], dst + '/' + p[1], trans, dst, pages) !!
+          return iar_home(     r[0], dst / r[1], trans, dst, iars) !!
         case 'about':
-          return page_about(p[0], dst + '/' + p[1], trans, dst, pages) !!
+          return iar_about(    r[0], dst / r[1], trans, dst, iars) !!
         case 'gallery':
-          return page_gallery(p[0], dst + '/' + p[1], trans, dst, pages) !!
+          return iar_gallery(  r[0], dst / r[1], trans, dst, iars) !!
         case 'contact':
-          return page_contact(p[0], dst + '/' + p[1], trans, dst, pages) !!
+          return iar_contact(  r[0], dst / r[1], trans, dst, iars) !!
         case 'talks':
-          return page_talks(p[0], dst + '/' + p[1], trans, dst, pages) !!
+          return iar_talks(    r[0], dst / r[1], trans, dst, iars) !!
         case 'workshops':
-          return page_workshops(p[0], dst + '/' + p[1], trans, dst, pages) !!
-        case 'feed_rss':
-          return feed_rss(p[0], dst + '/' + p[1], trans, dst, pages) !!
+          return iar_workshops(r[0], dst / r[1], trans, dst, iars) !!
       }
+
+      std.assert(r[0] == 'rss')
+      return iar_rss(          r[0], dst / r[1], trans, dst, iars) !!
     }
-    if (fut != none) defer { fut.value() }
+
+    defer { fut.value() }
   }
 }
 
@@ -84,457 +95,33 @@ routine main(...: Locale as args) {
       return translations
   }
 
-  # FIXME
-  #for (invar trans in chosen_trs) {
+  # generate IARs which need translation
   for (trans in chosen_trs) {
-    fut = gen_pages(trans[0]) !!
+    fut = gen_iars(iars, trans[0]) !!
     defer { fut.value() }
   }
 
-  css = io.open(conf.uri.css, 'w')
-  defer { css.close() }
+  # generate other IARs
+  for (r in iars) {
+    if ( isrel(r[1]) ) skip
 
-  invar stripe_hover = '#BF1F2E'
-  invar schedule_bg = '#C22E38'
-  invar schedule_bg_dark = '#981925'
-  invar light_red = '#D47A69'
-  #invar middle_red = ''
-  invar dark_red = '#6B0A12'
-  invar dark_grey = '#28292a'
+    fut = std.exec {
+      # FIXME use one-liner using meta?
+      switch (r[0]) {
+        case 'css':
+          return iar_css(                     r[0], r[1], iars) !!
+        case 'redir_call_for_proposals':
+          return iar_redir_call_for_proposals(r[0], r[1], iars) !!
+        case 'redir_cfp_form':
+          return iar_redir_cfp_form(          r[0], r[1], iars) !!
+        case 'redir_cfp':
+          return iar_redir_cfp(               r[0], r[1], iars) !!
+      }
 
-  css.write(
-@[]html {
-  background-color: white;
-  color: black;
-  font-family: "Open Sans", sans-serif;
-}
-body {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  min-height: 100%;
-}
-body > * {
-  padding-top: 10pt;
-  padding-bottom: 42pt;
-}
-body > *:nth-last-child(3) {
-  padding-bottom: 0;
-}
-/* #cfp, #speakers, #thanks, #previous_runs */
-body > *:nth-child(3n+3) {
-  background-color: @[] + dark_grey + @[];
-  color: white;
-}
-/* #location, #feedback */
-body > *:nth-child(3n+4) {
-  background-color: @[] + schedule_bg + @[];
-  /*background-color: #D0D1D1;*/
-  color: white;
-}
-a,
-a:link {
-  color: @[] + schedule_bg + @[];
-  font-weight: bolder;
-  text-decoration: none;
-}
-a:visited {
-  color: @[] + schedule_bg_dark + @[];
-}
-a:hover,
-a:active {
-  color: red;
-  text-decoration: underline;
-}
-.narrow_paragraph {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 450pt;
-}
+      std.assert(r[0] == 'redir_feed')
+      return iar_redir_feed(                  r[0], r[1], iars) !!
+    }
 
-
-#top_stripe {
-  /*min-height: 37pt;
-  height: 37pt;*/
-  padding: 0;
-  margin: 0;
-}
-#top_stripe,
-#top_stripe * {
-  background-color: @[] + dark_grey + @[];
-  color: white;
-}
-.segment {
-  display: inline-block;
-  background-color: blue;
-  height: 100%;
-  padding-top: 0;
-  margin-top: 0;
-  /*min-height: inherit;*/
-  /*padding-top: auto;
-  padding-bottom: auto;*/
-}
-@media (min-width: 410pt) {
-  /*.segment:nth-of-type(1) {*/
-  nav {
-    width: 410pt;
+    defer { fut.value() }
   }
-}
-.segment:nth-last-of-type(-n+2) {
-  margin-left: 12pt;
-}
-#top_stripe .segment * {
-  vertical-align: middle;  /* for img */
-  line-height: 37pt;  /* for the rest */
-}
-/* arbitrary sized icons are evil */
-#top_stripe .segment img {
-  max-height: 15pt;
-}
-#top_stripe .segment > * {
-  display: inline-block;
-  margin: 0;
-  /*
-  padding-top: auto;
-  padding-bottom: auto;
-  padding-left: auto;
-  padding-right: auto;
-  */
-}
-#top_stripe a:link,
-#top_stripe a:visited,
-#top_stripe a:hover,
-#top_stripe a:active {
-  text-decoration: none;
-  font-weight: 400;
-}
-#top_stripe .page_link {
-  /*left: 4pt;*/
-  margin: 0 3pt;
-}
-#top_stripe .page_link, .lang_link {
-  text-transform: uppercase;
-  font-size: 12pt;
-}
-#top_stripe .page_link:hover {
-  background-color: @[] + stripe_hover + @[];
-}
-#top_stripe .ext_link {
-  width: 18pt;
-}
-#top_stripe .ext_link:hover, #top_stripe .ext_link:hover img {
-  background-color: #3572c2;
-}
-
-
-
-.urgent {
-  color: red;
-  font-size: 14pt;
-  margin: 4pt auto;
-}
-
-
-
-#header {
-  margin-top: 6pt;
-  padding-bottom: 0;
-}
-#header img {
-  width: 170pt;
-}
-#header > * {
-  margin-left: auto;
-  margin-right: auto;
-}
-#header > p:nth-child(2),
-#header > p:nth-child(4) {
-  font-size: 16pt;
-  font-weight: lighter;
-  margin-bottom: 0;
-}
-.time_range_big {
-  font-size: 20pt;
-  font-weight: bold;
-  margin-top: 5pt;
-  margin-bottom: 11pt;
-}
-
-
-
-#main_buttons {
-  display: block;
-  margin: 0;
-  vertical-align: middle;
-}
-#main_buttons a:nth-child(n) {
-  background-color: @[] + light_red + @[];
-}
-#main_buttons a:nth-child(2n) {
-  background-color: @[] + stripe_hover + @[];
-}
-#main_buttons a:nth-child(3n) {
-  background-color: @[] + dark_red + @[];
-}
-#main_buttons a,
-#main_buttons a:link,
-#main_buttons a:visited,
-#main_buttons a:hover,
-#main_buttons a:active {
-  color: white;
-  display: inline-block;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 17pt;
-  text-transform: uppercase;
-  padding-top: 15pt;
-  padding-bottom: 15pt;
-  width: 190pt;
-  margin: 0 11pt 20pt 0;
-}
-@media (min-width: 410pt) {
-  #main_buttons a:nth-last-of-type(1),
-  #main_buttons a:nth-last-of-type(1):link,
-  #main_buttons a:nth-last-of-type(1):visited,
-  #main_buttons a:nth-last-of-type(1):hover,
-  #main_buttons a:nth-last-of-type(1):active {
-    margin-right: 0;
-  }
-}
-
-
-.feedback_msg {
-  font-style: italic;
-  text-align: left;
-  margin-top: 24pt;
-  margin-bottom: 4pt;
-  padding-bottom: 0;
-}
-.feedback_author:before { content: "-- "; }
-.feedback_author {
-  text-align: left;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-
-.section, .section_red {
-  font-size: 35pt;
-  font-weight: normal;
-  text-transform: uppercase;
-  padding: 35pt 0 15pt 0;
-  margin: 0;
-}
-.section_red {
-  color: @[] + schedule_bg + @[];
-}
-/* FIXME
-#schedule .section {
-  color: white;
-}
-*/
-.event_title {
-  margin: 1.25em 0 0 0;
-  padding: 0;
-  color: black;
-  font-weight: 900;
-  font-size: 1.5em;
-  text-transform: uppercase;
-}
-.participant_name {
-  color: @[] + schedule_bg + @[];
-  font-size: 15pt;
-  font-weight: 500;
-  margin: 1pt 0 0 0;
-}
-.event_desc {
-  font-size: 11pt;
-  text-align: center;
-  max-width: 450pt;
-  margin: 7pt auto 0 auto;
-  padding: 0;
-  line-height: 17pt;
-}
-.participation_reqs {
-  font-weight: bold;
-  margin: 3pt auto 0 auto;
-}
-.participation_reqs, .event_reqs {
-  font-size: 10pt;
-}
-.event_reqs {
-  margin: 2pt auto 0 auto;
-}
-
-
-
-#cfp > div * {
-  text-align: justify;
-  max-width: 450pt;
-}
-#previous_runs > p {
-  text-align: left;
-  max-width: 450pt;
-}
-#previous_runs {
-  margin-bottom: 0;
-}
-#speakers > div {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 42pt;
-  margin-bottom: 120pt;
-  max-width: 600pt;
-  background-color: yellow;
-}
-.speaker {
-  display: block;
-  float: left;
-  height: 200pt;
-  width: 200pt;
-}
-.clear_float {
-  clear: left;
-}
-
-
-
-#schedule > p {
-  text-transform: uppercase;
-  font-size: 18pt;
-  font-weight: lighter;
-}
-#schedule table {
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
-}
-#schedule img {
-  vertical-align: middle;
-}
-#schedule table td img:nth-child(n) {
-  margin-right: 10pt;
-}
-#schedule table td img:nth-child(2n) {
-  margin-left: 10pt;
-}
-#schedule > table tr:last-child > td {
-  border-bottom: 2px solid white;
-}
-#schedule > table tr > td:first-child {
-  width: 30%;
-}
-.with_border_top {
-  border-top: 2px solid white;
-  padding-top: 17pt;
-}
-#schedule table strong {
-  text-transform: uppercase;
-}
-#schedule td {
-  border-right: 2px solid white;
-  border-left: 2px solid white;
-  padding-bottom: 17pt;
-  padding-right: 17pt;
-  padding-left: 17pt;
-  text-align: left;
-}
-
-
-
-#location a, #feedback a {
-  color: white;
-}
-#location a:hover, #feedback a:hover {
-  color: @[] + dark_red + @[];
-}
-#location a:link, #feedback a:link {
-  font-weight: bolder;
-}
-#location {
-  padding: 0;
-  margin: 0;
-}
-#location > p {
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: 12.4pt;
-  line-height: 20pt;
-}
-#map_div {
-  width: 100%;
-  height: 280px;
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-}
-#map_div > img {
-  min-width: 100%;
-  width: 1862px;
-  padding: 0;
-  margin: 20pt 0 0 0;
-  vertical-align: middle;
-  position: absolute;
-  transform: translate(-50%, 0);
-}
-
-
-.propagation {
-  margin: 14pt auto;
-  max-width: 600pt;
-}
-.img_example {
-  height: auto;
-  width: auto;
-  max-height: 160px;
-  max-width: 160px;
-  vertical-align: middle;
-}
-
-
-.with_icon {
-  display: inline-block;
-  line-height: 32px;
-  padding-left: 32px;
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: contain;
-}
-
-
-#partners * {
-  margin: 0 3px;
-  padding: 0;
-  height: 44px;
-}
-#partners {
-  position: fixed;
-  margin: 0;
-  padding: 0;
-  bottom: 0;
-  width: 100%;
-  border-top: solid @[] + dark_red + @[] 2pt;
-  border-bottom: solid @[] + dark_red + @[] 2pt;
-  vertical-align: middle;
-  text-align: center;
-  background: none repeat scroll 0 0 white;
-}
-
-
-#footer {
-  margin: 30px 0 48px 0;  /* 44px +2*3px -2px */
-  padding: 0;
-}
-#footer > * {
-  margin: 0;
-  padding: 5pt !important;
-}
-#footer * {
-  background-color: @[] + dark_grey + @[];
-  color: white;
-  text-transform: uppercase;
-  font-size: 6pt;
-}@[]
-  )
 }

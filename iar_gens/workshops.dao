@@ -6,11 +6,11 @@ load translations import translation
 load lib import lib
 load html_common import html_content
 
-namespace html_content { page_talks }
+namespace iar { iar_workshops }
 
-routine page_talks(
-    invar page_name: string,
-    path: string,
+routine iar_workshops(
+    invar iar_name: string,
+    invar path: string,
     invar trans: Locale,
     invar dst: string,
     invar pages: map<string, string>) => none {
@@ -22,11 +22,11 @@ routine page_talks(
   invar ci = conf.img
   invar t = translations[trans]
 
-  rel = routine(invar target: string) { return mkrel(dst, target) }
+  rel = routine(invar target: string) { mkrel(dst, target) }
 
   # FIXME it should be somehow allowed to run fragment{} from document{}
   _html_head = html_head(trans, dst, pages)
-  _html_top_stripe = html_top_stripe(page_name, trans, dst, pages)
+  _html_top_stripe = html_top_stripe(iar_name, trans, dst, pages)
   _html_footer = html_footer(trans, dst)
 
   html5.write(document {
@@ -36,24 +36,23 @@ routine page_talks(
       text(_html_top_stripe)
 
       div {
-        h3(_class='section_red') { t['talks'] }
+        h3(_class='section_red') { t['workshops'] }
 
         if (my_time.time.now() >= conf.time_show_sched) {
-          div(id='talks') {
-            # FIXME all the tracks should be in DB and here shouldn't be
-            #   anything fixed - only loops over existing data
-            #   alse CSS should be generated from the data in DB
+          div(id='workshops') {
 
             div(_class='track_tips') {
               h4        { t['track_tips'] }
               paragraph { t['track_tips_desc'] }
-              for (e in events_satisfying(participants, $talk, $tips)) {
+              for (e in events_satisfying(participants, $workshop, $tips)) {
                 div(_class='event') {
                   paragraph(_class='event_title') { e.event.trans[trans].name }
                   paragraph(_class='participant_name') { e.name }
                   paragraph(_class='event_desc') {
                     e.event.trans[trans].description
                   }
+                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
+                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
                 }
               }
             }
@@ -61,13 +60,15 @@ routine page_talks(
             div(_class='track_world_around') {
               h4        { t['track_world_around'] }
               paragraph { t['track_world_around_desc'] }
-              for (e in events_satisfying(participants, $talk, $world_around)) {
+              for (e in events_satisfying(participants, $workshop, $world_around)) {
                 div(_class='event') {
                   paragraph(_class='event_title') { e.event.trans[trans].name }
                   paragraph(_class='participant_name') { e.name }
                   paragraph(_class='event_desc') {
                     e.event.trans[trans].description
                   }
+                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
+                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
                 }
               }
             }
@@ -75,13 +76,15 @@ routine page_talks(
             div(_class='track_security') {
               h4        { t['track_security'] }
               paragraph { t['track_security_desc'] }
-              for (e in events_satisfying(participants, $talk, $security)) {
+              for (e in events_satisfying(participants, $workshop, $security)) {
                 div(_class='event') {
                   paragraph(_class='event_title') { e.event.trans[trans].name }
                   paragraph(_class='participant_name') { e.name }
                   paragraph(_class='event_desc') {
                     e.event.trans[trans].description
                   }
+                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
+                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
                 }
               }
             }
@@ -89,13 +92,15 @@ routine page_talks(
             div(_class='track_challenges') {
               h4        { t['track_challenges'] }
               paragraph { t['track_challenges_desc'] }
-              for (e in events_satisfying(participants, $talk, $challenges)) {
+              for (e in events_satisfying(participants, $workshop, $challenges)) {
                 div(_class='event') {
                   paragraph(_class='event_title') { e.event.trans[trans].name }
                   paragraph(_class='participant_name') { e.name }
                   paragraph(_class='event_desc') {
                     e.event.trans[trans].description
                   }
+                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
+                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
                 }
               }
             }
@@ -103,13 +108,15 @@ routine page_talks(
             div(_class='track_establishment') {
               h4        { t['track_establishment'] }
               paragraph { t['track_establishment_desc'] }
-              for (e in events_satisfying(participants, $talk, $establishment)) {
+              for (e in events_satisfying(participants, $workshop, $establishment)) {
                 div(_class='event') {
                   paragraph(_class='event_title') { e.event.trans[trans].name }
                   paragraph(_class='participant_name') { e.name }
                   paragraph(_class='event_desc') {
                     e.event.trans[trans].description
                   }
+                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
+                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
                 }
               }
             }
@@ -117,7 +124,7 @@ routine page_talks(
           }
         }
         else {
-          paragraph { t['talks_empty'] }
+          paragraph { t['workshops_empty'] }
         }
       }
 

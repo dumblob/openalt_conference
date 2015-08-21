@@ -1,0 +1,22 @@
+load lib import lib
+load config import configuration
+
+namespace iar { iar_redir_feed }
+
+routine iar_redir_feed(
+    invar iar_name: string,
+    invar full_path: string,
+    invar iars: map<string, string>) => none {
+  redir = io.open(full_path, 'w')
+  defer { redir.close() }
+
+  # FIXME use conf paths
+  redir.write(@[]
+<?php
+
+header('location: @[] + conf.uri.feed + @[]');
+exit();
+
+?>
+@[])
+}
