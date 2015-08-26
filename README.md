@@ -1,4 +1,4 @@
-# OpenAlt conference
+# OpenAlt conference web generator
 
 See https://openalt.eu .
 
@@ -18,6 +18,6 @@ See https://openalt.eu .
 
     1. Re-run `dao main.dao`.
 
-1. `scp */ *.css *.php *.js user@openalt.eu:/directory/with/the/web/`
+1. `cd res/ && tar cj * | ssh user@openalt.eu "cd /dir/with/the/web/ && tar xj && chmod -R a+rX ."`
 
-1. Point the web server to `en/home.html` (or use `header('location:...')` from php).
+1. Point the web server to `en/home.html` (or use `header('location:...')` from PHP).

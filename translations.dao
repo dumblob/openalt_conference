@@ -1,6 +1,6 @@
 #!/usr/bin/env dao
 
-load config import configuration . { conf, curdir, check_path }
+load config import configuration . { conf, check_path }
 load participants import participants_ns
 load lib import lib
 load time

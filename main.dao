@@ -9,11 +9,13 @@
 # FIXME add team.html#jpacner
 
 load os.fs
+# FIXME namespace is fully imported - how come?
 load lib
 load config import configuration
 load translations import translation
 
 # IAR (Individually Addressable Resource) generators
+# FIXME remove "import iar" and use iar:: instead of iar_ in iar_func_name()
 load iar_gens.home                     import iar
 load iar_gens.about                    import iar
 load iar_gens.gallery                  import iar
@@ -28,6 +30,7 @@ load iar_gens.redir_cfp                import iar
 load iar_gens.redir_feed               import iar
 
 invar iars = {
+  # relative paths
   'home'      -> 'home.html',
   'about'     -> 'about.html',
   'gallery'   -> 'gallery.html',
@@ -36,6 +39,7 @@ invar iars = {
   'workshops' -> 'workshops.html',
   'rss'       -> 'feed.rss',
 
+  # absolute paths
   'css'                      -> conf.uri.css,
   'redir_call_for_proposals' -> conf.uri.redir_call_for_proposals,
   'redir_cfp_form'           -> conf.uri.redir_cfp_form,
@@ -44,7 +48,7 @@ invar iars = {
 }
 
 routine gen_iars(invar iars: map<string, string>, invar trans: lib.Locale) {
-  invar dst = conf.rootdir / ((string)trans)[1:]
+  invar dst = conf.resdir / ((string)trans)[1:]
   if (! fs.exists(dst)) fs.mkdir(dst)
 
   for (r in iars) {

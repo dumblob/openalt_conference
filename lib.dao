@@ -74,6 +74,7 @@ routine events_satisfying(
   return res
 }
 
+# FIXME this should be achieved using the map capability of the new time module
 var mutex_locale = mt.Mutex()
 routine localized_time_format(invar locale: string,
     invar t: time.DateTime, invar pattern: string) => string {
@@ -167,7 +168,7 @@ routine parse_csv(invar path: string) => list<list<string>> {
 # FIXME add lunch, dinner, etc.
 # FIXME update to the current version of types Event, Participant...
 routine gen_participants(invar csv: list<list<string>>) => string {
-  res = 'load config import configuration . { conf, curdir }
+  res = 'load config import configuration . { conf }
 load lib import lib
 load time import time
 namespace participants_ns { participants }
@@ -202,7 +203,7 @@ _participants: list<Participant> = {
       res +=
 "  # personal supporters for the session: " + line[5].replace('\n', '\n#') + "
   ('" + line[1].trim() + "',
-  curdir + '/img/participants/" + line[1].trim().convert($lower).change('%s+', '_') + ".png',
+  conf.resdir / 'img/participants/" + line[1].trim().convert($lower).change('%s+', '_') + ".png',
   'PERSON/GROUP DESCRIPTION IS MISSING',
   events = {
    # " + line[15].replace('\n', '\n#') + "

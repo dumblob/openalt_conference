@@ -4,9 +4,10 @@ load time
 load os.fs
 load lib import lib
 
-namespace configuration { conf, partners, curdir, check_path }
+namespace configuration { conf, partners, check_path }
 
-invar curdir = fs.dir('.').path
+# directory with the resulting web
+invar resdir = fs.dir('.').path / 'res'
 
 type Partner = tuple<
   enum<general, main>, name:string, img:string, uri:string
@@ -23,24 +24,24 @@ invar conf = (
   # FIXME
   meta_description = 'A conference with talks and workshops devoted to ' +
     'openess (open-education, open-government, open-data, open-source, ' +
-    'open-HW, open-SW, etc.).',
+    'open-HW, open-SW, open-access, etc.).',
   meta_keywords    = 'conference,workshop,talk,brno' +
     ',open,open-education,open-government,open-data,open-source' +
-    ',open-hardware,open-HW,open-software,open-SW',
-  rootdir          = curdir,
+    ',open-hardware,open-HW,open-software,open-SW,open-access',
+  resdir           = resdir,
 
-  favicon196       = (mime='image/x-png', path=curdir / 'img/favicon196.png'),
-  favicon180       = (mime='image/x-png', path=curdir / 'img/favicon180.png'),
+  favicon196       = (mime='image/x-png', path=resdir / 'img/favicon196.png'),
+  favicon180       = (mime='image/x-png', path=resdir / 'img/favicon180.png'),
 
   # look at uri-corresponding images below (if applicable)
   uri              = (
     # shared between all pages (no exceptions)
-    css                      = curdir / 'style.css',
-    jquery1                  = curdir / 'jquery.min.js',
-    redir_call_for_proposals = curdir / 'call-for-proposals.php',
-    redir_cfp_form           = curdir / 'cfp-form.php',
-    redir_cfp                = curdir / 'cfp.php',
-    redir_feed               = curdir / 'feed.php',
+    css                      = resdir / 'style.css',
+    jquery1                  = resdir / 'jquery.min.js',
+    redir_call_for_proposals = resdir / 'call-for-proposals.php',
+    redir_cfp_form           = resdir / 'cfp-form.php',
+    redir_cfp                = resdir / 'cfp.php',
+    redir_feed               = resdir / 'feed.php',
 
     prefix       = 'https://openalt.cz/2015',
 
@@ -73,32 +74,32 @@ invar conf = (
 
   # FIXME use SVG everywhere!
   img              = (
-    location     = curdir / 'img/map_fit_vutbr.jpg',
-    logo_sufit   = curdir / 'img/logo-sufit.gif',
-    audio        = curdir / 'img/icon-audio.svg',
-    clock        = curdir / 'img/icon-clock.svg',
-    door         = curdir / 'img/icon-door.svg',
-    on_in_circle = curdir / 'img/icon-stream.svg',
-    pdf          = curdir / 'img/icon-pdf.svg',
-    video        = curdir / 'img/icon-video.svg',
-    feed         = curdir / 'img/icon-feed.svg',
+    location     = resdir / 'img/map_fit_vutbr.jpg',
+    logo_sufit   = resdir / 'img/logo-sufit.gif',
+    audio        = resdir / 'img/icon-audio.svg',
+    clock        = resdir / 'img/icon-clock.svg',
+    door         = resdir / 'img/icon-door.svg',
+    on_in_circle = resdir / 'img/icon-stream.svg',
+    pdf          = resdir / 'img/icon-pdf.svg',
+    video        = resdir / 'img/icon-video.svg',
+    feed         = resdir / 'img/icon-feed.svg',
 
-    diaspora     = curdir / 'img/icon-diaspora.svg',
-    twitter      = curdir / 'img/icon-twitter.svg',
-    gplus        = curdir / 'img/icon-gplus.svg',
-    fb           = curdir / 'img/icon-facebook.svg',
+    diaspora     = resdir / 'img/icon-diaspora.svg',
+    twitter      = resdir / 'img/icon-twitter.svg',
+    gplus        = resdir / 'img/icon-gplus.svg',
+    fb           = resdir / 'img/icon-facebook.svg',
 
-    logo_oa_conf = curdir / 'img/logo-openalt-conference.svg',
-    logo_oa_org  = curdir / 'img/logo-openalt-org.svg',
-    banner_print = curdir / 'img/thumbnail-OA_2014_tisk.pdf.png',
+    logo_oa_conf = resdir / 'img/logo-openalt-conference.svg',
+    logo_oa_org  = resdir / 'img/logo-openalt-org.svg',
+    banner_print = resdir / 'img/thumbnail-OA_2014_tisk.pdf.png',
     # FIXME URL
     #banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
     # FIXME URL
     #qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     # FIXME URL
     #qr_oa_org    = 'http://www.openalt.org/o-spolku/',
-    graph_man_oa_conf = curdir / 'img/thumbnail-oa_graficky_manual_konference.zip.png',
-    graph_man_oa_org  = curdir / 'img/thumbnail-oa_graficky_manual.zip.png',
+    graph_man_oa_conf = resdir / 'img/thumbnail-oa_graficky_manual_konference.zip.png',
+    graph_man_oa_org  = resdir / 'img/thumbnail-oa_graficky_manual.zip.png',
   ),
 )
 
@@ -106,31 +107,31 @@ invar partners: list<Partner> = {
   # FIXME this should be built-in logic dependent on the least date of becoming a sponsor
   # multilanguage support is not necessary for this one
   ($general, 'Staňte se naším partnerem!',
-   curdir / 'img/partners/logo_become_a_sponsor.png', 'http://openalt.cz/2015/cs/contact.html'),
+   resdir / 'img/partners/logo_become_a_sponsor.png', 'http://openalt.cz/2015/cs/contact.html'),
   ($general, 'FIT VUT',
-   curdir / 'img/partners/logo_fit.gif',              'http://www.fit.vutbr.cz/'),
+   resdir / 'img/partners/logo_fit.gif',              'http://www.fit.vutbr.cz/'),
   ($general, 'SU FIT VUT',
-   curdir / 'img/partners/logo_su_fit.jpg',           'http://www.su.fit.vutbr.cz/'),
+   resdir / 'img/partners/logo_su_fit.jpg',           'http://www.su.fit.vutbr.cz/'),
 #  ($general, 'Red Hat',
-#   curdir / 'img/partners/RHLogo.jpg',                'http://cz.redhat.com/'),
+#   resdir / 'img/partners/RHLogo.jpg',                'http://cz.redhat.com/'),
 #  ($main, 'ABRA FlexiBee',
-#   curdir / 'img/partners/logo-abraflexibee.jpg',     'http://www.flexibee.eu/'),
+#   resdir / 'img/partners/logo-abraflexibee.jpg',     'http://www.flexibee.eu/'),
 #  ($main, 'Honeywell',
-#   curdir / 'img/partners/honeywell.png',             'http://honeywell.com/'),
+#   resdir / 'img/partners/honeywell.png',             'http://honeywell.com/'),
 #  ($main, 'ICT Pro s. r. o.',
-#   curdir / 'img/partners/ict-pro.png',               'http://www.skoleni-ict.cz/'),
+#   resdir / 'img/partners/ict-pro.png',               'http://www.skoleni-ict.cz/'),
 #  ($main, 'DataScript s. r. o.',
-#   curdir / 'img/partners/logo_DataScript_cz.jpg',    'http://www.datascript.cz/'),
+#   resdir / 'img/partners/logo_DataScript_cz.jpg',    'http://www.datascript.cz/'),
 #  ($main, 'OKsystem',
-#   curdir / 'img/partners/oksystem.png',              'http://www.oksystem.cz/'),
+#   resdir / 'img/partners/oksystem.png',              'http://www.oksystem.cz/'),
 #  ($main, 'Perspektiva - ITJobs',
-#   curdir / 'img/partners/perspektiva.png',           'http://www.perspektiva.eu/'),
+#   resdir / 'img/partners/perspektiva.png',           'http://www.perspektiva.eu/'),
 #  ($main, 'Root.cz - linux, open source a free software',
-#   curdir / 'img/partners/root.png',                  'http://www.root.cz/'),
+#   resdir / 'img/partners/root.png',                  'http://www.root.cz/'),
 #  ($main, 'skHosting.eu s. r. o.',
-#   curdir / 'img/partners/skhosting_eu.png',          'https://skhosting.eu/'),
+#   resdir / 'img/partners/skhosting_eu.png',          'https://skhosting.eu/'),
 #  ($main, 'Toastmasters International',
-#   curdir / 'img/partners/toastmasters.png',          'http://www.projevse.cz/'),
+#   resdir / 'img/partners/toastmasters.png',          'http://www.projevse.cz/'),
 }
 
 # blackbox testing
@@ -150,7 +151,7 @@ routine check_path(invar uri: none|string, for_local_existence = false) {
   }
 }
 
-check_path(conf.rootdir)
+check_path(conf.resdir)
 for (t in conf.uri) check_path(t[1])
 for (fav in {conf.favicon196, conf.favicon180}) {
   check_path(fav.path)
