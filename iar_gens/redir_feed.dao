@@ -1,12 +1,13 @@
 load lib import lib
 load config import configuration
 
-namespace iar { iar_redir_feed }
+namespace iar { redir_feed }
 
-routine iar_redir_feed(
+routine redir_feed(
     invar iar_name: string,
     invar full_path: string,
-    invar iars: map<string, string>) => none {
+    invar iars: map<string, string>,
+    invar groups: IarGroup) => none {
   redir = io.open(full_path, 'w')
   defer { redir.close() }
 

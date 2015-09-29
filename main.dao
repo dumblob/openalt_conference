@@ -5,7 +5,6 @@
 # FIXME change \n for <br> in the some descriptions/requirements/... (e.g. Tomas Tomecek)
 # FIXME add links to other open* project sites in Brno (industra etc.)
 # FIXME add possibility to CRUD operations for the registration items
-# FIXME add thorough accommodation info
 # FIXME add team.html#jpacner
 
 load os.fs
@@ -15,32 +14,57 @@ load config import configuration
 load translations import translation
 
 # IAR (Individually Addressable Resource) generators
-# FIXME remove "import iar" and use iar:: instead of iar_ in iar_func_name()
-load iar_gens.home                     import iar
-load iar_gens.about                    import iar
-load iar_gens.gallery                  import iar
-load iar_gens.contact                  import iar
-load iar_gens.talks                    import iar
-load iar_gens.workshops                import iar
-load iar_gens.rss                      import iar
-load iar_gens.css                      import iar
-load iar_gens.redir_call_for_proposals import iar
-load iar_gens.redir_cfp_form           import iar
-load iar_gens.redir_cfp                import iar
-load iar_gens.redir_feed               import iar
+# FIXME read it with a loop
+load iar_gens.home
+load iar_gens.rss
+load iar_gens.partner_benefits
+load iar_gens.partner_home
+load iar_gens.partner_how
+load iar_gens.partner_who
+load iar_gens.partner_why_we
+load iar_gens.speaker_about
+load iar_gens.speaker_benefits
+load iar_gens.speaker_home
+load iar_gens.speaker_media
+load iar_gens.speaker_venue
+load iar_gens.visitor_about
+load iar_gens.visitor_home
+load iar_gens.visitor_media
+load iar_gens.visitor_venue
+load iar_gens.visitor_program
+load iar_gens.css
+load iar_gens.redir_call_for_proposals
+load iar_gens.redir_cfp_form
+load iar_gens.redir_cfp
+load iar_gens.redir_feed
+load iar_gens.redir_index
 
+# FIXME add the relative/absolute path info to the IAR itself?
+#   aka "How to solve routing in a decentralized way?"
+#   probably make each page an object with a specified interface
 invar iars = {
-  # relative paths
-  'home'      -> 'home.html',
-  'about'     -> 'about.html',
-  'gallery'   -> 'gallery.html',
-  'contact'   -> 'contact.html',
-  'talks'     -> 'talks.html',
-  'workshops' -> 'workshops.html',
-  'rss'       -> 'feed.rss',
+  # relative paths (usually need to be localized)
+  'home'             -> 'home.html',
+  'partner_benefits' -> 'partner_benefits.html',
+  'partner_home'     -> 'partner_home.html',
+  'partner_how'      -> 'partner_how.html',
+  'partner_who'      -> 'partner_who.html',
+  'partner_why_we'   -> 'partner_why_we.html',
+  'speaker_about'    -> 'speaker_about.html',
+  'speaker_benefits' -> 'speaker_benefits.html',
+  'speaker_home'     -> 'speaker_home.html',
+  'speaker_media'    -> 'speaker_media.html',
+  'speaker_venue'    -> 'speaker_venue.html',
+  'visitor_about'    -> 'visitor_about.html',
+  'visitor_home'     -> 'visitor_home.html',
+  'visitor_media'    -> 'visitor_media.html',
+  'visitor_venue'    -> 'visitor_venue.html',
+  'visitor_program'  -> 'visitor_program.html',
+  'rss'              -> 'feed.rss',
 
   # absolute paths
   'css'                      -> conf.uri.css,
+  'redir_index'              -> conf.uri.redir_index,
   'redir_call_for_proposals' -> conf.uri.redir_call_for_proposals,
   'redir_cfp_form'           -> conf.uri.redir_cfp_form,
   'redir_cfp'                -> conf.uri.redir_cfp,
@@ -52,27 +76,47 @@ routine gen_iars(invar iars: map<string, string>, invar trans: lib.Locale) {
   if (! fs.exists(dst)) fs.mkdir(dst)
 
   for (r in iars) {
-    if (! isrel(r[1]) ) skip
+    if (! isrel(r[1])) skip
 
     fut = std.exec {
       # FIXME use one-liner using meta?
       switch (r[0]) {
         case 'home':
-          return iar_home(     r[0], dst / r[1], trans, dst, iars) !!
-        case 'about':
-          return iar_about(    r[0], dst / r[1], trans, dst, iars) !!
-        case 'gallery':
-          return iar_gallery(  r[0], dst / r[1], trans, dst, iars) !!
-        case 'contact':
-          return iar_contact(  r[0], dst / r[1], trans, dst, iars) !!
-        case 'talks':
-          return iar_talks(    r[0], dst / r[1], trans, dst, iars) !!
-        case 'workshops':
-          return iar_workshops(r[0], dst / r[1], trans, dst, iars) !!
+          return iar::home(            r[0], dst / r[1], trans, dst, iars, $initial) !!
+        case 'partner_benefits':
+          return iar::partner_benefits(r[0], dst / r[1], trans, dst, iars, $partner) !!
+        case 'partner_home'    :
+          return iar::partner_home(    r[0], dst / r[1], trans, dst, iars, $partner) !!
+        case 'partner_how'     :
+          return iar::partner_how(     r[0], dst / r[1], trans, dst, iars, $partner) !!
+        case 'partner_who'     :
+          return iar::partner_who(     r[0], dst / r[1], trans, dst, iars, $partner) !!
+        case 'partner_why_we'  :
+          return iar::partner_why_we(  r[0], dst / r[1], trans, dst, iars, $partner) !!
+        case 'speaker_about'   :
+          return iar::speaker_about(   r[0], dst / r[1], trans, dst, iars, $speaker) !!
+        case 'speaker_benefits':
+          return iar::speaker_benefits(r[0], dst / r[1], trans, dst, iars, $speaker) !!
+        case 'speaker_home'    :
+          return iar::speaker_home(    r[0], dst / r[1], trans, dst, iars, $speaker) !!
+        case 'speaker_media'   :
+          return iar::speaker_media(   r[0], dst / r[1], trans, dst, iars, $speaker) !!
+        case 'speaker_venue'   :
+          return iar::speaker_venue(   r[0], dst / r[1], trans, dst, iars, $speaker) !!
+        case 'visitor_about'   :
+          return iar::visitor_about(   r[0], dst / r[1], trans, dst, iars, $visitor) !!
+        case 'visitor_home'    :
+          return iar::visitor_home(    r[0], dst / r[1], trans, dst, iars, $visitor) !!
+        case 'visitor_media'   :
+          return iar::visitor_media(   r[0], dst / r[1], trans, dst, iars, $visitor) !!
+        case 'visitor_venue'   :
+          return iar::visitor_venue(   r[0], dst / r[1], trans, dst, iars, $visitor) !!
+        case 'visitor_program' :
+          return iar::visitor_program( r[0], dst / r[1], trans, dst, iars, $visitor) !!
       }
 
       std.assert(r[0] == 'rss')
-      return iar_rss(          r[0], dst / r[1], trans, dst, iars) !!
+      return iar::rss(                 r[0], dst / r[1], trans, dst, iars, $initial) !!
     }
 
     defer { fut.value() }
@@ -81,13 +125,8 @@ routine gen_iars(invar iars: map<string, string>, invar trans: lib.Locale) {
 
 # USAGE: generate.dao [<translation>]...
 #   if no translations given, generate all
-#routine main(invar ...: string as args) {
 routine main(...: Locale as args) {
-  # FIXME bug?
-  #defer (any) { return 0 }
-
-  invar chosen_trs = std.exec {
-    # FIXME
+  invar chosen_trans = std.exec {
     if (%args)
       return translations.associate(1) {
         if (X in args)
@@ -99,33 +138,40 @@ routine main(...: Locale as args) {
       return translations
   }
 
+  # FIXME propagate the chosen translations to every single function
+  #   dealing translations!
+
   # generate IARs which need translation
-  for (trans in chosen_trs) {
+  for (trans in chosen_trans) {
     fut = gen_iars(iars, trans[0]) !!
     defer { fut.value() }
   }
 
   # generate other IARs
   for (r in iars) {
-    if ( isrel(r[1]) ) skip
+    if (isrel(r[1])) skip
 
     fut = std.exec {
       # FIXME use one-liner using meta?
       switch (r[0]) {
         case 'css':
-          return iar_css(                     r[0], r[1], iars) !!
+          return iar::css(                     r[0], r[1], iars, $initial) !!
+        case 'redir_index':
+          return iar::redir_index(             r[0], r[1], iars, $initial) !!
         case 'redir_call_for_proposals':
-          return iar_redir_call_for_proposals(r[0], r[1], iars) !!
+          return iar::redir_call_for_proposals(r[0], r[1], iars, $initial) !!
         case 'redir_cfp_form':
-          return iar_redir_cfp_form(          r[0], r[1], iars) !!
+          return iar::redir_cfp_form(          r[0], r[1], iars, $initial) !!
         case 'redir_cfp':
-          return iar_redir_cfp(               r[0], r[1], iars) !!
+          return iar::redir_cfp(               r[0], r[1], iars, $initial) !!
       }
 
       std.assert(r[0] == 'redir_feed')
-      return iar_redir_feed(                  r[0], r[1], iars) !!
+      return iar::redir_feed(                  r[0], r[1], iars, $initial) !!
     }
 
     defer { fut.value() }
   }
+
+  return 0
 }

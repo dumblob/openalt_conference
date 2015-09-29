@@ -11,29 +11,236 @@ namespace html_content {
 
 type LocalRefs = enum<
   home,
-  about,
-  schedule,
-  cfp,
-  gallery,
-  contact,
-  talks,
-  workshops,
+  partner_home,
+  partner_who,
+  partner_why_we,
+  partner_benefits,
+  partner_how,
+  speaker_home,
+  speaker_benefits,
+  speaker_about,
+  speaker_media,
+  speaker_venue,
+  visitor_home,
+  visitor_program,
+  visitor_about,
+  visitor_media,
+  visitor_venue,
 >
 
-# FIXME $schedule
-var html_local_refs: map<LocalRefs, tuple<
-    # IAR name (real file names are in `iars')
+invar html_local_refs: map<LocalRefs, tuple<
+    # IAR name (real file names are in 'iars')
     page:string,
     # real html id attribute
     id:string>> = {
-  $home      -> ('home',      ''),
-  $about     -> ('about',     ''),
-  $schedule  -> ('home',      'schedule'),
-  $cfp       -> ('home',      'cfp'),
-  $gallery   -> ('gallery',   ''),
-  $contact   -> ('contact',   ''),
-  $talks     -> ('talks',     ''),
-  $workshops -> ('workshops', ''),
+  $home             -> ('home',             ''),
+  $partner_home     -> ('partner_home',     ''),
+  $partner_who      -> ('partner_who',      ''),
+  $partner_why_we   -> ('partner_why_we',   ''),
+  $partner_benefits -> ('partner_benefits', ''),
+  $partner_how      -> ('partner_how',      ''),
+  $speaker_home     -> ('speaker_home',     ''),
+  $speaker_benefits -> ('speaker_benefits', ''),
+  $speaker_about    -> ('speaker_about',    ''),
+  $speaker_media    -> ('speaker_media',    ''),
+  $speaker_venue    -> ('speaker_venue',    ''),
+  $visitor_home     -> ('visitor_home',     ''),
+  $visitor_program  -> ('visitor_program',  ''),
+  $visitor_about    -> ('visitor_about',    ''),
+  $visitor_media    -> ('visitor_media',    ''),
+  $visitor_venue    -> ('visitor_venue',    ''),
+  # FIXME
+  #$cfp       -> ('home',      'cfp'),
+}
+
+routine html_head(
+    invar trans: Locale,
+    invar dst: string,
+    invar pages: map<string, string>) => string {
+  # just convenient shortcuts
+  invar cu = conf.uri
+  invar t = translations[trans]
+
+  rel = routine(invar target: string) { return mkrel(dst, target) }
+
+  # FIXME add </link> element for feeds (RSS...)
+
+  # FIXME remove casting!
+  return (string)head {
+    title { t['title'] }
+    # full URI of this particular document (if empty, relative URLs
+    #   http://www.ietf.org/rfc/rfc1808.txt are resolved literally)
+    base(href='')
+    # FIXME why charset must be separately from http_eqiv?
+    meta(charset='utf-8')
+    meta(http_equiv=$content_type, content='text/html')
+    meta(name='viewport', content='width=device-width')
+    meta(name='Keywords', content=conf.meta_keywords)
+    meta(name='Description', content=conf.meta_description)
+    # not HTML5-compliant
+    text('<meta http-equiv="Expires" content="0">\n')
+    # FIXME change it to some generic equivalent (get rid of Facebook)
+    # Facebook Open Graph protocol http://developers.facebook.com/docs/opengraphprotocol/
+    # title of the entity
+    #text('<meta property="og:title" content="tag value">')
+    # type of entity (select a type from the list of Open Graph types)
+    #text('<meta property="og:type" content="tag value">')
+    # URL to an image that represents the entity. Images must be at
+    #   least 50px x 50px. Square images work best, but you are allowed
+    #   to use images up to three times as wide as they are tall.
+    text('<meta property="og:image" content="' +
+         rel(conf.img.logo_oa_conf_bitmap) + '">\n')
+    # canonical & permanent URL of the page representing the entity.
+    #   When you use Open Graph tags, the Like button posts a link to
+    #   the og:url instead of the URL in the Like button code.
+    #text('<meta property="og:url" content="tag value">')
+    # human-readable name for your site, e.g., “IMDb”.
+    #text('<meta property="og:site_name" content="tag value">')
+    # comma-separated list of either the Facebook IDs of page
+    #   administrators or a Facebook Platform application ID. At a
+    #   minimum, include only your own Facebook ID.
+    #text('<meta property="fb:admins or fb:app_id" content="tag value">')
+
+# FIXME
+@[]
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="www.webwings.cz" />
+  <meta name="robots" content="follow,all" />
+  <meta name="copyright" content="(C) 2014 Webwings" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Naši pedagógovia | Dúhová škôlka</title>
+  <link rel="shortcut icon" href="/custom/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" media="screen,projection,tv" type="text/css" href="/custom/css/style.css?v=1" />
+@[]
+    # Firefox, Chrome, Safari, IE 11+ and Opera (PNG 196x196 px)
+    link(rel=$icon, _type=conf.favicon196.mime, href=rel(conf.favicon196.path))
+    # Touch Icons - iOS, Android 2.1+, Blackberry (PNG 180x180 px)
+    text('<link rel="apple-touch-icon-precomposed" href="' +
+         rel(conf.favicon180.path) + '">')
+    link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
+    link(rel=$alternate, _type='application/rss+xml',
+         href=rel(dst / pages['rss']))
+
+    script(_type='text/javascript', src=rel(cu.jquery1)){}
+  }
+}
+
+routine html_top_stripe(
+    invar group: IarGroup,
+    invar page_name: string,
+    invar trans: Locale,
+    invar dst: string,
+    invar pages: map<string, string>) => string {
+  # just convenient shortcuts
+  invar cu = conf.uri
+  invar ci = conf.img
+  invar t = translations[trans]
+
+  rel = routine(invar target: string) { return mkrel(dst, target) }
+
+  return fragment { div(id='top_stripe') {
+    nav {
+      div(_class='segment') {
+        invar menu = std.exec {
+          switch (group) {
+            case $initial: return (list<tuple<page:string, id:string>>){
+              #html_local_refs[$home],
+            }
+            case $visitor: return {
+              html_local_refs[$home],
+              html_local_refs[$visitor_home],
+              html_local_refs[$visitor_program],
+              html_local_refs[$visitor_about],
+              html_local_refs[$visitor_media],
+              html_local_refs[$visitor_venue],
+            }
+            case $speaker: return {
+              html_local_refs[$home],
+              html_local_refs[$speaker_home],
+              html_local_refs[$speaker_benefits],
+              html_local_refs[$speaker_about],
+              html_local_refs[$speaker_media],
+              html_local_refs[$speaker_venue],
+            }
+          }
+
+          std.assert(group == $partner)
+          return {
+            html_local_refs[$home],
+            html_local_refs[$partner_home],
+            html_local_refs[$partner_who],
+            html_local_refs[$partner_why_we],
+            html_local_refs[$partner_benefits],
+            html_local_refs[$partner_how],
+          }
+        }
+
+        for (ref in menu) {
+          current = ref.page == page_name
+          ref1 = %ref.id ? '#' + ref.id : ''
+          anchor(
+            _class='page_link' + (current ? ' page_link_selected' : ''),
+            href= current ? ref1 : rel(dst / pages[ref.page] + ref1) ) {
+              lbl= t[%ref.id ? ref.id : ref.page]
+
+              # FIXME save the icon to html_local_refs
+              # FIXME check icon availability (available means icon is preferred)
+              if (ref.page == html_local_refs[$home].page)
+                return img(src=rel(ci.house), alt=lbl, title=lbl)
+
+              return lbl
+            }
+        }
+      }
+    }
+
+    div(_class='segment') {
+      #anchor(_class='ext_link', href=rel(dst / pages['rss'])) {
+      anchor(_class='ext_link', href=rel(cu.feed)) {
+        img(src=rel(ci.feed), alt=t['feed'], title=t['feed'])
+      }
+      anchor(_class='ext_link', href=rel(cu.diaspora)) {
+        img(src=rel(ci.diaspora), alt=t['diaspora'], title=t['diaspora'])
+      }
+      anchor(_class='ext_link', href=rel(cu.twitter)) {
+        img(src=rel(ci.twitter), alt=t['twitter'], title=t['twitter'])
+      }
+      anchor(_class='ext_link', href=rel(cu.gplus)) {
+        img(src=rel(ci.gplus), alt=t['gplus'], title=t['gplus'])
+      }
+      anchor(_class='ext_link', href=rel(cu.fb)) {
+        img(src=rel(ci.fb), alt=t['fb'], title=t['fb'])
+      }
+    }
+
+    div(_class='segment') {
+      i = 0
+      for (invar lang in translations) {
+        if (i)
+          text(' / ')
+        else
+          ++i
+
+        lang_str = ((string)lang[0])[1:]
+        if (lang[0] == trans)
+          strong(_class='lang_link') { lang_str }
+        else
+          anchor(_class='lang_link',
+                 href='../' + lang_str / pages[page_name]) { lang_str }
+      }
+    }
+  }
+
+  # vertical spacer
+  div(id='top_stripe_virtual') { }
+
+  if (((DateTimeX)time.now()).add(days=-1) > conf.time_to) {
+    paragraph(_class='urgent') { t['warn_past_annual'] }
+  }
+  }
 }
 
 routine html_footer(invar trans: Locale, invar dst: string) => string {
@@ -66,137 +273,6 @@ $('a', $ul).sort(function(){
 }).appendTo($ul);
 @[]
       }
-    }
-  }
-}
-
-routine html_head(
-    invar trans: Locale,
-    invar dst: string,
-    invar pages: map<string, string>) => string {
-  # just convenient shortcuts
-  invar cu = conf.uri
-  invar t = translations[trans]
-
-  rel = routine(invar target: string) { return mkrel(dst, target) }
-
-  # FIXME add </link> element for feeds (RSS...)
-
-  return fragment {
-    head {
-      title { t['title'] }
-      # full URI of this particular document (if empty, relative URLs
-      #   http://www.ietf.org/rfc/rfc1808.txt are resolved literally)
-      base(href='')
-      # FIXME why charset must be separately from http_eqiv?
-      meta(charset='utf-8')
-      meta(http_equiv=$content_type, content='text/html')
-      meta(name='viewport', content='width=device-width')
-      meta(name='Keywords', content=conf.meta_keywords)
-      meta(name='Description', content=conf.meta_description)
-      # not HTML5-compliant
-      text('<meta http-equiv="Expires" content="0">')
-
-# FIXME
-@[]
-  <meta charset="utf-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <meta name="author" content="www.webwings.cz" />
-  <meta name="robots" content="follow,all" />
-  <meta name="copyright" content="(C) 2014 Webwings" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>Naši pedagógovia | Dúhová škôlka</title>
-  <link rel="shortcut icon" href="/custom/images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" media="screen,projection,tv" type="text/css" href="/custom/css/style.css?v=1" />
-@[]
-      # Firefox, Chrome, Safari, IE 11+ and Opera (PNG 196x196 px)
-      link(rel=$icon, _type=conf.favicon196.mime, href=rel(conf.favicon196.path))
-      # Touch Icons - iOS, Android 2.1+, Blackberry (PNG 180x180 px)
-      text('<link rel="apple-touch-icon-precomposed" href="' +
-           rel(conf.favicon180.path) + '">')
-      link(rel=$stylesheet, _type='text/css', href=rel(cu.css))
-      link(rel=$alternate, _type='application/rss+xml',
-           href=rel(dst / pages['rss']))
-
-      script(_type='text/javascript', src=rel(cu.jquery1)){}
-    }
-  }
-}
-
-routine html_top_stripe(
-    invar page_name: string,
-    invar trans: Locale,
-    invar dst: string,
-    invar pages: map<string, string>) => string {
-  # just convenient shortcuts
-  invar cu = conf.uri
-  invar ci = conf.img
-  invar t = translations[trans]
-
-  rel = routine(invar target: string) { return mkrel(dst, target) }
-
-  return fragment {
-    div(id='top_stripe') {
-      nav(_class='segment') {
-        for (ref in {
-            html_local_refs[$home],
-            #html_local_refs[$about],
-            #html_local_refs[$schedule],
-            html_local_refs[$talks],
-            html_local_refs[$workshops],
-            html_local_refs[$gallery],
-            html_local_refs[$contact], }) {
-          current = ref[0] == page_name
-          ref1 = %ref[1] ? '#' + ref[1] : ''
-          anchor(
-              _class='page_link' + (current ? ' page_link_selected' : ''),
-              href= current ? ref1 : rel(dst / pages[ref[0]] + ref1) ) {
-            t[%ref[1] ? ref[1] : ref[0]]
-          }
-        }
-      }
-
-      div(_class='segment') {
-        #anchor(_class='ext_link', href=rel(dst / pages['rss'])) {
-        anchor(_class='ext_link', href=rel(cu.feed)) {
-          img(src=rel(ci.feed), alt=t['feed'], title=t['feed'])
-        }
-        anchor(_class='ext_link', href=rel(cu.diaspora)) {
-          img(src=rel(ci.diaspora), alt=t['diaspora'], title=t['diaspora'])
-        }
-        anchor(_class='ext_link', href=rel(cu.twitter)) {
-          img(src=rel(ci.twitter), alt=t['twitter'], title=t['twitter'])
-        }
-        anchor(_class='ext_link', href=rel(cu.gplus)) {
-          img(src=rel(ci.gplus), alt=t['gplus'], title=t['gplus'])
-        }
-        anchor(_class='ext_link', href=rel(cu.fb)) {
-          img(src=rel(ci.fb), alt=t['fb'], title=t['fb'])
-        }
-      }
-
-      div(_class='segment') {
-        i = 0
-        for (invar lang in translations) {
-          if (i)
-            text(' / ')
-          else
-            ++i
-
-          lang_str = ((string)lang[0])[1:]
-          if (lang[0] == trans)
-            strong(_class='lang_link') { lang_str }
-          else
-            anchor(_class='lang_link',
-                href='../' + lang_str / pages[page_name]) { lang_str }
-        }
-      }
-    }
-
-    if (((DateTimeX)time.now()).add(days=-1) > conf.time_to) {
-      paragraph(_class='urgent') { t['warn_past_annual'] }
     }
   }
 }

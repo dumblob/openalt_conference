@@ -1,0 +1,89 @@
+load web.html import html
+load config import configuration
+load translations import translation
+load lib import lib
+load html_common import html_content
+
+namespace iar { partner_who }
+
+routine partner_who (
+    invar iar_name: string,
+    invar path: string,
+    invar trans: Locale,
+    invar dst: string,
+    invar iars: map<string, string>,
+    invar groups: IarGroup) => none {
+  html5 = io.open(path, 'w')
+  defer { html5.close() }
+
+  # just convenient shortcuts
+  invar cu = conf.uri
+  invar ci = conf.img
+  invar t = translations[trans]
+
+  rel = routine(invar target: string) { mkrel(dst, target) }
+
+  # FIXME it should be somehow allowed to run fragment{} from document{}
+  _html_top_stripe = html_top_stripe(groups, iar_name, trans, dst, iars)
+  _html_footer = html_footer(trans, dst)
+
+  html5.write(document {
+    html_head(trans, dst, iars)
+
+    body {
+      text(_html_top_stripe)
+
+      div {
+        h3(_class='section') { t['conference'] }
+        paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
+
+        h4 { t['propagation'] }
+        paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_conf'] }
+        div(_class='propagation') {
+          #anchor(href=cu.banner_print) {
+          #  img(_class='img_example', src=rel(ci.banner_print),
+          #      alt=rel(ci.banner_print), title=cu.banner_print)
+          #}
+          anchor(href=cu.logo_oa_conf) {
+            img(_class='img_example', src=rel(ci.logo_oa_conf),
+                alt=rel(ci.logo_oa_conf), title=cu.logo_oa_conf)
+          }
+          #anchor(href=cu.banner_web) {
+          #  img(_class='img_example', src=rel(ci.banner_web),
+          #      alt=rel(ci.banner_web), title=cu.banner_web)
+          #}
+          #anchor(href=cu.qr_oa_conf) {
+          #  img(_class='img_example', src=rel(ci.qr_oa_conf),
+          #      alt=rel(ci.qr_oa_conf), title=cu.qr_oa_conf)
+          #}
+          anchor(href=cu.graph_man_oa_conf) {
+            img(_class='img_example', src=rel(ci.graph_man_oa_conf),
+                alt=rel(ci.graph_man_oa_conf), title=cu.graph_man_oa_conf)
+          }
+        }
+
+        #h3(_class='section') { t['organization'] }
+        #paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
+
+        #h4 { t['propagation'] }
+        #paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_org'] }
+        #div(_class='propagation') {
+        #  anchor(href=cu.logo_oa_org) {
+        #    img(_class='img_example', src=rel(ci.logo_oa_org),
+        #        alt=rel(ci.logo_oa_org), title=cu.logo_oa_org)
+        #  }
+        #  #anchor(href=cu.qr_oa_org) {
+        #  #  img(_class='img_example', src=rel(ci.qr_oa_org),
+        #  #      alt=rel(ci.qr_oa_org), title=cu.qr_oa_org)
+        #  #}
+        #  anchor(href=cu.graph_man_oa_org) {
+        #    img(_class='img_example', src=rel(ci.graph_man_oa_org),
+        #        alt=rel(ci.graph_man_oa_org), title=cu.graph_man_oa_org)
+        #  }
+        #}
+      }
+
+      text(_html_footer)
+    }
+  })
+}

@@ -1,24 +1,28 @@
 load lib import lib
 
-namespace iar { iar_css }
+namespace iar { css }
 
-routine iar_css(
+routine css(
     invar iar_name: string,
     invar full_path: string,
-    invar iars: map<string, string>) => none {
-  css = io.open(full_path, 'w')
-  defer { css.close() }
+    invar iars: map<string, string>,
+    invar groups: IarGroup) => none {
+  file = io.open(full_path, 'w')
+  defer { file.close() }
 
-  invar stripe_hover = '#BF1F2E'
   invar schedule_bg = '#C22E38'
   invar schedule_bg_dark = '#981925'
   invar light_red = '#D47A69'
-  #invar middle_red = ''
+  invar middle_red = '#BF1F2E'
   invar dark_red = '#6B0A12'
   invar dark_grey = '#28292a'
+  #2b2f31ff  # grey-stripe
+  #dedddeff  # light-grey-substripe (e.g. talks + workshops)
+  #invar stripe_hover = '#'
+  #invar stripe_selected = '#BF1F2E'
 
   # FIXME width of the main menu items - should fit it
-  css.write(
+  file.write(
 @[]html {
   background-color: white;
   color: black;
@@ -34,16 +38,24 @@ body > * {
   padding-top: 10pt;
   padding-bottom: 42pt;
 }
+/*
 body > *:nth-last-child(3) {
   padding-bottom: 0;
+  margin-bottom: 0;
 }
-/* #cfp, #speakers, #thanks, #previous_runs */
-body > *:nth-child(3n+3) {
+*/
+@[] +
+# the web page consists of horizontal stripes with colors switching
+#   in a circular manner
+@[]
+body > *:nth-child(3) .section {
+  color: @[] + schedule_bg + @[];
+}
+body > *:nth-child(3n+4) {
   background-color: @[] + dark_grey + @[];
   color: white;
 }
-/* #location, #feedback */
-body > *:nth-child(3n+4) {
+body > *:nth-child(3n+5) {
   background-color: @[] + schedule_bg + @[];
   /*background-color: #D0D1D1;*/
   color: white;
@@ -66,19 +78,73 @@ a:active {
   margin-left: auto;
   margin-right: auto;
   max-width: 450pt;
+  text-align: justify;
 }
 
 
-#top_stripe {
-  /*min-height: 37pt;
-  height: 37pt;*/
+
+#top_stripe_virtual {
   padding: 0;
   margin: 0;
+  height: 37pt;
 }
-#top_stripe,
-#top_stripe * {
+#top_stripe {
+/*min-height: 37pt;
+  height: 37pt; */
+  padding: 0;
+  margin: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+#top_stripe, #top_stripe * {
   background-color: @[] + dark_grey + @[];
   color: white;
+}
+/* @media (min-width: 700pt) { */
+  /*.segment:nth-of-type(1) {*/
+  nav {
+    width: 540pt;
+  }
+/* } */
+/* responsive pure-CSS menu */
+/*
+#menu-icon {
+  display: hidden;
+  width: 40px;
+  height: 40px;
+  background: #4C8FEC url(../img/menu-icon.png) center;
+}
+*/
+@media only screen and (max-width: 710pt) {
+  /*
+  #menu-icon {
+    display:inline-block;
+  }
+  */
+  /* make it more precise than .segment to avoid !important */
+  #top_stripe nav, #top_stripe nav:active {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 37pt;
+    width: 100%;
+    max-width: 200pt;
+  }
+  #top_stripe nav .segment {
+    margin: 0;
+  }
+  #top_stripe nav .segment .page_link {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+  }
+  #top_stripe:hover nav {
+    display: block;
+  }
+}
+nav {
+  display: inline-block;
 }
 .segment {
   display: inline-block;
@@ -86,18 +152,10 @@ a:active {
   height: 100%;
   padding-top: 0;
   margin-top: 0;
-  /*min-height: inherit;*/
-  /*padding-top: auto;
-  padding-bottom: auto;*/
-}
-@media (min-width: 410pt) {
-  /*.segment:nth-of-type(1) {*/
-  nav {
-    width: 410pt;
-  }
 }
 .segment:nth-last-of-type(-n+2) {
-  margin-left: 12pt;
+  margin-left: 15pt;
+  text-align: left;
 }
 #top_stripe .segment * {
   vertical-align: middle;  /* for img */
@@ -105,7 +163,11 @@ a:active {
 }
 /* arbitrary sized icons are evil */
 #top_stripe .segment img {
-  max-height: 15pt;
+  max-height: 23pt;
+}
+#top_stripe .segment .ext_link img {
+/*  max-height: 15pt; */
+  max-height: 17pt;
 }
 #top_stripe .segment > * {
   display: inline-block;
@@ -124,19 +186,24 @@ a:active {
   text-decoration: none;
   font-weight: 400;
 }
+#top_stripe .page_link_selected, #top_stripe .page_link_selected img {
+  background-color: @[] + middle_red + @[];
+}
 #top_stripe .page_link {
-  /*left: 4pt;*/
-  margin: 0 3pt;
+  margin: 0;
+  padding-right: 10pt;
+  padding-left: 10pt;
 }
 #top_stripe .page_link, .lang_link {
   text-transform: uppercase;
   font-size: 12pt;
 }
-#top_stripe .page_link:hover {
-  background-color: @[] + stripe_hover + @[];
+#top_stripe .page_link:hover, #top_stripe .page_link:hover img {
+  background-color: @[] + light_red + @[];
 }
 #top_stripe .ext_link {
   width: 18pt;
+  text-align: center;
 }
 #top_stripe .ext_link:hover, #top_stripe .ext_link:hover img {
   background-color: #3572c2;
@@ -153,7 +220,7 @@ a:active {
 
 
 #header {
-  margin-top: 6pt;
+  margin-top: 0pt;
   padding-bottom: 0;
 }
 #header img {
@@ -187,7 +254,7 @@ a:active {
   background-color: @[] + light_red + @[];
 }
 #main_buttons a:nth-child(2n) {
-  background-color: @[] + stripe_hover + @[];
+  background-color: @[] + middle_red + @[];
 }
 #main_buttons a:nth-child(3n) {
   background-color: @[] + dark_red + @[];
@@ -219,6 +286,7 @@ a:active {
 }
 
 
+
 .feedback_msg {
   font-style: italic;
   text-align: left;
@@ -234,21 +302,14 @@ a:active {
 }
 
 
-.section, .section_red {
+
+.section {
   font-size: 35pt;
   font-weight: normal;
   text-transform: uppercase;
-  padding: 35pt 0 15pt 0;
-  margin: 0;
+  padding: 35pt 0 0 0;
+  margin: 0 0 35pt 0;
 }
-.section_red {
-  color: @[] + schedule_bg + @[];
-}
-/* FIXME
-#schedule .section {
-  color: white;
-}
-*/
 .event_title {
   margin: 1.25em 0 0 0;
   padding: 0;
@@ -281,6 +342,13 @@ a:active {
 .event_reqs {
   margin: 2pt auto 0 auto;
 }
+.event img {
+  height: 20pt;
+}
+.not_clickable {
+  pointer-events: none;
+  cursor: default;
+}
 
 
 
@@ -300,14 +368,19 @@ a:active {
   margin-right: auto;
   margin-top: 42pt;
   margin-bottom: 120pt;
-  max-width: 600pt;
+  max-width: 500pt;
   background-color: yellow;
 }
 .speaker {
-  display: block;
+  width: 110pt;
+  height: 125pt;
+  margin: 5pt;
   float: left;
-  height: 200pt;
-  width: 200pt;
+  font-size: 10pt;
+}
+.speaker img {
+  height: 100pt;
+  width: 100pt;
 }
 .clear_float {
   clear: left;
@@ -359,20 +432,17 @@ a:active {
 
 
 
-#location a, #feedback a {
-  color: white;
-}
-#location a:hover, #feedback a:hover {
+#venue a:hover, #feedback a:hover {
   color: @[] + dark_red + @[];
 }
-#location a:link, #feedback a:link {
+#venue a:link, #feedback a:link {
   font-weight: bolder;
 }
-#location {
+#venue {
   padding: 0;
   margin: 0;
 }
-#location > p {
+#venue > p {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 12.4pt;
@@ -396,6 +466,7 @@ a:active {
 }
 
 
+
 .propagation {
   margin: 14pt auto;
   max-width: 600pt;
@@ -409,6 +480,7 @@ a:active {
 }
 
 
+
 .with_icon {
   display: inline-block;
   line-height: 32px;
@@ -417,6 +489,7 @@ a:active {
   background-position: left center;
   background-size: contain;
 }
+
 
 
 #partners * {
@@ -431,15 +504,15 @@ a:active {
   bottom: 0;
   width: 100%;
   border-top: solid @[] + dark_red + @[] 2pt;
-  border-bottom: solid @[] + dark_red + @[] 2pt;
   vertical-align: middle;
   text-align: center;
   background: none repeat scroll 0 0 white;
 }
 
 
+
 #footer {
-  margin: 30px 0 48px 0;  /* 44px +2*3px -2px */
+  margin: 0 0 46px 0;  /* 44px +2*3px -2px */
   padding: 0;
 }
 #footer > * {

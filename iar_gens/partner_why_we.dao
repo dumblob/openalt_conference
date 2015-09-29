@@ -4,14 +4,15 @@ load translations import translation
 load lib import lib
 load html_common import html_content
 
-namespace iar { iar_about }
+namespace iar { partner_why_we }
 
-routine iar_about(
+routine partner_why_we(
     invar iar_name: string,
     invar path: string,
     invar trans: Locale,
     invar dst: string,
-    invar iars: map<string, string>) => none {
+    invar iars: map<string, string>,
+    invar groups: IarGroup) => none {
   html5 = io.open(path, 'w')
   defer { html5.close() }
 
@@ -23,18 +24,17 @@ routine iar_about(
   rel = routine(invar target: string) { mkrel(dst, target) }
 
   # FIXME it should be somehow allowed to run fragment{} from document{}
-  _html_head = html_head(trans, dst, iars)
-  _html_top_stripe = html_top_stripe(iar_name, trans, dst, iars)
+  _html_top_stripe = html_top_stripe(groups, iar_name, trans, dst, iars)
   _html_footer = html_footer(trans, dst)
 
   html5.write(document {
-    text(_html_head)
+    html_head(trans, dst, iars)
 
     body {
       text(_html_top_stripe)
 
       div {
-        h3(_class='section_red') { t['conference'] }
+        h3(_class='section') { t['conference'] }
         paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
 
         h4 { t['propagation'] }
@@ -62,7 +62,7 @@ routine iar_about(
           }
         }
 
-        #h3(_class='section_red') { t['organization'] }
+        #h3(_class='section') { t['organization'] }
         #paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
 
         #h4 { t['propagation'] }

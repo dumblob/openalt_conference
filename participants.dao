@@ -18,7 +18,7 @@ _participants: list<Participant> = {
     # lunch - saturday
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
@@ -27,7 +27,7 @@ _participants: list<Participant> = {
     }),
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
@@ -36,7 +36,7 @@ _participants: list<Participant> = {
     }),
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
@@ -45,7 +45,7 @@ _participants: list<Participant> = {
     }),
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
@@ -54,7 +54,7 @@ _participants: list<Participant> = {
     }),
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     trans = {
@@ -65,7 +65,7 @@ _participants: list<Participant> = {
     # lunch - sunday
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
@@ -74,7 +74,7 @@ _participants: list<Participant> = {
     }),
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
@@ -83,7 +83,7 @@ _participants: list<Participant> = {
     }),
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
@@ -92,7 +92,7 @@ _participants: list<Participant> = {
     }),
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
@@ -101,7 +101,7 @@ _participants: list<Participant> = {
     }),
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     trans = {
@@ -112,7 +112,7 @@ _participants: list<Participant> = {
     # FIXME testing party
    ($party,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 23, 59),
     trans = {
@@ -123,7 +123,7 @@ _participants: list<Participant> = {
     # party
    ($party,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 22, 00),
     trans = {
@@ -134,7 +134,7 @@ _participants: list<Participant> = {
     # lottery
    ($internal,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
     trans = {
@@ -158,7 +158,7 @@ _participants: list<Participant> = {
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
@@ -197,7 +197,7 @@ _participants: list<Participant> = {
    # column12: 
    ($workshop,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #  trojblok o 150 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
@@ -312,7 +312,7 @@ V prípade dostatku času:
    # column12: 
    ($talk,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
@@ -337,49 +337,49 @@ V prípade dostatku času:
    )
   }),
   # personal supporters for the session: 
-  ('Miroslav Šido',
-  members = none,
-  conf.resdir / 'img/participants/miroslav_šido.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # potrebný projektor na pripojenie raspi pre ukážky
-   # column12: 
-   ($talk,
-    $security,
-    uri = ('', ''),
-    #$world_around,
-    # 2x 25 minut souvisejících témat
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
-    trans = {
-      $cs -> ('Raspberry Pi ako penetračný nástroj',
-               '',
-               'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
-Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
-               'D105',),
-      $en -> ('Raspberry Pi ako penetračný nástroj',
-               '',
-               'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
-Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
-               'D105',),
-      $sk -> ('Raspberry Pi ako penetračný nástroj',
-               '',
-               'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
-Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
-               'D105',),
-      $de -> ('Raspberry Pi ako penetračný nástroj',
-               '',
-               'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
-Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
-               'D105',),
-    }
-   )
-  }),
+#  ('Miroslav Šido',
+#  members = none,
+#  conf.resdir / 'img/participants/miroslav_šido.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # potrebný projektor na pripojenie raspi pre ukážky
+#   # column12: 
+#   ($talk,
+#    $security,
+#    uri = ('', '', ''),
+#    #$world_around,
+#    # 2x 25 minut souvisejících témat
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
+#    trans = {
+#      $cs -> ('Raspberry Pi ako penetračný nástroj',
+#               '',
+#               'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
+#Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
+#               'D105',),
+#      $en -> ('Raspberry Pi ako penetračný nástroj',
+#               '',
+#               'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
+#Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
+#               'D105',),
+#      $sk -> ('Raspberry Pi ako penetračný nástroj',
+#               '',
+#               'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
+#Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
+#               'D105',),
+#      $de -> ('Raspberry Pi ako penetračný nástroj',
+#               '',
+#               'Využitie Raspi B v praxi v sieti pre penetračné testovanie, audit či ako monitor. V podstate ide o zariadenie, ktoré využívam na testovanie lan a analyzu.
+#Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scannu vzdialenej siete (LAN) a teoretickej časti o možnostiach raspi a opensource vo firme či v bezpečnosti',
+#               'D105',),
+#    }
+#   )
+#  }),
 
 #  # personal supporters for the session: 
 #  ('Tomáš Kantůrek',
@@ -396,7 +396,7 @@ Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scann
 #   # column12: 
 #   ($talk,
 #    $world_around,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -436,7 +436,7 @@ Kombinácia raspberry pi (s displejom 3,2" lcd) a s Kali linuxom. Ukážka scann
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #$challenges,
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
@@ -469,46 +469,46 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
     }
    )
   }),
-  # personal supporters for the session: 
-  ('Pavel Šnajdr',
-  members = none,
-  conf.resdir / 'img/participants/pavel_šnajdr.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($talk,
-    $challenges,
-    uri = ('', ''),
-    #$tips,
-    # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
-    trans = {
-      $cs -> ('Nebojte se SSD v serveru',
-               '',
-               'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
-               'D105',),
-      $en -> ('Nebojte se SSD v serveru',
-               '',
-               'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
-               'D105',),
-      $sk -> ('Nebojte se SSD v serveru',
-               '',
-               'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
-               'D105',),
-      $de -> ('Nebojte se SSD v serveru',
-               '',
-               'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
-               'D105',),
-    }
-   )
-  }),
+#  # personal supporters for the session: 
+#  ('Pavel Šnajdr',
+#  members = none,
+#  conf.resdir / 'img/participants/pavel_šnajdr.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($talk,
+#    $challenges,
+#    uri = ('', '', ''),
+#    #$tips,
+#    # 50 minut
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
+#    trans = {
+#      $cs -> ('Nebojte se SSD v serveru',
+#               '',
+#               'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
+#               'D105',),
+#      $en -> ('Nebojte se SSD v serveru',
+#               '',
+#               'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
+#               'D105',),
+#      $sk -> ('Nebojte se SSD v serveru',
+#               '',
+#               'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
+#               'D105',),
+#      $de -> ('Nebojte se SSD v serveru',
+#               '',
+#               'Solid state disky se jako technologie v IT už docela zabydely, přesto se stále najdou administrátoři, kteří jim nemůžou přijít na chuť. Cílem přednášky je ukázat, že SSD v serverech mají smysl, probereme kombinování SSD s rotačními disky a propojíme teorii s praxí, jak SSD pomáhají ve vpsFree.cz.',
+#               'D105',),
+#    }
+#   )
+#  }),
   # personal supporters for the session: 
   ('Jirka Folta',
   members = none,
@@ -524,7 +524,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
    # column12: 
    ($workshop,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
@@ -580,7 +580,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
    # column12: 
    ($workshop,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #  dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
@@ -636,7 +636,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 #   # column12: 
 #   ($talk,
 #    $tips,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -720,7 +720,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
    # column12: 
    ($talk,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #$world_around,
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
@@ -797,7 +797,7 @@ Součástí přednášky tedy budou zhruba následující body:
    # column12: 
    ($talk,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
@@ -837,7 +837,7 @@ Součástí přednášky tedy budou zhruba následující body:
    # column12: 
    ($talk,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #$world_around,
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
@@ -910,7 +910,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
@@ -950,7 +950,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -990,7 +990,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
    # column12: 
    ($talk,
     $security,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #  dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
@@ -1065,7 +1065,7 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
    # column12: 
    ($talk,
     $tips,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
@@ -1121,7 +1121,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 #   # column12: 
 #   ($talk,
 #    $challenges,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #$security,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -1162,7 +1162,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 #   # column12: 
 #   ($talk,
 #    $tips,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
@@ -1202,7 +1202,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
@@ -1242,7 +1242,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
    # column12: 
    ($talk,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
@@ -1282,7 +1282,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
    # column12: 
    ($talk,
     $tips,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #$world_around,
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
@@ -1327,7 +1327,7 @@ A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příka
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
@@ -1383,7 +1383,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # column12: 
    ($talk,
     $establishment,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
@@ -1423,7 +1423,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
@@ -1463,7 +1463,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
@@ -1503,7 +1503,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #   # column12: 
 #   ($talk,
 #    $world_around,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -1543,7 +1543,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #   # column12: 
 #   ($talk,
 #    $world_around,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -1583,7 +1583,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
@@ -1623,7 +1623,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #   # column12: 
 #   ($talk,
 #    $tips,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #$world_around,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -1688,7 +1688,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # column12: 
    ($workshop,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
@@ -1728,7 +1728,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # column12: 
    ($talk,
     $tips,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
@@ -1776,7 +1776,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
    # column12: 
    ($workshop,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #  čtyřblok o 200 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 30),
@@ -1816,7 +1816,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #   # column12: 
 #   ($talk,
 #    $challenges,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -1856,7 +1856,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #   # column12: 
 #   ($talk,
 #    $challenges,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #$tips,
 #    #$world_around,
 #    # 2x 25 minut souvisejících témat
@@ -1914,7 +1914,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #   # column12: 
 #   ($talk,
 #    $tips,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #$world_around,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -1955,7 +1955,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #   # column12: 
 #   ($talk,
 #    $world_around,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 2x 25 minut souvisejících témat
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
@@ -1995,7 +1995,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
@@ -2029,49 +2029,49 @@ Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvoj
   }),
 
   # personal supporters for the session: 
-  ('Pavel Borecki',
-  members = none,
-  conf.resdir / 'img/participants/pavel_borecki.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($talk,
-    $establishment,
-    uri = ('', ''),
-    #$security,
-    # 2x 25 minut souvisejících témat
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
-    trans = {
-      $cs -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
-               '',
-               'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
-Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
-               'D0207',),
-      $en -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
-               '',
-               'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
-Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
-               'D0207',),
-      $sk -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
-               '',
-               'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
-Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
-               'D0207',),
-      $de -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
-               '',
-               'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
-Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
-               'D0207',),
-    }
-   )
-  }),
+#  ('Pavel Borecki',
+#  members = none,
+#  conf.resdir / 'img/participants/pavel_borecki.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($talk,
+#    $establishment,
+#    uri = ('', '', ''),
+#    #$security,
+#    # 2x 25 minut souvisejících témat
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
+#    trans = {
+#      $cs -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
+#               '',
+#               'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
+#Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
+#               'D0207',),
+#      $en -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
+#               '',
+#               'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
+#Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
+#               'D0207',),
+#      $sk -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
+#               '',
+#               'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
+#Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
+#               'D0207',),
+#      $de -> ('Mé zařízení na mé straně, mnou kontrolovaná brána do světa informací pro mne, nikoli o mně.',
+#               '',
+#               'Paradox: Zatímco dříve zařízení sbírající informace o sledovaných museli zajišťovat sledující, dnes je tomu právě naopak...
+#Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložením minima vlastního úsilí. Též zaručená kompatibilita s ostatními "užívanými".',
+#               'D0207',),
+#    }
+#   )
+#  }),
 
 #  # personal supporters for the session: 
 #  ('Honza Horak',
@@ -2088,7 +2088,7 @@ Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložen�
 #   # column12: 
 #   ($workshop,
 #    $challenges,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #  dvojblok o 100 minutách
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -2128,7 +2128,7 @@ Příčina? Lákadlo atraktivních, život ulehčujících služeb s vynaložen�
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
@@ -2174,7 +2174,7 @@ Přednáška vám představí ty nejzajímavější vychytávky co dnešní brow
    # column12: 
    ($talk,
     $tips,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
@@ -2234,7 +2234,7 @@ Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFT
    # column12: 
    ($talk,
     $tips,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
@@ -2298,7 +2298,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # column12: 
 #   ($talk,
 #    $challenges,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #$world_around,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
@@ -2339,7 +2339,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
@@ -2365,44 +2365,44 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
   }),
 
   # personal supporters for the session: 
-  ('Hynek Štětina',
-  members = none,
-  conf.resdir / 'img/participants/hynek_štětina.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # Počet lidí na workshopu maximálně 6, aby se to dalo v klidu zvládnout. Nutná registrace na workshopu předem. Cena workshopu bude stanovena podle počtu účastníků.
-   # column12: 
-   ($workshop,
-    $challenges,
-    uri = ('', ''),
-    #  čtyřblok o 200 minutách (pouze workshop)
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
-    trans = {
-      $cs -> ('Stavba 3D tiskárny Kossel mini',
-               'notebook',
-               'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
-               'A113',),
-      $en -> ('Stavba 3D tiskárny Kossel mini',
-               'notebook',
-               'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
-               'A113',),
-      $sk -> ('Stavba 3D tiskárny Kossel mini',
-               'notebook',
-               'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
-               'A113',),
-      $de -> ('Stavba 3D tiskárny Kossel mini',
-               'notebook',
-               'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
-               'A113',),
-    }
-   )
-  }),
+#  ('Hynek Štětina',
+#  members = none,
+#  conf.resdir / 'img/participants/hynek_štětina.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # Počet lidí na workshopu maximálně 6, aby se to dalo v klidu zvládnout. Nutná registrace na workshopu předem. Cena workshopu bude stanovena podle počtu účastníků.
+#   # column12: 
+#   ($workshop,
+#    $challenges,
+#    uri = ('', '', ''),
+#    #  čtyřblok o 200 minutách (pouze workshop)
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+#    trans = {
+#      $cs -> ('Stavba 3D tiskárny Kossel mini',
+#               'notebook',
+#               'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
+#               'A113',),
+#      $en -> ('Stavba 3D tiskárny Kossel mini',
+#               'notebook',
+#               'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
+#               'A113',),
+#      $sk -> ('Stavba 3D tiskárny Kossel mini',
+#               'notebook',
+#               'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
+#               'A113',),
+#      $de -> ('Stavba 3D tiskárny Kossel mini',
+#               'notebook',
+#               'Workshop zaměřený na stavbu vlastní delta 3D tiskárny Kossel mini. Celá tiskárna včetně elektroniky je na bázi open hardware. Každému účastníkovi bude k dispozici předchystaný kit obsahující vše až do posledního šroubku bez nutnosti pájení. Účastník workshopu si tak odnese domů plně funkční 3d tiskárnu.',
+#               'A113',),
+#    }
+#   )
+#  }),
 
 #  # personal supporters for the session: Miroslav Lábr
 #  ('Ladislav Hagara',
@@ -2419,7 +2419,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # column12: 
 #   ($talk,
 #    $challenges,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
@@ -2445,106 +2445,106 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #  }),
 
   # personal supporters for the session: 
-  ('František Kučera',
-  members = none,
-  conf.resdir / 'img/participants/františek_kučera.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($talk,
-    $challenges,
-    uri = ('', ''),
-    #$tips,
-    # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
-    trans = {
-      $cs -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
-               '',
-               'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
-S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
-Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dotaz nad souborovým systémem.',
-               'D0207',),
-      $en -> ('SQL and XML as an alternative to classic unix tools',
-               '',
-               'Grep, sed, cut, awk… we all know them and use everyday. They are basic tools and will be always relevant.
-However, there are also other ways to work with operating system – sometimes more comfortable, safe, efficient…
-We will show how to SELECT users or running processes or how to run XPath query on the filesystem.',
-               'D0207',),
-      $sk -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
-               '',
-               'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
-S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
-Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dotaz nad souborovým systémem.',
-               'D0207',),
-      $de -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
-               '',
-               'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
-S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
-Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dotaz nad souborovým systémem.',
-               'D0207',),
-    }
-   )
-  }),
+#  ('František Kučera',
+#  members = none,
+#  conf.resdir / 'img/participants/františek_kučera.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($talk,
+#    $challenges,
+#    uri = ('', '', ''),
+#    #$tips,
+#    # 50 minut
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
+#    trans = {
+#      $cs -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
+#               '',
+#               'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
+#S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
+#Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dotaz nad souborovým systémem.',
+#               'D0207',),
+#      $en -> ('SQL and XML as an alternative to classic unix tools',
+#               '',
+#               'Grep, sed, cut, awk… we all know them and use everyday. They are basic tools and will be always relevant.
+#However, there are also other ways to work with operating system – sometimes more comfortable, safe, efficient…
+#We will show how to SELECT users or running processes or how to run XPath query on the filesystem.',
+#               'D0207',),
+#      $sk -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
+#               '',
+#               'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
+#S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
+#Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dotaz nad souborovým systémem.',
+#               'D0207',),
+#      $de -> ('SQL a XML jako alternativa ke klasickým unixovým nástrojům',
+#               '',
+#               'Grep, sed, cut, awk… to je denní chléb většiny z nás, jedná se o základní nástroje, které tu vždy budou mít svoje místo.
+#S daty a operačním systémem se ale dá pracovat i jinak – někdy pohodlněji, bezpečněji, efektivněji…
+#Ukážeme si jak SELECtovat uživatele či procesy nebo jak si pustit XPath dotaz nad souborovým systémem.',
+#               'D0207',),
+#    }
+#   )
+#  }),
 
   # personal supporters for the session: 
-  ('František Kučera',
-  members = none,
-  conf.resdir / 'img/participants/františek_kučera.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($talk,
-    $challenges,
-    uri = ('', ''),
-    #$world_around,
-    # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
-    trans = {
-      $cs -> ('Svobodný cloud a virtualizace',
-               '',
-               'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
-Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
-Síť, kterou vám mohou poskytovat různí dodavatelé a do které můžete připojit spotřebiče všech značek i svoje vlastní.
-Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt závislý na konkrétním výrobci.',
-               'D0206',),
-      $en -> ('Free (libre) cloud and virtualization',
-               '',
-               'The word „cloud“ is nowadays often perceived as marketing buzzword or pejorative (lost or leaked important/private data).
-Despite this sad facts, we should not forget the original idea and meaning of the cloud – or better – the IaaS, PaaS, SaaS.
-The idea of making a commodity – like electric power supply – that can be scaled and used by appliances made by any vendor or your own ones.
-We will show how to achieve this goal with free software a be independent from particular cloud provider.',
-               'D0206',),
-      $sk -> ('Svobodný cloud a virtualizace',
-               '',
-               'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
-Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
-Síť, kterou vám mohou poskytovat různí dodavatelé a do které můžete připojit spotřebiče všech značek i svoje vlastní.
-Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt závislý na konkrétním výrobci.',
-               'D0206',),
-      $de -> ('Svobodný cloud a virtualizace',
-               '',
-               'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
-Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
-Síť, kterou vám mohou poskytovat různí dodavatelé a do které můžete připojit spotřebiče všech značek i svoje vlastní.
-Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt závislý na konkrétním výrobci.',
-               'D0206',),
-    }
-   )
-  }),
+#  ('František Kučera',
+#  members = none,
+#  conf.resdir / 'img/participants/františek_kučera.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($talk,
+#    $challenges,
+#    uri = ('', '', ''),
+#    #$world_around,
+#    # 50 minut
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+#    trans = {
+#      $cs -> ('Svobodný cloud a virtualizace',
+#               '',
+#               'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
+#Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
+#Síť, kterou vám mohou poskytovat různí dodavatelé a do které můžete připojit spotřebiče všech značek i svoje vlastní.
+#Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt závislý na konkrétním výrobci.',
+#               'D0206',),
+#      $en -> ('Free (libre) cloud and virtualization',
+#               '',
+#               'The word „cloud“ is nowadays often perceived as marketing buzzword or pejorative (lost or leaked important/private data).
+#Despite this sad facts, we should not forget the original idea and meaning of the cloud – or better – the IaaS, PaaS, SaaS.
+#The idea of making a commodity – like electric power supply – that can be scaled and used by appliances made by any vendor or your own ones.
+#We will show how to achieve this goal with free software a be independent from particular cloud provider.',
+#               'D0206',),
+#      $sk -> ('Svobodný cloud a virtualizace',
+#               '',
+#               'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
+#Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
+#Síť, kterou vám mohou poskytovat různí dodavatelé a do které můžete připojit spotřebiče všech značek i svoje vlastní.
+#Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt závislý na konkrétním výrobci.',
+#               'D0206',),
+#      $de -> ('Svobodný cloud a virtualizace',
+#               '',
+#               'Slovo „cloud“ se zabydlelo v marketingových materiálech snad všech IT firem a jeho význam se značně posunul a ohnul.
+#Pojďme si připomenout původní myšlenku – vytvoření komodity, která se dá používat stejně snadno jako elektrická síť.
+#Síť, kterou vám mohou poskytovat různí dodavatelé a do které můžete připojit spotřebiče všech značek i svoje vlastní.
+#Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt závislý na konkrétním výrobci.',
+#               'D0206',),
+#    }
+#   )
+#  }),
 
   # personal supporters for the session: 
   ('František Kučera',
@@ -2561,7 +2561,7 @@ Ukážeme si, jak tuto myšlenku naplnit pomocí svobodného softwaru a nebýt z
    # column12: 
    ($workshop,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
@@ -2597,44 +2597,44 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
    )
   }),
   # personal supporters for the session: 
-  ('Zdeněk Hruška',
-  members = none,
-  conf.resdir / 'img/participants/zdeněk_hruška.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # Přednášet můžu buď v neděli, nebo v sobotu od 16:00.
-   # column12: 
-   ($talk,
-    $establishment,
-    uri = ('', ''),
-    # 2x 25 minut souvisejících témat
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
-    trans = {
-      $cs -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
-               '',
-               'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
-               'D0207',),
-      $en -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
-               '',
-               'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
-               'D0207',),
-      $sk -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
-               '',
-               'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
-               'D0207',),
-      $de -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
-               '',
-               'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
-               'D0207',),
-    }
-   )
-  }),
+#  ('Zdeněk Hruška',
+#  members = none,
+#  conf.resdir / 'img/participants/zdeněk_hruška.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # Přednášet můžu buď v neděli, nebo v sobotu od 16:00.
+#   # column12: 
+#   ($talk,
+#    $establishment,
+#    uri = ('', '', ''),
+#    # 2x 25 minut souvisejících témat
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+#    trans = {
+#      $cs -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
+#               '',
+#               'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
+#               'D0207',),
+#      $en -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
+#               '',
+#               'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
+#               'D0207',),
+#      $sk -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
+#               '',
+#               'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
+#               'D0207',),
+#      $de -> ('Open source nástroje v knihovnách, aneb peníze raději na knihy!',
+#               '',
+#               'Za specializovaný knihovnický software se platí nemalé částky, které navíc plynou do kapes několika málo firem. Open source ale naštěstí proniká i do knihoven a přináší zajímavá řešení. Je ale potřeba překonat konzervativnost vedení i kolegů a protlačit nový software je občas pěkná dřina. Ve své přednášce uvedu různé příklady open source nástrojů, které se v knihovnách používají - ať už jde o katalog, nebo správu digitální knihovny. Chybět nebudou ani příklady z praxe a radosti a starosti se zaváděním takových řešení v ČR. ',
+#               'D0207',),
+#    }
+#   )
+#  }),
 
 #  # personal supporters for the session: 
 #  ('Martin Holec',
@@ -2651,7 +2651,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #   # column12: 
 #   ($talk,
 #    $world_around,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
@@ -2677,44 +2677,44 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #  }),
 
   # personal supporters for the session: 
-  ('Tomáš Kaplan',
-  members = none,
-  conf.resdir / 'img/participants/tomáš_kaplan.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($talk,
-    $establishment,
-    uri = ('', ''),
-    # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
-    trans = {
-      $cs -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
-               'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
-               'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
-               'D0206',),
-      $en -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
-               'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
-               'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
-               'D0206',),
-      $sk -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
-               'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
-               'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
-               'D0206',),
-      $de -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
-               'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
-               'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
-               'D0206',),
-    }
-   )
-  }),
+#  ('Tomáš Kaplan',
+#  members = none,
+#  conf.resdir / 'img/participants/tomáš_kaplan.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($talk,
+#    $establishment,
+#    uri = ('', '', ''),
+#    # 50 minut
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
+#    trans = {
+#      $cs -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
+#               'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
+#               'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
+#               'D0206',),
+#      $en -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
+#               'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
+#               'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
+#               'D0206',),
+#      $sk -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
+#               'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
+#               'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
+#               'D0206',),
+#      $de -> ('Proč Linuxu ve veřejném sektoru pšenka nekvete',
+#               'nic. jen jakýkoliv nástroj ve kterém otevřu pdfko :)',
+#               'Proč subjekty veřejného sektoru nepoužívají otevřený software a radši sáhnou po proprietárním software? Existuje nějaký ekonomický nástroj jak určit skutečné náklady na software? Jaké jsou ekonomické přínosy používání tohoto typu software v institucích neziskového sektoru a to jak veřejného, tak soukromého. Co můžeme dělat pro to, aby se to změnilo? ',
+#               'D0206',),
+#    }
+#   )
+#  }),
 
 #  # personal supporters for the session: 
 #  ('Radek Dostál',
@@ -2733,7 +2733,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #   # column12: 
 #   ($talk,
 #    $tips,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #$world_around,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
@@ -2774,7 +2774,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #   # column12: 
 #   ($talk,
 #    $establishment,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -2814,7 +2814,7 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #   # column12: 
 #   ($talk,
 #    $world_around,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
@@ -2868,48 +2868,48 @@ pomocí nějž budeme šifrovat a podepisovat e-maily nebo soubory.',
 #  }),
 
   # personal supporters for the session: 
-  ('Ľubor Jurena',
-  members = none,
-  conf.resdir / 'img/participants/ľubor_jurena.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($talk,
-    $tips,
-    uri = ('', ''),
-    # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
-    trans = {
-      $cs -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
-               '',
-               '
-Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
-               'D0207',),
-      $en -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
-               '',
-               '
-Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
-               'D0207',),
-      $sk -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
-               '',
-               '
-Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
-               'D0207',),
-      $de -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
-               '',
-               '
-Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
-               'D0207',),
-    }
-   )
-  }),
+#  ('Ľubor Jurena',
+#  members = none,
+#  conf.resdir / 'img/participants/ľubor_jurena.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($talk,
+#    $tips,
+#    uri = ('', '', ''),
+#    # 50 minut
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+#    trans = {
+#      $cs -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
+#               '',
+#               '
+#Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
+#               'D0207',),
+#      $en -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
+#               '',
+#               '
+#Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
+#               'D0207',),
+#      $sk -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
+#               '',
+#               '
+#Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
+#               'D0207',),
+#      $de -> ('Monitorovanie IT infraštruktúry systémom Zabbix',
+#               '',
+#               '
+#Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, routre alebo iné komponenty, je dnes kľúčovou podmienkou fungovania podniku. Efektívny a spoľahlivý monitoring služieb je ideálne riešenie, ako k správnej a nepretržitej prevádzke systémov dopomôcť. O open-source riešení monitoringu systémom Zabbix Vám porozprávajú Ľubor Jurena zo spoločsnoti skHosting.eu a Marek Galinski zo spoločnosti RegEx.',
+#               'D0207',),
+#    }
+#   )
+#  }),
 
 #  # personal supporters for the session: 
 #  ('František Dalecký',
@@ -2926,7 +2926,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #   # column12: 
 #   ($talk,
 #    $establishment,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -2967,7 +2967,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #   # column12: 
 #   ($talk,
 #    $establishment,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #$world_around,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -3008,7 +3008,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
    # column12: 
    ($talk,
     $world_around,
-    uri = ('', ''),
+    uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
@@ -3048,7 +3048,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
 #   # column12: 
 #   ($talk,
 #    $tips,
-#    uri = ('', ''),
+#    uri = ('', '', ''),
 #    #$world_around,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
@@ -3089,7 +3089,7 @@ Správne a nepretržite fungujúca infraštruktúra, či už ide o servery, rout
    # column12: 
    ($workshop,
     $challenges,
-    uri = ('', ''),
+    uri = ('', '', ''),
     #  trojblok o 150 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 12, 30),

@@ -1,10 +1,8 @@
-#FIXME partners - block
-#FIXME news - add them!
 #FIXME links to Androd and Sailfish APPs
 #FIXME add stripes over participants' photos
 #FIXME add year under the the header under the black stripe
 #      before the stripe? and then using CSS to the right place
-#FIXME rewrite the table generation in schedule using paragraphs in cells
+#FIXME rewrite the table generation in schedule to use paragraphs in table cells
 
 # conflicting html tag name with namespace name
 load time as my_time
@@ -14,14 +12,15 @@ load translations import translation
 load lib import lib
 load html_common import html_content
 
-namespace iar { iar_home }
+namespace iar { home }
 
-routine iar_home(
+routine home(
     invar iar_name: string,
     invar path: string,
     invar trans: Locale,
     invar dst: string,
-    invar pages: map<string, string>) => none {
+    invar pages: map<string, string>,
+    invar groups: IarGroup) => none {
   html5 = io.open(path, 'w')
   defer { html5.close() }
 
@@ -40,249 +39,77 @@ routine iar_home(
   # FIXME html module should somehow allow (temporary) nested subdocuments
   #   creation or transitive code section calls through functions
   #   i.e. basically running fragment{} from document{}
-  _html_head = html_head(trans, dst, pages)
-  _html_top_stripe = html_top_stripe(iar_name, trans, dst, pages)
+  _html_top_stripe = html_top_stripe($initial, iar_name, trans, dst, pages)
   _html_footer = html_footer(trans, dst)
 
   html5.write(document {
-    text(_html_head)
+    html_head(trans, dst, pages)
+
     body {
       text(_html_top_stripe)
 
-      # full header (including buttons)
       div(id='header') {
         img(src=rel(ci.logo_oa_conf),
             alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
 
         if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to )
-          paragraph(_class='narrow_paragraph') { t['motivation_thanks'] }
+          paragraph { t['motivation_thanks'] }
         else
-          paragraph(_class='narrow_paragraph') { t['motivation'] }
+          paragraph { t['motivation'] }
 
         paragraph(_class='time_range_big') {
           localized_time_format(
-            t['_locale'], conf.time_from, '%-d.') + '-' +
+            t['_locale'], conf.time_from, '%-d.') + '&ndash;' +
           localized_time_format(
             t['_locale'], conf.time_to, '%-d. %B %Y')
         }
 
-        if (my_time.time.now() >= conf.time_show_sched) {
+#        if (my_time.time.now() >= conf.time_show_sched) {
+#          div(id='main_buttons') {
+#            anchor(href=rel2($talks)) { t['talks'] }
+#            anchor(href=rel2($workshops)) { t['workshops'] }
+#            anchor(href=rel2($schedule)) { t['schedule'] }
+#          }
+#        }
+#        else {
           div(id='main_buttons') {
-            anchor(href=rel2($talks)) { t['talks'] }
-            anchor(href=rel2($workshops)) { t['workshops'] }
-            anchor(href=rel2($schedule)) { t['schedule'] }
+            anchor(href=rel2($visitor_home)) { t['visitor'] }
+            anchor(href=rel2($speaker_home)) { t['speaker'] }
+            anchor(href=rel2($partner_home)) { t['partner'] }
           }
-        }
-        else {
-          div(id='main_buttons') {
-            anchor(href=cu.reg_speaker) { t['register_speaker'] }
-            # FIXME don't forget to add date+time to config
-            #anchor(href=cu.reg_visitor) { t['register_visitor'] }
-            anchor(href=rel2($contact)) { t['register_partner'] }
-            anchor(href=cu.reg_tip, title=t['register_tip_tooltip']) {
-              t['register_tip']
-            }
-          }
-        }
+#        }
       }
 
-      if (my_time.time.now() >= conf.time_show_sched) {
-        if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
-          div(id='feedback') {
-            h3(_class='section') { t['feedback'] }
+#      if (my_time.time.now() >= conf.time_show_sched) {
+#        if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
+#          div(id='feedback') {
+#            h3(_class='section') { t['feedback'] }
+#
+#            for (piece in feedback) {
+#              paragraph(_class='feedback_msg narrow_paragraph') { piece.msg }
+#              if (piece.author != none)
+#                paragraph(_class='feedback_author narrow_paragraph') { piece.author }
+#            }
+#          }
+#        }
 
-            for (piece in feedback) {
-              paragraph(_class='feedback_msg narrow_paragraph') { piece.msg }
-              if (piece.author != none)
-                paragraph(_class='feedback_author narrow_paragraph') { piece.author }
-            }
-          }
-        }
-
-        div(id='speakers') {
-          h3(_class='section') { t['speakers'] }
-          div {
-            paragraph {
-              for (pa in participants) {
-                if (pa.events.find { X.kind == $internal } == none) {
-                  img(_class='speaker', src=rel(pa.photo), alt=pa.name, title=pa.name)
-                }
-              }
-            }
-          }
-          div(_class='clear_float') {}
-        }
-
-        div(id='schedule') {
-          h3(_class='section') { t['schedule'] }
-
-          # construct reversed event mappings
-
-          # FIXME remove casting
-          places = (map<string, int>){->}
-          days = (map<int, map<int, map<string, @T>>>){->}
-          participants.iterate { [p]
-            p.events.iterate { [ev]
-              if (ev.kind != $party) {
-                # rank ~ number of occurences
-                if (ev.trans[trans].place in places)
-                  ++places[ev.trans[trans].place]
-                else
-                  places[ev.trans[trans].place] = 1
-              }
-
-              day = my_time.time.make(ev.from.year, ev.from.month, ev.from.day)
-              # each day separately
-              if (day.value not in days)
-                days[day.value] = {->}
-              # each event
-              if (ev.from.value not in days[day.value])
-                days[day.value][ev.from.value] = {->}
-              # each place
-              if (ev.trans[trans].place not in days[day.value][ev.from.value])
-                days[day.value][ev.from.value][ev.trans[trans].place] =
-                  (author=p, event=ev)
-              else
-                io.stderr.writeln('WARN >1 events at a venue',
-                    ev.trans[trans].place, 'at time', ev.from)
-            }
-          }
-
-          # adjust reverse mappings
-
-          orig_ind = 0
-          places2 = places.collect {
-            (orig_ind = 0, id = X, rank = Y)
-          } .sort {
-            X.id > Y.id
-          } .apply {
-            # FIXME imitate stable sort by remembering the index
-            X.orig_ind = ++orig_ind
-            return X
-          } .sort {
-            if (X.rank == Y.rank)
-              return X.orig_ind > Y.orig_ind
-            else
-              return X.rank > Y.rank
-          }
-
-          day_sets = routine(m: map<int, map<string, @T>>)
-              => list<tuple<kind: enum, cell_lines: list<list<@T>>>> {
-
-            res = (list<tuple<kind: enum, cell_lines: list<list<@T>>>>){}
-            last_event: none|@T = none
-
-            m.keys().sort().iterate { [time_point]
-              m[time_point].iterate { [place, cell]
-                if (last_event != none && (
-                    (last_event.kind == $party && cell.event.kind == $party) ||
-                    (
-                    # all non-party events are in the same cluster
-                    last_event.kind != $party && cell.event.kind != $party)
-                )) {
-                  if (last_event.from == cell.event.from)
-                    res[-1].cell_lines[-1].append(cell)
-                  else
-                    res[-1].cell_lines.append({cell})
-                }
-                else {
-                  res.append( (kind=cell.event.kind, cell_lines={{cell}}) )
-                }
-
-                last_event = cell.event
-              }
-            }
-
-            return res
-          }
-
-          # create tables and paragraphs from the reversed mappings
-
-          days.keys().sort().iterate { [day]
-            paragraph {
-              localized_time_format(
-                t['_locale'], my_time.time.fromValue(day), '%A %-d. %-m. %Y')
-            }
-
-            day_sets(days[day]).iterate { [set]
-              if (set.kind == $party) {
-                set.cell_lines.iterate { [cell_line]
-                  cell_line.iterate { [cell]
-                    div {
-                      paragraph { cell.event.from.format('%H:%M') }
-                      paragraph { cell.event.trans[trans].name }
-                      paragraph { cell.event.trans[trans].description }
-                      paragraph { cell.event.trans[trans].requirements }
-                      paragraph { cell.event.trans[trans].place }
-                    }
-                  }
-                }
-              }
-              else {
-                table {
-                  tr { th {}; places2.iterate { [place] th { place.id } } }
-
-                  set.cell_lines.iterate { [cell_line]
-                    tr {
-                      # there is at least 1 cell
-                      td { cell_line[0].event.from.format('%H:%M') }
-
-                      cell_line.iterate { [cell]
-                        # tight-loop to preserve order
-                        places2.iterate { [place]
-                          if (place.id == cell.event.trans[trans].place) {
-                            td {
-                              span { cell.event.trans[trans].name }
-                              span { cell.author.name }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      else {
-        div(id='cfp') {
-          h3(_class='section') { t['cfp'] }
-          div(_class='narrow_paragraph') { text(t['cfp_content']) }
-        }
+      # FIXME add 'news' to CSS
+      div(id='news') {
+        h3(_class='section') { t['news'] }
+        div(_class='narrow_paragraph') { text(t['news_content']) }
       }
 
-      div(id='location') {
-        h3(_class='section') { t['location'] }
-        paragraph {
-          text(t['address'])
-          br()
-          anchor(href='geo:' + conf.coord_gps_n + ',' + conf.coord_gps_e) {
-            t['gps_coordinates'] + ' ' +
-              conf.coord_gps_n + ' N, ' + conf.coord_gps_e + ' E'
-          }
-        }
-        div(id='map_div') {
-          img(src=rel(ci.location),
-              alt=t['location'] + ': ' +
-                conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E',
-              title=t['location'] + ': ' +
-                conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E')
-        }
-      }
-
-      if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
+#      if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
         div(id='thanks') {
           h3(_class='section') { t['thanks'] }
           paragraph(_class='narrow_paragraph') { t['thank_you'] }
         }
-      }
+#      }
 
-      div(id='previous_runs') {
-        h3(_class='section') { t['previous_runs'] }
-        paragraph(_class='narrow_paragraph') { t['previous_runs_content'] }
-      }
+#      div(id='previous_runs') {
+#        h3(_class='section') { t['previous_runs'] }
+#        paragraph(_class='narrow_paragraph') { t['previous_runs_content'] }
+#      }
 
       text(_html_footer)
     }

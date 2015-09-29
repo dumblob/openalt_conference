@@ -1,8 +1,8 @@
 load lib import lib
 
-namespace iar { redir_call_for_proposals }
+namespace iar { redir_index }
 
-routine redir_call_for_proposals(
+routine redir_index(
     invar iar_name: string,
     invar full_path: string,
     invar iars: map<string, string>,
@@ -14,8 +14,7 @@ routine redir_call_for_proposals(
   redir.write(@[]
 <?php
 
-//header('location: https://files.openalt.org/index.php/s/aEcInQIqsguKFlP/download');
-header('location: https://openalt.cz/2015/cs/home.html#cfp');
+header('location: ./cs/home.html');
 exit();
 
 ?>

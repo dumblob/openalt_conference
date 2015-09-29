@@ -1,15 +1,15 @@
 load sync
 load time import time
 load os
-load string.scanner  # imports str
+load string.scanner  # FIXME imports str
 
-# FIXME Dao namespaces has to be declared in advance
+# FIXME Dao namespaces have to be declared in advance
 namespace iar {}
 
 namespace lib {
   DateTimeX, Locale, Kind, Track, Event, Participant,
-  events_satisfying, localized_time_format, isrel, mkrel, parse_csv,
-  gen_participants
+  events_satisfying, localized_time_format, isrel, mkrel,
+  parse_csv, gen_participants,
 }
 
 interface DateTimeX {
@@ -24,17 +24,19 @@ interface DateTimeX for DateTime {
   }
 }
 
-#type Locale = enum<cze, eng, slo, ger, fin>
 type Locale = enum<cs, en, sk, de, fi>
 type Kind = enum<talk, workshop, internal, party>
 type Track = enum<tips, world_around, security, challenges, establishment>
+# free grouping (might be used for anything - e.g. menus auto-generation)
+type IarGroup = enum<initial; visitor; speaker; partner>
 
 type Event = tuple<
   kind: Kind,
   track: Track,
   uri:tuple<
-    materials: string,
     video_rec: string,
+    presentation: string,
+    materials: string,
   >,
   from: time.DateTime,
   to: time.DateTime,
@@ -117,41 +119,48 @@ routine mkrel(from_path: string, invar target_uri: string) => string {
   return from_path[shared:].change('[^/]+', '..') + target_uri[shared:]
 }
 
-# FIXME read HDD blocks and return only CSV lines in it (if the first
-#       CSV line exceeds one block, read following blocks
-#       until we have a whole CSV line or reach some huge memory limit)
-routine parse_csv(invar path: string) => list<list<string>> {
-  f = io.open(path, "r")
-  defer { f.close() }
+# FIXME rewrite as generator with internal cache with the size of
+#   an HDD block
+# assume embedded control characters are doubled instead of escaped
+routine parse_csv(
+    invar data: string,
+    invar quote = "'",
+    invar field_sep = '\t',
+    invar record_sep = '\n') => list<list<string>> {
+  std.assert(%quote == 1 && %field_sep == 1 && %record_sep == 1)
 
-  s = str.Scanner(f.read())
+  s = str.Scanner(data)
   res = (list<list<string>>){{}}
 
   while (s.rest) {
-    i = 0
+    i = 0  # number of leading quotes in a field (including embedded ones)
     # FIXME \n \t \' can't be matched without enclosing them into []
-    # FIXME true;
-    for (true; s.scan('[\']'); i += 1) {
-      if (s.scan('[^\']+')) {
+    for (; s.scan('[' + quote + ']'); i += 1) {
+      if (s.scan('[^' + quote + ']+')) {
         if (i)
-          res[-1][-1] += '\'' + s.matched()
+          res[-1][-1] += quote + s.matched()
         else
           res[-1].append(s.matched())
       }
-      s.pos += 1  # the closing '
+      else {
+        # CSV empty item is an exception to the double-quote rule
+        res[-1].append('')
+      }
+
+      s.pos += 1  # the closing quote
     }
 
     if (i == 0) {
-      if (s.scan('[^\t\n]+')) {
+      if (s.scan('[^' + field_sep + record_sep + ']+')) {
         res[-1].append(s.matched())
         i = 1
       }
     }
 
-    if (s.scan('[\t]')) {
+    if (s.scan('[' + field_sep + ']')) {
       if (i == 0) res[-1].append('')
     }
-    else if (s.scan('[\n]')) {
+    else if (s.scan('[' + record_sep + ']')) {
       res.append({})
     }
     else {
@@ -165,8 +174,7 @@ routine parse_csv(invar path: string) => list<list<string>> {
   return res
 }
 
-# FIXME add lunch, dinner, etc.
-# FIXME update to the current version of types Event, Participant...
+# FIXME add lunch, dinner, etc. to the input CSV
 routine gen_participants(invar csv: list<list<string>>) => string {
   res = 'load config import configuration . { conf }
 load lib import lib
@@ -200,11 +208,16 @@ _participants: list<Participant> = {
     if (line[1].convert($lower).match('test') != none)
       io.stderr.writeln('WARN omitting `' + line[1] + "'")
     else
-      res +=
-"  # personal supporters for the session: " + line[5].replace('\n', '\n#') + "
+      res += "
   ('" + line[1].trim() + "',
-  conf.resdir / 'img/participants/" + line[1].trim().convert($lower).change('%s+', '_') + ".png',
-  'PERSON/GROUP DESCRIPTION IS MISSING',
+  members = " + (%line[5] ? "{ '" + line[5].trim().replace('\n', '\n#') + "' },\n" : "none,") + "
+  conf.resdir / 'img/participants/" + line[1].trim().convert($lower).change('%s+', '_') + ".jpg',
+  trans = {
+    $en -> ('',
+            'SPEAKER DESCRIPTION IS MISSING',),
+    $cs -> ('',
+            'SPEAKER DESCRIPTION IS MISSING',),
+  },
   events = {
    # " + line[15].replace('\n', '\n#') + "
    # column12: " + line[12].replace('\n', '\n#') + "
@@ -239,7 +252,7 @@ _participants: list<Participant> = {
 "
   }
 
-  return res + '}
+  return res + "}
 
 var participants: list<Participant> = {}
 
@@ -254,6 +267,40 @@ for (_p in _participants) {
 }
 
 # FIXME update according to the current participants.dao
-#load web.json
-#io.writeln(json.serialize((list<json.Data>)participants))'
+#               load web.json
+#               io.writeln(json.serialize(participants) {
+#                 # (list<json.Data>)
+#                 switch (X) type {
+#                   #case tuple<a,b>: return {'a' => X.a, 'b' => X.b}
+#                   case tuple:
+#                     #m = (map<string, json.Data>){->}
+#                     #m = (json.Data){->}
+#                     m = (map<string, any>){->}
+#                     for (i in X) {
+#                       if (! (i[0] ?< string)) {
+#                         io.writeln('XXX', i[0], 'XXX')
+#                         std.error('^ is not a string')
+#                       }
+#                       m[i[0]] = i[1]
+#                     }
+#               #io.writeln('XXXX_map', m)
+#               #io.writeln()
+#                     return m
+#                   #case Locale:
+#                   case enum:
+#                     return ((string)X)[1:]
+#                   case time.DateTime:
+#                     # ISO 8601 (2014-10-13T00:38:17+00:00)
+#                     s = X.format('%Y-%m-%dT%H:%M:%S%:z')
+#               #io.writeln('XXXX_datetime', s)
+#                     #return X.format('%Y-%m-%dT%H:%M:%S%:z')
+#                     return s
+#                   default:
+#                     s = 'UNKNOWN_TYPE'
+#               #io.writeln('XXXX_unknowntype', s)
+#                     return s
+#                 }
+#                 #return 0 # dummy return
+#               })
+"
 }

@@ -18,7 +18,8 @@ type Partner = tuple<
 invar conf = (
   time_from        = time.make(2015, 11, 7),
   time_to          = time.make(2015, 11, 8),
-  time_show_sched  = time.make(2015, 9, 7 + 7),  # 1 week for CFP processing
+  time_reg_end     = time.make(2015, 10, 5),  # deadline of talk submissions
+  time_show_sched  = time.make(2015, 10, 5 + 7),  # 1 week for CFP processing
   coord_gps_n      = '49.2263872',
   coord_gps_e      = '16.5963531',
   # FIXME
@@ -35,9 +36,10 @@ invar conf = (
 
   # look at uri-corresponding images below (if applicable)
   uri              = (
-    # shared between all pages (no exceptions)
+    # shared between all pages
     css                      = resdir / 'style.css',
     jquery1                  = resdir / 'jquery.min.js',
+    redir_index              = resdir / 'index.php',
     redir_call_for_proposals = resdir / 'call-for-proposals.php',
     redir_cfp_form           = resdir / 'cfp-form.php',
     redir_cfp                = resdir / 'cfp.php',
@@ -74,32 +76,35 @@ invar conf = (
 
   # FIXME use SVG everywhere!
   img              = (
-    location     = resdir / 'img/map_fit_vutbr.jpg',
-    logo_sufit   = resdir / 'img/logo-sufit.gif',
-    audio        = resdir / 'img/icon-audio.svg',
-    clock        = resdir / 'img/icon-clock.svg',
-    door         = resdir / 'img/icon-door.svg',
-    on_in_circle = resdir / 'img/icon-stream.svg',
-    pdf          = resdir / 'img/icon-pdf.svg',
-    video        = resdir / 'img/icon-video.svg',
-    feed         = resdir / 'img/icon-feed.svg',
+    venue               = resdir / 'img/map_fit_vutbr.jpg',
+    house               = resdir / 'img/icon-house.svg',
+    audio               = resdir / 'img/icon-audio.svg',
+    clock               = resdir / 'img/icon-clock.svg',
+    door                = resdir / 'img/icon-door.svg',
+    on_in_circle        = resdir / 'img/icon-stream.svg',
+    doc_pdf             = resdir / 'img/icon-doc-pdf.svg',
+    pdf_format          = resdir / 'img/icon-pdf-format.svg',
+    video               = resdir / 'img/icon-video.svg',
+    floppy              = resdir / 'img/icon-floppy.svg',
+    feed                = resdir / 'img/icon-feed.svg',
 
-    diaspora     = resdir / 'img/icon-diaspora.svg',
-    twitter      = resdir / 'img/icon-twitter.svg',
-    gplus        = resdir / 'img/icon-gplus.svg',
-    fb           = resdir / 'img/icon-facebook.svg',
+    diaspora            = resdir / 'img/icon-diaspora.svg',
+    twitter             = resdir / 'img/icon-twitter.svg',
+    gplus               = resdir / 'img/icon-gplus.svg',
+    fb                  = resdir / 'img/icon-facebook.svg',
 
-    logo_oa_conf = resdir / 'img/logo-openalt-conference.svg',
-    logo_oa_org  = resdir / 'img/logo-openalt-org.svg',
-    banner_print = resdir / 'img/thumbnail-OA_2014_tisk.pdf.png',
+    logo_oa_conf        = resdir / 'img/logo-openalt-conference.svg',
+    logo_oa_conf_bitmap = resdir / 'img/logo-openalt-conference.png',
+    logo_oa_org         = resdir / 'img/logo-openalt-org.svg',
+    banner_print        = resdir / 'img/thumbnail-OA_2014_tisk.pdf.png',
     # FIXME URL
-    #banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
+    #banner_web          = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
     # FIXME URL
-    #qr_oa_conf   = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
+    #qr_oa_conf          = 'http://www.openalt.org/spolek/OA_2014/OpenAlt_2014_qr.svg',
     # FIXME URL
-    #qr_oa_org    = 'http://www.openalt.org/o-spolku/',
-    graph_man_oa_conf = resdir / 'img/thumbnail-oa_graficky_manual_konference.zip.png',
-    graph_man_oa_org  = resdir / 'img/thumbnail-oa_graficky_manual.zip.png',
+    #qr_oa_org           = 'http://www.openalt.org/o-spolku/',
+    graph_man_oa_conf   = resdir / 'img/thumbnail-oa_graficky_manual_konference.zip.png',
+    graph_man_oa_org    = resdir / 'img/thumbnail-oa_graficky_manual.zip.png',
   ),
 )
 
@@ -118,9 +123,9 @@ invar partners: list<Partner> = {
 #   resdir / 'img/partners/logo-abraflexibee.jpg',     'http://www.flexibee.eu/'),
 #  ($main, 'Honeywell',
 #   resdir / 'img/partners/honeywell.png',             'http://honeywell.com/'),
-#  ($main, 'ICT Pro s. r. o.',
+#  ($main, 'ICT Pro s.r.o.',
 #   resdir / 'img/partners/ict-pro.png',               'http://www.skoleni-ict.cz/'),
-#  ($main, 'DataScript s. r. o.',
+#  ($main, 'DataScript s.r.o.',
 #   resdir / 'img/partners/logo_DataScript_cz.jpg',    'http://www.datascript.cz/'),
 #  ($main, 'OKsystem',
 #   resdir / 'img/partners/oksystem.png',              'http://www.oksystem.cz/'),
@@ -128,7 +133,7 @@ invar partners: list<Partner> = {
 #   resdir / 'img/partners/perspektiva.png',           'http://www.perspektiva.eu/'),
 #  ($main, 'Root.cz - linux, open source a free software',
 #   resdir / 'img/partners/root.png',                  'http://www.root.cz/'),
-#  ($main, 'skHosting.eu s. r. o.',
+#  ($main, 'skHosting.eu s.r.o.',
 #   resdir / 'img/partners/skhosting_eu.png',          'https://skhosting.eu/'),
 #  ($main, 'Toastmasters International',
 #   resdir / 'img/partners/toastmasters.png',          'http://www.projevse.cz/'),
