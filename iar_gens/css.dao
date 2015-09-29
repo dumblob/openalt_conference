@@ -120,6 +120,7 @@ a:active {
   #top_stripe nav, #top_stripe nav:active {
     max-height: 60vh;
     overflow-y: scroll;
+    border-bottom: dashed @[] + light_red + @[] 2pt;
   }
 }
 @media only screen and (max-width: 710pt) {

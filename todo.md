@@ -13,6 +13,7 @@ seznam prednasek/workshopu
     rozbalovaci popisek (zarovnany do bloku)
 mapa - pruh ma byt trochu vyssi a samotna mapa interaktivni embedded OSM (napr. http://leafletjs.com/ - JS statickou mapu vymeni az pri zobrazovani; tedy staticka mapa zustava, aby to fungovalo i bez JS)
 podsviceni socialnich tlacitek do cervena (nikoliv do modra)
+ikonky socialnich siti nejsou ve stejne vysce jako okolni text
 vytisknutelny schedule (tedy otestovat stavajici a pokud nevyhovuje, pak pridat "@media print")
 tombola (kontrola prijde) -> vyhlaseni ankety
 pridat galerii organizatoru (viz. http://www.barcampbrno.cz/2015/index.html)
