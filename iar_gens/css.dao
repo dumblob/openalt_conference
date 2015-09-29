@@ -116,20 +116,27 @@ a:active {
   background: #4C8FEC url(../img/menu-icon.png) center;
 }
 */
+@media (max-height: 250pt) {
+  #top_stripe nav, #top_stripe nav:active {
+    max-height: 60vh;
+    overflow-y: scroll;
+  }
+}
 @media only screen and (max-width: 710pt) {
   /*
   #menu-icon {
     display:inline-block;
   }
-  */
-  /* make it more precise than .segment to avoid !important */
+  */ @[] +
+  #{ make it more precise than .segment to avoid !important #} @[]
   #top_stripe nav, #top_stripe nav:active {
+  /*, #top_stripe nav:focus { */
     display: none;
     position: absolute;
     left: 0;
     top: 37pt;
-    width: 100%;
     max-width: 200pt;
+    z-index: 10;
   }
   #top_stripe nav .segment {
     margin: 0;
