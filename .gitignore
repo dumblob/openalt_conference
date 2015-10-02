@@ -11,6 +11,7 @@
 .*.swp
 /misc/enquiry/2014/*/
 /misc/server_linuxalt_cz/
+/misc/partners/
 
 res.old_local-res.old_remote.diff
 res.old_local

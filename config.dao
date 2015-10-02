@@ -19,7 +19,7 @@ invar conf = (
   time_from        = time.make(2015, 11, 7),
   time_to          = time.make(2015, 11, 8),
   time_reg_end     = time.make(2015, 10, 5),  # deadline of talk submissions
-  time_show_sched  = time.make(2015, 10, 5 + 7),  # 1 week for CFP processing
+  time_show_sched  = time.make(2015, 10, 5 + 2),  # some time for CFP processing
   coord_gps_n      = '49.2263872',
   coord_gps_e      = '16.5963531',
   # FIXME
@@ -49,8 +49,10 @@ invar conf = (
 
     feed         = 'https://openalt.org/feed',
     diaspora     = 'https://diasp.eu/u/openalt',
-    twitter      = 'https://twitter.com/hashtag/OA2015?src=hash',
-    gplus        = 'https://plus.google.com/events/c1p8c1015tq2t6t2nunh1r5ort4',
+    #twitter      = 'https://twitter.com/hashtag/OA2015?src=hash',
+    twitter      = 'https://twitter.com/OpenAlt',
+    #gplus        = 'https://plus.google.com/events/c1p8c1015tq2t6t2nunh1r5ort4',
+    gplus        = 'https://plus.google.com/+OpenAlt/posts',
     fb           = 'https://www.facebook.com/OpenAlt',
 
     #logo_oa_conf = 'http://www.openalt.org/spolek/logo_openalt_conference.svg',
@@ -76,7 +78,10 @@ invar conf = (
 
   # FIXME use SVG everywhere!
   img              = (
-    venue               = resdir / 'img/map_fit_vutbr.jpg',
+    map_city            = resdir / 'img/map_fit_vutbr.jpg',
+    map_campus          = resdir / 'img/map-campus.svg',
+    # public domain (author: David Barina - ibarina@fit.vutbr.cz)
+    fit_vutbr_building  = resdir / 'img/fit_vutbr_building.jpeg',
     house               = resdir / 'img/icon-house.svg',
     audio               = resdir / 'img/icon-audio.svg',
     clock               = resdir / 'img/icon-clock.svg',
@@ -93,8 +98,11 @@ invar conf = (
     gplus               = resdir / 'img/icon-gplus.svg',
     fb                  = resdir / 'img/icon-facebook.svg',
 
+    logo_la_conf        = resdir / 'img/logo-linuxalt-conference.png',
+    logo_om_conf        = resdir / 'img/logo-openmobility-conference.svg',
     logo_oa_conf        = resdir / 'img/logo-openalt-conference.svg',
     logo_oa_conf_bitmap = resdir / 'img/logo-openalt-conference.png',
+    logo_oa_conf_lscape = resdir / 'img/logo-openalt-conference-landscape.svg',
     logo_oa_org         = resdir / 'img/logo-openalt-org.svg',
     banner_print        = resdir / 'img/thumbnail-OA_2014_tisk.pdf.png',
     # FIXME URL
@@ -111,8 +119,8 @@ invar conf = (
 invar partners: list<Partner> = {
   # FIXME this should be built-in logic dependent on the least date of becoming a sponsor
   # multilanguage support is not necessary for this one
-  ($general, 'Staňte se naším partnerem!',
-   resdir / 'img/partners/logo_become_a_sponsor.png', 'http://openalt.cz/2015/cs/contact.html'),
+#  ($general, 'Staňte se naším partnerem!',
+#   resdir / 'img/partners/logo_become_a_sponsor.png', 'https://openalt.cz/2015/cs/partner_home.html'),
   ($general, 'FIT VUT',
    resdir / 'img/partners/logo_fit.gif',              'http://www.fit.vutbr.cz/'),
   ($general, 'SU FIT VUT',

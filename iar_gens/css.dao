@@ -12,10 +12,13 @@ routine css(
 
   invar schedule_bg = '#C22E38'
   invar schedule_bg_dark = '#981925'
+  invar ultra_light_red = '#F09685'
   invar light_red = '#D47A69'
   invar middle_red = '#BF1F2E'
   invar dark_red = '#6B0A12'
   invar dark_grey = '#28292a'
+  invar light_grey = '#deddde'
+  invar ultra_light_grey = '#e8e7e8'
   #2b2f31ff  # grey-stripe
   #dedddeff  # light-grey-substripe (e.g. talks + workshops)
   #invar stripe_hover = '#'
@@ -49,29 +52,29 @@ body > *:nth-last-child(3) {
 #   in a circular manner
 @[]
 body > *:nth-child(3) .section {
-  color: @[] + schedule_bg + @[];
+  color: @[] + dark_grey #{schedule_bg#} + @[];
 }
 body > *:nth-child(3n+4) {
-  background-color: @[] + dark_grey + @[];
+  background-color: @[] + schedule_bg #{dark_grey#} + @[];
   color: white;
 }
 body > *:nth-child(3n+5) {
-  background-color: @[] + schedule_bg + @[];
+  background-color: @[] + dark_grey #{schedule_bg#} + @[];
   /*background-color: #D0D1D1;*/
   color: white;
 }
 a,
 a:link {
-  color: @[] + schedule_bg + @[];
-  font-weight: bolder;
+  color: @[] + ultra_light_red #{light_red#} #{schedule_bg#} + @[];
+  /*font-weight: bolder;*/
   text-decoration: none;
 }
 a:visited {
-  color: @[] + schedule_bg_dark + @[];
+  /*color: @[] + schedule_bg_dark + @[];*/
+  text-decoration: underline;
 }
 a:hover,
 a:active {
-  color: red;
   text-decoration: underline;
 }
 .narrow_paragraph {
@@ -96,6 +99,7 @@ a:active {
   top: 0;
   position: fixed;
   width: 100%;
+  z-index: 100;
 }
 #top_stripe, #top_stripe * {
   background-color: @[] + dark_grey + @[];
@@ -116,11 +120,15 @@ a:active {
   background: #4C8FEC url(../img/menu-icon.png) center;
 }
 */
-@media (max-height: 250pt) {
+@media only screen and (max-width: 710pt) and (max-height: 250pt) {
   #top_stripe nav, #top_stripe nav:active {
     max-height: 60vh;
     overflow-y: scroll;
-    border-bottom: dashed @[] + light_red + @[] 2pt;
+    border-bottom: dashed @[] + light_red + @[] 5pt;
+  }
+  #header > img {
+    height: 120pt;
+    margin: 15pt 0 0 0;
   }
 }
 @media only screen and (max-width: 710pt) {
@@ -203,7 +211,7 @@ nav {
   padding-left: 10pt;
 }
 #top_stripe .page_link, .lang_link {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-size: 12pt;
 }
 #top_stripe .page_link:hover, #top_stripe .page_link:hover img {
@@ -228,11 +236,14 @@ nav {
 
 
 #header {
-  margin-top: 0pt;
+  margin-top: 0;
   padding-bottom: 0;
 }
 #header img {
-  width: 170pt;
+  /*width: 50vh;*/
+  height: 42vh;
+  /*margin: 15pt 0;*/
+  margin: 1.5vh 0 0 0;
 }
 #header > * {
   margin-left: auto;
@@ -247,15 +258,15 @@ nav {
 .time_range_big {
   font-size: 20pt;
   font-weight: bold;
-  margin-top: 5pt;
-  margin-bottom: 11pt;
+  margin-top: 8pt;
+  margin-bottom: 15pt;
 }
 
 
 
 #main_buttons {
   display: block;
-  margin: 0;
+  margin: 4.5vh 0 0 0;
   vertical-align: middle;
 }
 #main_buttons a:nth-child(n) {
@@ -277,7 +288,7 @@ nav {
   font-weight: 600;
   text-decoration: none;
   font-size: 17pt;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   padding-top: 15pt;
   padding-bottom: 15pt;
   width: 190pt;
@@ -312,64 +323,109 @@ nav {
 
 
 .section {
+  /*text-transform: uppercase;*/
   font-size: 35pt;
   font-weight: normal;
-  text-transform: uppercase;
   padding: 35pt 0 0 0;
   margin: 0 0 35pt 0;
 }
+#workshops .narrow_paragraph, #talks .narrow_paragraph {
+  text-align: left;
+  position: relative;  /* used for circle */
+}
+.event {
+  display: block;
+  max-width: 211pt;  /* 225 - 2 * 7 */
+  margin: 0 7pt 0 0;
+  float: left;
+}
 .event_title {
-  margin: 1.25em 0 0 0;
-  padding: 0;
-  color: black;
-  font-weight: 900;
-  font-size: 1.5em;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
+  font-size: 13pt;
+  font-weight: bolder;
+  margin: 25pt 0 5pt 0;
 }
 .participant_name {
-  color: @[] + schedule_bg + @[];
-  font-size: 15pt;
-  font-weight: 500;
-  margin: 1pt 0 0 0;
+  /*color: @[] + schedule_bg + @[];*/
+  margin: 5pt 0 14pt 0;
+  font-size: 11pt;
+  font-weight: bolder;
+  color: green;
 }
 .event_desc {
-  font-size: 11pt;
-  text-align: center;
-  max-width: 450pt;
-  margin: 7pt auto 0 auto;
-  padding: 0;
-  line-height: 17pt;
-}
-.participation_reqs {
-  font-weight: bold;
-  margin: 3pt auto 0 auto;
-}
-.participation_reqs, .event_reqs {
   font-size: 10pt;
+  margin: 0;
+  line-height: 13pt;
 }
 .event_reqs {
-  margin: 2pt auto 0 auto;
+  /*text-transform: uppercase;*/
+  font-size: 11pt;
+  font-weight: bolder;
+  margin: 6pt 0 3pt 0;
 }
 .event img {
-  height: 20pt;
+  height: 14pt;
+  margin: 10pt 14pt 10pt 0;
 }
 .not_clickable {
-  pointer-events: none;
-  cursor: default;
+  /*pointer-events: none;
+  cursor: default;*/
+  display: none;
+}
+#talks     > div:nth-child(2n),
+#talks     > div:nth-child(2n) *,
+#workshops > div:nth-child(2n),
+#workshops > div:nth-child(2n) * {
+  background-color: @[] + ultra_light_grey + @[];
+}
+#talks > div, #workshops > div {
+  padding: 35pt 0;
+}
+#talks     > div:first-child,
+#workshops > div:first-child {
+  padding-top: 0;
+}
+#talks     > div:last-child,
+#workshops > div:last-child {
+  padding-bottom: 0;
+}
+@[] + #{ circle #} @[]
+.circle {
+  position: absolute;
+  width: 18pt;
+  height: 18pt;
+  border-radius: 50%;
+  background-color: green !important;
+}
+.track > h4 {
+  color: green;
+  font-size: 18pt;
+  margin: 0 0 5pt 35pt;
+  line-height: 18pt;
+}
+.track > p {
+  font-size: 13pt;
+  margin: 0 0 5pt 35pt;
 }
 
 
 
-#cfp > div * {
-  text-align: justify;
-  max-width: 450pt;
+#previous_runs img {
+  width: 100pt;
+  max-height: 35pt;
+  vertical-align: middle;
+  margin-right: 4pt;
 }
-#previous_runs > p {
-  text-align: left;
-  max-width: 450pt;
+@[] + #{ dummy helper to vertically center img #} @[]
+#previous_runs span {
+  display: inline-block;
+  height: 35pt;
+  float: left;
 }
-#previous_runs {
-  margin-bottom: 0;
+#previous_runs a {
+  margin: auto 2.5pt;
+  vertical-align: middle;
+  line-height: 35pt;
 }
 #speakers > div {
   margin-left: auto;
@@ -397,7 +453,7 @@ nav {
 
 
 #schedule > p {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-size: 18pt;
   font-weight: lighter;
 }
@@ -427,7 +483,7 @@ nav {
   padding-top: 17pt;
 }
 #schedule table strong {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 #schedule td {
   border-right: 2px solid white;
@@ -440,35 +496,31 @@ nav {
 
 
 
+/*
 #venue a:hover, #feedback a:hover {
   color: @[] + dark_red + @[];
 }
-#venue a:link, #feedback a:link {
-  font-weight: bolder;
-}
+*/
 #venue {
   padding: 0;
   margin: 0;
 }
 #venue > p {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-weight: 300;
   font-size: 12.4pt;
   line-height: 20pt;
 }
 #map_div {
-  width: 100%;
-  height: 280px;
+  height: 232pt;  @[] + #{ to hide the .section bottom padding #} @[]
   overflow: hidden;
   position: relative;
   margin: 0 auto;
 }
-#map_div > img {
+#map_div img {
   min-width: 100%;
-  width: 1862px;
   padding: 0;
   margin: 20pt 0 0 0;
-  vertical-align: middle;
   position: absolute;
   transform: translate(-50%, 0);
 }
@@ -511,7 +563,8 @@ nav {
   padding: 0;
   bottom: 0;
   width: 100%;
-  border-top: solid @[] + dark_red + @[] 2pt;
+  border-top: solid white 3pt;
+  border-bottom: solid white 3pt;
   vertical-align: middle;
   text-align: center;
   background: none repeat scroll 0 0 white;
@@ -520,7 +573,7 @@ nav {
 
 
 #footer {
-  margin: 0 0 46px 0;  /* 44px +2*3px -2px */
+  margin: 0 0 51px 0;  /* 44px +2*3px -2px */
   padding: 0;
 }
 #footer > * {
@@ -530,7 +583,7 @@ nav {
 #footer * {
   background-color: @[] + dark_grey + @[];
   color: white;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-size: 6pt;
 }@[]
   )

@@ -33,60 +33,34 @@ routine visitor_about(
     body {
       text(_html_top_stripe)
 
+      # dummy div to move stripe colors by one
+      #div(style='margin: 0; padding: 0; height: 0') { }
+      #div(style='margin: 0; padding: 0; height: 0') { }
+
       div(id='previous_runs') {
         h3(_class='section') { t['previous_runs'] }
-        paragraph(_class='narrow_paragraph') { t['previous_runs_content'] }
-      }
-
-      div {
-        h3(_class='section') { t['conference'] }
-        paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
-
-        h4 { t['propagation'] }
-        paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_conf'] }
-        div(_class='propagation') {
-          #anchor(href=cu.banner_print) {
-          #  img(_class='img_example', src=rel(ci.banner_print),
-          #      alt=rel(ci.banner_print), title=cu.banner_print)
-          #}
-          anchor(href=cu.logo_oa_conf) {
-            img(_class='img_example', src=rel(ci.logo_oa_conf),
-                alt=rel(ci.logo_oa_conf), title=cu.logo_oa_conf)
-          }
-          #anchor(href=cu.banner_web) {
-          #  img(_class='img_example', src=rel(ci.banner_web),
-          #      alt=rel(ci.banner_web), title=cu.banner_web)
-          #}
-          #anchor(href=cu.qr_oa_conf) {
-          #  img(_class='img_example', src=rel(ci.qr_oa_conf),
-          #      alt=rel(ci.qr_oa_conf), title=cu.qr_oa_conf)
-          #}
-          anchor(href=cu.graph_man_oa_conf) {
-            img(_class='img_example', src=rel(ci.graph_man_oa_conf),
-                alt=rel(ci.graph_man_oa_conf), title=cu.graph_man_oa_conf)
-          }
+        div(_class='narrow_paragraph') {
+          span { } # dummy helper
+          img(src=rel(ci.logo_oa_conf_lscape), alt=rel(ci.logo_oa_conf_lscape),
+                   title=rel(ci.logo_oa_conf_lscape))
+          text(t['previous_runs_oa'])
         }
-
-        #h3(_class='section') { t['organization'] }
-        #paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
-
-        #h4 { t['propagation'] }
-        #paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_org'] }
-        #div(_class='propagation') {
-        #  anchor(href=cu.logo_oa_org) {
-        #    img(_class='img_example', src=rel(ci.logo_oa_org),
-        #        alt=rel(ci.logo_oa_org), title=cu.logo_oa_org)
-        #  }
-        #  #anchor(href=cu.qr_oa_org) {
-        #  #  img(_class='img_example', src=rel(ci.qr_oa_org),
-        #  #      alt=rel(ci.qr_oa_org), title=cu.qr_oa_org)
-        #  #}
-        #  anchor(href=cu.graph_man_oa_org) {
-        #    img(_class='img_example', src=rel(ci.graph_man_oa_org),
-        #        alt=rel(ci.graph_man_oa_org), title=cu.graph_man_oa_org)
-        #  }
-        #}
+        div(_class='narrow_paragraph') {
+          span { } # dummy helper
+          img(src=rel(ci.logo_la_conf), alt=rel(ci.logo_la_conf),
+                   title=rel(ci.logo_la_conf))
+          text(t['previous_runs_la'])
+        }
+        div(_class='narrow_paragraph') {
+          span { } # dummy helper
+          img(src=rel(ci.logo_om_conf), alt=rel(ci.logo_om_conf),
+                   title=rel(ci.logo_om_conf))
+          text(t['previous_runs_om'])
+        }
       }
+
+'<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobilní aplikace</a><br/>
+<a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobilní aplikace</a>',
 
       text(_html_footer)
     }

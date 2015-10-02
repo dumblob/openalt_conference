@@ -67,19 +67,29 @@ routine visitor_home(
         paragraph { t['visitor_asterisk1'] }
       }
 
-#      if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
+      if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
         div(id='thanks') {
           h3(_class='section') { t['thanks'] }
           #paragraph(_class='narrow_paragraph') { t['thank_you'] }
           paragraph(_class='narrow_paragraph') { 'Ma tady tato sekce s podekovanim vubec byt? Na hlavni strance totiz jiz jedno celkove, velke podekovani mame.' }
         }
+      }
+
+      div {
+        h3(_class='section') { t['conference'] }
+        paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
+      }
+
+#      div(id='social_networks') {
+#        #h3(_class='section') { t[''] }
+#        h3(_class='section') { 'Novinky ze socialnich siti' }
+#        #paragraph(_class='narrow_paragraph') { t[''] }
+#        paragraph(_class='narrow_paragraph') { 'V teto sekci budou blbiny ze socialnich siti.' }
 #      }
 
-      div(id='social_networks') {
-        #h3(_class='section') { t[''] }
-        h3(_class='section') { 'Novinky ze socialnich siti' }
-        #paragraph(_class='narrow_paragraph') { t[''] }
-        paragraph(_class='narrow_paragraph') { 'V teto sekci budou blbiny ze socialnich siti.' }
+      div {
+        h3(_class='section') { t['contact'] }
+        paragraph(_class='narrow_paragraph') { t['contact_openalt_content'] }
       }
 
       text(_html_footer)

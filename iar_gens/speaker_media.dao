@@ -10,6 +10,5 @@ routine speaker_media(
     invar dst: string,
     invar pages: map<string, string>,
     invar groups: IarGroup) => none {
-      # FIXME speaker top_stripe
   iar::visitor_media(iar_name, path, trans, dst, pages, groups)
 }

@@ -10,6 +10,5 @@ routine speaker_about(
     invar dst: string,
     invar iars: map<string, string>,
     invar groups: IarGroup) => none {
-      # FIXME top stripe
   iar::visitor_about(iar_name, path, trans, dst, iars, groups)
 }

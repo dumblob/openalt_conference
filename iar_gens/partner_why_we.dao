@@ -34,32 +34,29 @@ routine partner_why_we(
       text(_html_top_stripe)
 
       div {
-        h3(_class='section') { t['conference'] }
-        paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
+        h3(_class='section') { 'Proc podporit' }
+        paragraph(_class='narrow_paragraph') { '
+* co prinese otevrenost firme?<br>
+* co prinese spoluprace s nami firme_male/firme_velke/instituci/atd.<br>'
+        }
+      }
 
-        h4 { t['propagation'] }
-        paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_conf'] }
-        div(_class='propagation') {
-          #anchor(href=cu.banner_print) {
-          #  img(_class='img_example', src=rel(ci.banner_print),
-          #      alt=rel(ci.banner_print), title=cu.banner_print)
-          #}
-          anchor(href=cu.logo_oa_conf) {
-            img(_class='img_example', src=rel(ci.logo_oa_conf),
-                alt=rel(ci.logo_oa_conf), title=cu.logo_oa_conf)
-          }
-          #anchor(href=cu.banner_web) {
-          #  img(_class='img_example', src=rel(ci.banner_web),
-          #      alt=rel(ci.banner_web), title=cu.banner_web)
-          #}
-          #anchor(href=cu.qr_oa_conf) {
-          #  img(_class='img_example', src=rel(ci.qr_oa_conf),
-          #      alt=rel(ci.qr_oa_conf), title=cu.qr_oa_conf)
-          #}
-          anchor(href=cu.graph_man_oa_conf) {
-            img(_class='img_example', src=rel(ci.graph_man_oa_conf),
-                alt=rel(ci.graph_man_oa_conf), title=cu.graph_man_oa_conf)
-          }
+      div {
+        h3(_class='section') { 'Co nabizime' }
+        paragraph(_class='narrow_paragraph') { '
+* vlastni stanek ve vestibulu (HR, produkty, atd.)
+* video prezentace na obrazovkach
+* ceny do slosovani (coz je sebe propagace)
+* moznost umisteni velkych rollup banneru
+* logo na video zaznamech
+* logo na webu
+* logo na plakatech o konferenci
+* logo na mensich informacnich materialech (letacky apod.) o konferenci
+* tuzky/blocky/... (bud osobne rozdavat pred fakultou a/nebo prilozit ke vstupnimu balicku)
+* prednaska o open* je jako sleva
+* logo na kavovych kelimcich (Rebelbean)
+* banner vedle kavoveho stanku
+* poskytnuti nenahraditelnych veci/materialu/sluzeb'
         }
 
         #h3(_class='section') { t['organization'] }

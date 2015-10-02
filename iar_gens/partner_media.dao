@@ -1,14 +1,14 @@
 load lib import lib
-load visitor_venue
+load visitor_media
 
-namespace iar { speaker_venue }
+namespace iar { partner_media }
 
-routine speaker_venue(
+routine partner_media(
     invar iar_name: string,
     invar path: string,
     invar trans: Locale,
     invar dst: string,
     invar pages: map<string, string>,
     invar groups: IarGroup) => none {
-  iar::visitor_venue(iar_name, path, trans, dst, pages, groups)
+  iar::visitor_media(iar_name, path, trans, dst, pages, groups)
 }

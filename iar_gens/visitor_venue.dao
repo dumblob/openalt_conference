@@ -33,6 +33,9 @@ routine visitor_venue (
     body {
       text(_html_top_stripe)
 
+      # dummy
+      div(style='margin: 0; padding: 0; height: 0') { }
+
       div(id='venue') {
         h3(_class='section') { t['venue'] }
         paragraph {
@@ -44,18 +47,201 @@ routine visitor_venue (
           }
         }
         div(id='map_div') {
-          img(src=rel(ci.venue),
-              alt=t['venue'] + ': ' +
-                conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E',
-              title=t['venue'] + ': ' +
-                conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E')
+          # FIXME hard-coded link (use interactive OSM map instead)
+          anchor(href='http://www.openstreetmap.org/?mlat=49.22643&mlon=16.59630#map=19/49.22643/16.59630') {
+            img(src=rel(ci.map_city),
+                alt=t['venue'] + ': ' +
+                  conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E',
+                title=t['venue'] + ': ' +
+                  conf.coord_gps_n + '°N, ' + conf.coord_gps_e + '°E')
+          }
         }
       }
 
-#      div {
-#        h3(_class='section') { t['contact'] }
-#        paragraph(_class='narrow_paragraph') { t['contact_openalt_content'] }
-#      }
+      div {
+        h3(_class='section') { 'Doprava' }
+        div(_class='narrow_paragraph') {
+          # 'Pěšky, šalinou, autobusem, vlakem, letadlem...'
+@[]
+<h4 class="entry-title">Directions to FIT</h4>
+
+		<div class="entry-content">
+			<p><a href="http://www.fit.vutbr.cz/FIT/location/index.php.en"><img class="aligncenter wp-image-63 size-full" src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2014/06/FIT.jpeg" alt="FIT" width="640" height="448" /></a></p>
+<p><a style="color: #9f9f9f;" href="http://www.fit.vutbr.cz/FIT/map/fit1.php">Map of the campus</a><br />
+<a style="color: #9f9f9f;" href="http://www.mapy.cz/?query=Bo%C5%BEet%C4%9Bchova%201/2">Zoomable plan</a></p>
+<p><a href="#address">Address</a><br />
+<a href="#addressCzech">Address in Czech</a><br />
+<a href="#description">Description in Czech</a></p>
+<p><a href="#byPlane">By plane</a><br />
+<a href="#byCar">By car</a><br />
+<a href="#byTram">By tram</a></p>
+<p><a href="#accommodation">Accommodation</a></p>
+<hr />
+<p><a name="address"></a></p>
+<h5>Address:</h5>
+<p>Faculty of Information Technology<br />
+Brno University of Technology,<br />
+Bozetechova 1, 612 66 Brno, Czech Republic<br />
+Tel: +420 5 41141284 Fax: +420 5 41141270<br />
+<a href="http://www.fit.vutbr.cz/FIT/location/index.php.en">http://www.fit.vutbr.cz/FIT/location/index.php.en</a></p>
+<p><a name="addressCzech"></a></p>
+<h5>Address in Czech:</h5>
+<p>Fakulta informacnich technologii<br />
+Vysoke uceni technicke v Brne<br />
+Bozetechova 1, 612 66 Brno<br />
+Tel: +420 5 41141284 Fax: +420 5 41141270<br />
+<a href="http://www.fit.vutbr.cz">http://www.fit.vutbr.cz</a><br />
+<a href="http://www.fit.vutbr.cz/FIT/location/">http://www.fit.vutbr.cz/FIT/location/</a></p>
+<p><a name="description"></a></p>
+<h5>Description in Czech</h5>
+<p>(in case you need to show it to someone speaking just Czech) &#8211; show the person the address above and the following comments:</p>
+<ul>
+<li>Brno &#8211; Kralovo Pole</li>
+<li>&#8220;Kadetka&#8221; Vysokeho uceni technickeho.</li>
+<li>byvaly kartuziansky klaster, vedle kralovopolskeho kostela</li>
+<li>200 m pod Semilassem a kousek od Kralovopolskeho nadrazi</li>
+</ul>
+<p>&nbsp;</p>
+<p><a name="byPlane"></a></p>
+<h5>By plane</h5>
+<p>Brno has an international <a href="http://www.brno-airport.cz/en/">airport</a> situated 7.5km from the centre of the city. The international airports in Prague and Vienna, which are served by most airlines, have a good bus connection served by <a href="http://www.studentagency.eu/">Student Agency</a> buses.</p>
+<ul>
+<li><strong>Airport Brno-Tuřany</strong> &#8211; You will find all flight information at <a href="http://www.brno-airport.cz/en/">www.brno-airport.cz</a>. To/From the Airport Brno you can get very simply from the very centre of the City of Brno in the day and night with <a>Public Transport</a>.</li>
+<li><strong>Airport Prague-Ruzyně (200km)</strong> &#8211; You can use bus connection from Ruzyne to Brno with <a href="http://www.studentagency.eu/">Student Agency</a> buses (recommended). The bus station can be find directly at the terminal. Note that you must change buses at the bus station Florenc in Prague, but you buy only one ticket for the whole trip at the airport.</li>
+<li><strong>Airport Vienna-Schwechat (130km)</strong> &#8211; We also recommend to use <a href="http://www.studentagency.eu/">Student Agency</a> buses. You can find the bus station directly at the terminal and it will get you to Brno.</li>
+<li><strong>Airport Bratislava (120km)</strong> &#8211; Brno can be reached by bus, car or train. But you have to travel from airport to city center to get the bus or train.</li>
+</ul>
+<p><a name="byCar"></a></p>
+<h5>By car</h5>
+<p>Enter &#8220;Bozetechova 1, Brno&#8221; to your navigation. If it does not know the address, try &#8220;Bozetechova 2, Brno&#8221;.</p>
+<h6>From Prague</h6>
+<ol>
+<li>On D1, take the 1st Brno exit: Brno-zapad (Brno-west).</li>
+<li>Go straight ahead, you will pass through a tunnel. At the exit from the tunnel, follow the signs &#8220;Svitavy&#8221;.</li>
+<li>Go straight ahead, the road will shrink to 2-lane when going around the river, then become 4-lane again. Follow &#8220;Svitavy&#8221; all the time.</li>
+<li>When coming to the 2nd tunnel, stay in the right lane. At the end,  follow &#8220;Svitavy&#8221; &#8211; this will make you do a right turn and then a U-turn.</li>
+<li>Take the first exit following the U-turn. At the top of the ramp (traffic lights), turn left. On the next lights, go straight ahead, on the next ones &#8211; to the right. You are now on Bozetechova, the new FIT building is on your left, the old one (monastery) is on your right.</li>
+<li>Take the 1st left (Metodejova street) and immediately left &#8211; this is the entrance of FIT underground parking.</li>
+</ol>
+<h6>From Vienna</h6>
+<p>FIT is located in &#8220;Kralovo Pole&#8221; at the north of Brno, which means exactly opposite direction to Vienna. This itinerary describes a bit longer, but surely faster way around Brno rather than through the center.</p>
+<ol>
+<li>After the sign &#8216;Brno&#8217;, continue a few kilometers until you see highway signs &#8216;Praha&#8217; &#8211; E50, D1.</li>
+<li>Take the highway exit &#8216;Praha&#8217; (involves a 270 degree turn).</li>
+<li>Go a few kilometers west on the D1 highway, take the 1st exit: Brno-zapad (Brno-west).</li>
+<li>Continue from point 2. above in the directions for Prague.</li>
+</ol>
+<h6>Parking at FIT</h6>
+<p>At the entrance of underground parking:</p>
+<ol>
+<li>call someone at FIT to announce that you&#8217;re arrived and that you&#8217;ll need to be picked from the underground parking. It&#8217;s important to call someone BEFORE you enter the underground parking &#8211; you need employee card to get to the building and there is no phone and bad mobile phone signal, so you risk to get locked there (actually, there IS a way out &#8211; just go to the gate, and push the big white button &#8211; no need to have a card ;-) )</li>
+<li>Ring the bell &#8220;Vratnice&#8221;, this will connect you to the reception.</li>
+</ol>
+<p><a name="byTram"></a></p>
+<h5>By tram</h5>
+<ol>
+<li>Get ticket: 20 CZK ticket in a Tobacco shop (Tabak) or yellow vending machines at stops &#8211; it is good for 15 minute ride, which is well enough. Stamp it once in the tram. Tickets can be bought also from drivers but you need exact change and they&#8217;re a bit more expensive. For longer trips in Brno, get 25 CZK tickets, that are valid for 60 minutes.</li>
+<li>From main train station (Hlavni nadrazi) to FIT: take tram No. 1 in front of the station, direction Reckovice. Get off at stop &#8216;Semilasso&#8217;.</li>
+<li>Go a bit back and go downhill (street Metodejova) some 200m. You&#8217;ll have a baroque church in front of you. The nice new building on your right side is FIT, the entrance is some 50m on your right.</li>
+</ol>
+<p><img class="alignnone size-medium wp-image-76" src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2014/06/map_grs-300x300.png" alt="map_grs" width="300" height="300" /></p>
+<p><a name="accommodation"></a></p>
+<h5>Accommodation</h5>
+<p>We recommend you to arrange accommodation in <a href="http://www.continentalbrno.cz/en/introduction.html">Hotel Continental</a>.</p>
+<p><img class="alignnone size-medium wp-image-77" src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2014/06/map_continental-300x300.png" alt="map_continental" width="300" height="300" /></p>
+<p>From the Hotel you need to get to the tram stop at “Moravske namesti” (approximately 300m) and there take tram No. 1 in the direction of “Reckovice” or tram No. 6 in the direction of “Kralovo Pole”. You will need a 15-minute tram ticket in the amount of CZK 20.</p>
+</div><!-- .entry-content -->
+@[]
+        }
+        img(_class='narrow_paragraph', src=rel(ci.fit_vutbr_building),
+            alt=t['fit_vutbr_building'], title=t['fit_vutbr_building'])
+        img(_class='narrow_paragraph', src=rel(ci.map_campus),
+            alt=t['map_campus'], title=t['map_campus'])
+      }
+
+      div {
+        h3(_class='section') { 'Ubytování' }
+        div(_class='narrow_paragraph') {
+          #'Couch surfing, hotel, kolej, office...'
+@[]
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Speakers that have an accepted talk or workshop (not a lightning talk) will have free accommodation in the Avanti hotel or the A-Sport hostel during the conference from Thursday to Monday. </p>
+<h5 class="large_header"><strong>1. Avanti<sup>****</sup></strong></h5>
+<p>We have a good long term relationship with the Avanti hotel and have already prebooked rooms there for speakers. The hotel is close to the venue and provides a lot of opportunities for relaxation (jacuzzi - with pressure and bubble massage, Finnish sauna and aroma sauna, Scottish shower, solar meadow, reflexology zone, heated benches and floors). </p>
+<p style="padding-left: 30px;">The special prices for guests and speakers of the conference (breakfast included) is:</p>
+<ul style="padding-left: 30px;"><ul><li>1.700 CZK (~65 EUR) per night for a double bed room</li>
+<li>1.500 CZK (~55 EUR) per night for a single bed room </li>
+</ul></ul><p>You can visit the official website of the hotel <a href="http://www.brno-hotel-avanti.eu/">here</a>.</p>
+<p><img src="http://www.brno-hotel-avanti.eu/picture/gallery/01-hotelavanti/details/01.jpg" alt="Avanti hotel" data-cke-saved-src="http://www.brno-hotel-avanti.eu/picture/gallery/01-hotelavanti/details/01.jpg" /></p>
+<h5 class="large_header"><strong>2. A-sport<sup>***</sup></strong></h5>
+<p>Next to the Red Hat offices at Cervinkova (FBCI&amp;II) is the A-Sport hotel. This hotel is a particularly good choice if you will be visiting the Red Hat offices.  We have also prebooked accomodation for speakers here. </p>
+<p style="padding-left: 30px;">The special prices for guests and speakers of the conference (breakfast included) is:</p>
+<ul><ul><li>1.190 CZK (~45 EUR) per night for a double bed room</li>
+<li>890 CZK (~33 EUR) per night for a single bed room.</li>
+</ul></ul><p>You can visit the official website of the hotel <a href="%20http://www.a-sporthotel.cz/en/">here</a>. </p>
+<h5> </h5>
+<h5>OTHER OPTIONS OF ACCOMMODATION </h5>
+<ul><li><a href="http://www.vista-hotel.cz/homepage/">Hotel Vista ***</a></li>
+</ul><p> We also recommend Hotel Vista ***, which is located 2 tram stops from the venue. This hotel has newly refurbished double bedrooms with <strong>free Internet and breakfast</strong>.</p>
+<p>The special rate for conference attendees is 1.190 Kč (~42 EUR/50 USD) for a single room, and 1.330 Kč (~47 EUR/55 USD) for a double-bed room, and 1.650 Kč (~59 EUR/69 USD) for an apartment per night. There is free wi-fi, restaurant services and wellness services.(~59 EUR/69 USD). </p>
+<p>The above rates are inclusive of: hot buffet breakfast, wi-fi internet access throughout the hotel, parking on the hotel parking. Please mention the reservation password for DevConf.cz attendees<em>, "DEVCONF 2016"</em>.</p>
+<ul><li>
+<p><a href="http://www.hibrno.cz/en/">Holiday Inn Brno ****</a></p>
+</li>
+</ul><p>Holiday Inn Brno is a modern hotel located within walking distance from the historic city centre and offers comfortable accommodation in category 4 * Superior.</p>
+<p>The special prices for guests and speakers of the conference is 1 550 CZK (~57 EUR/64 USD) per night for a double room (for one person) and 1 950 CZK (~72 EUR/81 USD) per night for a double room (for two people). The price includes: a buffet breakfast, A/C, Internet, entry to the Relax Zone with a Finnish sauna and the MiniGym. </p>
+<p>The above rates are inclusive of: Internet, individually controlled A/C, coffee and tea service, pillowmenu - choice of several types of pillows, minibar and safe, bathrobes and slippers, entry to the rooftop Relax Zone (Finnish sauna with outdoor cooling, Minigym). Parking is available on 24h guarded hotel parking lot. The hotel also offers rich buffet breakfast with local delicacies and culinary experiences in the "open kitchen" of Restaurant Prominent and beautiful views of the Spilberk Castle from the rooftop Relax Zone. To make a reservation, e-mail<strong> <a href="mailto:reservations@hibrno.cz">reservations@hibrno.cz</a></strong> or phone  <strong>+420 543 122 018-019</strong>. Please mention the reservation password for DevConf.cz attendees<em>, "DEVCONF 16"</em>.</p>
+<ul><li><a href="http://www.continentalbrno.cz/en/introduction.html" data-cke-saved-href="http://www.continentalbrno.cz/en/introduction.html">Continental</a> ****</li>
+</ul><p>Another option is hotel Continental. This four-star hotel is situated in a quiet part of the town, near the historic centre. The hotel offers modern rooms with lovely views over Brno. There are non-smoking and smoking floors, and also one barrier free room. There is free unlimited wifi and cable internet connection.</p>
+<p>There is a special rate for conference attendees. 1488 CZK (~55 EUR/62 USD) per night for a single economy-class room, 1955 CZK (~72 EUR/82 USD) per night for a double economy-class room, 1870 CZK (~69 EUR/78 USD) per night for a single superior-class room, 2210 CZK (~82 EUR/92 USD) per night for a double superior-class room. For these prices, please mention the reservation password<em> "Red Hat"</em>.</p>
+<p> </p>
+<p>For further information please contact <a href="mailto:mjedlick@redhat.com">mjedlick@redhat.com</a></p>
+</div></div></div>
+@[]
+        }
+      }
+
+      div {
+        h3(_class='section') { 'O&nbsp;Brnu' }
+        div(_class='narrow_paragraph') {
+          #'Moravské město, vínko, otevřená atmosféra, kultura, nejsilněší sektor je IT, ...'
+@[]
+<h4 class="entry-title">About Brno</h1>
+
+<div class="entry-content">
+<div dir="ltr">
+<p>Brno is a proud city of 400&#8217;000 people and 7 universities, and although it&#8217;s called &#8220;The last village before Vienna&#8221;, it&#8217;s certainly worth making a detour to enjoy its quirky atmosphere.</p>
+<h5><a href="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/jostova_ulice_kostel_sv_tomase_web_610.jpg"><img class=" wp-image-341 size-full alignnone" src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/jostova_ulice_kostel_sv_tomase_web_610.jpg" alt="jostova_ulice_kostel_sv_tomase_web_610" width="610" height="405" /></a></h5>
+<h5>History and Architecture</h5>
+<p>Being a little over 1000 years old, the centre of Brno has a fortified castle <a href="http://www.spilberk.cz/" target="_blank">Špilberk (9:00 to 17:00 every day)</a>, and many old Romanesque, Gothic, Baroque and Rococo churches which are beautifully maintained. <a href="http://www.svatyjakubbrno.wz.cz/DATA/hlavni/jakub.php?stranka=prohlidka.html" target="_blank">St Jacob&#8217;s church (11:00 &#8211; 18:00 every day)</a>, for instance, is built on Europe&#8217;s second largest ossuary (after Paris), a part of which is open to visitors <a href="http://www.gotobrno.cz/en/the-ossuary-of-st-james-church" target="_blank">(9:30 to 18:00, Tuesday to Sunday)</a>. Between the towers from the middle ages, cosmopolitan buildings in the heart of the city are either in the style of Secession glamour and Functionalist experiments, with monumental facades dotted with statues on even the simplest houses.</p>
+<div id="attachment_340" style="width: 433px" class="wp-caption alignright"><a href="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/vila_tugendhat_-_pamatka_unesco_1.jpg"><img class="wp-image-340 " src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/vila_tugendhat_-_pamatka_unesco_1.jpg" alt="Villa Tugendhat" width="423" height="282" /></a><p class="wp-caption-text">Functionalist Villa Tugendhat from 1930 is a UNESCO site, so book your visit well in advance at <a href="http://www.tugendhat.eu/en/">tugendhat.eu</a></p></div>
+<p>Brno has 3 main theatres, along with at least 5 minor ones with a focus on specific underground genres. The old Austro-Hungarian <a href="http://www.ndbrno.cz/about-us/mahen-theatre" target="_blank">Mahen Theatre (plays, concerts, and operas daily from September to June)</a> is the first in Europe to be electrified, in 1882. A short walk away stands the modernist Janáček Theatre. For current plays, see <a href="https://goout.cz/en/theatre/brno/">goout.cz</a></p>
+<p>Brno has also been subject to 50 years of Soviet-style socialism, leaving us with over a hundred <a href="https://en.wikipedia.org/wiki/Panel%C3%A1k"><span lang="cs" xml:lang="cs">blocks of flats</span></a>. For a tour, simply take tram 3 to terminus Bystrc &#8211; Ečerova, tram 8 to either terminus, or <a href="https://translate.google.com/translate?sl=cs&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;u=http%3A%2F%2Fwww.katedrala-petrov.cz%2Findex.php%2Fcz%2Foteviraci-doba-info&amp;edit-text=&amp;act=url">climb the tower of Petrov</a> to see how they surround the city.</p>
+<h5>The people, then and now</h5>
+<p>Brno is the birthplace and home town to a number of famous composers, thinkers, scientists, and authors. Did you know that Ernst Mach, Kurt Gödel, Gregor Mendel, or Milan Kundera are from Brno? Even today, scientists and artists from Brno have impact far beyond our little town.</p>
+<div id="attachment_343" style="width: 513px" class="wp-caption aligncenter"><a href="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/korona.jpg"><img class="wp-image-343 size-full" src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/korona.jpg" alt="Miloslav Druckmüller's Corona" width="503" height="335" /></a><p class="wp-caption-text">Miloslav Druckmüller, a professor at Brno University of Technology, captured this corona.</p></div>
+<p>Because of the large student population, parts of the city have a young and vibrant atmosphere. Pleasant cafés like <a href="https://www.facebook.com/CafeTungsram">Tungsram</a>, <a href="http://www.spolek.net/kontakt">Spolek</a>, or the roof of <a href="https://translate.google.com/translate?sl=cs&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;u=http%3A%2F%2Fwww.mistogalerie.cz%2F&amp;edit-text=&amp;act=url">Místogalerie Sklenick</a> provide a glimpse into the endless relaxed afternoon of Brno. The city is also dotted with hidden tea houses, which have a rich history authentic traditional tea drinking and shisha smoking, such as <a href="http://www.probuzenyslon.cz/kontakt/">The Awakened Elephant</a> or <a href="http://www.chajovna.cz/kontakt/">Chajovna</a>.</p>
+<p>The city also has laid back artistic quarters, which sprung up from illegal worker&#8217;s colonies in disused quarries. The streets in <a href="http://www.openstreetmap.org/?mlat=49.183233&amp;mlon=16.585948&amp;zoom=16#map=16/49.1832/16.5859">Kamenka</a>, too small for cars, make a pleasant walk on a sunny day.</p>
+<p>Brno also hosts the <a href="http://www.automotodrombrno.cz/en/">MotoGP</a> every year, and has famously lively hockey supporters (<a href="https://www.ticketportal.cz/genre.aspx?id=51">matches march to april</a>). There are districts which were built in quarries or illegally in parks, and have become part of the unusual folklore or the city with their artists and strange existences.</p>
+<h5>Planning your visit</h5>
+<p>Public transport is very reliable, with trams going from the remote Soviet residential complexes through town and all the way to the <a href="http://www.gotobrno.cz/en/brno-resevoir" target="_blank">reservoir</a>, getting around during the day without a car is easy. From 8 april to 11 october the reservoir is served by regular boat service, which will take you under the <a href="http://www.veveri.cz/en/">Veveří castle</a>, where you can hop off for a visit. This is a great way to spend the afternoon with kids.</p>
+<div id="attachment_347" style="width: 635px" class="wp-caption alignnone"><a href="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/kapucinska_hrobka.jpg"><img class="wp-image-347 size-large" src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/kapucinska_hrobka-1024x768.jpg" alt="kapucinska_hrobka" width="625" height="469" /></a><p class="wp-caption-text">The Capuchin Crypt on Kapucínské Náměstí. Open April to October Mon-Sat: 9-18 h Sun: 11-17, November to March Mon-Sat: 10-16 h Sun: 11-16.30 h</p></div>
+<p>Brno has a beautiful <a href="http://www.zoobrno.cz/en">zoo</a> worth visiting, and many indoor and outdoor swimming pools, such as <a href="http://www.kravihora-brno.cz/en/swimming-pools/outdoor-swimming-pools/outdoor-swimming-pools">Kraví Hora</a>, with a beautiful view. For little explorers, we have the family science center <a href="http://vida.cz/english/">VIDA</a>, the <a href="http://www.technicalmuseum.cz/lang/en/">Technical Museum</a> which displays the heyday of Czech technical manufacture of the inter-war years, and the acclaimed <a href="http://www.hvezdarna.cz/?page_id=28">Observatory and Planetarium</a>.</p>
+<h5>Eating and Drinking</h5>
+<p>In Czech, we say that we&#8217;re &#8220;going to get one&#8221;, meaning we&#8217;re going for one beer. But with beer as good as Czech Lagers, it&#8217;s hard to stop at just one. You can find out why Czech Republic has the largest beer consumption per capita in many of the beer-houses. Some are fancy, and you can go there for a meal, such as <a href="http://www.kolkovna.cz/en/stopkova-plzenska-pivnice-16">Stopkova,</a> <a href="http://www.useminaru.cz/index.php">u Semináru</a>, or <a href="http://www.hotelpegas.cz/hotel-pegas-brno-welcome-page/">Pegas</a>, while others offer nothing but excellent beer, such as <a href="http://www.vycepnastojaka.cz/en/">na Stojáka</a> or <a href="https://translate.google.com/translate?sl=cs&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;u=http%3A%2F%2Fwww.toulavykocour.cz%2F&amp;edit-text=">Toulavý Kocour</a>. <a href="https://translate.google.com/translate?sl=cs&amp;tl=en&amp;js=y&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;u=http%3A%2F%2Fwww.zelenakocka.cz%2Fkontakt-pivarium.php&amp;edit-text=">Pivárium</a> has a wide and ever-changing selection on tap, for true connoisseurs. To see character-building filth and get an authentic 19th century pub experience, visit <a href="https://www.facebook.com/pivniceupoutnika">Poutník</a> or <a href="https://www.facebook.com/NaBozence">Na Božence</a> near the Faculty of Information Technology.</p>
+<div id="attachment_350" style="width: 640px" class="wp-caption alignnone"><a href="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/DMK3b08bb_163157_2865399.jpg"><img class="size-full wp-image-350" src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/DMK3b08bb_163157_2865399.jpg" alt="Stopkova on Česká" width="630" height="356" /></a><p class="wp-caption-text">Stopkova on Česká street</p></div>
+<p>Brno is also the capital of Southern Moravia, where we are very proud of our wines. You can taste these in dozens of wineries across the city, such as the fancy <a href="http://petit-cru.cz/">Petit Cru</a>, or the excellent and down-to-earth <a href="http://www.vinotekautriknizat.cz/fotogalerie/vinoteka-u-tri-knizat.html">U Tří Knížat</a>.</p>
+<p>For truly fancy dining at a fraction of the price in France or the US, visit <a href="http://www.labouchee.cz/en/intro">la Bouchée</a>, or <a href="http://www.borgoagnese.cz/en/">Borgo Agnese</a>, the best restaurant in the city.</p>
+<p>Finally, you can go to the restaurant where drinks are delivered directly to your table by a little train at <a href="http://www.vytopna.cz/brno-starobrnenska/?lang=en">Výtopna</a>.</p>
+<h5>Shopping and Souvenirs</h5>
+<p>Just walking around the center of town, from the main station to Česká, you will see many bookstores, clothes shops, and toy stores. <a href="http://www.barvic-novotny.cz/prodejny/barvic-a-novotny-ceska">Barvič a Novotný</a> is a beautiful Austro-Hungarian bookstore, surrounded by clothes shops. Nearby is <a href="http://www.luta.cz/">Luta</a>, which offers a wide variety of traditional hand-made goods, which make great souvenirs to bring back home. There is also a little shop with a great selection of all kinds of puzzles of various complexities on the main square (Náměstí Svobody).</p>
+<div id="attachment_348" style="width: 635px" class="wp-caption alignnone"><a href="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/77109646.jpg"><img class="wp-image-348" src="http://vgs-it.fit.vutbr.cz/wp-content/uploads/2015/06/77109646.jpg" alt="The toy store on the left side of this building on the main square has a nice selection of puzzles for all ages." width="625" height="542" /></a><p class="wp-caption-text">The toy store on the left side of this building on the main square has a nice selection of puzzles for all ages.</p></div>
+<p>All in all, Brno has a lot to offer, including a lot of things you won&#8217;t see anywhere else. So make the most of it while you are here for the VGS Invited Talks.</p>
+<p>We hope to see you at the next VGS, and that you&#8217;ll enjoy your time in Brno as much as we do!</p>
+</div>
+</div><!-- .entry-content -->
+@[]
+        }
+      }
 
       text(_html_footer)
     }

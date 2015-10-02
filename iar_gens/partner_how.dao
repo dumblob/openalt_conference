@@ -36,23 +36,46 @@ routine partner_how(
       text(_html_top_stripe)
 
       div {
-        h3(_class='section') { t['gallery'] }
-
-        if (my_time.time.now() >= conf.time_from) {
-          # FIXME
-          paragraph {
-            anchor(href='http://www.root.cz/galerie/openalt-2014-sobota/') {
-              'root.cz/galerie/openalt-2014-sobota/'
-            }
-          }
-          paragraph {
-            anchor(href='http://www.root.cz/galerie/openalt-2014-nedele/') {
-              'root.cz/galerie/openalt-2014-nedele/'
-            }
-          }
+        h3(_class='section') { 'Urovne/varianty partnerstvi' }
+        paragraph(_class='narrow_paragraph') { '
+obsah z Akademy (PRELOZIT!)
+<br>- https://akademy.kde.org/2015/sponsors
+<br>- https://akademy.kde.org/2015/sponsoring
+<br>- https://akademy.kde.org/sites/akademy.kde.org/files/2015/SponsorshipBrochureAkademy2015.pdf (zejmena str. 6; Co chceme a co muzeme nabidnout sponzorum - viz. strana 7 pdf).
+<br>
+<br>General partner
+<br>"nenechte se omezovat"
+<br> >= 60000 CZK
+<br>
+<br>Gold partners
+<br>"přímé náborové aktivity"
+<br> >= 30000 CZK
+<br>
+<br>Silver partners
+<br>"přístup ke kvalifikovaným IT expertùm"
+<br> >= 10000 CZK nebo první cena do slosování
+<br>
+<br>Bronze partners
+<br>"základní propagace subjektu"
+<br> >= 5000 CZK
+<br>
+<br>Supporters
+<br>"malá propagace subjektu"
+<br>nefinanční dary (do slosování, poskytnutí potřebných věcí/naturálií/služeb, pomoc s organizací, apod.)
+<br>
+<br>Café nebo catering sponzor
+<br>"láska prochází žaludkem"
+<br> >= 50000 CZK'
         }
-        else {
-          #paragraph { t['gallery_empty'] }
+      }
+
+      div {
+        h3(_class='section') { 'Rozsirene moznosti partnerstvi' }
+        paragraph(_class='narrow_paragraph') { '
+Vitame vase napady. Stani se partnerem neni podmineno financnim svazkem. Nabizime i partnerstvi na bazi
+<br>* naturalii
+<br>* sluzeb
+<br>ci kombinaci vyse uvedenych.'
         }
       }
 

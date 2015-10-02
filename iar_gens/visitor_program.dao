@@ -36,10 +36,9 @@ routine visitor_program(
       text(_html_top_stripe)
 
       # dummy div to move stripe colors by one
-      div(style='margin: 0; padding: 0; height: 0') { }
-      div(style='margin: 0; padding: 0; height: 0') { }
+      #div(style='margin: 0; padding: 0; height: 0') { }
 
-#      if (my_time.time.now() >= conf.time_show_sched) {
+      if (my_time.time.now() >= conf.time_show_sched) {
         div(id='schedule') {
           h3(_class='section') { t['schedule'] }
 
@@ -175,7 +174,9 @@ routine visitor_program(
             }
           }
         }
-#      }
+      }
+
+      #div(style='margin: 0; padding: 0; height: 0') { }
 
       put_event = routine(invar e: tuple<name:string, event:Event>) {
         return div(_class='event') {
@@ -186,8 +187,8 @@ routine visitor_program(
           }
 
           if (e.event.kind == $workshop) {
-            paragraph(_class='participation_reqs') { t['participation_reqs'] }
-            paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
+            paragraph(_class='event_reqs') { t['participation_reqs'] }
+            paragraph(_class='event_desc') { e.event.trans[trans].requirements }
           }
 
           # icons
@@ -219,44 +220,74 @@ routine visitor_program(
           #   anything in a fixed manner - only loops over existing data
           #   (CSS should be also generated from the data in the DB)
 
-          div(_class='track_tips') {
-            h4        { t['track_tips'] }
-            paragraph { t['track_tips_desc'] }
-            for (e in events_satisfying(participants, $talk, $tips)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_tips') {
+              div(_class='circle') { }  # CSS circle
+              div(_class='track') {
+                h4        { t['track_tips'] }
+                paragraph { t['track_tips_desc'] }
+              }
+              for (e in events_satisfying(participants, $talk, $tips)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
 
-          div(_class='track_world_around') {
-            h4        { t['track_world_around'] }
-            paragraph { t['track_world_around_desc'] }
-            for (e in events_satisfying(participants, $talk, $world_around)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_world_around') {
+              div(_class='circle') { }  # CSS circle
+              div(_class='track') {
+                h4        { t['track_world_around'] }
+                paragraph { t['track_world_around_desc'] }
+              }
+              for (e in events_satisfying(participants, $talk, $world_around)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
 
-          div(_class='track_security') {
-            h4        { t['track_security'] }
-            paragraph { t['track_security_desc'] }
-            for (e in events_satisfying(participants, $talk, $security)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_security') {
+              div(_class='circle') { }  # CSS circle
+              div(_class='track') {
+                h4        { t['track_security'] }
+                paragraph { t['track_security_desc'] }
+              }
+              for (e in events_satisfying(participants, $talk, $security)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
 
-          div(_class='track_challenges') {
-            h4        { t['track_challenges'] }
-            paragraph { t['track_challenges_desc'] }
-            for (e in events_satisfying(participants, $talk, $challenges)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_challenges') {
+              div(_class='circle') { }  # CSS circle
+              div(_class='track') {
+                h4        { t['track_challenges'] }
+                paragraph { t['track_challenges_desc'] }
+              }
+              for (e in events_satisfying(participants, $talk, $challenges)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
 
-          div(_class='track_establishment') {
-            h4        { t['track_establishment'] }
-            paragraph { t['track_establishment_desc'] }
-            for (e in events_satisfying(participants, $talk, $establishment)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_establishment') {
+              div(_class='circle') { }
+              div(_class='track') {
+                h4        { t['track_establishment'] }
+                paragraph { t['track_establishment_desc'] }
+              }
+              for (e in events_satisfying(participants, $talk, $establishment)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
         }
       }
@@ -269,44 +300,74 @@ routine visitor_program(
         h3(_class='section') { t['workshops'] }
 
         div(id='workshops') {
-          div(_class='track_tips') {
-            h4        { t['track_tips'] }
-            paragraph { t['track_tips_desc'] }
-            for (e in events_satisfying(participants, $workshop, $tips)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_tips') {
+              div(_class='circle') { }
+              div(_class='track') {
+                h4        { t['track_tips'] }
+                paragraph { t['track_tips_desc'] }
+              }
+              for (e in events_satisfying(participants, $workshop, $tips)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
 
-          div(_class='track_world_around') {
-            h4        { t['track_world_around'] }
-            paragraph { t['track_world_around_desc'] }
-            for (e in events_satisfying(participants, $workshop, $world_around)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_world_around') {
+              div(_class='circle') { }
+              div(_class='track') {
+                h4        { t['track_world_around'] }
+                paragraph { t['track_world_around_desc'] }
+              }
+              for (e in events_satisfying(participants, $workshop, $world_around)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
 
-          div(_class='track_security') {
-            h4        { t['track_security'] }
-            paragraph { t['track_security_desc'] }
-            for (e in events_satisfying(participants, $workshop, $security)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_security') {
+              div(_class='circle') { }
+              div(_class='track') {
+                h4        { t['track_security'] }
+                paragraph { t['track_security_desc'] }
+              }
+              for (e in events_satisfying(participants, $workshop, $security)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
 
-          div(_class='track_challenges') {
-            h4        { t['track_challenges'] }
-            paragraph { t['track_challenges_desc'] }
-            for (e in events_satisfying(participants, $workshop, $challenges)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_challenges') {
+              div(_class='circle') { }
+              div(_class='track') {
+                h4        { t['track_challenges'] }
+                paragraph { t['track_challenges_desc'] }
+              }
+              for (e in events_satisfying(participants, $workshop, $challenges)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
 
-          div(_class='track_establishment') {
-            h4        { t['track_establishment'] }
-            paragraph { t['track_establishment_desc'] }
-            for (e in events_satisfying(participants, $workshop, $establishment)) {
-              put_event(e)
+          div {
+            div(_class='narrow_paragraph track_establishment') {
+              div(_class='circle') { }
+              div(_class='track') {
+                h4        { t['track_establishment'] }
+                paragraph { t['track_establishment_desc'] }
+              }
+              for (e in events_satisfying(participants, $workshop, $establishment)) {
+                put_event(e)
+              }
             }
+            div(_class='clear_float') {}
           }
         }
       }
@@ -335,128 +396,3 @@ routine visitor_program(
     }
   })
 }
-
-#routine workshops(
-#    invar iar_name: string,
-#    invar path: string,
-#    invar trans: Locale,
-#    invar dst: string,
-#    invar pages: map<string, string>) => none {
-#  html5 = io.open(path, 'w')
-#  defer { html5.close() }
-#
-#  # just convenient shortcuts
-#  invar cu = conf.uri
-#  invar ci = conf.img
-#  invar t = translations[trans]
-#
-#  rel = routine(invar target: string) { mkrel(dst, target) }
-#
-#  # FIXME it should be somehow allowed to run fragment{} from document{}
-#  _html_head = html_head(trans, dst, pages)
-#  _html_top_stripe = html_top_stripe($visitor, iar_name, trans, dst, pages)
-#  _html_footer = html_footer(trans, dst)
-#
-#  html5.write(document {
-#    text(_html_head)
-#
-#    body {
-#      text(_html_top_stripe)
-#
-#      div {
-#        h3(_class='section') { t['workshops'] }
-#
-#        if (my_time.time.now() >= conf.time_show_sched) {
-#          div(id='workshops') {
-#
-#            div(_class='track_tips') {
-##              h4        { t['track_tips'] }
-##              paragraph { t['track_tips_desc'] }
-#              for (e in events_satisfying(participants, $workshop, $tips)) {
-#                div(_class='event') {
-#                  paragraph(_class='event_title') { e.event.trans[trans].name }
-#                  paragraph(_class='participant_name') { e.name }
-#                  paragraph(_class='event_desc') {
-#                    e.event.trans[trans].description
-#                  }
-#                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
-#                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
-#                }
-#              }
-#            }
-#
-#            div(_class='track_world_around') {
-#              h4        { t['track_world_around'] }
-#              paragraph { t['track_world_around_desc'] }
-#              for (e in events_satisfying(participants, $workshop, $world_around)) {
-#                div(_class='event') {
-#                  paragraph(_class='event_title') { e.event.trans[trans].name }
-#                  paragraph(_class='participant_name') { e.name }
-#                  paragraph(_class='event_desc') {
-#                    e.event.trans[trans].description
-#                  }
-#                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
-#                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
-#                }
-#              }
-#            }
-#
-#            div(_class='track_security') {
-#              h4        { t['track_security'] }
-#              paragraph { t['track_security_desc'] }
-#              for (e in events_satisfying(participants, $workshop, $security)) {
-#                div(_class='event') {
-#                  paragraph(_class='event_title') { e.event.trans[trans].name }
-#                  paragraph(_class='participant_name') { e.name }
-#                  paragraph(_class='event_desc') {
-#                    e.event.trans[trans].description
-#                  }
-#                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
-#                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
-#                }
-#              }
-#            }
-#
-#            div(_class='track_challenges') {
-#              h4        { t['track_challenges'] }
-#              paragraph { t['track_challenges_desc'] }
-#              for (e in events_satisfying(participants, $workshop, $challenges)) {
-#                div(_class='event') {
-#                  paragraph(_class='event_title') { e.event.trans[trans].name }
-#                  paragraph(_class='participant_name') { e.name }
-#                  paragraph(_class='event_desc') {
-#                    e.event.trans[trans].description
-#                  }
-#                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
-#                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
-#                }
-#              }
-#            }
-#
-#            div(_class='track_establishment') {
-#              h4        { t['track_establishment'] }
-#              paragraph { t['track_establishment_desc'] }
-#              for (e in events_satisfying(participants, $workshop, $establishment)) {
-#                div(_class='event') {
-#                  paragraph(_class='event_title') { e.event.trans[trans].name }
-#                  paragraph(_class='participant_name') { e.name }
-#                  paragraph(_class='event_desc') {
-#                    e.event.trans[trans].description
-#                  }
-#                  paragraph(_class='participation_reqs') { t['participation_reqs'] }
-#                  paragraph(_class='event_reqs') { e.event.trans[trans].requirements }
-#                }
-#              }
-#            }
-#
-#          }
-#        }
-#        else {
-#          #paragraph { t['workshops_empty'] }
-#        }
-#      }
-#
-#      text(_html_footer)
-#    }
-#  })
-#}

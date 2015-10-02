@@ -22,16 +22,19 @@ var translations = {
     'partner_home' -> 'Partner',
     'partner_who' -> 'Kdo jsme',
     'partner_why_we' -> 'Proč my',
+    'partner_media' -> 'Média',
     'partner_benefits' -> 'Nabídka',
     'partner_how' -> 'Jak na to',
     'speaker_home' -> 'Přednášející',
-    'speaker_benefits' -> 'Výhody',
-    'speaker_about' -> 'O&nbsp;konferenci',
+    'speaker_benefits' -> 'Nabízíme',
+    #'speaker_about' -> 'O&nbsp;konferenci',
+    'speaker_about' -> 'Historie',
     'speaker_media' -> 'Média',
     'speaker_venue' -> 'Místo konání',
     'visitor_home' -> 'Návštěvník',
     'visitor_program' -> 'Program',
-    'visitor_about' -> 'O&nbsp;konferenci',
+    #'visitor_about' -> 'O&nbsp;konferenci',
+    'visitor_about' -> 'Historie',
     'visitor_media' -> 'Média',
     'visitor_venue' -> 'Místo konání',
     'feed' -> 'kanál RSS s konferenčními aktualitami a změnami na tomto webu',
@@ -46,7 +49,8 @@ var translations = {
     # FIXME registrace
     #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
     #'motivation' -> 'Staňte se i Vy součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
-    'motivation' -> 'Open-source, open-mind a open-hardware konference.',
+    #'motivation' -> 'Open-source, open-mind a open-hardware konference.',
+    'motivation' -> 'Otevřeným přístupem k otevřené společnosti.',
     'motivation_thanks' -> 'Děkujeme za účast na na desátém pokračování brněnské open-source, open-mind a open-hardware konference!',
 #    'looking_for' -> "Hledáme:",
     'speaker' -> 'Přednášející',
@@ -102,27 +106,25 @@ Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registračn
     'visitor_registration' -> 'Dobrovolná <a href="' + conf.uri.reg_visitor + '">registrace</a> účastníků.',
     'speaker_register' -> 'Registrace',
     #'visitor_register_tip' -> 'Mám tip na<br/>téma/osobu',
-    'visitor_register_tip' -> 'Navrhnout téma',
+    'visitor_register_tip' -> 'Navrhnout téma<sup></sup>',
     'visitor_register_tip_tooltip' -> 'Víte-li o něčem/někom koho byste rádi viděli přednášet nebo vést dílnu, podělte se. Krom hřejivého pocitu na vás čeká konferenční tričko a unikátní blikátko za kvalitní tip (viz. kritéria v&nbsp;odkazovaném formuláři)!',
     'visitor_asterisk1' -> '<sup>*</sup>registrace je dobrovolná',
-    'previous_runs' -> 'Předchozí ročníky konference',
-    'previous_runs_content' -> '
-OpenAlt:
-  <a href="http://openalt.cz/2014">2014</a> <br/>
-LinuxAlt:
-  <a href="http://www.linuxalt.cz/2013">2013</a>,
-  <a href="http://www.linuxalt.cz/2012">2012</a>,
-  <a href="http://www.linuxalt.cz/2011">2011</a>,
-  <a href="http://www.linuxalt.cz/2010">2010</a>,
-  <a href="http://www.linuxalt.cz/2009">2009</a>,
-  <a href="http://www.linuxalt.cz/2008">2008</a>,
-  <a href="http://www.linuxalt.cz/2007">2007</a>,
-  <a href="http://www.linuxalt.cz/2006">2006</a>
-  <br/>
-Openmobility:
-  <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>,
-  <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>,
-  <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>,
+    'previous_runs' -> 'Předchozí ročníky',
+    'previous_runs_oa' -> '
+  <a href="http://openalt.cz/2014">2014</a>',
+    'previous_runs_la' -> '
+  <a href="http://www.linuxalt.cz/2013">2013</a>
+  <a href="http://www.linuxalt.cz/2012">2012</a>
+  <a href="http://www.linuxalt.cz/2011">2011</a>
+  <a href="http://www.linuxalt.cz/2010">2010</a>
+  <a href="http://www.linuxalt.cz/2009">2009</a>
+  <a href="http://www.linuxalt.cz/2008">2008</a>
+  <a href="http://www.linuxalt.cz/2007">2007</a>
+  <a href="http://www.linuxalt.cz/2006">2006</a>',
+    'previous_runs_om' -> '
+  <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>
+  <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>
+  <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>
   <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>',
 #    'previous_runs' -> 'Předchozí ročníky:
 #<a href="http://openalt.cz/2014">OA2014</a>,
@@ -142,7 +144,7 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'gallery' -> 'Fotogalerie',  # Fotografie
 #    'gallery_empty' -> 'Žádné fotografie ještě nejsou k&nbsp;dispozici. Okolo ' + conf.time_from.format('%-d.%-m.') + ' by se zde měly objevit!',
 #    'downloads' -> 'Ke stažení',
-#    'contact' -> 'Kontakt',
+    'contact' -> 'Kontakt',
     'contact_openalt_content' ->
 'Organizátorem konference je <a href="http://openalt.org/kontakt">OpenAlt&nbsp;z.&nbsp;s.</a><br>' +
 #Spolek vznikl registrací městským soudem v&nbsp;Praze k&nbsp;1.&nbsp;1.&nbsp;2014 pod spisovou značkou <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L&nbsp;22154</a><br>
@@ -155,8 +157,9 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 #Jakékoliv jiné dotazy (o&nbsp;našich aktivitách, atd.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br><br>
 #Telefon: +420 910 117 377<br><br>
 
-'<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobilní aplikace</a><br/>
-<a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobilní aplikace</a>',
+#'<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobilní aplikace</a><br/>
+#<a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobilní aplikace</a>',
+'',
     'speakers' -> 'Přednášející',
     'registered_speakers' -> 'Přihlášení přednášející',
 #    'partners' -> 'Partneři',
@@ -206,11 +209,14 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #    'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
     'feedback' -> 'Ohlasy v&nbsp;médiích',
     'gps_coordinates' -> 'GPS souřadnice',
+    'fit_vutbr_building' -> 'FIT VUTBR',
+    'map_campus' -> 'Mapa kampusu.',
 
 
 
     'partner_register_mailto' -> 'mailto:partner@openalt.cz?subject=%C5%BD%C3%A1dost%20o%20partnerstv%C3%AD&body=V%C3%A1%C5%BEen%C3%AD%20z%20OpenAlt%20z.s.%2C%0A%0Ar%C3%A1di%20bychom%20se%20stali%20partnerem%20Va%C5%A1%C3%AD%20konference%20OpenAlt.%20Kontaktujte%20n%C3%A1s%20pros%C3%ADm%20prost%C5%99ednictv%C3%ADm%20n%C4%9Bkter%C3%A9ho%20z%20n%C3%A1sleduj%C3%ADc%C3%ADch%20kan%C3%A1l%C5%AF%3A%0A%0AEmail%3A%0Aatd.%0A%0AS%20pozdravem%2C%0A%0AJm%C3%A9no%0A',
-    'partner_register' -> 'Požádat o partnerství',
+    #'partner_register' -> 'Požádat o partnerství',
+    'partner_register' -> 'Stát se partnerem',
   },
 #                                    $en -> {
 #                                      '_locale' -> 'en_US.UTF-8',  # locale -a
@@ -222,16 +228,19 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                      'partner_home' -> 'Partner',
 #                                      'partner_who' -> 'Who are we',
 #                                      'partner_why_we' -> 'Why we',
+#                                      'partner_media' -> 'Media',
 #                                      'partner_benefits' -> 'Benefits',
 #                                      'partner_how' -> 'Become a partner',
 #                                      'speaker_home' -> 'Speaker',
 #                                      'speaker_benefits' -> 'Benefits',
-#                                      'speaker_about' -> 'About',
+#                                      #'speaker_about' -> 'About',
+#                                      'speaker_about' -> 'History',
 #                                      'speaker_media' -> 'Media',
 #                                      'speaker_venue' -> 'Venue',
 #                                      'visitor_home' -> 'Visitor',
 #                                      'visitor_program' -> 'Program',
-#                                      'visitor_about' -> 'About',
+#                                      #'visitor_about' -> 'About',
+#                                      'visitor_about' -> 'History',
 #                                      'visitor_media' -> 'Media',
 #                                      'visitor_venue' -> 'Venue',
 #                                      'feed' -> 'RSS channel for conference news and changes on this web',
@@ -246,7 +255,8 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                      # FIXME registrace
 #                                      #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registration">Become a part</a> of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
 #                                      #'motivation' -> 'Become a part of the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
-#                                      'motivation' -> 'Open-source, open-mind and open-hardware conference.',
+#                                      #'motivation' -> 'Open-source, open-mind and open-hardware conference.',
+#                                      'motivation' -> 'With open attitude to open society.',
 #                                      'motivation_thanks' -> 'Thank you for taking part on the tenth proceeding of the Brno open-source, open-mind and open-hardware conference!',
 #                                  #    'looking_for' -> "We're looking for:",
 #                                      'speaker' -> 'Speaker',
@@ -291,27 +301,25 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                      'visitor_registration' -> 'Voluntary <a href="' + conf.uri.reg_visitor + '">registration</a> of attendees.',
 #                                      'speaker_register' -> 'Register',
 #                                      #'visitor_register_tip' -> 'I&nbsp;have a&nbsp;tip for<br/>a&nbsp;topic/person',
-#                                      'visitor_register_tip' -> 'Propose a&nbsp;topic',
+#                                      'visitor_register_tip' -> 'Propose a&nbsp;topic<sup></sup>',
 #                                      'visitor_register_tip_tooltip' -> "If you know about a topic/someone who you'd like to see as a speaker or a workshop leader, let us know. Except for the sweet feeling, you'll also get a conference t-shirt and a unique flashing light for a very good tip (see the link target for criteria)!",
 #                                      'visitor_asterisk1' -> '<sup>*</sup>registration is voluntary',
-#                                      'previous_runs' -> 'Previous runs of the conference',
-#                                      'previous_runs_content' -> '
-#                                  OpenAlt:
-#                                    <a href="http://openalt.cz/2014">2014</a> <br/>
-#                                  LinuxAlt:
-#                                    <a href="http://www.linuxalt.cz/2013">2013</a>,
-#                                    <a href="http://www.linuxalt.cz/2012">2012</a>,
-#                                    <a href="http://www.linuxalt.cz/2011">2011</a>,
-#                                    <a href="http://www.linuxalt.cz/2010">2010</a>,
-#                                    <a href="http://www.linuxalt.cz/2009">2009</a>,
-#                                    <a href="http://www.linuxalt.cz/2008">2008</a>,
-#                                    <a href="http://www.linuxalt.cz/2007">2007</a>,
-#                                    <a href="http://www.linuxalt.cz/2006">2006</a>
-#                                    <br/>
-#                                  Openmobility:
-#                                    <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>,
-#                                    <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>,
-#                                    <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>,
+#                                      'previous_runs' -> 'Previous runs',
+#                                      'previous_runs_oa' -> '
+#                                    <a href="http://openalt.cz/2014">2014</a>'
+#                                      'previous_runs_oa' -> '
+#                                    <a href="http://www.linuxalt.cz/2013">2013</a>
+#                                    <a href="http://www.linuxalt.cz/2012">2012</a>
+#                                    <a href="http://www.linuxalt.cz/2011">2011</a>
+#                                    <a href="http://www.linuxalt.cz/2010">2010</a>
+#                                    <a href="http://www.linuxalt.cz/2009">2009</a>
+#                                    <a href="http://www.linuxalt.cz/2008">2008</a>
+#                                    <a href="http://www.linuxalt.cz/2007">2007</a>
+#                                    <a href="http://www.linuxalt.cz/2006">2006</a>',
+#                                      'previous_runs_oa' -> '
+#                                    <a href="http://www.openmobility.eu/konference/om2013/program/">2013</a>
+#                                    <a href="http://www.openmobility.eu/konference/om2012/program/">2012</a>
+#                                    <a href="http://www.openmobility.eu/konference/openmobility-konference-2011/program/">2011</a>
 #                                    <a href="http://www.openmobility.eu/konference/openmobility-konference-2010-0/program/">2010</a>',
 #                                  #    'previous_runs' -> 'Previous runs of the OpenAlt (formerly LinuxAlt) conference:
 #                                  #<a href="http://openalt.cz/2014">OA2014</a>,
@@ -331,7 +339,7 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                      'gallery' -> 'Gallery',
 #                                  #    'gallery_empty' -> 'There are no pictures yet. They should appear here around ' + conf.time_from.format('%-d.%-m.') + ' Stay tuned!',
 #                                  #    'downloads' -> 'Downloads',
-#                                  #    'contact' -> 'Contact',
+#                                      'contact' -> 'Contact',
 #                                      'contact_openalt_content' -> 'The conference organizer is <a href="http://openalt.org/">OpenAlt&nbsp;z.&nbsp;s.</a><br>' +
 #                                  #registered at the City Court Prague on 1.&nbsp;1.&nbsp;2014 under the ID <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L 22154</a><br>
 #                                  #IČO: 22848037<br>
@@ -343,8 +351,9 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                  #Any other questions (about our activities, etc.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br>
 #                                  #Phone call: +420 910 117 377<br><br>
 #                                  
-#                                  '<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a><br/>
-#                                  <a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
+#                                  #'<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobile APP</a><br/>
+#                                  #<a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobile APP</a>',
+#                                  '',
 #                                      'speakers' -> 'Speakers',
 #                                      'registered_speakers' -> 'Registered speakers',
 #                                  #    'partners' -> 'Partners',
@@ -396,6 +405,8 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                  #    'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
 #                                      'feedback' -> 'Responses and testimonials',
 #                                      'gps_coordinates' -> 'GPS coordinates',
+#                                      'fit_vutbr_building' -> 'FIT VUTBR',
+#                                      'map_campus' -> 'Campus map.',
 #                                  
 #                                  
 #                                  
@@ -414,14 +425,30 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 }
 
 var feedback: list<FeedbackPiece> = {
-  # 2012
-  #('Jiří Eischmann (z <a href="http://www.linuxexpres.cz/blog/jaky-byl-linuxalt-2012-myma-ocima">Jaký byl LinuxAlt 2012 mýma očima</a>)', '"Myslím, že velkou zásluhu na slušné návštěvnosti druhého dne měla přednáška Mira Hrončoka o 3D tiskárně, která byla lákadlem letošního ročníku. 3D tiskárny jsou prostě in."'),
-  #(none, '<a href="http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/">LinuxAlt 2012, sobota: Firefox, kalendáře a DNS</a>'),
-  #(none, '<a href="http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/">LinuxAlt 2012, neděle: 3D tisk, SSH a Nagios</a>'),
+  #('(z <a href=""></a>)', '„“'),
 
   # 2014
-  #('Brněnští Toastmástři (z <a href="http://www.projevse.cz/clanky/moderujeme-openalt">Moderujeme OpenAlt!</a>)', '"Je nám ctí oznámit, že se náš klub aktivně zapojí do dění konference OpenAlt 2014 ..."'),
-  #('Pavel Cvrček (z <a href="http://www.mozilla.cz/zpravicky/mozilla-na-letosnim-openaltu-v-brne/">Mozilla na letošním OpenAltu v Brně</a>)', '"Pro letošek jsme si pro vás připravili přednášku o fungování projektu Mozilla na lokální úrovni, kde jsme shrnuli naše dosavadní zkušenosti."'),
+  ('Brněnští Toastmástři (z <a href="http://www.projevse.cz/clanky/moderujeme-openalt">Moderujeme OpenAlt!</a>)', '„Je nám ctí oznámit, že se náš klub aktivně zapojí do dění konference OpenAlt 2014 ...“'),
+  #('Jozef Mlích (z <a href="http://media.rozhlas.cz/_download/3247816.mp3">pořadu Leonardo</a> v&nbsp;Českém Rozhlasu)', '„__zde je nejaka zajimava citace z poradu CR Leonardo__“'),
+  ('Pavel Cvrček (z <a href="http://www.mozilla.cz/zpravicky/mozilla-na-letosnim-openaltu-v-brne/">Mozilla na letošním OpenAltu v Brně</a>)', '„Pro letošek jsme si pro vás připravili přednášku o fungování projektu Mozilla na lokální úrovni, kde jsme shrnuli naše dosavadní zkušenosti.“'),
+
+  # 2013
+  ('David Kolibáč (z <a href="https://www.abclinuxu.cz/clanky/openmobility-2013">abclinuxu.cz/clanky/openmobility-2013</a>)', '„Letošní ročník konference Openmobility se konal o prvním dubnovém víkendu poprvé za českými hranicemi, a to v Bratislavě. Program trošku netradičně obsahoval přednášky nejen vysloveně vývojářské nebo o DIY elektronice, ale i obecně o hackerské komunitě nebo principech fungování např. mobilních sítí nebo GPS. Rozhodně to nebylo na škodu.“'),
+  ('Leon Anvi (z <a href="https://www.anavi.org/article/159/">anavi.org/article/159</a>)', '„The forth annual edition of Openmobility conference was held in Bratislava during the first weekend of April (6-7 April 2013). The conference took place at the Faculty of Electrical Engineering and Information Technology of Bratislava University of Technology. It attracted attention of developers from Central and Eastern Europe. Most of the presentations were in English although there were also some presentations in Czech and Slovak.“'),
+  ('Jozef Mlích (z <a href="http://joejoe.blog.root.cz/2013/04/11/openmobility-2013/">joejoe.blog.root.cz/2013/04/11/openmobility-2013</a>)', '„Daniel Vrátil přednášel o jazyce Qml a Qt Cascades. Vyřešil jeden z pro mně nejpalčivějších problémů programování s Cascades v Qt Creatoru. Blackberry oficiálně podporuje jen Momentics SDK, což je v podstatě trošku přihnuté Eclipse. Qt Creator sám o sobě nedoplňuje kód a programování v něm se stává velmi nepohodlné. Popsané řešení spočívá ve vygenerování hlavičkového souboru, který se přiloží do projektu.“'),
+
+  # 2012
+  ('Jiří Eischmann (z <a href="http://www.linuxexpres.cz/blog/jaky-byl-linuxalt-2012-myma-ocima">Jaký byl LinuxAlt 2012 mýma očima</a>)', '„Myslím, že velkou zásluhu na slušné návštěvnosti druhého dne měla přednáška Mira Hrončoka o 3D tiskárně, která byla lákadlem letošního ročníku. 3D tiskárny jsou prostě in.“'),
+  ('Kdo Ci (<a href="http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/">LinuxAlt 2012, sobota: Firefox, kalendáře a DNS</a>)', '„...“'),
+  ('Kdo Ci (z <a href="http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/">LinuxAlt 2012, neděle: 3D tisk, SSH a Nagios</a>)', '„...“'),
+
+  # 2011
+  ('Adam Saleh (z <a href="http://www.linuxexpres.cz/aktuality/linuxalt-2011-sobota">LinuxAlt 2011: Sobota v znamení mobilných zariadení</a>)', '„...“'),
+  ('Adam Saleh (z <a href="http://www.linuxexpres.cz/aktuality/linuxalt-2011-aj-nedela-sa-vydarila">LinuxAlt 2011: Aj nedeľa sa vydarila</a>)', '„...“'),
+
+  # 2010
+  ('Ing. Jozef Mlích (z <a href="http://joejoe.blog.root.cz/2010/11/09/linuxalt-2010/">joejoe.blog.root.cz/2010/11/09/linuxalt-2010/</a>)', '„Kromě zajímavých přednášek je linuxalt i o setkávání se s lidmi. Po dlouhé době jsem zase viděl spoustu známých tváří. S některými jsem měl čas si víc s některými míň. Taky jsem se konečně seznámil osobně s pár lidma, které jsem znal jenom virtuálně. Bylo tam i pár nových lidí, o kterých jsem před tím neměl ani tušení.“'),
+  ('Jan Hrach (z <a href="http://www.abclinuxu.cz/clanky/linuxalt-2010-na-tema-bezpecnosti-reportaz?page=1">abclinuxu.cz/clanky/linuxalt-2010-na-tema-bezpecnosti-reportaz</a>)', '„Letošní LinuxAlt se opět velmi vydařil, hlavně nedělní přednášky se mi velmi líbily.“'),
 }
 
 # fill empty translations with english terms (if not existing in en,

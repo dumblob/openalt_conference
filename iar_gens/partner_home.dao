@@ -50,15 +50,19 @@ routine partner_home(
     body {
       text(_html_top_stripe)
 
-      # full header (including buttons)
       div(id='header') {
         img(src=rel(ci.logo_oa_conf),
             alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
 
-        if (my_time.time.now() >= conf.time_show_sched) {
-          div(id='main_buttons') {
-            anchor(href=t['partner_register_mailto']) { t['partner_register'] }
-          }
+        div(id='main_buttons') {
+          anchor(href=t['partner_register_mailto']) { t['partner_register'] }
+        }
+      }
+
+      div {
+        h3(_class='section') { 'Brozura/letak' }
+        paragraph(_class='narrow_paragraph') { '
+Jak postupovat pro stani se nasim partnerem. Brozura obsahuje veskere informace ohledne nabidky a procesu stani se partnerem.'
         }
       }
 

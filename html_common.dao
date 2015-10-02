@@ -14,6 +14,7 @@ type LocalRefs = enum<
   partner_home,
   partner_who,
   partner_why_we,
+  partner_media,
   partner_benefits,
   partner_how,
   speaker_home,
@@ -37,6 +38,7 @@ invar html_local_refs: map<LocalRefs, tuple<
   $partner_home     -> ('partner_home',     ''),
   $partner_who      -> ('partner_who',      ''),
   $partner_why_we   -> ('partner_why_we',   ''),
+  $partner_media    -> ('partner_media',    ''),
   $partner_benefits -> ('partner_benefits', ''),
   $partner_how      -> ('partner_how',      ''),
   $speaker_home     -> ('speaker_home',     ''),
@@ -72,8 +74,8 @@ routine html_head(
     #   http://www.ietf.org/rfc/rfc1808.txt are resolved literally)
     base(href='')
     # FIXME why charset must be separately from http_eqiv?
-    meta(charset='utf-8')
-    meta(http_equiv=$content_type, content='text/html')
+    #meta(charset='utf-8')
+    meta(http_equiv=$content_type, content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width')
     meta(name='Keywords', content=conf.meta_keywords)
     meta(name='Description', content=conf.meta_description)
@@ -173,6 +175,7 @@ routine html_top_stripe(
             html_local_refs[$partner_home],
             html_local_refs[$partner_who],
             html_local_refs[$partner_why_we],
+            html_local_refs[$partner_media],
             html_local_refs[$partner_benefits],
             html_local_refs[$partner_how],
           }
@@ -218,18 +221,20 @@ routine html_top_stripe(
 
     div(_class='segment') {
       i = 0
-      for (invar lang in translations) {
-        if (i)
-          text(' / ')
-        else
-          ++i
+      if (%translations > 1) {
+        for (invar lang in translations) {
+          if (i)
+            text(' / ')
+          else
+            ++i
 
-        lang_str = ((string)lang[0])[1:]
-        if (lang[0] == trans)
-          strong(_class='lang_link') { lang_str }
-        else
-          anchor(_class='lang_link',
-                 href='../' + lang_str / pages[page_name]) { lang_str }
+          lang_str = ((string)lang[0])[1:]
+          if (lang[0] == trans)
+            strong(_class='lang_link') { lang_str }
+          else
+            anchor(_class='lang_link',
+                   href='../' + lang_str / pages[page_name]) { lang_str }
+        }
       }
     }
   }

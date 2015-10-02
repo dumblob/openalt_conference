@@ -6,7 +6,7 @@ load html_common import html_content
 
 namespace iar { partner_who }
 
-routine partner_who (
+routine partner_who(
     invar iar_name: string,
     invar path: string,
     invar trans: Locale,
@@ -34,54 +34,42 @@ routine partner_who (
       text(_html_top_stripe)
 
       div {
-        h3(_class='section') { t['conference'] }
-        paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
-
-        h4 { t['propagation'] }
-        paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_conf'] }
-        div(_class='propagation') {
-          #anchor(href=cu.banner_print) {
-          #  img(_class='img_example', src=rel(ci.banner_print),
-          #      alt=rel(ci.banner_print), title=cu.banner_print)
-          #}
-          anchor(href=cu.logo_oa_conf) {
-            img(_class='img_example', src=rel(ci.logo_oa_conf),
-                alt=rel(ci.logo_oa_conf), title=cu.logo_oa_conf)
-          }
-          #anchor(href=cu.banner_web) {
-          #  img(_class='img_example', src=rel(ci.banner_web),
-          #      alt=rel(ci.banner_web), title=cu.banner_web)
-          #}
-          #anchor(href=cu.qr_oa_conf) {
-          #  img(_class='img_example', src=rel(ci.qr_oa_conf),
-          #      alt=rel(ci.qr_oa_conf), title=cu.qr_oa_conf)
-          #}
-          anchor(href=cu.graph_man_oa_conf) {
-            img(_class='img_example', src=rel(ci.graph_man_oa_conf),
-                alt=rel(ci.graph_man_oa_conf), title=cu.graph_man_oa_conf)
-          }
+        h3(_class='section') { 'Kdo jsme' }
+        #paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
+        paragraph(_class='narrow_paragraph') { '
+          CILEM TOHOTO ODSTAVCE JE ZISKAT DUVERU PARTNERA V NAS (TEDY MJ. ZMINIT, ZE SE JEDNA JIZ O JUBILEJNI ROCNIK, ATD.)<br><br>
+Jsme spolek jehož cílem je
+- Podpora otevřených technologií, pořádání komunitních a osvětových
+akcí.
+- Podpora vývoje nového a vylepšování současného otevřeného hardware
+a software.
+- Podpora místních i některých zahraničních open source software a
+open design hardware projektů. Vice viz <a href="
+https://www.openalt.org/o-spolku"openalt.org</a>"'
         }
-
-        #h3(_class='section') { t['organization'] }
-        #paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
-
-        #h4 { t['propagation'] }
-        #paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_org'] }
-        #div(_class='propagation') {
-        #  anchor(href=cu.logo_oa_org) {
-        #    img(_class='img_example', src=rel(ci.logo_oa_org),
-        #        alt=rel(ci.logo_oa_org), title=cu.logo_oa_org)
-        #  }
-        #  #anchor(href=cu.qr_oa_org) {
-        #  #  img(_class='img_example', src=rel(ci.qr_oa_org),
-        #  #      alt=rel(ci.qr_oa_org), title=cu.qr_oa_org)
-        #  #}
-        #  anchor(href=cu.graph_man_oa_org) {
-        #    img(_class='img_example', src=rel(ci.graph_man_oa_org),
-        #        alt=rel(ci.graph_man_oa_org), title=cu.graph_man_oa_org)
-        #  }
-        #}
       }
+
+      #div {
+      #  h3(_class='section') { t['organization'] }
+      #  paragraph(_class='narrow_paragraph') { t['organization_about_content'] }
+
+      #  h4 { t['propagation'] }
+      #  paragraph(_class='narrow_paragraph') { t['propagation_hint_oa_org'] }
+      #  div(_class='propagation') {
+      #    anchor(href=cu.logo_oa_org) {
+      #      img(_class='img_example', src=rel(ci.logo_oa_org),
+      #          alt=rel(ci.logo_oa_org), title=cu.logo_oa_org)
+      #    }
+      #    #anchor(href=cu.qr_oa_org) {
+      #    #  img(_class='img_example', src=rel(ci.qr_oa_org),
+      #    #      alt=rel(ci.qr_oa_org), title=cu.qr_oa_org)
+      #    #}
+      #    anchor(href=cu.graph_man_oa_org) {
+      #      img(_class='img_example', src=rel(ci.graph_man_oa_org),
+      #          alt=rel(ci.graph_man_oa_org), title=cu.graph_man_oa_org)
+      #    }
+      #  }
+      #}
 
       text(_html_footer)
     }

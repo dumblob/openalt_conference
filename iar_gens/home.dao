@@ -99,12 +99,12 @@ routine home(
         div(_class='narrow_paragraph') { text(t['news_content']) }
       }
 
-#      if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
+      if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
         div(id='thanks') {
           h3(_class='section') { t['thanks'] }
           paragraph(_class='narrow_paragraph') { t['thank_you'] }
         }
-#      }
+      }
 
 #      div(id='previous_runs') {
 #        h3(_class='section') { t['previous_runs'] }
