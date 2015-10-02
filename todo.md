@@ -3,25 +3,21 @@ struktura + preklady/slovicka
 tvorba, preklady, korekce textu - David Kolibac
 
 exportovat z google sheet aktualni seznam prednasek s tracky (L. Koszegy to udrzuje)
-uvodni logo navazane na vysku displeje (320px je vyska mob. zarizeni)
-prvni pruh vzdy vysoky jako viewport (zvetsit datum + mezery vsude)
 na hlavni strance je mobilni menu sice prazdne, avsak s nenulovou vyskou
 seznam prednasek/workshopu
-    stridat barvy
     klikaci jmeno
     rozbalovaci popisek (zarovnany do bloku)
-anchor linky rozdelit na svetle a tmave pruhy
-ikony u prednasek/workshopu - pouzit ikonky z 2014 (https://openalt.cz/2014/events.html)? nebo jine open-source ikony (http://fontawesome.io/)
+anchor linky prebarvit do dvou variant - zvlast pro svetle a tmave pruhy
 mapa - pruh ma byt trochu vyssi a samotna mapa interaktivni embedded OSM (napr. http://leafletjs.com/ - JS statickou mapu vymeni az pri zobrazovani; tedy staticka mapa zustava, aby to fungovalo i bez JS)
-kvalitni (SVG) ikonka LinuxAlt
-pridat podlouhle logo OA do sekce media->propagace
 podsviceni socialnich tlacitek do cervena (nikoliv do modra)
 ikonky socialnich siti nejsou ve stejne vysce jako okolni text
 fixnout horní menu (mezirka mezi tlacitky)
 vytisknutelny schedule (tedy otestovat stavajici a pokud nevyhovuje, pak pridat "@media print")
-tombola (kontrola prijde) -> vyhlaseni ankety
+ikony u prednasek/workshopu - pouzit ikonky z 2014 (https://openalt.cz/2014/events.html)? nebo jine open-source ikony (http://fontawesome.io/)
 pridat galerii organizatoru (viz. http://www.barcampbrno.cz/2015/index.html)
-partneri: obsah z Akademy (PRELOZIT!) - https://akademy.kde.org/2015/sponsors, https://akademy.kde.org/2015/sponsoring, https://akademy.kde.org/sites/akademy.kde.org/files/2015/SponsorshipBrochureAkademy2015.pdf (zejmena str. 6). Co chceme a co muzeme nabidnout sponzorum (viz strana 7 pdf).
+tombola (kontrola prijde) -> vyhlaseni ankety
+pridat podlouhle logo OA do sekce media->propagace
+kvalitni (SVG) ikonka LinuxAlt
 
 
 
