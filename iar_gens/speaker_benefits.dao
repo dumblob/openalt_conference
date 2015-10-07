@@ -36,13 +36,21 @@ routine speaker_benefits(
       text(_html_top_stripe)
 
       div {
-        h3(_class='section') { 'Proč přednášet na OpenAltu?' }
+        # FIXME translate
+        #h3(_class='section') { 'Proč přednášet na OpenAltu?' }
+        #h3(_class='section') { 'Co přednášejícím a vedoucím dílen nabízíme?' }
+        h3(_class='section') { 'Co získáte?' }
         ul(_class='narrow_paragraph') {
-          li { 'Dostanete najíst.' }
-          li { 'Hosté z daleka obdrží příspěvek na cestu' }
-          li { 'Dostanete najíst.' }
-          li { 'Můžete prezentovat svoji praci.' }
-          li { 'Pokate se s ostatnimi odborniky v oboru.' }
+          li { 'možnost prezentovat zcela vlastní práci a výsledky' }
+          li { 'oběd (pravděpodobně pizza - jakákoliv/vegetariánská/veganská)' }
+          li { 'záznam přednášky s ISBN (přednášku lze tedy použít jako publikaci)' }
+          li { 'možnost vystavení certifikátu potvrzujícího účast jako přednášející na velké konferenci s tradicí (lze použít např. v životopisu)' }
+          li { 'možnost poskytnout referenci na LinkedIn' }
+          li { 'získání kontaktů na odborníky z oboru' }
+          li { 'získání cenných kontaktů na schopné odborníky z oblasti IT' }
+          li { 'zkušenost s přednášením na akademické půdě před větším množstvím lidí' }
+          li { 'příspěvek na cestu v případě dlouhé cesty (výše dle individuálních možností)' }
+          li { 'příjemný kolektiv' }
         }
       }
 

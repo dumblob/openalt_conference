@@ -3,12 +3,13 @@ struktura + preklady/slovicka
 tvorba, preklady, korekce textu - David Kolibac
 
 exportovat z google sheet aktualni seznam prednasek s tracky (L. Koszegy to udrzuje)
-na hlavni strance je mobilni menu sice prazdne, avsak s nenulovou vyskou
 seznam prednasek/workshopu
     klikaci jmeno
+        pridat trapny radkovy formular (hidden v defaultu) a nastylovat position:fixed
     rozbalovaci popisek (zarovnany do bloku)
 anchor linky prebarvit do dvou variant - zvlast pro svetle a tmave pruhy
 mapa - pruh ma byt trochu vyssi a samotna mapa interaktivni embedded OSM (napr. http://leafletjs.com/ - JS statickou mapu vymeni az pri zobrazovani; tedy staticka mapa zustava, aby to fungovalo i bez JS)
+na hlavni strance je mobilni menu sice prazdne, avsak s nenulovou vyskou
 podsviceni socialnich tlacitek do cervena (nikoliv do modra)
 ikonky socialnich siti nejsou ve stejne vysce jako okolni text
 fixnout horní menu (mezirka mezi tlacitky)
