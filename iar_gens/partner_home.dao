@@ -51,11 +51,13 @@ routine partner_home(
       text(_html_top_stripe)
 
       div(id='header') {
-        img(src=rel(ci.logo_oa_conf),
-            alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
+        div(id='header_inner') {
+          img(src=rel(ci.logo_oa_conf),
+              alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
 
-        div(id='main_buttons') {
-          anchor(href=t['partner_register_mailto']) { t['partner_register'] }
+          div(id='main_buttons') {
+            anchor(href=t['partner_register_mailto']) { t['partner_register'] }
+          }
         }
       }
 
