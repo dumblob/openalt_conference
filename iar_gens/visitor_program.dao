@@ -149,12 +149,24 @@ routine visitor_program(
 #              }
 #              else {
 #                table {
-#                  tr { th {}; places2.iterate { [place] th { place.id } } }
+#                  tr {
+#                    th {};
+#                    places2.iterate { [place]
+#                      th {
+#                        img(src=rel(ci.door), alt=place.id, title=place.id)
+#                        span { place.id }
+#                      }
+#                    }
+#                  }
 #
 #                  set.cell_lines.iterate { [cell_line]
 #                    tr {
 #                      # there is at least 1 cell
-#                      td { cell_line[0].event.from.format('%H:%M') }
+#                      td {
+#                        invar time = cell_line[0].event.from.format('%H:%M')
+#                        img(src=rel(ci.clock), alt=time, title=time)
+#                        span { time }
+#                      }
 #
 #                      cell_line.iterate { [cell]
 #                        # tight-loop to preserve order
