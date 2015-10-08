@@ -34,29 +34,59 @@ routine partner_why_we(
       text(_html_top_stripe)
 
       div {
-        h3(_class='section') { 'Proc podporit' }
-        paragraph(_class='narrow_paragraph') { '
-* co prinese otevrenost firme?<br>
-* co prinese spoluprace s nami firme_male/firme_velke/instituci/atd.<br>'
+        h3(_class='section') { 'Konference ve faktech' }
+        div(_class='narrow_paragraph') {
+'<ul>
+<li>600+ návštěvníků z řad profesionálů, vizionářů, odborné i laické veřejnosti, dobrovolníků, studenti, rodiče z dětmi</li>
+<li>70+ přednášek a praktických workshopů</li>
+<li>10 let tradice</li>
+<li>7 přednáškových sálů</li>
+</ul>'
         }
       }
 
       div {
-        h3(_class='section') { 'Co nabizime' }
-        paragraph(_class='narrow_paragraph') { '
-* vlastni stanek ve vestibulu (HR, produkty, atd.)
-* video prezentace na obrazovkach
-* ceny do slosovani (coz je sebe propagace)
-* moznost umisteni velkych rollup banneru
-* logo na video zaznamech
-* logo na webu
-* logo na plakatech o konferenci
-* logo na mensich informacnich materialech (letacky apod.) o konferenci
-* tuzky/blocky/... (bud osobne rozdavat pred fakultou a/nebo prilozit ke vstupnimu balicku)
-* prednaska o open* je jako sleva
-* logo na kavovych kelimcich (Rebelbean)
-* banner vedle kavoveho stanku
-* poskytnuti nenahraditelnych veci/materialu/sluzeb'
+        h3(_class='section') { 'Nabízíme' }
+        div(_class='narrow_paragraph') {
+'<ul>
+<li>vlastní stánek ve vestibulech (HR, produkty, atd.)</li>
+<li>video prezentace na obrazovkách</li>
+<li>ceny do slosování (sebepropagace)</li>
+<li>možnost umístění velkých rollup bannerů</li>
+<li>logo na video záznamech</li>
+<li>logo na webu</li>
+<li>logo na plakátech o konferenci</li>
+<li>logo na menších informačních materiálech (letáčky apod.) o konferenci</li>
+<li>tužky/bločky/... poskytnuté partnerem osobně rozdávané před fakultou a/nebo přiložené ke vstupnímu balíčku</li>
+<li>kvalitní přednáška s tématikou otevřenosti jako sleva</li>
+<li>separátní zvláštní poděkování na sociálních sítích (Facebook, Twitter, Diaspora) - partner má možnost navrhnout hrubý obsah tohoto příspěvku</li>
+<li>společné poděkování stříbrným partnerům (explicitně vyjmenovaným) na sociálních sítích (Facebook, Twitter, Diaspora)</li>
+<li>logo na kávových kelímcích (Rebelbean)</li>
+<li>banner vedle kávového stánku s kávou zdarma</li>
+<li>poskytnutí potřebných věcí/naturálií/služeb</li>
+</ul>'
+        }
+      }
+
+      div {
+        h3(_class='section') { 'Přínosy' }
+        div(_class='narrow_paragraph') {
+'<ul>
+<li><h4>Získejte nejlepší talenty</h4>
+Účastníci a přednášející na konferenci OpenAlt jsou přední odborníci v Česku i na celém světě. Partneři mají možnost nabídnout jim práci a získat hotové studnice znalostí.</li>
+<li><h4>Setkejte se s klíčovými hráči</h4>
+Kromě komunity OpenAlt je na konferenci široce zastoupeny různé projekty ze světa otevřené sféry.</li>
+<li><h4>Poznejte lidi</h4>
+Poznejte odborníky v oblasti různých open source technologií od vývoje operačních systémů, přes webové technologie až po programování jednočipů. Navažte kontakty s jednotlivci i organizacemi zabývajícími se otevřenými řešeními a veřejným prostorem.</li>
+<li><h4>Inspirujte se</h4>
+OpenAlt poskytuje vynikající prostředí shromažďování zpětné vazby k novým produktům ke vzniku nových myšlenek.</li>
+<li><h4>Ovlivněte plány budoucích produktů</h4>
+Na OpenAltu se diskutuje směr vývoje různých produktů ze světa otevřeného software. Toto je Vaše šance být první kdo se o nich dozví, diskutovat je a ovlivnit je.</li>
+<li><h4>Zviditelněte se</h4>
+Partnerství s nami vám dáva možnost zviditelnit se, oslovit exkluzivní přednáškou a proniknout do médií.</li>
+<li><h4>Prosazujte svobodné technologie a myšlenky</h4>
+Budete znamí tím, že podporujete svoboné a otevřené technologie a myšlenky. Spojete jméno vaší organizace s tradiční akcí s desetiletou historií.</li>
+</ul>'
         }
 
         #h3(_class='section') { t['organization'] }

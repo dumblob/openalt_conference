@@ -19,7 +19,7 @@ load iar_gens.home
 load iar_gens.rss
 load iar_gens.partner_benefits
 load iar_gens.partner_home
-load iar_gens.partner_how
+#load iar_gens.partner_how
 load iar_gens.partner_media
 #load iar_gens.partner_who
 load iar_gens.partner_why_we
@@ -48,7 +48,7 @@ invar iars = {
   'home'             -> 'home.html',
   'partner_benefits' -> 'partner_benefits.html',
   'partner_home'     -> 'partner_home.html',
-  'partner_how'      -> 'partner_how.html',
+#  'partner_how'      -> 'partner_how.html',
   'partner_media'    -> 'partner_media.html',
 #  'partner_who'      -> 'partner_who.html',
   'partner_why_we'   -> 'partner_why_we.html',
@@ -89,8 +89,8 @@ routine gen_iars(invar iars: map<string, string>, invar trans: lib.Locale) {
           return iar::partner_benefits(r[0], dst / r[1], trans, dst, iars, $partner) !!
         case 'partner_home'    :
           return iar::partner_home(    r[0], dst / r[1], trans, dst, iars, $partner) !!
-        case 'partner_how'     :
-          return iar::partner_how(     r[0], dst / r[1], trans, dst, iars, $partner) !!
+#        case 'partner_how'     :
+#          return iar::partner_how(     r[0], dst / r[1], trans, dst, iars, $partner) !!
         case 'partner_media'   :
           return iar::partner_media(   r[0], dst / r[1], trans, dst, iars, $partner) !!
 #        case 'partner_who'     :

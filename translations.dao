@@ -60,13 +60,13 @@ var translations = {
 
 
     'news' -> 'Aktuality',
-    'news_content' -> '<p>
+    'news_content' -> '
 <table>
-<tr><td>21.9.2015</td><td>Přihlašování přednášek bylo ukončeno.</td>
+<tr><td>21.9.2015</td><td>Přihlašování přednášek bylo ukončeno (nadále budou přijímány přednášky individuálně až do 5.10.2015).</td>
 <tr><td>7.9.2015</td><td>Uzávěrka <a href="' + conf.uri.prefix / 'cfp">Uzávěrka přihlašování přednášek</a> posunuta na 21.9.2015.</td>
 <tr><td>1.7.2015</td><td><a href="' + conf.uri.prefix / 'cfp">Přihlašování přednášek</a> spuštěno.</td>
 </table>
-</p>',
+',
     # CFP == Výzva k&nbsp;přihlašování příspěvků
     'cfp' -> 'Hledáme přednášející',
     'cfp_content' -> '
@@ -154,7 +154,7 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 #Prague 52, 152 00<br><br>
 #
 #Pro přímý kontakt zašlete prosím email nebo nám zavolejte:<br/>
-'Dotazy týkající se konference pište na <a href="mailto:info@openalt.cz">info@openalt.<strong>cz</strong></a> .<br>' +
+'Dotazy týkající se konference pište na <a href="mailto:info@openalt.cz">info@openalt.cz</a> .<br>' +
 #Jakékoliv jiné dotazy (o&nbsp;našich aktivitách, atd.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br><br>
 #Telefon: +420 910 117 377<br><br>
 
@@ -184,7 +184,11 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 ',
 #    'organization' -> 'Spolek',
 #    'organization_about_content' -> 'Nejpokrokovější a nejpůsobivější spolek zabývající se otevřenými záležitostmi.',
-    'address' -> 'Vysoké učení technické v Brně<br>Fakulta informačních technologií<br>Božetěchova 1/2<br>61266 Brno<br><a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz</a>',
+    'address' -> '
+Fakulta informačních technologií
+<br>Vysoké učení technické v&nbsp;Brně
+<br>Božetěchova 1/2, 61266 Brno
+<br><a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz</a>, <a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz/FIT/location</a>',
 
 
 
@@ -362,7 +366,7 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                  #Prague 52, 152 00<br><br>
 #                                  #
 #                                  #To contact us directly, please send us an email or call us:<br>
-#                                  'For questions about the conference use <a href="mailto:info@openalt.cz">info@openalt.<strong>cz</strong></a> .<br>' +
+#                                  'For questions about the conference use <a href="mailto:info@openalt.cz">info@openalt.cz</a> .<br>' +
 #                                  #Any other questions (about our activities, etc.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br>
 #                                  #Phone call: +420 910 117 377<br><br>
 #                                  
@@ -460,12 +464,12 @@ var feedback: list<FeedbackPiece> = {
 
   # 2012
   ('Jiří Eischmann (z <a href="http://www.linuxexpres.cz/blog/jaky-byl-linuxalt-2012-myma-ocima">Jaký byl LinuxAlt 2012 mýma očima</a>)', '„Myslím, že velkou zásluhu na slušné návštěvnosti druhého dne měla přednáška Mira Hrončoka o 3D tiskárně, která byla lákadlem letošního ročníku. 3D tiskárny jsou prostě in.“'),
-  ('Kdo Ci (<a href="http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/">LinuxAlt 2012, sobota: Firefox, kalendáře a DNS</a>)', '„...“'),
-  ('Kdo Ci (z <a href="http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/">LinuxAlt 2012, neděle: 3D tisk, SSH a Nagios</a>)', '„...“'),
+  #('Kdo Ci (<a href="http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/">LinuxAlt 2012, sobota: Firefox, kalendáře a DNS</a>)', '„...“'),
+  #('Kdo Ci (z <a href="http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/">LinuxAlt 2012, neděle: 3D tisk, SSH a Nagios</a>)', '„...“'),
 
   # 2011
-  ('Adam Saleh (z <a href="http://www.linuxexpres.cz/aktuality/linuxalt-2011-sobota">LinuxAlt 2011: Sobota v znamení mobilných zariadení</a>)', '„...“'),
-  ('Adam Saleh (z <a href="http://www.linuxexpres.cz/aktuality/linuxalt-2011-aj-nedela-sa-vydarila">LinuxAlt 2011: Aj nedeľa sa vydarila</a>)', '„...“'),
+  #('Adam Saleh (z <a href="http://www.linuxexpres.cz/aktuality/linuxalt-2011-sobota">LinuxAlt 2011: Sobota v znamení mobilných zariadení</a>)', '„...“'),
+  #('Adam Saleh (z <a href="http://www.linuxexpres.cz/aktuality/linuxalt-2011-aj-nedela-sa-vydarila">LinuxAlt 2011: Aj nedeľa sa vydarila</a>)', '„...“'),
 
   # 2010
   ('Jozef Mlích (z <a href="http://joejoe.blog.root.cz/2010/11/09/linuxalt-2010/">joejoe.blog.root.cz/2010/11/09/linuxalt-2010/</a>)', '„Kromě zajímavých přednášek je linuxalt i o setkávání se s lidmi. Po dlouhé době jsem zase viděl spoustu známých tváří. S některými jsem měl čas si víc s některými míň. Taky jsem se konečně seznámil osobně s pár lidma, které jsem znal jenom virtuálně. Bylo tam i pár nových lidí, o kterých jsem před tím neměl ani tušení.“'),
@@ -494,6 +498,11 @@ invar partners: list<Partner> = {
    'Red Hat',
    conf.resdir / 'img/partners/RHLogo.jpg',
    'http://cz.redhat.com/',
+   ''),
+  ($gold,
+   'Microsoft',
+   conf.resdir / 'img/partners/logo-microsoft.svg',
+   'http://www.microsoft.com/',
    ''),
   ($supporter,
    'OpenAlt z.s.',

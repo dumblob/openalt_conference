@@ -51,20 +51,22 @@ routine visitor_media(
         h3(_class='section') { t['gallery'] }
 
         if (my_time.time.now() >= conf.time_from) {
-          # FIXME
-          paragraph {
-            anchor(href='http://www.root.cz/galerie/openalt-2014-sobota/') {
-              'root.cz/galerie/openalt-2014-sobota/'
-            }
-          }
-          paragraph {
-            anchor(href='http://www.root.cz/galerie/openalt-2014-nedele/') {
-              'root.cz/galerie/openalt-2014-nedele/'
-            }
-          }
+          #paragraph { t['gallery_empty'] }
         }
         else {
-          #paragraph { t['gallery_empty'] }
+          h4(_class='narrow_paragraph') { 'Minulé ročníky' }
+          ul(_class='narrow_paragraph') {
+            li {
+              anchor(href='http://www.root.cz/galerie/openalt-2014-sobota/') {
+                'root.cz/galerie/openalt-2014-sobota/'
+              }
+            }
+            li {
+              anchor(href='http://www.root.cz/galerie/openalt-2014-nedele/') {
+                'root.cz/galerie/openalt-2014-nedele/'
+              }
+            }
+          }
         }
       }
 

@@ -36,62 +36,108 @@ routine partner_benefits(
       text(_html_top_stripe)
 
       div {
-        h3(_class='section') { 'Co Vám můžeme nabídnout' }
-        paragraph(_class='narrow_paragraph') { '
-Tím, sponzorování této události, obdržíte značné expozici a dosáhnout
-špičkové technické lidi z celého světa.
-
-Očekáváme, že mezi 200 a 300 účastníků, včetně bezplatných
-softwarových profesionálů a nadšenců, jako jsou vývojářů, překladatelů,
-projektanty, a dalšími členy komunity, zástupci firem, novináři,
-studenty a pedagogy z celého světa.
-
-OpenAlt je událost, kde mnoho jasných setkávají lidé v otevřené a
-tvůrčí atmosféře, tvrdě pracovat, řešit bezprostředních problémů a
-přicházet s novými nápady a řešeními pro budoucnost.
-
-Vaše výhody jako sponzor OpenAlt
-Seznamte klíčových osob - Seznamte se s klíčovou KDE a Qt
-přispěvatelů, vzestupné a sestupné správcům a uživatelům jednoho z
-předních světových uživatelského rozhraní technologických platforem.
-Pronájem nejlepších talentů - KDE přitahuje některé z nejlepších
-technických lidí na světě. Sponzoři mají možnost nábor nebo získat
-mindshare.
-Seznamte se s další přední hráči - Kromě KDE komunity, mnoho
-dalších projektů svobodného softwaru a společnosti podílet na OpenAlt.
-Inspirujte se - OpenAlt poskytuje vynikající prostředí pro
-získávání zpětné vazby o nových produktech, a pro brainstorming nové
-nápady.
-Vliv budoucí plány produktů - Na OpenAlt, projekt KDE určuje směr
-pro nadcházející měsíce. Toto je vaše šance být mezi prvními, kdo se
-dozví o těchto plánů, aby diskutovali a ovlivňovat je.
-Být vidět - Sponzorování vám dává cenné propagační možnosti, jako
-je například reklama, významných jednáních, a mezinárodní tiskové
-pokrytí.
-Podporovat free software technologie - Můžete podpořit vývoj
-nových aplikací, které se konají v OpenAlt hackfests a intenzivní
-kódování zasedání.
-Podpora volného softwaru - Ty budou uznány a vychutnat publicity
-jako sponzor akce. Jak je důležitější, budete také podporu zdarma a
-open source software, projekt KDE a ideály, které jsou založeny na.
-Staňte se součástí KDE Společenství - KDE je jedním z největších
-zdarma a open source software komunit na světě. Je to kooperativní,
-spáchal a dynamické, fun-milující, kreativní a tvrdě pracující. Chcete
--li lidí spojených s KDE, to je konečný výraz komunity. Budete mít
-přímý přístup k magické omáčkou, která dělá KDE tak účinné.
-
-Přidejte se k nám pomoci, aby tato událost za úspěch!
-
-Další informace naleznete v možnosti sponzorování brožuru pro úplné
-podrobnosti o dostupných možnostech.
-
-Máte-li zájem o více informací nebo si chcete diskutovat o
-sponzorování, kontaktujte prosím OpenAlt sponzorskou tým.
-
-Sponzoři jsou rozhodující pro úspěch OpenAlt."
-'
+        h3(_class='section') { 'Jak postupovat' }
+        div(_class='narrow_paragraph') {
+'<ol>
+<li>Zvolte si úroveň</li>
+<li>Kontaktujte nás prostřednictvím tlačítka na <a href="partner_home.html">hlavní stránce</a></li>
+<li>Pokud máte dotaz, napište na informace@openalt.cz</li>
+</ol>'
         }
       }
+
+      div {
+        h3(_class='section') { 'Úrovně partnerství' }
+        div(_class='narrow_paragraph') {
+'<ul>
+<li><h4>Generální partner</h4>
+„nenechte se omezovat“
+<br>60000 CZK
+
+<li><h4>Zlatý partner</h4>
+„přímé náborové aktivity“
+<br>30000 CZK
+
+<li><h4>Stříbrný partner</h4>
+„přístup ke kvalifikovaným IT expertùm“
+<br>10000 CZK nebo první cena do slosování
+
+<li><h4>Bronzový partner</h4>
+„základní propagace firmy“
+<br>5000 CZK
+
+<li><h4>Příznivec</h4>
+„malá propagace firmy“
+<br>nefinanční dary (do slosování, poskytnutí potřebných věcí/naturálií/služeb, pomoc s organizací, apod.)
+
+<li><h4>Sponzor Café nebo cateringu</h4>
+„láska prochází žaludkem“
+<br>50000 CZK
+</ul>'
+        }
+
+        paragraph(_class='narrow_paragraph') {
+'<br>Jakékoliv nezmíněné formy spolupráce vítáme. Pokud máte jiný zájem, budeme rádi, když nám popíšete Vaši představu. V&nbsp;závislosti na Vašich preferencích se nakonec dohodneme, na kterou z&nbsp;uvedených úrovní partnerství byste rádi dosáhli.'
+        }
+      }
+
+#      div {
+#        h3(_class='section') { 'Co Vám můžeme nabídnout' }
+#        paragraph(_class='narrow_paragraph') { '
+#Tím, sponzorování této události, obdržíte značné expozici a dosáhnout
+#špičkové technické lidi z celého světa.
+#
+#Očekáváme, že mezi 200 a 300 účastníků, včetně bezplatných
+#softwarových profesionálů a nadšenců, jako jsou vývojářů, překladatelů,
+#projektanty, a dalšími členy komunity, zástupci firem, novináři,
+#studenty a pedagogy z celého světa.
+#
+#OpenAlt je událost, kde mnoho jasných setkávají lidé v otevřené a
+#tvůrčí atmosféře, tvrdě pracovat, řešit bezprostředních problémů a
+#přicházet s novými nápady a řešeními pro budoucnost.
+#
+#Vaše výhody jako sponzor OpenAlt
+#Seznamte klíčových osob - Seznamte se s klíčovou KDE a Qt
+#přispěvatelů, vzestupné a sestupné správcům a uživatelům jednoho z
+#předních světových uživatelského rozhraní technologických platforem.
+#Pronájem nejlepších talentů - KDE přitahuje některé z nejlepších
+#technických lidí na světě. Sponzoři mají možnost nábor nebo získat
+#mindshare.
+#Seznamte se s další přední hráči - Kromě KDE komunity, mnoho
+#dalších projektů svobodného softwaru a společnosti podílet na OpenAlt.
+#Inspirujte se - OpenAlt poskytuje vynikající prostředí pro
+#získávání zpětné vazby o nových produktech, a pro brainstorming nové
+#nápady.
+#Vliv budoucí plány produktů - Na OpenAlt, projekt KDE určuje směr
+#pro nadcházející měsíce. Toto je vaše šance být mezi prvními, kdo se
+#dozví o těchto plánů, aby diskutovali a ovlivňovat je.
+#Být vidět - Sponzorování vám dává cenné propagační možnosti, jako
+#je například reklama, významných jednáních, a mezinárodní tiskové
+#pokrytí.
+#Podporovat free software technologie - Můžete podpořit vývoj
+#nových aplikací, které se konají v OpenAlt hackfests a intenzivní
+#kódování zasedání.
+#Podpora volného softwaru - Ty budou uznány a vychutnat publicity
+#jako sponzor akce. Jak je důležitější, budete také podporu zdarma a
+#open source software, projekt KDE a ideály, které jsou založeny na.
+#Staňte se součástí KDE Společenství - KDE je jedním z největších
+#zdarma a open source software komunit na světě. Je to kooperativní,
+#spáchal a dynamické, fun-milující, kreativní a tvrdě pracující. Chcete
+#-li lidí spojených s KDE, to je konečný výraz komunity. Budete mít
+#přímý přístup k magické omáčkou, která dělá KDE tak účinné.
+#
+#Přidejte se k nám pomoci, aby tato událost za úspěch!
+#
+#Další informace naleznete v možnosti sponzorování brožuru pro úplné
+#podrobnosti o dostupných možnostech.
+#
+#Máte-li zájem o více informací nebo si chcete diskutovat o
+#sponzorování, kontaktujte prosím OpenAlt sponzorskou tým.
+#
+#Sponzoři jsou rozhodující pro úspěch OpenAlt."
+#'
+#        }
+#      }
 
       text(_html_footer)
     }

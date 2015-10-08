@@ -16,7 +16,7 @@ type LocalRefs = enum<
   partner_why_we,
   partner_media,
   partner_benefits,
-  partner_how,
+#  partner_how,
   speaker_home,
   speaker_benefits,
   speaker_about,
@@ -40,7 +40,7 @@ invar html_local_refs: map<LocalRefs, tuple<
   $partner_why_we   -> ('partner_why_we',   ''),
   $partner_media    -> ('partner_media',    ''),
   $partner_benefits -> ('partner_benefits', ''),
-  $partner_how      -> ('partner_how',      ''),
+#  $partner_how      -> ('partner_how',      ''),
   $speaker_home     -> ('speaker_home',     ''),
   $speaker_benefits -> ('speaker_benefits', ''),
   $speaker_about    -> ('speaker_about',    ''),
@@ -177,7 +177,7 @@ routine html_top_stripe(
             html_local_refs[$partner_why_we],
             html_local_refs[$partner_media],
             html_local_refs[$partner_benefits],
-            html_local_refs[$partner_how],
+#            html_local_refs[$partner_how],
           }
         }
 
