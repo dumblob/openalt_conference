@@ -239,9 +239,6 @@ routine html_top_stripe(
     }
   }
 
-  # vertical spacer
-  div(id='top_stripe_virtual') { }
-
   if (((DateTimeX)time.now()).add(days=-1) > conf.time_to) {
     paragraph(_class='urgent') { t['warn_past_annual'] }
   }

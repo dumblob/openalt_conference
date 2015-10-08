@@ -44,6 +44,9 @@ body > * {
   padding-top: 10pt;
   padding-bottom: 42pt;
 }
+body > *:nth-child(2) > *:first-child {
+  margin-top: 27pt;  /* blank space under the stripe minus padding */
+}
 /*
 body > *:nth-last-child(3) {
   padding-bottom: 0;
@@ -54,14 +57,14 @@ body > *:nth-last-child(3) {
 # the web page consists of horizontal stripes with colors switching
 #   in a circular manner
 @[]
-body > *:nth-child(3) .section {
+body > *:nth-child(2) .section {
   color: @[] + dark_grey #{schedule_bg#} + @[];
 }
-body > *:nth-child(3n+4) {
+body > *:nth-child(3n+3) {
   background-color: @[] + schedule_bg #{dark_grey#} + @[];
   color: white;
 }
-body > *:nth-child(3n+5) {
+body > *:nth-child(3n+4) {
   background-color: @[] + dark_grey #{schedule_bg#} + @[];
   /*background-color: #D0D1D1;*/
   color: white;
@@ -89,11 +92,6 @@ a:active {
 
 
 
-#top_stripe_virtual {
-  padding: 0;
-  margin: 0;
-  height: 0pt;
-}
 #top_stripe {
 /*min-height: 37pt;
   height: 37pt; */
