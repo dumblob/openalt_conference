@@ -52,14 +52,16 @@ routine speaker_home(
 
       # full header (including buttons)
       div(id='header') {
-        img(src=rel(ci.logo_oa_conf),
-            alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
+        div(id='header_inner') {
+          img(src=rel(ci.logo_oa_conf),
+              alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
 
-#        if (my_time.time.now() <= conf.time_reg_end) {
-          div(id='main_buttons') {
-            anchor(href=cu.reg_speaker) { t['speaker_register'] }
-          }
-#        }
+#          if (my_time.time.now() <= conf.time_reg_end) {
+            div(id='main_buttons') {
+              anchor(href=cu.reg_speaker) { t['speaker_register'] }
+            }
+#          }
+        }
       }
 
       div {

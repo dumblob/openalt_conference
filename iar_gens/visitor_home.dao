@@ -51,20 +51,22 @@ routine visitor_home(
       text(_html_top_stripe)
 
       div(id='header') {
-        img(src=rel(ci.logo_oa_conf),
-            alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
+        div(id='header_inner') {
+          img(src=rel(ci.logo_oa_conf),
+              alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
 
-#        if (my_time.time.now() >= conf.time_show_sched) {
-          div(id='main_buttons') {
-            anchor(href=cu.reg_visitor) { t['visitor_register'] }
-            anchor(href=cu.reg_tip, title=t['visitor_register_tip_tooltip']) {
-              t['visitor_register_tip']
+#          if (my_time.time.now() >= conf.time_show_sched) {
+            div(id='main_buttons') {
+              anchor(href=cu.reg_visitor) { t['visitor_register'] }
+              anchor(href=cu.reg_tip, title=t['visitor_register_tip_tooltip']) {
+                t['visitor_register_tip']
+              }
             }
-          }
-#        }
+#          }
 
-        # FIXME small font
-        paragraph { t['visitor_asterisk1'] }
+          # FIXME small font
+          paragraph { t['visitor_asterisk1'] }
+        }
       }
 
       if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {
