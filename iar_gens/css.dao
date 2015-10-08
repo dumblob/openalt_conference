@@ -10,6 +10,8 @@ routine css(
   file = io.open(full_path, 'w')
   defer { file.close() }
 
+  invar previous_runs_height = '50pt'
+
   invar schedule_bg = '#C22E38'
   invar schedule_bg_dark = '#981925'
   invar ultra_light_red = '#F09685'
@@ -100,7 +102,6 @@ a:active {
   top: 0;
   position: fixed;
   width: 100%;
-  z-index: 100;
 }
 #top_stripe, #top_stripe * {
   background-color: @[] + dark_grey + @[];
@@ -211,7 +212,7 @@ nav {
   margin: 0;
   padding-right: 10pt;
   padding-left: 10pt;
-  margin-right: -5px;
+  margin-right: -5pt;
 }
 #top_stripe .page_link, .lang_link {
   /*text-transform: uppercase;*/
@@ -225,7 +226,7 @@ nav {
   text-align: center;
 }
 #top_stripe .ext_link:hover, #top_stripe .ext_link:hover img {
-  background-color: #BF1F2E;
+  background-color: @[] + middle_red + @[];
 }
 
 
@@ -239,42 +240,41 @@ nav {
 
 
 #header {
-  /* margin-top: 37pt; /* top_stripe height */
-  height: 100%;
   padding: 0;
+  height: 100%;
   display: table;
   margin-left: auto;
   margin-right: auto;
 }
-
 #header > * {
   margin-left: auto;
   margin-right: auto;
 }
- 
 #header_inner {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
 }
-
 #header_inner img {
   /*width: 50vh;*/
-  height: 42vh;
-  /*margin: 15pt 0;*/
-  margin: 1.5vh 0 0 0;
+  height: 40vh;
+  margin: 45pt 0 0 0;  /* top stripe height + N */
+  /*margin: 1.5vh 0 0 0;*/
 }
-
 #header > #header_inner > p:nth-child(2),
 #header > #header_inner > p:nth-child(4) {
   font-size: 16pt;
+  /*font-size: 4vh;*/
   font-weight: lighter;
   margin-bottom: 0;
 }
 .time_range_big {
   font-size: 20pt;
+  /*font-size: 5vh;*/
   font-weight: bold;
-  margin-top: 8pt;
-  margin-bottom: 15pt;
+  /*margin-top: 8pt;*/
+  margin-top: 3vh;
+  /*margin-bottom: 15pt;*/
+  margin-bottom: 4vh;
 }
 
 
@@ -427,20 +427,20 @@ nav {
 
 #previous_runs img {
   width: 100pt;
-  max-height: 35pt;
+  max-height: @[] + previous_runs_height + @[];
   vertical-align: middle;
   margin-right: 4pt;
 }
 @[] + #{ dummy helper to vertically center img #} @[]
 #previous_runs span {
   display: inline-block;
-  height: 35pt;
+  height: @[] + previous_runs_height + @[];
   float: left;
 }
 #previous_runs a {
   margin: auto 2.5pt;
   vertical-align: middle;
-  line-height: 35pt;
+  line-height: @[] + previous_runs_height + @[];
 }
 #speakers > div {
   margin-left: auto;
@@ -563,6 +563,24 @@ nav {
   background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
+}
+
+
+
+body > .section_partners {
+  padding: 10pt 0;
+}
+.partner_levels {
+  text-align: center;
+}
+.partner_levels h4 {
+  font-size: 22pt;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.partner_levels img {
+  height: 50pt;
+  margin: 15pt;
 }
 
 

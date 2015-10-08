@@ -55,16 +55,27 @@ routine visitor_home(
           img(src=rel(ci.logo_oa_conf),
               alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
 
-#          if (my_time.time.now() >= conf.time_show_sched) {
-            div(id='main_buttons') {
-              anchor(href=cu.reg_visitor) { t['visitor_register'] }
+          if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to )
+            paragraph { t['motivation_thanks'] }
+          else
+            paragraph { t['motivation'] }
+
+          paragraph(_class='time_range_big') {
+            localized_time_format(
+              t['_locale'], conf.time_from, '%-d.') + '&ndash;' +
+            localized_time_format(
+              t['_locale'], conf.time_to, '%-d. %B %Y')
+          }
+
+          div(id='main_buttons') {
+            anchor(href=cu.reg_visitor) { t['visitor_register'] }
+            if (my_time.time.now() <= conf.time_reg_end) {
               anchor(href=cu.reg_tip, title=t['visitor_register_tip_tooltip']) {
                 t['visitor_register_tip']
               }
             }
-#          }
+          }
 
-          # FIXME small font
           paragraph { t['visitor_asterisk1'] }
         }
       }

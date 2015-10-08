@@ -1,6 +1,7 @@
 load sync
 load time import time
 load os
+load os.fs
 load string.scanner  # FIXME imports str
 
 # FIXME Dao namespaces have to be declared in advance
@@ -8,7 +9,7 @@ namespace iar {}
 
 namespace lib {
   DateTimeX, Locale, Kind, Track, Event, Participant,
-  events_satisfying, localized_time_format, isrel, mkrel,
+  isrel, check_path, events_satisfying, localized_time_format, mkrel,
   parse_csv, gen_participants,
 }
 
@@ -26,9 +27,12 @@ interface DateTimeX for DateTime {
 
 type Locale = enum<cs, en, sk, de, fi>
 type Kind = enum<talk, workshop, internal, party>
-type Track = enum<tips, world_around, security, challenges, establishment>
+type Track = enum<track0, track1, track2, track3, track4, track5, track6>
 # free grouping (might be used for anything - e.g. menus auto-generation)
 type IarGroup = enum<initial; visitor; speaker; partner>
+type PartnerLevel = enum<general, gold, silver, bronze, supporter>
+type Partner = tuple<level:PartnerLevel, name:string, img:string, uri:string, desc:string>
+
 
 type Event = tuple<
   kind: Kind,
@@ -63,6 +67,27 @@ type Participant = tuple<
   events: list<Event>,  # events, this person is in charge for
 >
 
+routine isrel(invar uri: string) {
+  #uri[0] != '/'[0] && uri.match('^[^:/]+') == none
+  uri[0] != '/'[0] && uri.match('^[a-zA-Z0-9]+:/') == none
+}
+
+# FIXME use for_local_existence in auto-generated content (participants...)
+routine check_path(invar uri: none|string, for_local_existence = false) {
+  if (uri == none or %uri <= 0) return
+
+  if (for_local_existence) {
+    #if (! fs.exists(uri))
+    if (! fs.exists((string)uri))
+      std.error('"' + uri + '" doesn\'t exist')
+  }
+  else {
+    #if (uri[0] != '/'[0] && uri.match('^[^:/]+') == none)
+    if ( isrel(uri) )
+      std.error('"' + uri + '" is not a full path nor non-relative URI')
+  }
+}
+
 routine events_satisfying(
     participants: list<Participant>,
     invar kind: Kind,
@@ -86,11 +111,6 @@ routine localized_time_format(invar locale: string,
   defer { os.setlocale($time, old) }
   os.setlocale($time, locale)
   return t.format(pattern)
-}
-
-routine isrel(invar uri: string) {
-  #uri[0] != '/'[0] && uri.match('^[^:/]+') == none
-  uri[0] != '/'[0] && uri.match('^[a-zA-Z0-9]+:/') == none
 }
 
 # FIXME use the os.path module

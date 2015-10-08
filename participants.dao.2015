@@ -17,7 +17,7 @@ _participants: list<Participant> = {
   events = {
     # lunch - saturday
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -26,7 +26,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -35,7 +35,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -44,7 +44,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -53,7 +53,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -64,7 +64,7 @@ _participants: list<Participant> = {
 
     # lunch - sunday
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -73,7 +73,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -82,7 +82,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -91,7 +91,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -100,7 +100,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -111,7 +111,7 @@ _participants: list<Participant> = {
 
     # FIXME testing party
    ($party,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 23, 59),
@@ -122,7 +122,7 @@ _participants: list<Participant> = {
 
     # party
    ($party,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 22, 00),
@@ -133,7 +133,7 @@ _participants: list<Participant> = {
 
     # lottery
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
@@ -143,168 +143,168 @@ _participants: list<Participant> = {
     }),
   }),
 
-  # personal supporters for the session: 
-  ('Štěpán Bechynský',
-  members = none,
-  conf.resdir / 'img/participants/štěpán_bechynský.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($talk,
-    $world_around,
-    uri = ('', '', ''),
-    # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
-    trans = {
-      $en -> ('Arduino a Linux na jedné desce',
-               '',
-               'Arduino Yún, Arduino Tre, Intel Galileo a pcDuino - vývojové desky, které jsou kompatibilní s Arduino a zároveň na nich běží Linux. K čemu je to dobré? Jak tyto desky využít? A kdy se těmto deskám vyhnout? Během přednášky uvidíte všechny desky na živo včetně praktických ukázek.',
-               'D105',),
-      $cs -> ('Arduino a Linux na jedné desce',
-               '',
-               'Arduino Yún, Arduino Tre, Intel Galileo a pcDuino - vývojové desky, které jsou kompatibilní s Arduino a zároveň na nich běží Linux. K čemu je to dobré? Jak tyto desky využít? A kdy se těmto deskám vyhnout? Během přednášky uvidíte všechny desky na živo včetně praktických ukázek.',
-               'D105',),
-    }
-   )
-  }),
-  # personal supporters for the session: 
-  ('Tomáš Tomeček',
-  members = none,
-  conf.resdir / 'img/participants/tomáš_tomeček.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($workshop,
-    $challenges,
-    uri = ('', '', ''),
-    #  trojblok o 150 minutách (pouze workshop)
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
-    trans = {
-      $cs -> ('Show me your command line',
-               'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
-               'Pracujete často s príkazovou riadkov v svojej obľúbenej linuxovej distribúcii? Avšak, príde vám to neefektívne? Či už ste začiatočník, alebo pokročilý užívateľ, a máte záujem si rozšíriť obzory čo sa týka nástrojov pre príkazovú riadku, budete na tomto workshope vítaný.
-<br>
-<br>Budú predstavené nasledovné nástroje:
-<br>
-<br>* zsh — shell
-<br>* tmux — terminálový multiplexer
-<br>* autojump — nástroj na navigáciu po filesystéme
-<br>* tig — terminálové rozhranie ku gitu
-<br>* vim — terminálový textový editor
-<br>* stow — lokálny správca inštalácií
-<br>
-<br>V prípade dostatku času:
-<br>
-<br>* ipython — interaktívny shell jazyka Python
-<br>* weechat — terminálový IRC klient
-<br>* isync + notmuch + alot — e-mailový klient',
-               'A113',),
-      $en -> ('Show me your command line',
-               'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
-               'Pracujete často s príkazovou riadkov v svojej obľúbenej linuxovej distribúcii? Avšak, príde vám to neefektívne? Či už ste začiatočník, alebo pokročilý užívateľ, a máte záujem si rozšíriť obzory čo sa týka nástrojov pre príkazovú riadku, budete na tomto workshope vítaný.
-<br>
-<br>Budú predstavené nasledovné nástroje:
-<br>
-<br>* zsh — shell
-<br>* tmux — terminálový multiplexer
-<br>* autojump — nástroj na navigáciu po filesystéme
-<br>* tig — terminálové rozhranie ku gitu
-<br>* vim — terminálový textový editor
-<br>* stow — lokálny správca inštalácií
-<br>
-<br>V prípade dostatku času:
-<br>
-<br>* ipython — interaktívny shell jazyka Python
-<br>* weechat — terminálový IRC klient
-<br>* isync + notmuch + alot — e-mailový klient',
-               'A113',),
-    }
-   )
-  }),
-  # personal supporters for the session: 
-  ('Honza Horák',
-  members = none,
-  conf.resdir / 'img/participants/honza_horák.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # 
-   # column12: 
-   ($talk,
-    $challenges,
-    uri = ('', '', ''),
-    # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
-    trans = {
-      $cs -> ('Novinky ve starém dobrém SQL světě ',
-               '',
-               'I v době plné NoSQL databází a hype technologií má klasické SQL své místo, ba dokonce prochází neustálou evolucí. Pojďme se podívat, co nového přináší poslední verze PostgreSQL a MySQL, potažmo MariaDB. Letmý průlet nejžhavějšími funkcemi doplní několik praktických ukázek.',
-               'D105',),
-      $en -> ('Novinky ve starém dobrém SQL světě ',
-               '',
-               'I v době plné NoSQL databází a hype technologií má klasické SQL své místo, ba dokonce prochází neustálou evolucí. Pojďme se podívat, co nového přináší poslední verze PostgreSQL a MySQL, potažmo MariaDB. Letmý průlet nejžhavějšími funkcemi doplní několik praktických ukázek.',
-               'D105',),
-    }
-   )
-  }),
-  # personal supporters for the session: 
-  ('Jirka Folta',
-  members = none,
-  conf.resdir / 'img/participants/jirka_folta.jpg',
-  trans = {
-    $en -> ('',
-             '',),
-    $cs -> ('',
-             '',),
-  },
-  events = {
-   # pokud planujete jeste vetsi tricka, nez XL, rad bych 2-3 XL, jsem rod od roku vetsi
-   # column12: 
-   ($workshop,
-    $challenges,
-    uri = ('', '', ''),
-    # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
-    trans = {
-      $cs -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
-               'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
-               '* Zakladni seznameni s Darktablem (moznosti instalace, konfigurace, zakladni rozhrani a jeho funkcnionalita, web, komunita, zapojeni do komunity)
-<br>* Nastaveni systemu pro rychlejsi beh Darktablu
-<br>* Prace s moduly
-<br>* Prace s maskami
-<br>* Zakladni workflow upravy a export fotografii',
-               'A112',),
-      $en -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
-               'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
-               '* Zakladni seznameni s Darktablem (moznosti instalace, konfigurace, zakladni rozhrani a jeho funkcnionalita, web, komunita, zapojeni do komunity)
-<br>* Nastaveni systemu pro rychlejsi beh Darktablu
-<br>* Prace s moduly
-<br>* Prace s maskami
-<br>* Zakladni workflow upravy a export fotografii',
-               'A112',),
-    }
-   )
-  }),
+#  # personal supporters for the session: 
+#  ('Štěpán Bechynský',
+#  members = none,
+#  conf.resdir / 'img/participants/štěpán_bechynský.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($talk,
+#    $track1,
+#    uri = ('', '', ''),
+#    # 50 minut
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
+#    trans = {
+#      $en -> ('Arduino a Linux na jedné desce',
+#               '',
+#               'Arduino Yún, Arduino Tre, Intel Galileo a pcDuino - vývojové desky, které jsou kompatibilní s Arduino a zároveň na nich běží Linux. K čemu je to dobré? Jak tyto desky využít? A kdy se těmto deskám vyhnout? Během přednášky uvidíte všechny desky na živo včetně praktických ukázek.',
+#               'D105',),
+#      $cs -> ('Arduino a Linux na jedné desce',
+#               '',
+#               'Arduino Yún, Arduino Tre, Intel Galileo a pcDuino - vývojové desky, které jsou kompatibilní s Arduino a zároveň na nich běží Linux. K čemu je to dobré? Jak tyto desky využít? A kdy se těmto deskám vyhnout? Během přednášky uvidíte všechny desky na živo včetně praktických ukázek.',
+#               'D105',),
+#    }
+#   )
+#  }),
+#  # personal supporters for the session: 
+#  ('Tomáš Tomeček',
+#  members = none,
+#  conf.resdir / 'img/participants/tomáš_tomeček.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($workshop,
+#    $track2,
+#    uri = ('', '', ''),
+#    #  trojblok o 150 minutách (pouze workshop)
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
+#    trans = {
+#      $cs -> ('Show me your command line',
+#               'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
+#               'Pracujete často s príkazovou riadkov v svojej obľúbenej linuxovej distribúcii? Avšak, príde vám to neefektívne? Či už ste začiatočník, alebo pokročilý užívateľ, a máte záujem si rozšíriť obzory čo sa týka nástrojov pre príkazovú riadku, budete na tomto workshope vítaný.
+#<br>
+#<br>Budú predstavené nasledovné nástroje:
+#<br>
+#<br>* zsh — shell
+#<br>* tmux — terminálový multiplexer
+#<br>* autojump — nástroj na navigáciu po filesystéme
+#<br>* tig — terminálové rozhranie ku gitu
+#<br>* vim — terminálový textový editor
+#<br>* stow — lokálny správca inštalácií
+#<br>
+#<br>V prípade dostatku času:
+#<br>
+#<br>* ipython — interaktívny shell jazyka Python
+#<br>* weechat — terminálový IRC klient
+#<br>* isync + notmuch + alot — e-mailový klient',
+#               'A113',),
+#      $en -> ('Show me your command line',
+#               'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
+#               'Pracujete často s príkazovou riadkov v svojej obľúbenej linuxovej distribúcii? Avšak, príde vám to neefektívne? Či už ste začiatočník, alebo pokročilý užívateľ, a máte záujem si rozšíriť obzory čo sa týka nástrojov pre príkazovú riadku, budete na tomto workshope vítaný.
+#<br>
+#<br>Budú predstavené nasledovné nástroje:
+#<br>
+#<br>* zsh — shell
+#<br>* tmux — terminálový multiplexer
+#<br>* autojump — nástroj na navigáciu po filesystéme
+#<br>* tig — terminálové rozhranie ku gitu
+#<br>* vim — terminálový textový editor
+#<br>* stow — lokálny správca inštalácií
+#<br>
+#<br>V prípade dostatku času:
+#<br>
+#<br>* ipython — interaktívny shell jazyka Python
+#<br>* weechat — terminálový IRC klient
+#<br>* isync + notmuch + alot — e-mailový klient',
+#               'A113',),
+#    }
+#   )
+#  }),
+#  # personal supporters for the session: 
+#  ('Honza Horák',
+#  members = none,
+#  conf.resdir / 'img/participants/honza_horák.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # 
+#   # column12: 
+#   ($talk,
+#    $track2,
+#    uri = ('', '', ''),
+#    # 50 minut
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
+#    trans = {
+#      $cs -> ('Novinky ve starém dobrém SQL světě ',
+#               '',
+#               'I v době plné NoSQL databází a hype technologií má klasické SQL své místo, ba dokonce prochází neustálou evolucí. Pojďme se podívat, co nového přináší poslední verze PostgreSQL a MySQL, potažmo MariaDB. Letmý průlet nejžhavějšími funkcemi doplní několik praktických ukázek.',
+#               'D105',),
+#      $en -> ('Novinky ve starém dobrém SQL světě ',
+#               '',
+#               'I v době plné NoSQL databází a hype technologií má klasické SQL své místo, ba dokonce prochází neustálou evolucí. Pojďme se podívat, co nového přináší poslední verze PostgreSQL a MySQL, potažmo MariaDB. Letmý průlet nejžhavějšími funkcemi doplní několik praktických ukázek.',
+#               'D105',),
+#    }
+#   )
+#  }),
+#  # personal supporters for the session: 
+#  ('Jirka Folta',
+#  members = none,
+#  conf.resdir / 'img/participants/jirka_folta.jpg',
+#  trans = {
+#    $en -> ('',
+#             '',),
+#    $cs -> ('',
+#             '',),
+#  },
+#  events = {
+#   # pokud planujete jeste vetsi tricka, nez XL, rad bych 2-3 XL, jsem rod od roku vetsi
+#   # column12: 
+#   ($workshop,
+#    $track2,
+#    uri = ('', '', ''),
+#    # 50 minut
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
+#    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+#    trans = {
+#      $cs -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
+#               'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
+#               '* Zakladni seznameni s Darktablem (moznosti instalace, konfigurace, zakladni rozhrani a jeho funkcnionalita, web, komunita, zapojeni do komunity)
+#<br>* Nastaveni systemu pro rychlejsi beh Darktablu
+#<br>* Prace s moduly
+#<br>* Prace s maskami
+#<br>* Zakladni workflow upravy a export fotografii',
+#               'A112',),
+#      $en -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
+#               'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
+#               '* Zakladni seznameni s Darktablem (moznosti instalace, konfigurace, zakladni rozhrani a jeho funkcnionalita, web, komunita, zapojeni do komunity)
+#<br>* Nastaveni systemu pro rychlejsi beh Darktablu
+#<br>* Prace s moduly
+#<br>* Prace s maskami
+#<br>* Zakladni workflow upravy a export fotografii',
+#               'A112',),
+#    }
+#   )
+#  }),
 }
 
 var participants: list<Participant> = {}

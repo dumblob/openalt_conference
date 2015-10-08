@@ -56,11 +56,23 @@ routine speaker_home(
           img(src=rel(ci.logo_oa_conf),
               alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
 
-#          if (my_time.time.now() <= conf.time_reg_end) {
-            div(id='main_buttons') {
+          if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to )
+            paragraph { t['motivation_thanks'] }
+          else
+            paragraph { t['motivation'] }
+
+          paragraph(_class='time_range_big') {
+            localized_time_format(
+              t['_locale'], conf.time_from, '%-d.') + '&ndash;' +
+            localized_time_format(
+              t['_locale'], conf.time_to, '%-d. %B %Y')
+          }
+
+          div(id='main_buttons') {
+            if (my_time.time.now() <= conf.time_reg_end) {
               anchor(href=cu.reg_speaker) { t['speaker_register'] }
             }
-#          }
+          }
         }
       }
 
@@ -69,40 +81,33 @@ routine speaker_home(
         paragraph(_class='narrow_paragraph') { t['conference_about_content'] }
       }
 
-#      if (my_time.time.now() <= conf.time_reg_end) {
+      if (my_time.time.now() <= conf.time_reg_end) {
         div(id='cfp') {
           h3(_class='section') { t['cfp'] }
           div(_class='narrow_paragraph') { text(t['cfp_content']) }
         }
-#      }
+      }
 #      else {
-        div(id='speakers') {
-          if (my_time.time.now() >= conf.time_show_sched)
-            h3(_class='section') { t['speakers'] }
-          else
-            h3(_class='section') { t['registered_speakers'] }
-
-          div {
-            #paragraph {
-              for (pa in participants) {
-                if (pa.events.find { X.kind == $internal } == none) {
-                  div(_class='speaker') {
-                    # FIXME class moved from img to parent div
-                    #img(_class='speaker', src=rel(pa.photo), alt=pa.name, title=pa.name)
-                    img(src=rel(pa.photo), alt=pa.name, title=pa.name)
-                    paragraph { pa.name }
-                  }
-                }
-              }
-              for (pa in participants) {
-#                if (pa.events.find { X.kind == $internal } == none) {
-#                  img(_class='speaker', src=rel(pa.photo), alt=pa.name, title=pa.name)
+#        div(id='speakers') {
+#          if (my_time.time.now() >= conf.time_show_sched)
+#            h3(_class='section') { t['speakers'] }
+#          else
+#            h3(_class='section') { t['registered_speakers'] }
+#
+#          div {
+#            for (pa in participants) {
+#              if (pa.events.find { X.kind == $internal } == none) {
+#                div(_class='speaker') {
+#                  # FIXME class moved from img to parent div
+#                  #img(_class='speaker', src=rel(pa.photo), alt=pa.name, title=pa.name)
+#                  img(src=rel(pa.photo), alt=pa.name, title=pa.name)
+#                  paragraph { pa.name }
 #                }
-              }
-            #}
-          }
-          div(_class='clear_float') {}
-        }
+#              }
+#            }
+#          }
+#          div(_class='clear_float') {}
+#        }
 #      }
 
       if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to ) {

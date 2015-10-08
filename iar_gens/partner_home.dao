@@ -55,16 +55,63 @@ routine partner_home(
           img(src=rel(ci.logo_oa_conf),
               alt=t['logo_oa_conf'], title=t['logo_oa_conf'])
 
+          if ( ((DateTimeX)my_time.time.now()).add(days=-1) > conf.time_to )
+            paragraph { t['motivation_thanks'] }
+          else
+            paragraph { t['motivation'] }
+
+          paragraph(_class='time_range_big') {
+            localized_time_format(
+              t['_locale'], conf.time_from, '%-d.') + '&ndash;' +
+            localized_time_format(
+              t['_locale'], conf.time_to, '%-d. %B %Y')
+          }
+
           div(id='main_buttons') {
             anchor(href=t['partner_register_mailto']) { t['partner_register'] }
           }
         }
       }
 
+      # dummy div to move stripe colors by one
+      #div(style='margin: 0; padding: 0; height: 0') { }
+
+      div(_class='section_partners') {
+        h3(_class='section') { t['partners'] }
+      }
+      div(style='margin: 0; padding: 0; height: 0') { }
       div {
-        h3(_class='section') { 'Brozura/letak' }
-        paragraph(_class='narrow_paragraph') { '
-Jak postupovat pro stani se nasim partnerem. Brozura obsahuje veskere informace ohledne nabidky a procesu stani se partnerem.'
+        #paragraph(_class='narrow_paragraph') {
+        div(_class='narrow_paragraph partner_levels') {
+          partners_on_level = routine(invar level: PartnerLevel) => string {
+            res = ''
+
+            # FIXME some typing error
+            #partners.iterate { [p]
+            for (p in partners) {
+              if (p.level == level) {
+                res += (string)anchor(href=p.uri) {
+                  img(_class='partner partner_' + ((string)level)[1:],
+                      src=rel(p.img), alt=p.name, title=p.name)
+                }
+              }
+            }
+
+            return res
+          }
+
+          if (partners.find { X.level == $general } != none) {
+            h4 { t['general'] }
+            partners_on_level($general)
+          }
+          h4 { t['gold'] }
+          partners_on_level($gold)
+          h4 { t['silver'] }
+          partners_on_level($silver)
+          h4 { t['bronze'] }
+          partners_on_level($bronze)
+          h4 { t['supporter'] }
+          partners_on_level($supporter)
         }
       }
 

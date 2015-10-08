@@ -1,11 +1,11 @@
 #!/usr/bin/env dao
 
-load config import configuration . { conf, check_path }
+load config import configuration . { conf }
 load participants import participants_ns
 load lib import lib
 load time
 
-namespace translation { translations, participants, FeedbackPiece, feedback }
+namespace translation { translations, participants, FeedbackPiece, feedback, partners }
 
 type FeedbackPiece = tuple<author:none|string, msg:string>
 
@@ -50,20 +50,21 @@ var translations = {
     #'motivation' -> '<a href="' + conf.uri.registration + '" title="Registrace">Staňte se i Vy</a> součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
     #'motivation' -> 'Staňte se i Vy součástí již desátého pokračování brněnské open-source, open-mind a open-hardware konference!',
     #'motivation' -> 'Open-source, open-mind a open-hardware konference.',
-    'motivation' -> 'Otevřeným přístupem k otevřené společnosti.',
-    'motivation_thanks' -> 'Děkujeme za účast na na desátém pokračování brněnské open-source, open-mind a open-hardware konference!',
+    'motivation' -> 'Otevřeným přístupem k otevřené společnosti',
+    'motivation_thanks' -> 'Děkujeme za účast na desátém výročí této brněnské open-source, open-mind a open-hardware konference',
 #    'looking_for' -> "Hledáme:",
     'speaker' -> 'Přednášející',
-    'visitor' -> 'Návštěvník',
-    'partner' -> 'Partner',
+    'visitor' -> 'Návštěvníci',
+    'partner' -> 'Partneři',
 
 
 
     'news' -> 'Aktuality',
     'news_content' -> '<p>
 <table>
-<tr><td>7.9.2015</td><td>Uzávěrka pro <a href="' + conf.uri.prefix / 'cfp">Call for Proposals</a> posunuta na 21.9.2015.</td>
-<tr><td>1.7.2015</td><td><a href="' + conf.uri.prefix / 'cfp">Call for Proposals</a> zveřejněno.</td>
+<tr><td>21.9.2015</td><td>Přihlašování přednášek bylo ukončeno.</td>
+<tr><td>7.9.2015</td><td>Uzávěrka <a href="' + conf.uri.prefix / 'cfp">Uzávěrka přihlašování přednášek</a> posunuta na 21.9.2015.</td>
+<tr><td>1.7.2015</td><td><a href="' + conf.uri.prefix / 'cfp">Přihlašování přednášek</a> spuštěno.</td>
 </table>
 </p>',
     # CFP == Výzva k&nbsp;přihlašování příspěvků
@@ -86,7 +87,7 @@ Zejména hráči počítačových her pak mohou zjistit co obnáší vývoj her 
 </ul>
 <p>
 Buďte součástí <strong>jubilejního ročníku</strong> a pomozte nám uspořádat výjimečnou akci, kterou nastavíme novou laťku pro další ročníky.<br/><br/>
-Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registrační formulář</a> (odkaz též výše) a to <strong>do 7. září 2015</strong>.
+Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registrační formulář</a> (odkaz též výše) a to <strong>do ' + localized_time_format('cs_CZ.UTF-8', conf.time_reg_end, '%d. %B %Y') + '</strong>.
 </p>
 ',
 # FIXME Pepa's rewrite
@@ -102,13 +103,13 @@ Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registračn
 
 
 
-    'visitor_register' -> 'Registrace<sup>*</sup>',
+    'visitor_register' -> 'Registrace',
     'visitor_registration' -> 'Dobrovolná <a href="' + conf.uri.reg_visitor + '">registrace</a> účastníků.',
     'speaker_register' -> 'Registrace',
     #'visitor_register_tip' -> 'Mám tip na<br/>téma/osobu',
-    'visitor_register_tip' -> 'Navrhnout téma<sup></sup>',
+    'visitor_register_tip' -> 'Navrhnout téma',
     'visitor_register_tip_tooltip' -> 'Víte-li o něčem/někom koho byste rádi viděli přednášet nebo vést dílnu, podělte se. Krom hřejivého pocitu na vás čeká konferenční tričko a unikátní blikátko za kvalitní tip (viz. kritéria v&nbsp;odkazovaném formuláři)!',
-    'visitor_asterisk1' -> '<sup>*</sup>registrace je dobrovolná',
+    'visitor_asterisk1' -> 'registrace je dobrovolná',
     'previous_runs' -> 'Předchozí ročníky',
     'previous_runs_oa' -> '
   <a href="http://openalt.cz/2014">2014</a>',
@@ -162,7 +163,7 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 '',
     'speakers' -> 'Přednášející',
     'registered_speakers' -> 'Přihlášení přednášející',
-#    'partners' -> 'Partneři',
+    'partners' -> 'Naši partneři',
     'footer' -> 'Stránka aktualizována ' + (string)time.now() + '<br/>Grafický návrh Michaela Slaninková, implementace <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
     'talks' -> 'Přednášky',
 #    'talk' -> 'Přednáška',
@@ -175,7 +176,7 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'participation_reqs' -> 'Požadavky pro účast:',
     'conference' -> 'Konference',
     'conference_about_content' -> '
-"Otevřeným přístupem k otevřené společnosti."<br/><br/>
+<i>Motto: „Otevřeným přístupem k otevřené společnosti.“</i><br/><br/>
 
 Konference OpenAlt vznikla v roce 2014 jako výsledek spojení konferencí LinuxAlt a Openmobility. LinuxAlt jako konference s dlouhodobou tradicí se již od roku 2006 věnovala otevřenému softwaru a technologiím. Záhy se LinuxAlt s více jak 500 návštěvníky stal největší akcí tohoto typu v České republice. Openmobility konference vznikla v roce 2010 a přinesla českým a slovenským návštěvníkům témata otevřených mobilních platforem a otevřeného hardware formou klasických přednášek a praktických workshopů.<br/><br/>
 
@@ -190,16 +191,25 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
     'video_rec' -> 'Video záznamy',
     'presentation' -> 'Prezentace',
     'additional_materials' -> 'Dodatečné materiály',
-    'track_tips' -> 'Rady a nápady, aneb jak to lze dělat lépe',
-    'track_tips_desc' -> 'ukázka zajímavých aplikací, SSD, SQL novinky',
-    'track_world_around' -> 'Svět kolem nás',
-    'track_world_around_desc' -> 'mobilní platformy, automatizace domácnosti včetně RPi',
-    'track_security' -> 'Bezpečnost a ochrana',
-    'track_security_desc' -> 'šifrování, záloha dat, monitoring, audit',
-    'track_challenges' -> 'Nové systémy & výzvy',
-    'track_challenges_desc' -> 'obecné i pro mobily',
-    'track_establishment' -> 'Otevřený svět',
-    'track_establishment_desc' -> 've státním sektoru, školství',
+    #'track_establishment' -> 'Otevřený svět',
+    'track0' -> 'Otevřená společnost',
+    'track0_desc' -> 'otevřená společenství, soukromý sektor, státní sektor, licence',
+    #'track1' -> 'Svět kolem nás',
+    'track1' -> 'Alternativy ve vzdělávání',
+    #'track1_desc' -> 'mobilní platformy, automatizace domácnosti včetně RPi',
+    'track1_desc' -> 'alternativní směry, online vzdělávání, respektující přístup, vzájemně se učící komunity',
+    'track2' -> 'Bezpečnost a soukromí',
+    'track2_desc' -> 'sledování, šifrování, záloha dat, monitoring, audit',
+    #'track3' -> 'Nové systémy & výzvy',
+    'track3' -> 'Hnutí tvůrců (Makers)',
+    'track3_desc' -> 'DYI, coworking, hackathon, industriální sféra',
+    #'track4' -> 'Rady a nápady, aneb jak to lze dělat lépe',
+    'track4' -> 'Otevřené mobilní technologie',
+    'track4_desc' -> 'zajímavé aplikace, HW s otevřenou specifikací, novinky, vstupní a výstupní periferie',
+    'track5' -> 'Otevřený software',
+    'track5_desc' -> 'open-source systémy a programy, webové technologie, SQL novinky',
+    'track6' -> 'Kino',
+    'track6_desc' -> 'mimořádné příběhy známých osobností, svobodné filmy, otevřené umění',
 
 
 
@@ -217,6 +227,11 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
     'partner_register_mailto' -> 'mailto:partner@openalt.cz?subject=%C5%BD%C3%A1dost%20o%20partnerstv%C3%AD&body=V%C3%A1%C5%BEen%C3%AD%20z%20OpenAlt%20z.s.%2C%0A%0Ar%C3%A1di%20bychom%20se%20stali%20partnerem%20Va%C5%A1%C3%AD%20konference%20OpenAlt.%20Kontaktujte%20n%C3%A1s%20pros%C3%ADm%20prost%C5%99ednictv%C3%ADm%20n%C4%9Bkter%C3%A9ho%20z%20n%C3%A1sleduj%C3%ADc%C3%ADch%20kan%C3%A1l%C5%AF%3A%0A%0AEmail%3A%0Aatd.%0A%0AS%20pozdravem%2C%0A%0AJm%C3%A9no%0A',
     #'partner_register' -> 'Požádat o partnerství',
     'partner_register' -> 'Stát se partnerem',
+    'general' -> 'Generální',
+    'gold' -> 'Zlatí',
+    'silver' -> 'Stříbrní',
+    'bronze' -> 'Bronzoví',
+    'supporter' -> 'Pořadatelé a příznivci',
   },
 #                                    $en -> {
 #                                      '_locale' -> 'en_US.UTF-8',  # locale -a
@@ -291,19 +306,19 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                  </ul>
 #                                  <p>
 #                                  Buďte součástí <strong>jubilejního ročníku</strong> a pomozte nám uspořádat výjimečnou akci, kterou nastavíme novou laťku pro další ročníky.<br/><br/>
-#                                  Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registrační formulář</a> (odkaz též výše) a to <strong>do 7. září 2015</strong>.
+#                                  Vaše návrhy uvítáme skrze <a href="' + conf.uri.reg_speaker + '">registrační formulář</a> (odkaz též výše) a to <strong>do ' + localized_time_format('en_US.UTF-8', conf.time_reg_end, '%d. %B %Y') + '</strong>.
 #                                  </p>
 #                                  ',
 #                                  
 #                                  
 #                                  
-#                                      'visitor_register' -> 'Register<sup>*</sup>',
+#                                      'visitor_register' -> 'Register',
 #                                      'visitor_registration' -> 'Voluntary <a href="' + conf.uri.reg_visitor + '">registration</a> of attendees.',
 #                                      'speaker_register' -> 'Register',
 #                                      #'visitor_register_tip' -> 'I&nbsp;have a&nbsp;tip for<br/>a&nbsp;topic/person',
-#                                      'visitor_register_tip' -> 'Propose a&nbsp;topic<sup></sup>',
+#                                      'visitor_register_tip' -> 'Propose a&nbsp;topic',
 #                                      'visitor_register_tip_tooltip' -> "If you know about a topic/someone who you'd like to see as a speaker or a workshop leader, let us know. Except for the sweet feeling, you'll also get a conference t-shirt and a unique flashing light for a very good tip (see the link target for criteria)!",
-#                                      'visitor_asterisk1' -> '<sup>*</sup>registration is voluntary',
+#                                      'visitor_asterisk1' -> 'registration is voluntary',
 #                                      'previous_runs' -> 'Previous runs',
 #                                      'previous_runs_oa' -> '
 #                                    <a href="http://openalt.cz/2014">2014</a>'
@@ -356,7 +371,7 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                  '',
 #                                      'speakers' -> 'Speakers',
 #                                      'registered_speakers' -> 'Registered speakers',
-#                                  #    'partners' -> 'Partners',
+#                                  #    'partners' -> 'Our partners',
 #                                      'footer' -> 'Page updated on ' + (string)time.now() + '<br/>Graphic design by Michaela Slaninková, implementation by <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
 #                                      'talks' -> 'Talks',
 #                                  #    'talk' -> 'Talk',
@@ -370,7 +385,7 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                      'conference' -> 'Conference',
 #                                      # FIXME translate
 #                                      'conference_about_content' -> '
-#                                  "Otevřeným přístupem k otevřené společnosti."<br/><br/>
+#                                  <i>Motto: „Otevřeným přístupem k otevřené společnosti.“</i><br/><br/>
 #                                  
 #                                  Konference OpenAlt vznikla v roce 2014 jako výsledek spojení konferencí LinuxAlt a Openmobility. LinuxAlt jako konference s dlouhodobou tradicí se již od roku 2006 věnovala otevřenému softwaru a technologiím. Záhy se LinuxAlt s více jak 500 návštěvníky stal největší akcí tohoto typu v České republice. Openmobility konference vznikla v roce 2010 a přinesla českým a slovenským návštěvníkům témata otevřených mobilních platforem a otevřeného hardware formou klasických přednášek a praktických workshopů.<br/><br/>
 #                                  
@@ -412,6 +427,12 @@ OpenAlt vychází z toho nejlepšího na LinuxAltu a Openmobility a rozšiřuje 
 #                                  
 #                                      'partner_register_mailto' -> 'mailto:partner@openalt.cz?subject=Request%20for%20partnership&body=Dear%20OpenAlt%20z.s.%2C%0A%0Awe%27d%20like%20to%20become%20a%20partner%20of%20your%20conference%20OpenAlt.%20Please%20contact%20us%20through%20one%20of%20the%20following%20channels%3A%0A%0AEmail%3A%0Aetc.%0A%0AYours%20sincerely%2C%0A%0AName%0A',
 #                                      'partner_register' -> 'Request partnership',
+#                                     'partner_register' -> 'Stát se partnerem',
+#                                     'general' -> 'Generální',
+#                                     'gold' -> 'Zlatí',
+#                                     'silver' -> 'Stříbrní',
+#                                     'bronze' -> 'Bronzoví',
+#                                     'supporter' -> 'Organizers and supporters',
 #                                    },
 #  $sk  -> {
 #    '_locale' -> 'sk_SK.UTF-8',
@@ -447,8 +468,56 @@ var feedback: list<FeedbackPiece> = {
   ('Adam Saleh (z <a href="http://www.linuxexpres.cz/aktuality/linuxalt-2011-aj-nedela-sa-vydarila">LinuxAlt 2011: Aj nedeľa sa vydarila</a>)', '„...“'),
 
   # 2010
-  ('Ing. Jozef Mlích (z <a href="http://joejoe.blog.root.cz/2010/11/09/linuxalt-2010/">joejoe.blog.root.cz/2010/11/09/linuxalt-2010/</a>)', '„Kromě zajímavých přednášek je linuxalt i o setkávání se s lidmi. Po dlouhé době jsem zase viděl spoustu známých tváří. S některými jsem měl čas si víc s některými míň. Taky jsem se konečně seznámil osobně s pár lidma, které jsem znal jenom virtuálně. Bylo tam i pár nových lidí, o kterých jsem před tím neměl ani tušení.“'),
+  ('Jozef Mlích (z <a href="http://joejoe.blog.root.cz/2010/11/09/linuxalt-2010/">joejoe.blog.root.cz/2010/11/09/linuxalt-2010/</a>)', '„Kromě zajímavých přednášek je linuxalt i o setkávání se s lidmi. Po dlouhé době jsem zase viděl spoustu známých tváří. S některými jsem měl čas si víc s některými míň. Taky jsem se konečně seznámil osobně s pár lidma, které jsem znal jenom virtuálně. Bylo tam i pár nových lidí, o kterých jsem před tím neměl ani tušení.“'),
   ('Jan Hrach (z <a href="http://www.abclinuxu.cz/clanky/linuxalt-2010-na-tema-bezpecnosti-reportaz?page=1">abclinuxu.cz/clanky/linuxalt-2010-na-tema-bezpecnosti-reportaz</a>)', '„Letošní LinuxAlt se opět velmi vydařil, hlavně nedělní přednášky se mi velmi líbily.“'),
+}
+
+invar partners: list<Partner> = {
+  # FIXME this should be built-in logic dependent on the least date of becoming a sponsor
+  # multilanguage support is not necessary for this one
+#  ($supporter,
+#   'Staňte se naším partnerem!',
+#   conf.resdir / 'img/partners/logo_become_a_sponsor.png',
+#   'https://openalt.cz/2015/cs/partner_home.html'
+#   ''),
+  ($supporter,
+   'FIT VUT',
+   conf.resdir / 'img/partners/logo_fit.gif',
+   'http://www.fit.vutbr.cz/',
+   'Fakulta Informačních Technologií VUT v Brně poskytuje vzdělání a výzkum v oboru informačních technologií. Nabízí studium v tříletem bakalářském, v devíti různých navazujících dvouletých magisterský studijní programech a v doktorském studijním programu. Výzkum tvoří velmi významnou část aktivit FITu. Provádí ho akademičtí pracovníci, výzkumníci zaměstnaní fakultou, studenti v doktorském studijním programu a také studenti v posledním roce jejich magisterského studia.'),
+  ($supporter,
+   'SU FIT VUT',
+   conf.resdir / 'img/partners/logo_su_fit.jpg',
+   'http://www.su.fit.vutbr.cz/',
+   'Studentská unie FIT pořádá hudební festivaly, plesy, sportovní dny a pomáhá s reprezentací FIT VUT na kulturních a sportovních akcích. V rámci toho často hledá mladé a nadějné talenty nejen z FITu.'),
+  ($gold,
+   'Red Hat',
+   conf.resdir / 'img/partners/RHLogo.jpg',
+   'http://cz.redhat.com/',
+   ''),
+  ($supporter,
+   'OpenAlt z.s.',
+   conf.img.logo_oa_org,
+   'https://openalt.org/',
+   'Zapsaný spolek OpenAlt z.s. je pořadatel... <strong>ZDE MA BYT POPIS SPOLKU A NIKOLIV KONFERENCE!</strong> <s>Konference OpenAlt vznikla v roce 2014 jako výsledek spojení konferencí LinuxAlt a Openmobility. LinuxAlt jako konference s dlouhodobou tradicí se již od roku 2006 věnovala otevřenému softwaru a technologiím. Záhy se LinuxAlt s více jak 500 návštěvníky stal největší akcí tohoto typu v České republice. Openmobility konference vznikla v roce 2010 a přinesla českým a slovenským návštěvníkům témata otevřených mobilních platforem a otevřeného hardware formou klasických přednášek a praktických workshopů.</s>'),
+#  ($, 'ABRA FlexiBee',
+#   conf.resdir / 'img/partners/logo-abraflexibee.jpg',     'http://www.flexibee.eu/'),
+#  ($, 'Honeywell',
+#   conf.resdir / 'img/partners/honeywell.png',             'http://honeywell.com/'),
+#  ($, 'ICT Pro s.r.o.',
+#   conf.resdir / 'img/partners/ict-pro.png',               'http://www.skoleni-ict.cz/'),
+#  ($, 'DataScript s.r.o.',
+#   conf.resdir / 'img/partners/logo_DataScript_cz.jpg',    'http://www.datascript.cz/'),
+#  ($, 'OKsystem',
+#   conf.resdir / 'img/partners/oksystem.png',              'http://www.oksystem.cz/'),
+#  ($, 'Perspektiva - ITJobs',
+#   conf.resdir / 'img/partners/perspektiva.png',           'http://www.perspektiva.eu/'),
+#  ($, 'Root.cz - linux, open source a free software',
+#   conf.resdir / 'img/partners/root.png',                  'http://www.root.cz/'),
+#  ($, 'skHosting.eu s.r.o.',
+#   conf.resdir / 'img/partners/skhosting_eu.png',          'https://skhosting.eu/'),
+#  ($, 'Toastmasters International',
+#   conf.resdir / 'img/partners/toastmasters.png',          'http://www.projevse.cz/'),
 }
 
 # fill empty translations with english terms (if not existing in en,
@@ -485,5 +554,8 @@ translations.iterate { [k, v]
     }
   }
 }
+
+# blackbox testing
+for (p in partners) check_path(p.img)
 
 # vim: set wrap:

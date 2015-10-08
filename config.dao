@@ -4,22 +4,18 @@ load time
 load os.fs
 load lib import lib
 
-namespace configuration { conf, partners, check_path }
+namespace configuration { conf }
 
 # directory with the resulting web
 invar resdir = fs.dir('.').path / 'res'
-
-type Partner = tuple<
-  enum<general, main>, name:string, img:string, uri:string
->
 
 # all paths have to be full or non-relative URIs! Do not worry,
 #   they'll be changed to relative ones in the end if needed.
 invar conf = (
   time_from        = time.make(2015, 11, 7),
   time_to          = time.make(2015, 11, 8),
-  time_reg_end     = time.make(2015, 10, 5),  # deadline of talk submissions
-  time_show_sched  = time.make(2015, 10, 5 + 2),  # some time for CFP processing
+  time_reg_end     = time.make(2015, 9, 21),  # deadline of talk submissions
+  time_show_sched  = time.make(2015, 10, 8),  # some time for CFP processing
   coord_gps_n      = '49.2263872',
   coord_gps_e      = '16.5963531',
   # FIXME
@@ -63,7 +59,8 @@ invar conf = (
     # FIXME URL
     #banner_web   = 'http://www.openalt.org/spolek/OA_2014/OA_2014_banner.gif',
     reg_speaker  = 'https://www.openalt.org/2015/cfp-form',
-    reg_visitor  = 'https://www.openalt.org/2015/registrace',
+    #reg_visitor  = 'https://www.openalt.org/2015/registrace',
+    reg_visitor  = 'https://www.openalt.org/2015/openalt-2015-registrace-navstevnika',
     reg_tip      = 'https://www.openalt.org/2015/cfp-tip',
     #cfp          = 'http://www.openalt.cz/2015/call-for-proposals.php',
     #cfp_form     = 'https://www.openalt.org/2015/cfp-form',
@@ -100,7 +97,9 @@ invar conf = (
 
     logo_la_conf        = resdir / 'img/logo-linuxalt-conference.png',
     logo_om_conf        = resdir / 'img/logo-openmobility-conference.svg',
-    logo_oa_conf        = resdir / 'img/logo-openalt-conference.svg',
+    # FIXME Firefox font rendering in SVG sucks
+    #logo_oa_conf        = resdir / 'img/logo-openalt-conference.svg',
+    logo_oa_conf        = resdir / 'img/logo-openalt-conference.png',
     logo_oa_conf_bitmap = resdir / 'img/logo-openalt-conference.png',
     logo_oa_conf_lscape = resdir / 'img/logo-openalt-conference-landscape.svg',
     logo_oa_org         = resdir / 'img/logo-openalt-org.svg',
@@ -116,54 +115,7 @@ invar conf = (
   ),
 )
 
-invar partners: list<Partner> = {
-  # FIXME this should be built-in logic dependent on the least date of becoming a sponsor
-  # multilanguage support is not necessary for this one
-#  ($general, 'Staňte se naším partnerem!',
-#   resdir / 'img/partners/logo_become_a_sponsor.png', 'https://openalt.cz/2015/cs/partner_home.html'),
-  ($general, 'FIT VUT',
-   resdir / 'img/partners/logo_fit.gif',              'http://www.fit.vutbr.cz/'),
-  ($general, 'SU FIT VUT',
-   resdir / 'img/partners/logo_su_fit.jpg',           'http://www.su.fit.vutbr.cz/'),
-#  ($general, 'Red Hat',
-#   resdir / 'img/partners/RHLogo.jpg',                'http://cz.redhat.com/'),
-#  ($main, 'ABRA FlexiBee',
-#   resdir / 'img/partners/logo-abraflexibee.jpg',     'http://www.flexibee.eu/'),
-#  ($main, 'Honeywell',
-#   resdir / 'img/partners/honeywell.png',             'http://honeywell.com/'),
-#  ($main, 'ICT Pro s.r.o.',
-#   resdir / 'img/partners/ict-pro.png',               'http://www.skoleni-ict.cz/'),
-#  ($main, 'DataScript s.r.o.',
-#   resdir / 'img/partners/logo_DataScript_cz.jpg',    'http://www.datascript.cz/'),
-#  ($main, 'OKsystem',
-#   resdir / 'img/partners/oksystem.png',              'http://www.oksystem.cz/'),
-#  ($main, 'Perspektiva - ITJobs',
-#   resdir / 'img/partners/perspektiva.png',           'http://www.perspektiva.eu/'),
-#  ($main, 'Root.cz - linux, open source a free software',
-#   resdir / 'img/partners/root.png',                  'http://www.root.cz/'),
-#  ($main, 'skHosting.eu s.r.o.',
-#   resdir / 'img/partners/skhosting_eu.png',          'https://skhosting.eu/'),
-#  ($main, 'Toastmasters International',
-#   resdir / 'img/partners/toastmasters.png',          'http://www.projevse.cz/'),
-}
-
 # blackbox testing
-# FIXME use for_local_existence in auto-generated content (participants...)
-routine check_path(invar uri: none|string, for_local_existence = false) {
-  if (uri == none or %uri <= 0) return
-
-  if (for_local_existence) {
-    #if (! fs.exists(uri))
-    if (! fs.exists((string)uri))
-      std.error('"' + uri + '" doesn\'t exist')
-  }
-  else {
-    #if (uri[0] != '/'[0] && uri.match('^[^:/]+') == none)
-    if ( isrel(uri) )
-      std.error('"' + uri + '" is not a full path nor non-relative URI')
-  }
-}
-
 check_path(conf.resdir)
 for (t in conf.uri) check_path(t[1])
 for (fav in {conf.favicon196, conf.favicon180}) {
@@ -180,4 +132,3 @@ for (fav in {conf.favicon196, conf.favicon180}) {
   #}
 }
 for (t in conf.img) check_path(t[1])
-for (p in partners) check_path(p.img)

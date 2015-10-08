@@ -12,7 +12,7 @@ namespace html_content {
 type LocalRefs = enum<
   home,
   partner_home,
-  partner_who,
+#  partner_who,
   partner_why_we,
   partner_media,
   partner_benefits,
@@ -36,7 +36,7 @@ invar html_local_refs: map<LocalRefs, tuple<
     id:string>> = {
   $home             -> ('home',             ''),
   $partner_home     -> ('partner_home',     ''),
-  $partner_who      -> ('partner_who',      ''),
+#  $partner_who      -> ('partner_who',      ''),
   $partner_why_we   -> ('partner_why_we',   ''),
   $partner_media    -> ('partner_media',    ''),
   $partner_benefits -> ('partner_benefits', ''),
@@ -173,7 +173,7 @@ routine html_top_stripe(
           return {
             html_local_refs[$home],
             html_local_refs[$partner_home],
-            html_local_refs[$partner_who],
+#            html_local_refs[$partner_who],
             html_local_refs[$partner_why_we],
             html_local_refs[$partner_media],
             html_local_refs[$partner_benefits],

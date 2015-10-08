@@ -42,23 +42,24 @@ routine speaker_benefits(
         h3(_class='section') { 'Co získáte?' }
         ul(_class='narrow_paragraph') {
           li { 'možnost prezentovat zcela vlastní práci a výsledky' }
-          li { 'oběd (pravděpodobně pizza - jakákoliv/vegetariánská/veganská)' }
+          li { 'cennou zpětnou vazbu' }
+          li { 'inspiraci a možnost inspirovat ostatní' }
+          li { 'kontakty na odborníky z oboru' }
+          li { 'cenné kontakty na schopné odborníky z oblasti IT' }
+          li { 'zkušenost s přednášením na akademické půdě před větším množstvím lidí' }
           li { 'záznam přednášky s ISBN (přednášku lze tedy použít jako publikaci)' }
+          li { 'reprezentativní tričko přednášejícího' }
+          li { 'oběd (pravděpodobně pizza - jakákoliv/vegetariánská/veganská)' }
           li { 'možnost vystavení certifikátu potvrzujícího účast jako přednášející na velké konferenci s tradicí (lze použít např. v životopisu)' }
           li { 'možnost poskytnout referenci na LinkedIn' }
-          li { 'získání kontaktů na odborníky z oboru' }
-          li { 'získání cenných kontaktů na schopné odborníky z oblasti IT' }
-          li { 'zkušenost s přednášením na akademické půdě před větším množstvím lidí' }
-          li { 'příspěvek na cestu v případě dlouhé cesty (výše dle individuálních možností)' }
-          li { 'příjemný kolektiv' }
+          li { 'příspěvek na cestu v případě dlouhé cesty (výše dle sazeb veřejné dopravy, ne auto)' }
+          li { 'zajištěné ubytování v případě dlouhé cesty' }
+          li { 'možnost podílet se na dalších činnostech v&nbsp;příjemném kolektivu' }
         }
-      }
 
-      div {
-        h3(_class='section') { 'Zajímavé ubytování' }
-        paragraph(_class='narrow_paragraph') { '
-Možnost zajistit netradiční ubytování, atd.'
-        }
+        # FIXME pridat ilustrativni grafiku z minulych rocniku (napr.
+        #   prednaska plna lidi, prednasejic u tabule, ...)
+        img(_class='narrow_paragraph')
       }
 
       text(_html_footer)
