@@ -41,20 +41,20 @@ routine speaker_benefits(
         #h3(_class='section') { 'Co přednášejícím a vedoucím dílen nabízíme?' }
         h3(_class='section') { 'Co získáte?' }
         ul(_class='narrow_paragraph') {
-          li { 'možnost prezentovat zcela vlastní práci a výsledky' }
-          li { 'cennou zpětnou vazbu' }
-          li { 'inspiraci a možnost inspirovat ostatní' }
-          li { 'kontakty na odborníky z oboru' }
-          li { 'cenné kontakty na schopné odborníky z oblasti IT' }
-          li { 'zkušenost s přednášením na akademické půdě před větším množstvím lidí' }
-          li { 'záznam přednášky s ISBN (přednášku lze tedy použít jako publikaci)' }
-          li { 'reprezentativní tričko přednášejícího' }
-          li { 'oběd (pravděpodobně pizza - jakákoliv/vegetariánská/veganská)' }
-          li { 'možnost vystavení certifikátu potvrzujícího účast jako přednášející na velké konferenci s tradicí (lze použít např. v životopisu)' }
-          li { 'možnost poskytnout referenci na LinkedIn' }
-          li { 'příspěvek na cestu v případě dlouhé cesty (výše dle sazeb veřejné dopravy, ne auto)' }
-          li { 'zajištěné ubytování v případě dlouhé cesty' }
-          li { 'možnost podílet se na dalších činnostech v&nbsp;příjemném kolektivu' }
+          li { 'Možnost prezentovat zcela vlastní práci a výsledky' }
+          li { 'Cennou zpětnou vazbu' }
+          li { 'Inspiraci a možnost inspirovat ostatní' }
+          li { 'Kontakty na odborníky z oboru' }
+          li { 'Cenné kontakty na schopné odborníky z oblasti IT' }
+          li { 'Zkušenost s přednášením na akademické půdě před větším množstvím lidí' }
+          li { 'Záznam přednášky s ISBN (přednášku lze tedy použít jako publikaci)' }
+          li { 'Reprezentativní tričko přednášejícího' }
+          li { 'Oběd (pravděpodobně pizza - jakákoliv/vegetariánská/veganská)' }
+          li { 'Možnost vystavení certifikátu potvrzujícího účast jako přednášející na velké konferenci s tradicí (lze použít např. v životopisu)' }
+          li { 'Možnost poskytnout referenci na LinkedIn' }
+          li { 'Příspěvek na cestu v případě dlouhé cesty (výše dle sazeb veřejné dopravy, ne auto)' }
+          li { 'Zajištěné ubytování v případě dlouhé cesty' }
+          li { 'Možnost podílet se na dalších činnostech v&nbsp;příjemném kolektivu' }
         }
 
         # FIXME pridat ilustrativni grafiku z minulych rocniku (napr.

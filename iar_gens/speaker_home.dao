@@ -68,11 +68,15 @@ routine speaker_home(
               t['_locale'], conf.time_to, '%-d. %B %Y')
           }
 
-          div(id='main_buttons') {
-            if (my_time.time.now() <= conf.time_reg_end) {
+          if (my_time.time.now() <= conf.time_reg_end)
+            div(id='main_buttons') {
               anchor(href=cu.reg_speaker) { t['speaker_register'] }
             }
-          }
+          else
+          #if (my_time.time.now() > conf.time_reg_end)
+            div(_class='narrow_paragraph') {
+              t['speaker_register_individually']
+            }
         }
       }
 

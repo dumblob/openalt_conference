@@ -257,6 +257,9 @@ nav {
   display: table-cell;
   vertical-align: top;
 }
+#header_inner * {
+  text-align: center;
+}
 #header_inner img {
   /*width: 50vh;*/
   height: 40vh;
@@ -353,7 +356,7 @@ nav {
 }
 .event {
   display: block;
-  max-width: 211pt;  /* 225 - 2 * 7 */
+  max-width: 211pt;  /* 450 / 2 - 2 * 7 */
   margin: 0 7pt 0 0;
   float: left;
 }
@@ -579,7 +582,7 @@ body > .section_partners {
 .partner_levels h4 {
   font-size: 22pt;
   font-weight: normal;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 .partner_levels img {
   height: 50pt;
@@ -612,20 +615,25 @@ body > .section_partners {
   margin: 0 0 51px 0;  /* 44px +2*3px -2px */
   padding: 0;
   background-color: @[] + dark_grey + @[];
-  text-align: left;
-}
-#footer > * {
-  width: 40%;
-  margin: 30pt auto 30pt 40pt;
-  padding: 0;
-  display: inline-block;
 }
 #footer * {
   color: white;
-  line-height: 18pt;
-  vertical-align: top;
-  /*text-transform: uppercase;*/
   font-size: 10pt;
-}@[]
+  text-align: left;
+}
+#footer > div {
+  padding: 25pt 0;
+}
+#footer > div > * {
+  width: 225pt;  /* 450 / 2 */
+  display: inline-block;
+  vertical-align: top;
+  line-height: 18pt;
+}
+#footer > div > *:last-child {
+  margin-left: -5pt;
+  text-align: right;
+}
+@[]
   )
 }

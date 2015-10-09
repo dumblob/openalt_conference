@@ -259,8 +259,10 @@ routine html_footer(invar trans: Locale, invar dst: string) => string {
 #    }
 
     div(id='footer') {
-      paragraph { t['footer'] }
-      paragraph { t['contact_openalt_content'] }
+      div(_class='narrow_paragraph') {
+        div { t['footer'] }
+        div { t['contact_openalt_content'] }
+      }
     }
 
     div(id='partners') {
