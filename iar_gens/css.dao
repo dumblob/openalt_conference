@@ -492,7 +492,7 @@ nav {
 }
 
 #schedule table tr td {
-  padding: 1em;
+  padding: 0.5em;
   text-align: center;
   border: 6px solid white;
 }
@@ -501,11 +501,39 @@ nav {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 #schedule table tr td span:first-child {
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 0.7em;
+  margin-bottom: 0.4em;
+}
+
+#schedule table tr td span.track_tips {
+  background-color: #10753f;
+}
+
+#schedule table tr td span.track_world_around {
+  background-color: #2f62ae;
+}
+
+#schedule table tr td span.track_security {
+  background-color: #be1e2d;
+}
+
+#schedule table tr td span.track_challenges {
+  background-color: #d37a6a;
+}
+
+#schedule table tr td span.track_establishment {
+  background-color: #57585a;
+}
+
+#schedule table tr td span:nth-child(2) {
   font-weight: bold;
-  font-size: 110%;
 }
 
 #schedule table tr:first-child th,
@@ -531,6 +559,11 @@ nav {
   margin-bottom: 0.25em;
   padding-left: 2em;
   padding-right: 2em;
+}
+
+#schedule table tr td:first-child span {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 #schedule table tr:last-child td {
