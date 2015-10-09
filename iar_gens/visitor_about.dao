@@ -33,9 +33,7 @@ routine visitor_about(
     body {
       text(_html_top_stripe)
 
-      # dummy div to move stripe colors by one
-      #div(style='margin: 0; padding: 0; height: 0') { }
-      #div(style='margin: 0; padding: 0; height: 0') { }
+      #div(_class='dummy_section') { }
 
       div(id='previous_runs') {
         h3(_class='section') { t['previous_runs'] }

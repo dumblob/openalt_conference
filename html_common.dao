@@ -252,8 +252,15 @@ routine html_footer(invar trans: Locale, invar dst: string) => string {
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
   return fragment {
+    # FIXME this should be done better
+#    div {
+#      h3(_class='section') { t['contact'] }
+#      paragraph(_class='narrow_paragraph') { t['contact_openalt_content'] }
+#    }
+
     div(id='footer') {
       paragraph { t['footer'] }
+      paragraph { t['contact_openalt_content'] }
     }
 
     div(id='partners') {

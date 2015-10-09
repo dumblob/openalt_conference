@@ -74,12 +74,12 @@ routine partner_home(
       }
 
       # dummy div to move stripe colors by one
-      #div(style='margin: 0; padding: 0; height: 0') { }
+      #div(_class='dummy_section') { }
 
       div(_class='section_partners') {
         h3(_class='section') { t['partners'] }
       }
-      div(style='margin: 0; padding: 0; height: 0') { }
+      div(_class='dummy_section') { }
       div {
         #paragraph(_class='narrow_paragraph') {
         div(_class='narrow_paragraph partner_levels') {

@@ -122,10 +122,10 @@ routine speaker_home(
         }
       }
 
-      div {
-        h3(_class='section') { t['contact'] }
-        paragraph(_class='narrow_paragraph') { t['contact_openalt_content'] }
-      }
+#      div {
+#        h3(_class='section') { t['contact'] }
+#        paragraph(_class='narrow_paragraph') { t['contact_openalt_content'] }
+#      }
 
       text(_html_footer)
     }

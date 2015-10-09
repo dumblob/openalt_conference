@@ -147,14 +147,14 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 #    'downloads' -> 'Ke stažení',
     'contact' -> 'Kontakt',
     'contact_openalt_content' ->
-'Organizátorem konference je <a href="http://openalt.org/kontakt">OpenAlt&nbsp;z.&nbsp;s.</a><br>' +
+'Kontakt: <a href="http://openalt.org/kontakt">OpenAlt&nbsp;z.&nbsp;s.</a>, ' +
 #Spolek vznikl registrací městským soudem v&nbsp;Praze k&nbsp;1.&nbsp;1.&nbsp;2014 pod spisovou značkou <a href="https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=758805&typ=UPLNY">L&nbsp;22154</a><br>
 #IČO: 22848037<br>
 #Lamačova 634/2<br>
 #Prague 52, 152 00<br><br>
 #
 #Pro přímý kontakt zašlete prosím email nebo nám zavolejte:<br/>
-'Dotazy týkající se konference pište na <a href="mailto:info@openalt.cz">info@openalt.cz</a> .<br>' +
+'<a href="mailto:info@openalt.cz">info@openalt.cz</a>' +
 #Jakékoliv jiné dotazy (o&nbsp;našich aktivitách, atd.): <a href="mailto:info@openalt.org">info@openalt.<strong>org</strong></a><br><br>
 #Telefon: +420 910 117 377<br><br>
 
@@ -164,7 +164,8 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'speakers' -> 'Přednášející',
     'registered_speakers' -> 'Přihlášení přednášející',
     'partners' -> 'Naši partneři',
-    'footer' -> 'Stránka aktualizována ' + (string)time.now() + '<br/>Grafický návrh Michaela Slaninková, implementace <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
+    'footer' -> 'Aktualizace: ' + (string)time.now(),
+#+ '<br/>Grafický návrh Michaela Slaninková, implementace <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
     'talks' -> 'Přednášky',
 #    'talk' -> 'Přednáška',
 #    'talks_empty' -> 'Přednášky ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
@@ -376,7 +377,8 @@ Fakulta informačních technologií
 #                                      'speakers' -> 'Speakers',
 #                                      'registered_speakers' -> 'Registered speakers',
 #                                  #    'partners' -> 'Our partners',
-#                                      'footer' -> 'Page updated on ' + (string)time.now() + '<br/>Graphic design by Michaela Slaninková, implementation by <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
+#                                      'footer' -> 'Page updated on ' + (string)time.now(),
+#                                  #    + '<br/>Graphic design by Michaela Slaninková, implementation by <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
 #                                      'talks' -> 'Talks',
 #                                  #    'talk' -> 'Talk',
 #                                  #    'talks_empty' -> 'There are no talks yet. They should appear here around ' + conf.time_show_sched.format('%-d.%-m.') + ' Stay tuned!',

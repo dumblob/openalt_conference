@@ -33,10 +33,10 @@ routine visitor_venue (
     body {
       text(_html_top_stripe)
 
-      # dummy
-      div(style='margin: 0; padding: 0; height: 0') { }
+      div(_class='dummy_section') { }
 
       div(id='venue') {
+        # FIXME put section to div (=> change selectors)
         h3(_class='section') { t['venue'] }
         paragraph {
           text(t['address'])
