@@ -174,8 +174,8 @@ routine visitor_program(
 #                        places2.iterate { [place]
 #                          if (place.id == cell.event.trans[trans].place) {
 #                            td {
-#                              invar track = str.format('_$0', cell.event.track)
-#                              span(_class=track.change('_.', '')) {}
+#                              invar track = str.format('$0', cell.event.track)
+#                              span(_class=track.change('%$', '')) {}
 #                              span { cell.event.trans[trans].name }
 #                              span { cell.author.name }
 #                            }
