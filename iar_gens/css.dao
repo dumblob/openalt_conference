@@ -510,26 +510,35 @@ nav {
   height: 1.4em;
   border-radius: 0.7em;
   margin-bottom: 0.4em;
+  background-color: black;
 }
 
-#schedule table tr td span.track_tips {
+#schedule table tr td span.track0 {
   background-color: #10753f;
 }
 
-#schedule table tr td span.track_world_around {
+#schedule table tr td span.track1 {
   background-color: #2f62ae;
 }
 
-#schedule table tr td span.track_security {
+#schedule table tr td span.track2 {
   background-color: #be1e2d;
 }
 
-#schedule table tr td span.track_challenges {
+#schedule table tr td span.track3 {
   background-color: #d37a6a;
 }
 
-#schedule table tr td span.track_establishment {
+#schedule table tr td span.track4 {
   background-color: #57585a;
+}
+
+#schedule table tr td span.track5 {
+  background-color: black; /* << FIXME */
+}
+
+#schedule table tr td span.track6 {
+  background-color: black; /* << FIXME */
 }
 
 #schedule table tr td span:nth-child(2) {
