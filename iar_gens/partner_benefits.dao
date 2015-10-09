@@ -85,21 +85,21 @@ routine partner_benefits(
         h3(_class='section') { 'Nabízíme' }
         div(_class='narrow_paragraph') {
 '<ul>
-<li>vlastní stánek ve vestibulech (HR, produkty, atd.)</li>
-<li>video prezentace na obrazovkách</li>
-<li>ceny do slosování (sebepropagace)</li>
-<li>možnost umístění velkých rollup bannerů</li>
-<li>logo na video záznamech</li>
-<li>logo na webu</li>
-<li>logo na plakátech o konferenci</li>
-<li>logo na menších informačních materiálech (letáčky apod.) o konferenci</li>
-<li>tužky/bločky/... poskytnuté partnerem osobně rozdávané před fakultou a/nebo přiložené ke vstupnímu balíčku</li>
-<li>kvalitní přednáška s tématikou otevřenosti jako sleva</li>
-<li>separátní zvláštní poděkování na sociálních sítích (Facebook, Twitter, Diaspora) - partner má možnost navrhnout hrubý obsah tohoto příspěvku</li>
-<li>společné poděkování stříbrným partnerům (explicitně vyjmenovaným) na sociálních sítích (Facebook, Twitter, Diaspora)</li>
-<li>logo na kávových kelímcích (Rebelbean)</li>
-<li>banner vedle kávového stánku s kávou zdarma</li>
-<li>poskytnutí potřebných věcí/naturálií/služeb</li>
+<li>Vlastní stánek ve vestibulech (HR, produkty, atd.)</li>
+<li>Video prezentace na obrazovkách</li>
+<li>Ceny do slosování (sebepropagace)</li>
+<li>Možnost umístění velkých rollup bannerů</li>
+<li>Logo na video záznamech</li>
+<li>Logo na webu</li>
+<li>Logo na plakátech o konferenci</li>
+<li>Logo na menších informačních materiálech (letáčky apod.) o konferenci</li>
+<li>Tužky/bločky/... poskytnuté partnerem osobně rozdávané před fakultou a/nebo přiložené ke vstupnímu balíčku</li>
+<li>Kvalitní přednáška s tématikou otevřenosti jako sleva</li>
+<li>Separátní zvláštní poděkování na sociálních sítích (Facebook, Twitter, Diaspora) - partner má možnost navrhnout hrubý obsah tohoto příspěvku</li>
+<li>Společné poděkování stříbrným partnerům (explicitně vyjmenovaným) na sociálních sítích (Facebook, Twitter, Diaspora)</li>
+<li>Logo na kávových kelímcích (Rebelbean)</li>
+<li>Banner vedle kávového stánku s kávou zdarma</li>
+<li>Poskytnutí potřebných věcí/naturálií/služeb</li>
 </ul>'
         }
       }
