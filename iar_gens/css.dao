@@ -478,26 +478,24 @@ nav {
   font-size: 18pt;
   font-weight: lighter;
 }
-
 #schedule table {
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
   width: 75%;
 }
-
 #schedule table tr th,
 #schedule table tr td {
   background-color: #d1d2d4;
+  color: black;
 }
-
 #schedule table tr td {
   padding: 0.5em;
   text-align: center;
-  border: 5px solid white;
+  /*border: 5px solid white;*/
+  border: 5px solid @[] + schedule_bg #{ FIXME make transparent working #} + @[];
   box-sizing: border-box;
 }
-
 #schedule table tr td span {
   display: block;
   margin-left: auto;
@@ -505,7 +503,6 @@ nav {
   margin-top: 0.2em;
   margin-bottom: 0.2em;
 }
-
 #schedule table tr td span:first-child {
   width: 1.2em;
   height: 1.2em;
@@ -513,39 +510,30 @@ nav {
   margin-bottom: 0.4em;
   background-color: black;
 }
-
 #schedule table tr td span.track0 {
   background-color: #10753f;
 }
-
 #schedule table tr td span.track1 {
   background-color: #2f62ae;
 }
-
 #schedule table tr td span.track2 {
   background-color: #be1e2d;
 }
-
 #schedule table tr td span.track3 {
   background-color: #d37a6a;
 }
-
 #schedule table tr td span.track4 {
   background-color: #57585a;
 }
-
 #schedule table tr td span.track5 {
   background-color: black; /* << FIXME */
 }
-
 #schedule table tr td span.track6 {
   background-color: black; /* << FIXME */
 }
-
 #schedule table tr td span:nth-child(2) {
   font-weight: bold;
 }
-
 #schedule table tr:first-child th,
 #schedule table tr td:first-child {
   color: white;
@@ -554,13 +542,11 @@ nav {
   font-weight: bold;
   border: none;
 }
-
 #schedule table tr:first-child th img {
   height: 1.1em;
   margin-right: 0.4em;
   vertical-align: bottom;
 }
-
 #schedule table tr td:first-child img {
   width: 1.1em;
   display: block;
@@ -570,19 +556,19 @@ nav {
   padding-left: 2em;
   padding-right: 2em;
 }
-
 #schedule table tr td:first-child span {
   margin-top: 0.2em;
   margin-bottom: 0.2em;
 }
-
 #schedule table tr:last-child td {
   border-bottom: none;
 }
-
 #schedule table tr td:last-child {
   border-right: none;
 }
+
+
+
 
 /*
 #venue a:hover, #feedback a:hover {

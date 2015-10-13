@@ -116,15 +116,15 @@ _participants: list<Participant> = {
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 23, 59),
     trans = {
-      $en -> ('After-lunch siesta-party!', 'Being prepared to pay 10000 CZK for fly tickets.', 'Please see the leaflets for further information.', 'In my flat in Finland.',),
-      $cs -> ('Poobědová siesta-párty', 'Byt odhodlany zaplatit 10000 CZK za letenky.', 'Vizte letáky pro podrobnější informace.', 'V mem byte ve Finsku.',),
+      $en -> ('Siesta after lunch', 'requirements', 'description', 'venue',),
+      $cs -> ('Siesta po obědě', 'Dobrou náladu a vhodnou pohovku.', 'Chvilka na odpočinek...', 'vestibul pavilonu D',),
     }),
 
     # party
    ($party,
     $track0,
     uri = ('', '', ''),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 22, 00),
     trans = {
       $en -> ('Party', 'no reqs', 'Please see the leaflets for further information.', 'Industra, 1. floor',),
