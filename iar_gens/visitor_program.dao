@@ -5,6 +5,7 @@ load config import configuration
 load translations import translation
 load lib import lib
 load html_common import html_content
+load string.format
 
 namespace iar { visitor_program }
 
@@ -95,9 +96,9 @@ routine visitor_program(
 #          }
 #
 #          day_sets = routine(m: map<my_time.time::DateTime, map<string, @T>>)
-#              => list<tuple<kind: enum, cell_lines: list<list<@T>>>> {
+#              => list<tuple<kind: enum, track: enum, cell_lines: list<list<@T>>>> {
 #
-#            res = (list<tuple<kind: enum, cell_lines: list<list<@T>>>>){}
+#            res = (list<tuple<kind: enum, track: enum, cell_lines: list<list<@T>>>>){}
 #            last_event: none|@T = none
 #
 #            m.keys().sort().iterate { [time_point]
@@ -114,7 +115,7 @@ routine visitor_program(
 #                    res[-1].cell_lines.append({cell})
 #                }
 #                else {
-#                  res.append( (kind=cell.event.kind, cell_lines={{cell}}) )
+#                  res.append( (kind=cell.event.kind, track=cell.event.track, cell_lines={{cell}}) )
 #                }
 #
 #                last_event = cell.event
@@ -149,18 +150,32 @@ routine visitor_program(
 #              }
 #              else {
 #                table {
-#                  tr { th {}; places2.iterate { [place] th { place.id } } }
+#                  tr {
+#                    th {}
+#                    places2.iterate { [place]
+#                      th {
+#                        img(src=rel(ci.door), alt=place.id, title=place.id)
+#                        span { place.id }
+#                      }
+#                    }
+#                  }
 #
 #                  set.cell_lines.iterate { [cell_line]
 #                    tr {
 #                      # there is at least 1 cell
-#                      td { cell_line[0].event.from.format('%H:%M') }
+#                      td {
+#                        invar time = cell_line[0].event.from.format('%H:%M')
+#                        img(src=rel(ci.clock), alt=time, title=time)
+#                        span { time }
+#                      }
 #
 #                      cell_line.iterate { [cell]
 #                        # tight-loop to preserve order
 #                        places2.iterate { [place]
 #                          if (place.id == cell.event.trans[trans].place) {
 #                            td {
+#                              invar track = str.format('$0', cell.event.track)
+#                              span(_class=track.change('%$', '')) {}
 #                              span { cell.event.trans[trans].name }
 #                              span { cell.author.name }
 #                            }

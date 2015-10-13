@@ -478,44 +478,111 @@ nav {
   font-size: 18pt;
   font-weight: lighter;
 }
+
 #schedule table {
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
   width: 75%;
 }
-#schedule img {
-  vertical-align: middle;
-}
-#schedule table td img:nth-child(n) {
-  margin-right: 10pt;
-}
-#schedule table td img:nth-child(2n) {
-  margin-left: 10pt;
-}
-#schedule > table tr:last-child > td {
-  border-bottom: 2px solid white;
-}
-#schedule > table tr > td:first-child {
-  width: 30%;
-}
-.with_border_top {
-  border-top: 2px solid white;
-  padding-top: 17pt;
-}
-#schedule table strong {
-  /*text-transform: uppercase;*/
-}
-#schedule td {
-  border-right: 2px solid white;
-  border-left: 2px solid white;
-  padding-bottom: 17pt;
-  padding-right: 17pt;
-  padding-left: 17pt;
-  text-align: left;
+
+#schedule table tr th,
+#schedule table tr td {
+  background-color: #d1d2d4;
 }
 
+#schedule table tr td {
+  padding: 0.5em;
+  text-align: center;
+  border: 5px solid white;
+  box-sizing: border-box;
+}
 
+#schedule table tr td span {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+#schedule table tr td span:first-child {
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  margin-bottom: 0.4em;
+  background-color: black;
+}
+
+#schedule table tr td span.track0 {
+  background-color: #10753f;
+}
+
+#schedule table tr td span.track1 {
+  background-color: #2f62ae;
+}
+
+#schedule table tr td span.track2 {
+  background-color: #be1e2d;
+}
+
+#schedule table tr td span.track3 {
+  background-color: #d37a6a;
+}
+
+#schedule table tr td span.track4 {
+  background-color: #57585a;
+}
+
+#schedule table tr td span.track5 {
+  background-color: black; /* << FIXME */
+}
+
+#schedule table tr td span.track6 {
+  background-color: black; /* << FIXME */
+}
+
+#schedule table tr td span:nth-child(2) {
+  font-weight: bold;
+}
+
+#schedule table tr:first-child th,
+#schedule table tr td:first-child {
+  color: white;
+  background-color: @[] + dark_grey + @[];
+  padding: 1em;
+  font-weight: bold;
+  border: none;
+}
+
+#schedule table tr:first-child th img {
+  height: 1.1em;
+  margin-right: 0.4em;
+  vertical-align: bottom;
+}
+
+#schedule table tr td:first-child img {
+  width: 1.1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.25em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+#schedule table tr td:first-child span {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+#schedule table tr:last-child td {
+  border-bottom: none;
+}
+
+#schedule table tr td:last-child {
+  border-right: none;
+}
 
 /*
 #venue a:hover, #feedback a:hover {
