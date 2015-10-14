@@ -150,7 +150,7 @@ routine parse_csv(
   std.assert(%quote == 1 && %field_sep == 1 && %record_sep == 1)
 
   s = str.Scanner(data)
-  res = (list<list<string>>){{}}
+  res: list<list<string>> = {{}}
 
   while (s.rest) {
     i = 0  # number of leading quotes in a field (including embedded ones)

@@ -36,161 +36,161 @@ routine visitor_program(
     body {
       text(_html_top_stripe)
 
-      if (my_time.time.now() >= conf.time_show_sched) {
-        div(id='schedule') {
-          h3(_class='section') { t['schedule'] }
-
-          # construct reversed event mappings
-          # FIXME do it using SQL (just use the built-in sqlite module)
-
-          # FIXME remove type specifications
-          places: map<string, int> = {->}
-          days: map<my_time.time::DateTime, map<
-            my_time.time::DateTime, map<string, @T>>> = {->}
-          participants.iterate { [p]
-            p.events.iterate { [ev]
-              if (ev.kind != $party) {
-                # rank ~ number of occurences
-                if (ev.trans[trans].place in places)
-                  ++places[ev.trans[trans].place]
-                else
-                  places[ev.trans[trans].place] = 1
-              }
-
-              day = my_time.time.make(ev.from.year, ev.from.month, ev.from.day)
-              # each day separately
-              if (day not in days)
-                days[day] = {->}
-              # each event
-              if (ev.from not in days[day])
-                days[day][ev.from] = {->}
-              # each place
-              if (ev.trans[trans].place not in days[day][ev.from])
-                days[day][ev.from][ev.trans[trans].place] = (author=p, event=ev)
-              else
-                io.stderr.writeln('WARN >1 events at a venue',
-                    ev.trans[trans].place, 'at time', ev.from)
-            }
-          }
-
-          # adjust reverse mappings
-
-          orig_ind = 0
-          places2 = places.collect {
-            (orig_ind = 0, id = X, rank = Y)
-          } .sort {
-            X.id > Y.id
-          } .apply {
-            # FIXME imitate stable sort by remembering the index
-            X.orig_ind = ++orig_ind
-            return X
-          } .sort {
-            if (X.rank == Y.rank)
-              return X.orig_ind > Y.orig_ind
-            else
-              return X.rank > Y.rank
-          }
-
-          day_sets = routine(m: map<my_time.time::DateTime, map<string, @T>>)
-              => list<tuple<kind: enum, track: enum, cell_lines: list<list<@T>>>> {
-
-            res: list<tuple<kind: enum, track: enum, cell_lines: list<
-              list<@T>>>> = {}
-            last_event: none|@T = none
-
-            m.keys().sort().iterate { [time_point]
-              m[time_point].iterate { [place, cell]
-                if (last_event != none && (
-                    (last_event.kind == $party && cell.event.kind == $party) ||
-                    (
-                    # all non-party events are in the same cluster
-                    last_event.kind != $party && cell.event.kind != $party)
-                )) {
-                  if (last_event.from == cell.event.from)
-                    res[-1].cell_lines[-1].append(cell)
-                  else
-                    res[-1].cell_lines.append({cell})
-                }
-                else {
-                  res.append( (kind=cell.event.kind, track=cell.event.track, cell_lines={{cell}}) )
-                }
-
-                last_event = cell.event
-              }
-            }
-
-            return res
-          }
-
-          # create tables and paragraphs from the reversed mappings
-
-          days.keys().sort().iterate { [day]
-            paragraph {
-              # FIXME %A causes sigsegv
-              #localized_time_format(t['_locale'], day, '%A %-d. %-m. %Y')
-              day.format('%-d. %-m. %Y')
-            }
-
-            day_sets(days[day]).iterate { [set]
-              if (set.kind == $party) {
-                set.cell_lines.iterate { [cell_line]
-                  cell_line.iterate { [cell]
-                    div {
-                      paragraph { cell.event.from.format('%H:%M') }
-                      paragraph { cell.event.trans[trans].name }
-                      paragraph { cell.event.trans[trans].description }
-                      paragraph { cell.event.trans[trans].requirements }
-                      paragraph { cell.event.trans[trans].place }
-                    }
-                  }
-                }
-              }
-              else {
-                table {
-                  tr {
-                    th {}
-                    places2.iterate { [place]
-                      th {
-                        img(src=rel(ci.door), alt=place.id, title=place.id)
-                        span { place.id }
-                      }
-                    }
-                  }
-
-                  set.cell_lines.iterate { [cell_line]
-                    tr {
-                      # there is at least 1 cell
-                      td {
-                        invar time = cell_line[0].event.from.format('%H:%M')
-                        img(src=rel(ci.clock), alt=time, title=time)
-                        span { time }
-                      }
-
-                      cell_line.iterate { [cell]
-                        # tight-loop to preserve order
-                        places2.iterate { [place]
-                          if (place.id == cell.event.trans[trans].place) {
-                            td {
-                              invar track = str.format('$0', cell.event.track)
-                              span(_class=track.change('%$', '')) {}
-                              span { cell.event.trans[trans].name }
-                              span { cell.author.name }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        # dummy div to move stripe colors by one
-        div(_class='dummy_section') { }
-        div(_class='dummy_section') { }
-      }
+#      if (my_time.time.now() >= conf.time_show_sched) {
+#        div(id='schedule') {
+#          h3(_class='section') { t['schedule'] }
+#
+#          # construct reversed event mappings
+#          # FIXME do it using SQL (just use the built-in sqlite module)
+#
+#          # FIXME remove type specifications
+#          places: map<string, int> = {->}
+#          days: map<my_time.time::DateTime, map<
+#            my_time.time::DateTime, map<string, @T>>> = {->}
+#          participants.iterate { [p]
+#            p.events.iterate { [ev]
+#              if (ev.kind != $party) {
+#                # rank ~ number of occurences
+#                if (ev.trans[trans].place in places)
+#                  ++places[ev.trans[trans].place]
+#                else
+#                  places[ev.trans[trans].place] = 1
+#              }
+#
+#              day = my_time.time.make(ev.from.year, ev.from.month, ev.from.day)
+#              # each day separately
+#              if (day not in days)
+#                days[day] = {->}
+#              # each event
+#              if (ev.from not in days[day])
+#                days[day][ev.from] = {->}
+#              # each place
+#              if (ev.trans[trans].place not in days[day][ev.from])
+#                days[day][ev.from][ev.trans[trans].place] = (author=p, event=ev)
+#              else
+#                io.stderr.writeln('WARN >1 events at a venue',
+#                    ev.trans[trans].place, 'at time', ev.from)
+#            }
+#          }
+#
+#          # adjust reverse mappings
+#
+#          orig_ind = 0
+#          places2 = places.collect {
+#            (orig_ind = 0, id = X, rank = Y)
+#          } .sort {
+#            X.id > Y.id
+#          } .apply {
+#            # FIXME imitate stable sort by remembering the index
+#            X.orig_ind = ++orig_ind
+#            return X
+#          } .sort {
+#            if (X.rank == Y.rank)
+#              return X.orig_ind > Y.orig_ind
+#            else
+#              return X.rank > Y.rank
+#          }
+#
+#          day_sets = routine(m: map<my_time.time::DateTime, map<string, @T>>)
+#              => list<tuple<kind: enum, track: enum, cell_lines: list<list<@T>>>> {
+#
+#            res: list<tuple<kind: enum, track: enum, cell_lines: list<
+#              list<@T>>>> = {}
+#            last_event: none|@T = none
+#
+#            m.keys().sort().iterate { [time_point]
+#              m[time_point].iterate { [place, cell]
+#                if (last_event != none && (
+#                    (last_event.kind == $party && cell.event.kind == $party) ||
+#                    (
+#                    # all non-party events are in the same cluster
+#                    last_event.kind != $party && cell.event.kind != $party)
+#                )) {
+#                  if (last_event.from == cell.event.from)
+#                    res[-1].cell_lines[-1].append(cell)
+#                  else
+#                    res[-1].cell_lines.append({cell})
+#                }
+#                else {
+#                  res.append( (kind=cell.event.kind, track=cell.event.track, cell_lines={{cell}}) )
+#                }
+#
+#                last_event = cell.event
+#              }
+#            }
+#
+#            return res
+#          }
+#
+#          # create tables and paragraphs from the reversed mappings
+#
+#          days.keys().sort().iterate { [day]
+#            paragraph {
+#              # FIXME %A causes sigsegv
+#              #localized_time_format(t['_locale'], day, '%A %-d. %-m. %Y')
+#              day.format('%-d. %-m. %Y')
+#            }
+#
+#            day_sets(days[day]).iterate { [set]
+#              if (set.kind == $party) {
+#                set.cell_lines.iterate { [cell_line]
+#                  cell_line.iterate { [cell]
+#                    div {
+#                      paragraph { cell.event.from.format('%H:%M') }
+#                      paragraph { cell.event.trans[trans].name }
+#                      paragraph { cell.event.trans[trans].description }
+#                      paragraph { cell.event.trans[trans].requirements }
+#                      paragraph { cell.event.trans[trans].place }
+#                    }
+#                  }
+#                }
+#              }
+#              else {
+#                table {
+#                  tr {
+#                    th {}
+#                    places2.iterate { [place]
+#                      th {
+#                        img(src=rel(ci.door), alt=place.id, title=place.id)
+#                        span { place.id }
+#                      }
+#                    }
+#                  }
+#
+#                  set.cell_lines.iterate { [cell_line]
+#                    tr {
+#                      # there is at least 1 cell
+#                      td {
+#                        invar time = cell_line[0].event.from.format('%H:%M')
+#                        img(src=rel(ci.clock), alt=time, title=time)
+#                        span { time }
+#                      }
+#
+#                      cell_line.iterate { [cell]
+#                        # tight-loop to preserve order
+#                        places2.iterate { [place]
+#                          if (place.id == cell.event.trans[trans].place) {
+#                            td {
+#                              invar track = str.format('$0', cell.event.track)
+#                              span(_class=track.change('%$', '')) {}
+#                              span { cell.event.trans[trans].name }
+#                              span { cell.author.name }
+#                            }
+#                          }
+#                        }
+#                      }
+#                    }
+#                  }
+#                }
+#              }
+#            }
+#          }
+#        }
+#
+#        # dummy div to move stripe colors by one
+#        div(_class='dummy_section') { }
+#        div(_class='dummy_section') { }
+#      }
 
       put_event = routine(invar e: tuple<name:string, event:Event>) {
         return div(_class='event') {
@@ -200,7 +200,7 @@ routine visitor_program(
             e.event.trans[trans].description
           }
 
-          if (e.event.kind == $workshop) {
+          if (e.event.kind == $workshop && %e.event.trans[trans].requirements) {
             paragraph(_class='event_reqs') { t['participation_reqs'] }
             paragraph(_class='event_desc') { e.event.trans[trans].requirements }
           }
@@ -234,6 +234,7 @@ routine visitor_program(
           #   anything in a fixed manner - only loops over existing data
           #   (CSS should be also generated from the data in the DB)
 
+          if (%events_satisfying(participants, $talk, $track0))
           div {
             div(_class='narrow_paragraph track0') {
               div(_class='circle') { }  # CSS circle
@@ -248,6 +249,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $talk, $track1))
           div {
             div(_class='narrow_paragraph track1') {
               div(_class='circle') { }  # CSS circle
@@ -262,6 +264,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $talk, $track2))
           div {
             div(_class='narrow_paragraph track2') {
               div(_class='circle') { }  # CSS circle
@@ -276,6 +279,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $talk, $track3))
           div {
             div(_class='narrow_paragraph track3') {
               div(_class='circle') { }  # CSS circle
@@ -290,6 +294,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $talk, $track4))
           div {
             div(_class='narrow_paragraph track4') {
               div(_class='circle') { }
@@ -304,6 +309,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $talk, $track5))
           div {
             div(_class='narrow_paragraph track5') {
               div(_class='circle') { }
@@ -318,6 +324,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $talk, $track6))
           div {
             div(_class='narrow_paragraph track6') {
               div(_class='circle') { }
@@ -342,6 +349,7 @@ routine visitor_program(
         h3(_class='section') { t['workshops'] }
 
         div(id='workshops') {
+          if (%events_satisfying(participants, $workshop, $track0))
           div {
             div(_class='narrow_paragraph track0') {
               div(_class='circle') { }
@@ -356,6 +364,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $workshop, $track1))
           div {
             div(_class='narrow_paragraph track1') {
               div(_class='circle') { }
@@ -370,6 +379,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $workshop, $track2))
           div {
             div(_class='narrow_paragraph track2') {
               div(_class='circle') { }
@@ -384,6 +394,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $workshop, $track3))
           div {
             div(_class='narrow_paragraph track3') {
               div(_class='circle') { }
@@ -398,6 +409,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $workshop, $track4))
           div {
             div(_class='narrow_paragraph track4') {
               div(_class='circle') { }
@@ -412,6 +424,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $workshop, $track5))
           div {
             div(_class='narrow_paragraph track5') {
               div(_class='circle') { }
@@ -426,6 +439,7 @@ routine visitor_program(
             div(_class='clear_float') {}
           }
 
+          if (%events_satisfying(participants, $workshop, $track6))
           div {
             div(_class='narrow_paragraph track6') {
               div(_class='circle') { }

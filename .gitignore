@@ -14,7 +14,5 @@
 /misc/server_openalt_org/
 /misc/partners/
 
-res.old_local-res.old_remote.diff
-res.old_local
-res.old_remote
+res.*
 debug*

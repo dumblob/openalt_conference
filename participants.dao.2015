@@ -307,6 +307,67 @@ _participants: list<Participant> = {
 #  }),
 }
 
+# FIXME make it a global main file argument or rather wait until some
+#   URL API is available?
+load stream
+data = io.read('misc/server_openalt_org/forms/call_for_proposals_openalt_2015-5.csv')
+csv = parse_csv(data, '"')
+csv.iterate {
+  kind = X[42].convert($lower)
+  track = X[47].convert($lower)
+  _participants.append(
+    (Participant)(
+      name = X[9],
+      members = none,
+      photo = '',  # X[23]
+      trans = {
+        $cs -> (
+          role = X[16],
+          note = '',
+        )
+      },
+      events = {
+        (Event)(
+          kind = kind.match('(talk|přednáška)') != none ? Kind.talk :
+                 kind.match('(workshop|dílna)') != none ? Kind.workshop :
+                 Kind.internal,
+          # FIXME Dao bug: match() doesn't take into account spaces if there are UTF-8 characters
+          track = track.match('Otevřená společnost, komunity a data'.replace(' ', '.').convert($lower)) != none ? Track.track0 :
+                  track.match('Alternativy ve vzdělávání'           .replace(' ', '.').convert($lower)) != none ? Track.track1 :
+                  track.match('Bezpečnost a soukromí'               .replace(' ', '.').convert($lower)) != none ? Track.track2 :
+                  track.match('Hnutí Tvůrců %(Makers%)'             .replace(' ', '.').convert($lower)) != none ? Track.track3 :
+                  track.match('Otevřené mobilní technologie'        .replace(' ', '.').convert($lower)) != none ? Track.track4 :
+                  track.match('Otevřený software %(LinuxAlt%)'      .replace(' ', '.').convert($lower)) != none ? Track.track5 :
+                  Track.track6,
+          uri = (
+            video_rec = '',
+            presentation = '',
+            materials = '',
+          ),
+          from = time.now(),  # time.parse('0s'),  # FIXME
+          to   = time.now(),  # time.parse('0s'),  # FIXME
+          trans = {
+            $cs -> (
+              name = X[43],
+              requirements = '',  #X[45],  # FIXME
+              description = X[44],
+              place = '',
+            ),
+          }
+        )
+      }
+    )
+  )
+
+  #io.writeln('name', X[9])
+  #io.writeln('pic', X[23])
+  #io.writeln('kind', X[42])
+  #io.writeln('talk_name', X[43])
+  #io.writeln('talk_desc', X[44])
+  #io.writeln('talk_req', X[48])  # FIXME these are just notes, not requirements
+  #io.writeln('track', X[47])
+}
+
 var participants: list<Participant> = {}
 
 # remove duplicates
@@ -318,6 +379,7 @@ for (_p in _participants) {
   else
     _p.events.iterate { p.value.events.append(X) }
 }
+
 ## FIXME
 #               load web.json
 #               io.writeln(json.serialize(participants) {
