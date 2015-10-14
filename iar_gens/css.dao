@@ -492,8 +492,8 @@ nav {
 #schedule table tr td {
   padding: 0.5em;
   text-align: center;
-  /*border: 5px solid white;*/
-  border: 5px solid @[] + schedule_bg #{ FIXME make transparent working #} + @[];
+  border: 5px solid white;
+  /*border: 5px solid @[] + schedule_bg #{ FIXME make transparent working #} + @[];*/
   box-sizing: border-box;
 }
 #schedule table tr td span {

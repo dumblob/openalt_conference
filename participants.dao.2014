@@ -17,7 +17,7 @@ _participants: list<Participant> = {
   events = {
     # lunch - saturday
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -26,7 +26,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -35,7 +35,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -44,7 +44,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -53,7 +53,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -64,7 +64,7 @@ _participants: list<Participant> = {
 
     # lunch - sunday
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -73,7 +73,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -82,7 +82,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -91,7 +91,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -100,7 +100,7 @@ _participants: list<Participant> = {
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
     }),
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -111,7 +111,7 @@ _participants: list<Participant> = {
 
     # FIXME testing party
    ($party,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 23, 59),
@@ -122,7 +122,7 @@ _participants: list<Participant> = {
 
     # party
    ($party,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 22, 00),
@@ -133,7 +133,7 @@ _participants: list<Participant> = {
 
     # lottery
    ($internal,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
@@ -157,7 +157,7 @@ _participants: list<Participant> = {
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
@@ -196,7 +196,7 @@ _participants: list<Participant> = {
    # 
    # column12: 
    ($workshop,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
     #  trojblok o 150 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -311,7 +311,7 @@ V prípade dostatku času:
    # 
    # column12: 
    ($talk,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
@@ -350,9 +350,9 @@ V prípade dostatku času:
 #   # potrebný projektor na pripojenie raspi pre ukážky
 #   # column12: 
 #   ($talk,
-#    $security,
+#    $track3,
 #    uri = ('', '', ''),
-#    #$world_around,
+#    #$track1,
 #    # 2x 25 minut souvisejících témat
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
@@ -395,7 +395,7 @@ V prípade dostatku času:
 #   # 
 #   # column12: 
 #   ($talk,
-#    $world_around,
+#    $track1,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -435,9 +435,9 @@ V prípade dostatku času:
    # prosím o odpolední slot (čím později, tím lépe)
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
-    #$challenges,
+    #$track2,
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
@@ -483,9 +483,9 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
 #   # 
 #   # column12: 
 #   ($talk,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
-#    #$tips,
+#    #$track4,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
@@ -523,7 +523,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
    # pokud planujete jeste vetsi tricka, nez XL, rad bych 2-3 XL, jsem rod od roku vetsi
    # column12: 
    ($workshop,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
@@ -579,7 +579,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
    # 
    # column12: 
    ($workshop,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
     #  dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
@@ -635,7 +635,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
 #   # 
 #   # column12: 
 #   ($talk,
-#    $tips,
+#    $track4,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -719,9 +719,9 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
    # 
    # column12: 
    ($talk,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
-    #$world_around,
+    #$track1,
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
@@ -796,7 +796,7 @@ Součástí přednášky tedy budou zhruba následující body:
    # 
    # column12: 
    ($talk,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -836,9 +836,9 @@ Součástí přednášky tedy budou zhruba následující body:
    # 
    # column12: 
    ($talk,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
-    #$world_around,
+    #$track1,
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
@@ -909,7 +909,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
    # Bral bych ji spíše jako výplňovou přednášku, zatím si nedokáži představit, že bych to dokázal přednášet. :)
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -949,7 +949,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -989,7 +989,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
    # 
    # column12: 
    ($talk,
-    $security,
+    $track3,
     uri = ('', '', ''),
     #  dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
@@ -1064,7 +1064,7 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
    # 
    # column12: 
    ($talk,
-    $tips,
+    $track4,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
@@ -1120,9 +1120,9 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 #   # 
 #   # column12: 
 #   ($talk,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
-#    #$security,
+#    #$track3,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -1161,7 +1161,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
 #   # 
 #   # column12: 
 #   ($talk,
-#    $tips,
+#    $track4,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
@@ -1201,7 +1201,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
@@ -1241,7 +1241,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
    # 
    # column12: 
    ($talk,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
@@ -1281,9 +1281,9 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
    # 
    # column12: 
    ($talk,
-    $tips,
+    $track4,
     uri = ('', '', ''),
-    #$world_around,
+    #$track1,
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
@@ -1326,7 +1326,7 @@ A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příka
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
@@ -1382,7 +1382,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # 
    # column12: 
    ($talk,
-    $establishment,
+    $track0,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
@@ -1422,7 +1422,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
@@ -1462,7 +1462,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
@@ -1502,7 +1502,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #   # 
 #   # column12: 
 #   ($talk,
-#    $world_around,
+#    $track1,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -1542,7 +1542,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #   # Toto téma lze v případě potřeby zredukovat a zahrnout pod návrh přednášky "Jak Firefox OS ovlivňuje trh s mobilními zařízeními" - byť ve zkrácené podobě.
 #   # column12: 
 #   ($talk,
-#    $world_around,
+#    $track1,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -1582,7 +1582,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
@@ -1622,9 +1622,9 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
 #   # 
 #   # column12: 
 #   ($talk,
-#    $tips,
+#    $track4,
 #    uri = ('', '', ''),
-#    #$world_around,
+#    #$track1,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -1687,7 +1687,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # Je mozne udelat i 50 + 25 pokud tam bude misto ale 50+50 bych nedal.  
    # column12: 
    ($workshop,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -1727,7 +1727,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
    # 
    # column12: 
    ($talk,
-    $tips,
+    $track4,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
@@ -1775,7 +1775,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
    # ad preferovaný den: Je mi to jedno, sobota i neděle.
    # column12: 
    ($workshop,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
     #  čtyřblok o 200 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -1815,7 +1815,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #   # 
 #   # column12: 
 #   ($talk,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -1855,10 +1855,10 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #   # 
 #   # column12: 
 #   ($talk,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
-#    #$tips,
-#    #$world_around,
+#    #$track4,
+#    #$track1,
 #    # 2x 25 minut souvisejících témat
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -1913,9 +1913,9 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #   # 
 #   # column12: 
 #   ($talk,
-#    $tips,
+#    $track4,
 #    uri = ('', '', ''),
-#    #$world_around,
+#    #$track1,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -1954,7 +1954,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
 #   # 
 #   # column12: 
 #   ($talk,
-#    $world_around,
+#    $track1,
 #    uri = ('', '', ''),
 #    # 2x 25 minut souvisejících témat
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
@@ -1994,7 +1994,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
@@ -2042,9 +2042,9 @@ Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvoj
 #   # 
 #   # column12: 
 #   ($talk,
-#    $establishment,
+#    $track0,
 #    uri = ('', '', ''),
-#    #$security,
+#    #$track3,
 #    # 2x 25 minut souvisejících témat
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
@@ -2087,7 +2087,7 @@ Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvoj
 #   # 
 #   # column12: 
 #   ($workshop,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
 #    #  dvojblok o 100 minutách
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -2127,7 +2127,7 @@ Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvoj
    # Je mi jedno ktery den to bude.
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
@@ -2173,7 +2173,7 @@ Přednáška vám představí ty nejzajímavější vychytávky co dnešní brow
    # 
    # column12: 
    ($talk,
-    $tips,
+    $track4,
     uri = ('', '', ''),
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
@@ -2233,7 +2233,7 @@ Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFT
    # 
    # column12: 
    ($talk,
-    $tips,
+    $track4,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
@@ -2297,9 +2297,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # Tričko spíše XXL :D. Openmobility track.
 #   # column12: 
 #   ($talk,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
-#    #$world_around,
+#    #$track1,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
@@ -2338,7 +2338,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
    # Přednášelo by nás 5 (Martin Grmela, Ladislav Hagara, Petr Hvižď, Miroslav Lábr, Petr Strnad). Formulář nepočítá s tolika přednášejícími. :-) Kdyby bylo potřeba, myslím, že bychom mohli zvládnout i dvojblok o 100 minutách. Když bude dost přednášek, uspokojíme se s 50 minutami.
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
@@ -2378,7 +2378,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # Počet lidí na workshopu maximálně 6, aby se to dalo v klidu zvládnout. Nutná registrace na workshopu předem. Cena workshopu bude stanovena podle počtu účastníků.
 #   # column12: 
 #   ($workshop,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
 #    #  čtyřblok o 200 minutách (pouze workshop)
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
@@ -2418,7 +2418,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # Stačila by půl hodina jako na LinuxAltu 2013.
 #   # column12: 
 #   ($talk,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
@@ -2458,9 +2458,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
-#    #$tips,
+#    #$track4,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
@@ -2507,9 +2507,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
-#    #$world_around,
+#    #$track1,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
@@ -2560,7 +2560,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($workshop,
-#    $challenges,
+#    $track2,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
@@ -2610,7 +2610,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # Přednášet můžu buď v neděli, nebo v sobotu od 16:00.
 #   # column12: 
 #   ($talk,
-#    $establishment,
+#    $track0,
 #    uri = ('', '', ''),
 #    # 2x 25 minut souvisejících témat
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
@@ -2650,7 +2650,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $world_around,
+#    $track1,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
@@ -2690,7 +2690,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $establishment,
+#    $track0,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
@@ -2732,9 +2732,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   #Délka přednášky 30 minut bez dotazů, ale není problém o trochu natáhnout aby na dotazy zbylo jen 10-15 minut.
 #   # column12: 
 #   ($talk,
-#    $tips,
+#    $track4,
 #    uri = ('', '', ''),
-#    #$world_around,
+#    #$track1,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
@@ -2773,7 +2773,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $establishment,
+#    $track0,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -2813,7 +2813,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $world_around,
+#    $track1,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
@@ -2881,7 +2881,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $tips,
+#    $track4,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
@@ -2925,7 +2925,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $establishment,
+#    $track0,
 #    uri = ('', '', ''),
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
@@ -2966,9 +2966,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   #gamestudies.cz / ceegs.cz
 #   # column12: 
 #   ($talk,
-#    $establishment,
+#    $track0,
 #    uri = ('', '', ''),
-#    #$world_around,
+#    #$track1,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 8, 45),
@@ -3007,7 +3007,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
    # 
    # column12: 
    ($talk,
-    $world_around,
+    $track1,
     uri = ('', '', ''),
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
@@ -3047,9 +3047,9 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
 #   # 
 #   # column12: 
 #   ($talk,
-#    $tips,
+#    $track4,
 #    uri = ('', '', ''),
-#    #$world_around,
+#    #$track1,
 #    # 50 minut
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 00),
 #    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 8, 45),
@@ -3088,7 +3088,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
    # 
    # column12: 
    ($workshop,
-    $challenges,
+    $track2,
     uri = ('', '', ''),
     #  trojblok o 150 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),

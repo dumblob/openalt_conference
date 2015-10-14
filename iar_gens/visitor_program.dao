@@ -36,9 +36,6 @@ routine visitor_program(
     body {
       text(_html_top_stripe)
 
-      # dummy div to move stripe colors by one
-      div(_class='dummy_section') { }
-
       if (my_time.time.now() >= conf.time_show_sched) {
         div(id='schedule') {
           h3(_class='section') { t['schedule'] }
@@ -190,8 +187,9 @@ routine visitor_program(
           }
         }
 
+        # dummy div to move stripe colors by one
         div(_class='dummy_section') { }
-        #div(_class='dummy_section') { }
+        div(_class='dummy_section') { }
       }
 
       put_event = routine(invar e: tuple<name:string, event:Event>) {
