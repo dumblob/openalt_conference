@@ -292,11 +292,12 @@ routine visitor_program(
                 h4        { t['track0'] }
                 paragraph { t['track0_desc'] }
               }
-              for (e in events_satisfying(participants, $talk, $track0)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $talk, $track0)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $talk, $track1))
@@ -307,11 +308,12 @@ routine visitor_program(
                 h4        { t['track1'] }
                 paragraph { t['track1_desc'] }
               }
-              for (e in events_satisfying(participants, $talk, $track1)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $talk, $track1)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $talk, $track2))
@@ -322,11 +324,12 @@ routine visitor_program(
                 h4        { t['track2'] }
                 paragraph { t['track2_desc'] }
               }
-              for (e in events_satisfying(participants, $talk, $track2)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $talk, $track2)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $talk, $track3))
@@ -337,11 +340,12 @@ routine visitor_program(
                 h4        { t['track3'] }
                 paragraph { t['track3_desc'] }
               }
-              for (e in events_satisfying(participants, $talk, $track3)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $talk, $track3)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $talk, $track4))
@@ -352,11 +356,12 @@ routine visitor_program(
                 h4        { t['track4'] }
                 paragraph { t['track4_desc'] }
               }
-              for (e in events_satisfying(participants, $talk, $track4)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $talk, $track4)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $talk, $track5))
@@ -367,11 +372,12 @@ routine visitor_program(
                 h4        { t['track5'] }
                 paragraph { t['track5_desc'] }
               }
-              for (e in events_satisfying(participants, $talk, $track5)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $talk, $track5)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $talk, $track6))
@@ -382,11 +388,12 @@ routine visitor_program(
                 h4        { t['track6'] }
                 paragraph { t['track6_desc'] }
               }
-              for (e in events_satisfying(participants, $talk, $track6)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $talk, $track6)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
         }
       }
@@ -407,11 +414,12 @@ routine visitor_program(
                 h4        { t['track0'] }
                 paragraph { t['track0_desc'] }
               }
-              for (e in events_satisfying(participants, $workshop, $track0)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $workshop, $track0)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $workshop, $track1))
@@ -422,11 +430,12 @@ routine visitor_program(
                 h4        { t['track1'] }
                 paragraph { t['track1_desc'] }
               }
-              for (e in events_satisfying(participants, $workshop, $track1)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $workshop, $track1)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $workshop, $track2))
@@ -437,11 +446,12 @@ routine visitor_program(
                 h4        { t['track2'] }
                 paragraph { t['track2_desc'] }
               }
-              for (e in events_satisfying(participants, $workshop, $track2)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $workshop, $track2)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $workshop, $track3))
@@ -452,11 +462,12 @@ routine visitor_program(
                 h4        { t['track3'] }
                 paragraph { t['track3_desc'] }
               }
-              for (e in events_satisfying(participants, $workshop, $track3)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $workshop, $track3)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $workshop, $track4))
@@ -467,11 +478,12 @@ routine visitor_program(
                 h4        { t['track4'] }
                 paragraph { t['track4_desc'] }
               }
-              for (e in events_satisfying(participants, $workshop, $track4)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $workshop, $track4)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $workshop, $track5))
@@ -482,11 +494,12 @@ routine visitor_program(
                 h4        { t['track5'] }
                 paragraph { t['track5_desc'] }
               }
-              for (e in events_satisfying(participants, $workshop, $track5)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $workshop, $track5)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
 
           if (%events_satisfying(participants, $workshop, $track6))
@@ -497,11 +510,12 @@ routine visitor_program(
                 h4        { t['track6'] }
                 paragraph { t['track6_desc'] }
               }
-              for (e in events_satisfying(participants, $workshop, $track6)) {
-                put_event(e)
+              div(_class='events') {
+                for (e in events_satisfying(participants, $workshop, $track6)) {
+                  put_event(e)
+                }
               }
             }
-            div(_class='clear_float') {}
           }
         }
       }
