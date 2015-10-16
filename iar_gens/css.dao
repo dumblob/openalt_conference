@@ -364,10 +364,12 @@ nav {
   text-align: left;
   position: relative;  /* used for circle */
 }
-.events {
+.two-columns {
   column-count: 2;
   -moz-column-count: 2;
   -webkit-column-count: 2;
+}
+.one-column {
 }
 .event {
   padding: 1pt;

@@ -284,7 +284,8 @@ routine visitor_program(
           #   anything in a fixed manner - only loops over existing data
           #   (CSS should be also generated from the data in the DB)
 
-          if (%events_satisfying(participants, $talk, $track0))
+          events = events_satisfying(participants, $talk, $track0)
+          if (%events)
           div {
             div(_class='narrow_paragraph track0') {
               div(_class='circle') { }  # CSS circle
@@ -292,15 +293,16 @@ routine visitor_program(
                 h4        { t['track0'] }
                 paragraph { t['track0_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $talk, $track0)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $talk, $track1))
+          events = events_satisfying(participants, $talk, $track1)
+          if (%events)
           div {
             div(_class='narrow_paragraph track1') {
               div(_class='circle') { }  # CSS circle
@@ -308,15 +310,16 @@ routine visitor_program(
                 h4        { t['track1'] }
                 paragraph { t['track1_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $talk, $track1)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $talk, $track2))
+          events = events_satisfying(participants, $talk, $track2)
+          if (%events)
           div {
             div(_class='narrow_paragraph track2') {
               div(_class='circle') { }  # CSS circle
@@ -324,15 +327,16 @@ routine visitor_program(
                 h4        { t['track2'] }
                 paragraph { t['track2_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $talk, $track2)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $talk, $track3))
+          events = events_satisfying(participants, $talk, $track3)
+          if (%events)
           div {
             div(_class='narrow_paragraph track3') {
               div(_class='circle') { }  # CSS circle
@@ -340,15 +344,16 @@ routine visitor_program(
                 h4        { t['track3'] }
                 paragraph { t['track3_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $talk, $track3)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $talk, $track4))
+          events = events_satisfying(participants, $talk, $track4)
+          if (%events)
           div {
             div(_class='narrow_paragraph track4') {
               div(_class='circle') { }
@@ -356,15 +361,16 @@ routine visitor_program(
                 h4        { t['track4'] }
                 paragraph { t['track4_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $talk, $track4)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $talk, $track5))
+          events = events_satisfying(participants, $talk, $track5)
+          if (%events)
           div {
             div(_class='narrow_paragraph track5') {
               div(_class='circle') { }
@@ -372,15 +378,16 @@ routine visitor_program(
                 h4        { t['track5'] }
                 paragraph { t['track5_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $talk, $track5)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $talk, $track6))
+          events = events_satisfying(participants, $talk, $track6)
+          if (%events)
           div {
             div(_class='narrow_paragraph track6') {
               div(_class='circle') { }
@@ -388,8 +395,8 @@ routine visitor_program(
                 h4        { t['track6'] }
                 paragraph { t['track6_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $talk, $track6)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
@@ -406,7 +413,8 @@ routine visitor_program(
         h3(_class='section') { t['workshops'] }
 
         div(id='workshops') {
-          if (%events_satisfying(participants, $workshop, $track0))
+          events = events_satisfying(participants, $workshop, $track0)
+          if (%events)
           div {
             div(_class='narrow_paragraph track0') {
               div(_class='circle') { }
@@ -414,15 +422,16 @@ routine visitor_program(
                 h4        { t['track0'] }
                 paragraph { t['track0_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $workshop, $track0)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $workshop, $track1))
+          events = events_satisfying(participants, $workshop, $track1)
+          if (%events)
           div {
             div(_class='narrow_paragraph track1') {
               div(_class='circle') { }
@@ -430,15 +439,16 @@ routine visitor_program(
                 h4        { t['track1'] }
                 paragraph { t['track1_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $workshop, $track1)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $workshop, $track2))
+          events = events_satisfying(participants, $workshop, $track2)
+          if (%events)
           div {
             div(_class='narrow_paragraph track2') {
               div(_class='circle') { }
@@ -446,15 +456,16 @@ routine visitor_program(
                 h4        { t['track2'] }
                 paragraph { t['track2_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $workshop, $track2)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $workshop, $track3))
+          events = events_satisfying(participants, $workshop, $track3)
+          if (%events)
           div {
             div(_class='narrow_paragraph track3') {
               div(_class='circle') { }
@@ -462,15 +473,16 @@ routine visitor_program(
                 h4        { t['track3'] }
                 paragraph { t['track3_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $workshop, $track3)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $workshop, $track4))
+          events = events_satisfying(participants, $workshop, $track4)
+          if (%events)
           div {
             div(_class='narrow_paragraph track4') {
               div(_class='circle') { }
@@ -478,15 +490,16 @@ routine visitor_program(
                 h4        { t['track4'] }
                 paragraph { t['track4_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $workshop, $track4)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $workshop, $track5))
+          events = events_satisfying(participants, $workshop, $track5)
+          if (%events)
           div {
             div(_class='narrow_paragraph track5') {
               div(_class='circle') { }
@@ -494,15 +507,16 @@ routine visitor_program(
                 h4        { t['track5'] }
                 paragraph { t['track5_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $workshop, $track5)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
             }
           }
 
-          if (%events_satisfying(participants, $workshop, $track6))
+          events = events_satisfying(participants, $workshop, $track6)
+          if (%events)
           div {
             div(_class='narrow_paragraph track6') {
               div(_class='circle') { }
@@ -510,8 +524,8 @@ routine visitor_program(
                 h4        { t['track6'] }
                 paragraph { t['track6_desc'] }
               }
-              div(_class='events') {
-                for (e in events_satisfying(participants, $workshop, $track6)) {
+              div(_class=(%events > 1 ? 'two-columns' : 'one-column')) {
+                for (e in events) {
                   put_event(e)
                 }
               }
