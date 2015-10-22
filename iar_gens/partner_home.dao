@@ -74,46 +74,7 @@ routine partner_home(
       }
 
       # dummy div to move stripe colors by one
-      #div(_class='dummy_section') { }
-
-      div(_class='section_partners') {
-        h3(_class='section') { t['partners'] }
-      }
       div(_class='dummy_section') { }
-      div {
-        #paragraph(_class='narrow_paragraph') {
-        div(_class='narrow_paragraph partner_levels') {
-          partners_on_level = routine(invar level: PartnerLevel) => string {
-            res = ''
-
-            # FIXME some typing error
-            #partners.iterate { [p]
-            for (p in partners) {
-              if (p.level == level) {
-                res += (string)anchor(href=p.uri) {
-                  img(_class='partner partner_' + ((string)level)[1:],
-                      src=rel(p.img), alt=p.name, title=p.name)
-                }
-              }
-            }
-
-            return res
-          }
-
-          if (partners.find { X.level == $general } != none) {
-            h4 { t['general'] }
-            partners_on_level($general)
-          }
-          h4 { t['gold'] }
-          partners_on_level($gold)
-          h4 { t['silver'] }
-          partners_on_level($silver)
-          h4 { t['bronze'] }
-          partners_on_level($bronze)
-          h4 { t['supporter'] }
-          partners_on_level($supporter)
-        }
-      }
 
       text(_html_footer)
     }

@@ -171,8 +171,7 @@ routine visitor_program(
 #                        places2.iterate { [place]
 #                          if (place.id == cell.event.trans[trans].place) {
 #                            td {
-#                              invar track = str.format('$0', cell.event.track)
-#                              span(_class=track.change('%$', '')) {}
+#                              span(_class=((string)cell.event.track)[1:]) {}
 #                              span { cell.event.trans[trans].name }
 #                              span { cell.author.name }
 #                            }
@@ -226,7 +225,7 @@ routine visitor_program(
         }
       }
 
-      div {
+      div(_class='no_bottom_padding') {
         h3(_class='section') { t['talks'] }
 
         div(id='talks') {
@@ -475,6 +474,8 @@ routine visitor_program(
 #        }
 #        div(_class='clear_float') {}
 #      }
+
+      div(_class='dummy_section') { }
 
       text(_html_footer)
     }

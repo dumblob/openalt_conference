@@ -167,11 +167,11 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'partners' -> 'Naši partneři',
     'footer' -> 'Aktualizace: ' + time.now().format('%Y-%d-%m %H:%M:%S'),
 #+ '<br/>Grafický návrh Michaela Slaninková, implementace <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
-    'talks' -> 'Přednášky',
+    'talks' -> 'Přednášky (ochutnávka)',
 #    'talk' -> 'Přednáška',
 #    'talks_empty' -> 'Přednášky ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
 #    'workshop' -> 'Dílna',
-    'workshops' -> 'Dílny',
+    'workshops' -> 'Dílny (ochutnávka)',
 #    'workshops_empty' -> 'Dílny ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
     'schedule' -> 'Rozvrh',
     'venue' -> 'Místo konání',
@@ -477,6 +477,74 @@ var feedback: list<FeedbackPiece> = {
   # 2010
   ('Jozef Mlích (z <a href="http://blog.mlich.cz/2010/11/09/linuxalt-2010/">blog.mlich.cz/2010/11/09/linuxalt-2010/</a>)', '„Kromě zajímavých přednášek je linuxalt i o setkávání se s lidmi. Po dlouhé době jsem zase viděl spoustu známých tváří. S některými jsem měl čas si víc s některými míň. Taky jsem se konečně seznámil osobně s pár lidma, které jsem znal jenom virtuálně. Bylo tam i pár nových lidí, o kterých jsem před tím neměl ani tušení.“'),
   ('Jan Hrach (z <a href="http://www.abclinuxu.cz/clanky/linuxalt-2010-na-tema-bezpecnosti-reportaz?page=1">abclinuxu.cz/clanky/linuxalt-2010-na-tema-bezpecnosti-reportaz</a>)', '„Letošní LinuxAlt se opět velmi vydařil, hlavně nedělní přednášky se mi velmi líbily.“'),
+
+
+
+
+
+
+  # FIXME
+
+
+
+
+
+#takze ako prve, zdroje
+#http://joejoe.blog.root.cz/2013/04/11/openmobility-2013/ a
+#http://joejoe.blog.root.cz/2010/11/09/linuxalt-2010/ uz neexistuju,
+#namiesto nich som nasla http://blog.mlich.cz/2013/04/openmobility-2013-2/ a
+#http://blog.mlich.cz/2010/11/linuxalt-2010/
+#
+#
+#Jak už se stalo tradicí, první víkend v listopadu se konal brněnský
+#LinuxAlt. Dvoudenní přednášková akce byla jako obvykle nabitá zajímavými
+#přednáškami především (ale nejen) o Linuxu. Hovořilo se o kalendářových
+#řešeních, organizaci Mozilla a jejich plánech týkajících se také Firefoxu
+#a na řadu přišel i DNS.
+#-- Petr Krčmář
+#http://www.root.cz/clanky/linuxalt-2012-sobota-firefox-kalendare-a-dns/
+#
+#Druhý konferenční den se přednášky věnovaly mimo jiné 3D tiskárnám,
+#principu tisku, přípravě modelu a podobně, dále pak pokročilým trikům s SSH
+#a také monitorování rozsáhlé počítačové sítě pomocí (vše)mocného nástroje
+#Nagios.
+#-- Petr Krčmář
+#http://www.root.cz/clanky/linuxalt-2012-nedele-3d-tisk-ssh-a-nagios/
+#
+#Sobotný deň bol naozaj v znamení mobilných zariadení, z dvanástich hodín
+#prednášok bola prakticky tretina venovaná zariadeniam, na ktorých beží
+#Linux a miesto ťukania do klávesnice sa ovládajú ťukaním prstov po
+#displeji. A aj napriek tomu, že to po odchode Nokie a HP (s WebOS) nevyzerá
+#s linuxovými mobilami nijak ružovo, musím povedať, že to, čo som mal
+#možnosť na LinuxAlte 2011 vidieť, bolo celkom nádejné.
+#-- Adam Saleh
+#http://www.linuxexpres.cz/aktuality/linuxalt-2011-sobota
+#
+#Asi najzaujímavejším zariadením bola 3D tlačiareň RepRap. Dokáže tlačiť
+#plastové objekty, ktoré si viete jednoducho vymodelovať, alebo dokonca
+#stiahnuť z webu. Myslím, že som po tejto prednáške nebol jediný, komu
+#vŕtala v hlave otázka, prečo nemá každá domácnosť aspoň jeden.
+#-- Adam Saleh
+#http://www.linuxexpres.cz/aktuality/linuxalt-2011-aj-nedela-sa-vydarila
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 invar partners: list<Partner> = {
@@ -485,44 +553,69 @@ invar partners: list<Partner> = {
 #  ($supporter,
 #   'Staňte se naším partnerem!',
 #   conf.resdir / 'img/partners/logo_become_a_sponsor.png',
+#   conf.resdir / 'img/partners/logo_become_a_sponsor.png',
 #   'https://openalt.cz/2015/cs/partner_home.html'
 #   ''),
   ($supporter,
    'FIT VUT',
    conf.resdir / 'img/partners/logo_fit.gif',
+   conf.resdir / 'img/partners/logo_fit.gif',
    'http://www.fit.vutbr.cz/',
-   'Fakulta Informačních Technologií VUT v Brně poskytuje vzdělání a výzkum v oboru informačních technologií. Nabízí studium v tříletem bakalářském, v devíti různých navazujících dvouletých magisterský studijní programech a v doktorském studijním programu. Výzkum tvoří velmi významnou část aktivit FITu. Provádí ho akademičtí pracovníci, výzkumníci zaměstnaní fakultou, studenti v doktorském studijním programu a také studenti v posledním roce jejich magisterského studia.'),
+   '<strong>Fakulta Informačních Technologií VUT</strong> v Brně poskytuje vzdělání a výzkum v oboru informačních technologií. Nabízí studium v tříletem bakalářském, v devíti různých navazujících dvouletých magisterský studijní programech a v doktorském studijním programu. Výzkum tvoří velmi významnou část aktivit FITu. Provádí ho akademičtí pracovníci, výzkumníci zaměstnaní fakultou, studenti v doktorském studijním programu a také studenti v posledním roce jejich magisterského studia.'),
+  ($gold,
+   'Red Hat Czech, s.r.o.',
+   conf.resdir / 'img/partners/RHLogo.jpg',
+   conf.resdir / 'img/partners/RHLogo.jpg',
+   'http://cz.redhat.com/',
+   '<strong>Red Hat</strong> je společnost, produkující Red Hat Enterprise Linux, významnou komerční linuxovou distribuci, JBoss Enterprise Middleware, Red Hat Enterprise Virtualization, Red Hat Enterprise MRG a software pro cloud computing. Dále tato společnost poskytuje služby v oblasti konzultace, tréninků a certifikace.'),
+  ($general,
+   'Microsoft',
+   conf.resdir / 'img/partners/MSFT_logo_rgb_C-Gray.png',
+   conf.resdir / 'img/partners/MSFT_logo_rgb_C-Gray.png',
+   'https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-opensource/',
+   'Společnost <strong>Microsoft Corporation</strong> byla založena roku 1975. Naším cílem je umožnit lidem a podnikům na celém světě realizovat jejich plný potenciál pomocí technologií – softwaru, služeb i zařízení, které mění svět práce, zábavy i komunikace. Česká pobočka společnosti Microsoft Corporation zahájila svou činnost v&nbsp;roce 1992. Od července roku 2013 vede českou pobočku Biljana Weber.
+<br><a href="www.microsoft.com/cze">www.microsoft.com/cze</a>'),
+  ($supporter,
+   'OpenAlt z.s.',
+   conf.img.logo_oa_org,
+   conf.img.logo_oa_org,
+   'https://openalt.org/',
+   '<strong>OpenAlt z.s.</strong> je spolek, jehož cílem je podporovat a propagovat <a href="https://en.wikipedia.org/wiki/Open_source">Open source</a> v&nbsp;celé šíři jeho paradigmaticého pojetí (hardware, software, data, věda, vzdělávání, vládnutí, ...). Základem je pro nás organizace konference OpenAlt, která představuje otevřenost jako odpověď na technické a společenské výzvy.'),
   ($supporter,
    'SU FIT VUT',
    conf.resdir / 'img/partners/logo_su_fit.jpg',
+   conf.resdir / 'img/partners/logo_su_fit.jpg',
    'http://www.su.fit.vutbr.cz/',
-   'Studentská unie FIT pořádá hudební festivaly, plesy, sportovní dny a pomáhá s reprezentací FIT VUT na kulturních a sportovních akcích. V rámci toho často hledá mladé a nadějné talenty nejen z FITu.'),
+   '<strong>Studentská unie FIT</strong> pořádá hudební festivaly, plesy, sportovní dny a pomáhá s reprezentací FIT VUT na kulturních a sportovních akcích. V rámci toho často hledá mladé a nadějné talenty nejen z FITu.'),
   ($supporter,
    'robime.it',
    conf.resdir / 'img/partners/robime.it_logo-onwhite.png',
+   conf.resdir / 'img/partners/robime.it_logo-onwhite.png',
    'http://robime.it/blog',
-   'Portál pre IT ľudí, ale aj pre tých, ktorí s IT úzko spolupracujú – konzultanti, finančníci, obchodníci, personalisti, marketéri, apod. Nájdete u nás pracovné ponuky, tipy a rady ako sa ďalej posunúť v kariére a pohľad do sveta informačných technológii.'),
-#  ($gold,
-#   'Red Hat',
-#   conf.resdir / 'img/partners/RHLogo.jpg',
-#   'http://cz.redhat.com/',
-#   ''),
-#  ($gold,
-#   'Microsoft',
-#   conf.resdir / 'img/partners/logo-microsoft.svg',
-#   'http://www.microsoft.com/',
-#   ''),
-#  ($supporter,
-#   'OpenAlt z.s.',
-#   conf.img.logo_oa_org,
-#   'https://openalt.org/',
-#   'Zapsaný spolek OpenAlt z.s. je pořadatel... <strong>ZDE MA BYT POPIS SPOLKU A NIKOLIV KONFERENCE!</strong> <s>Konference OpenAlt vznikla v roce 2014 jako výsledek spojení konferencí LinuxAlt a Openmobility. LinuxAlt jako konference s dlouhodobou tradicí se již od roku 2006 věnovala otevřenému softwaru a technologiím. Záhy se LinuxAlt s více jak 500 návštěvníky stal největší akcí tohoto typu v České republice. Openmobility konference vznikla v roce 2010 a přinesla českým a slovenským návštěvníkům témata otevřených mobilních platforem a otevřeného hardware formou klasických přednášek a praktických workshopů.</s>'),
+   'add description'),
+   #'Portál pre IT ľudí, ale aj pre tých, ktorí s IT úzko spolupracujú – konzultanti, finančníci, obchodníci, personalisti, marketéri, apod. Nájdete u nás pracovné ponuky, tipy a rady ako sa ďalej posunúť v kariére a pohľad do sveta informačných technológii.'),
 #  ($, 'ABRA FlexiBee',
 #   conf.resdir / 'img/partners/logo-abraflexibee.jpg',     'http://www.flexibee.eu/'),
 #  ($, 'Honeywell',
 #   conf.resdir / 'img/partners/honeywell.png',             'http://honeywell.com/'),
-#  ($, 'ICT Pro s.r.o.',
-#   conf.resdir / 'img/partners/ict-pro.png',               'http://www.skoleni-ict.cz/'),
+  ($supporter,
+   'vpsFree.cz o.s.',
+   conf.resdir / 'img/partners/logo_vpsfree.svg',
+   conf.resdir / 'img/partners/logo_vpsfree.svg',
+   'https://vpsfree.cz/',
+   '<strong>Sdružení vpsFree.cz</strong> vzniklo jako přímá reakce na nepružnost a přemrštěné ceny komerčních hostingů v&nbsp;ČR a ještě horší situaci v&nbsp;SR. Primárním cílem je provozovat virtuální servery, na které je možné se spolehnout jak výkonem, tak stabilitou. Prioritou je poskytnout členům prostředí pro stabilní a rychlý provoz internetových aplikaci, kvalitní zázemí těmto aplikacím a prostor pro experimentování, vzdělávání se a hraní si s&nbsp;open-source internetovými technologiemi.'),
+  ($supporter,
+   'http://www.ubuntu.cz',
+   conf.resdir / 'img/partners/logo-ubuntu_cz.svg',
+   conf.resdir / 'img/partners/logo-ubuntu_cz.svg',
+   'http://www.ubuntu.cz',
+  '<strong>Ubuntu</strong> je open-source operační systém zastřešený britskou společností Canonical. Každé dva roky vychází verze s pětiletou podporou a každého půl roku verze s aktuálními novinkami. O&nbsp;českou lokalizaci, propagaci a komunitní podporu se stará Občanské sdružení Ubuntu pro Českou republiku. Více informací najdete na <a href="http://www.ubuntu.cz">www.ubuntu.cz</a>, případně se můžete zeptat na fóru <a href="http://forum.ubuntu.cz">forum.ubuntu.cz</a>.'),
+  ($bronze,
+   'ICT Pro s.r.o.',
+   conf.resdir / 'img/partners/ict-pro.png',
+   conf.resdir / 'img/partners/ict-pro.png',
+   'http://www.skoleni-ict.cz/',
+   'add description'),
 #  ($, 'DataScript s.r.o.',
 #   conf.resdir / 'img/partners/logo_DataScript_cz.jpg',    'http://www.datascript.cz/'),
 #  ($, 'OKsystem',
@@ -573,6 +666,12 @@ translations.iterate { [k, v]
 }
 
 # blackbox testing
-for (p in partners) check_path(p.img)
+general_count = 0
+for (p in partners) {
+  check_path(p.logo_long)
+  check_path(p.logo_short)
+  if (p.level == $general && ++general_count > 1)
+    std.error('Only one general partner is allowed!')
+}
 
 # vim: set wrap:

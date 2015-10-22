@@ -1,24 +1,28 @@
-struktura + preklady/slovicka
-    mrknout na smartdev meetup + devconf
 tvorba, preklady, korekce textu - David Kolibac
 
-exportovat z google sheet aktualni seznam prednasek s tracky (L. Koszegy to udrzuje)
+mapa mistnosti - zmenit podle aktualne zamluvenych uceben
+generovani programu z http://python-conflab.rhcloud.com/oa2015/export/m_app/ (v pripade, ze bude mit vypadek, tak tady je cache z lonska http://pcmlich.fit.vutbr.cz/openalt/cache/data.json)
+    API
+    * http://pcmlich.fit.vutbr.cz/openalt/
+    * http://pcmlich.fit.vutbr.cz/openalt/?debug
+    * http://pcmlich.fit.vutbr.cz/openalt/?ts
+add RDFa authorship
 seznam prednasek/workshopu
     klikaci jmeno
         pridat trapny radkovy formular (hidden v defaultu) a nastylovat position:fixed
     rozbalovaci popisek (zarovnany do bloku)
+pridat hvezdicky k prednaskam/worshopum oznacujici obtiznost
 anchor linky prebarvit do dvou variant - zvlast pro svetle a tmave pruhy
 mapa - pruh ma byt trochu vyssi a samotna mapa interaktivni embedded OSM (napr. http://leafletjs.com/ - JS statickou mapu vymeni az pri zobrazovani; tedy staticka mapa zustava, aby to fungovalo i bez JS)
-na hlavni strance je mobilni menu sice prazdne, avsak s nenulovou vyskou
-podsviceni socialnich tlacitek do cervena (nikoliv do modra)
-ikonky socialnich siti nejsou ve stejne vysce jako okolni text
-fixnout horní menu (mezirka mezi tlacitky)
-vytisknutelny schedule (tedy otestovat stavajici a pokud nevyhovuje, pak pridat "@media print")
 ikony u prednasek/workshopu - pouzit ikonky z 2014 (https://openalt.cz/2014/events.html)? nebo jine open-source ikony (http://fontawesome.io/)
 pridat galerii organizatoru (viz. http://www.barcampbrno.cz/2015/index.html)
-tombola (kontrola prijde) -> vyhlaseni ankety
 pridat podlouhle logo OA do sekce media->propagace
-kvalitni (SVG) ikonka LinuxAlt
+na hlavni strance je mobilni menu sice prazdne, avsak s nenulovou vyskou
+vytisknutelny schedule (tedy otestovat stavajici a pokud nevyhovuje, pak pridat "@media print")
+ikonky socialnich siti nejsou ve stejne vysce jako okolni text
+
+
+
 
 
 
@@ -104,18 +108,7 @@ domu
             benefity/co_za_to_nabizime/odmeny
             jak (finance, naturalie, sluzby)
     feedback/ohlasy_nasi_konfery/pisou_o_nas
-??? socialni site
-???
-???
-???
-
-partneri
-* dobré HR - navstevnici konference jsou odborníci
-
-API
-* http://pcmlich.fit.vutbr.cz/openalt/
-* http://pcmlich.fit.vutbr.cz/openalt/?debug
-* http://pcmlich.fit.vutbr.cz/openalt/?ts
+    socialni site
 
 RSS feed should be accessible under .../feed
 events should be generated according to RDFa Lite (http://rdfa.info/play/)
@@ -123,5 +116,6 @@ talks/workshops/... - add details (language, when, where, etc.)
 misto fotky nejaky otaznik http://www.openalt.cz/2014/img/avatars/blank_boy.png
 support for more authors of one talk (one is responsible, others just shown)
 font je Tunga (http://fontzone.net/font-details/tunga)
+struktura a preklady/slovicka - mrknout na smartdev meetup + devconf
 
 vim: set wrap:

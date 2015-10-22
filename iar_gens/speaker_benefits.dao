@@ -62,6 +62,9 @@ routine speaker_benefits(
         img(_class='narrow_paragraph')
       }
 
+      # dummy div to move stripe colors by one
+      div(_class='dummy_section') { }
+
       text(_html_footer)
     }
   })

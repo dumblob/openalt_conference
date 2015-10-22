@@ -99,7 +99,7 @@ invar conf = (
     logo_om_conf        = resdir / 'img/logo-openmobility-conference.svg',
     # FIXME Firefox font rendering in SVG sucks
     #logo_oa_conf        = resdir / 'img/logo-openalt-conference.svg',
-    logo_oa_conf        = resdir / 'img/logo-openalt-conference.png',
+    logo_oa_conf        = resdir / 'img/logo-openalt-conference.svg',
     logo_oa_conf_bitmap = resdir / 'img/logo-openalt-conference.png',
     logo_oa_conf_lscape = resdir / 'img/logo-openalt-conference-landscape.svg',
     logo_oa_org         = resdir / 'img/logo-openalt-org.svg',

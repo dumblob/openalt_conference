@@ -81,6 +81,9 @@ routine partner_benefits(
         }
       }
 
+      # dummy div to move stripe colors by one
+      div(_class='dummy_section') { }
+
       div {
         h3(_class='section') { 'Nabízíme' }
         div(_class='narrow_paragraph') {
@@ -161,6 +164,9 @@ routine partner_benefits(
 #'
 #        }
 #      }
+
+      # dummy div to move stripe colors by one
+      div(_class='dummy_section') { }
 
       text(_html_footer)
     }

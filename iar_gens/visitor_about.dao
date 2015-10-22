@@ -33,8 +33,6 @@ routine visitor_about(
     body {
       text(_html_top_stripe)
 
-      #div(_class='dummy_section') { }
-
       div(id='previous_runs') {
         h3(_class='section') { t['previous_runs'] }
         div(_class='narrow_paragraph') {
@@ -57,8 +55,11 @@ routine visitor_about(
         }
       }
 
+      # FIXME
 '<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobilní aplikace</a><br/>
 <a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobilní aplikace</a>',
+
+      div(_class='dummy_section') { }
 
       text(_html_footer)
     }

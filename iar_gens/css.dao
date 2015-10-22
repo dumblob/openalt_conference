@@ -26,6 +26,15 @@ routine css(
   #invar stripe_hover = '#'
   #invar stripe_selected = '#BF1F2E'
 
+  invar track0 = '#10753f'  # green
+  invar track1 = '#2f62ae'  # blue
+  invar track2 = '#be1e2d'  # red
+  invar track3 = '#57585a'  # grey
+  invar track4 = '#d37a6a'  # light red
+  #invar track5 = '#ab159e'
+  invar track5 = '#92378b'  # violet
+  invar track6 = 'black'
+
   # FIXME width of the main menu items - should fit it
   file.write(
 @[]html {
@@ -262,8 +271,8 @@ nav {
 }
 #header_inner img {
   /*width: 50vh;*/
-  height: 40vh;
-  margin: 45pt 0 0 0;  /* top stripe height + N */
+  height: 37vh;
+  margin: 48pt 0 0 0;  /* top stripe height + N */
   /*margin: 1.5vh 0 0 0;*/
 }
 #header > #header_inner > p:nth-child(2),
@@ -273,7 +282,8 @@ nav {
   font-weight: lighter;
   margin-bottom: 0;
 }
-.time_range_big {
+.time_range_big,
+.time_range_big a {
   font-size: 20pt;
   /*font-size: 5vh;*/
   font-weight: bold;
@@ -367,11 +377,9 @@ nav {
   margin: 25pt 0 5pt 0;
 }
 .participant_name {
-  /*color: @[] + schedule_bg + @[];*/
   margin: 5pt 0 14pt 0;
   font-size: 11pt;
   font-weight: bolder;
-  color: green;
 }
 .event_desc {
   font-size: 10pt;
@@ -406,20 +414,22 @@ nav {
 #workshops > div:first-child {
   padding-top: 0;
 }
-#talks     > div:last-child,
+.no_bottom_padding {
+  padding-bottom: 0;
+}
+/*#talks     > div:last-child,*/
 #workshops > div:last-child {
   padding-bottom: 0;
 }
 @[] + #{ circle #} @[]
-.circle {
+#talks .circle,
+#workshops .circle {
   position: absolute;
   width: 18pt;
   height: 18pt;
   border-radius: 50%;
-  background-color: green !important;
 }
 .track > h4 {
-  color: green;
   font-size: 18pt;
   margin: 0 0 5pt 35pt;
   line-height: 18pt;
@@ -428,6 +438,58 @@ nav {
   font-size: 13pt;
   margin: 0 0 5pt 35pt;
 }
+
+
+
+#schedule  .track0,  /* also a circle */
+#talks     .track0 .circle,  /* make it more specific than html * */
+#workshops .track0 .circle { background-color: @[] + track0 + @[]; }
+#talks     .track0 h4,
+#workshops .track0 h4,
+#talks     .track0 .participant_name,
+#workshops .track0 .participant_name { color: @[] +  track0 + @[]; }
+#schedule  .track1,
+#talks     .track1 .circle,
+#workshops .track1 .circle { background-color: @[] + track1 + @[]; }
+#talks     .track1 h4,
+#workshops .track1 h4,
+#talks     .track1 .participant_name,
+#workshops .track1 .participant_name { color: @[] +  track1 + @[]; }
+#schedule  .track2,
+#talks     .track2 .circle,
+#workshops .track2 .circle { background-color: @[] + track2 + @[]; }
+#talks     .track2 h4,
+#workshops .track2 h4,
+#talks     .track2 .participant_name,
+#workshops .track2 .participant_name { color: @[] +  track2 + @[]; }
+#schedule  .track3,
+#talks     .track3 .circle,
+#workshops .track3 .circle { background-color: @[] + track3 + @[]; }
+#talks     .track3 h4,
+#workshops .track3 h4,
+#talks     .track3 .participant_name,
+#workshops .track3 .participant_name { color: @[] +  track3 + @[]; }
+#schedule  .track4,
+#talks     .track4 .circle,
+#workshops .track4 .circle { background-color: @[] + track4 + @[]; }
+#talks     .track4 h4,
+#workshops .track4 h4,
+#talks     .track4 .participant_name,
+#workshops .track4 .participant_name { color: @[] +  track4 + @[]; }
+#schedule  .track5,
+#talks     .track5 .circle,
+#workshops .track5 .circle { background-color: @[] + track5 + @[]; }
+#talks     .track5 h4,
+#workshops .track5 h4,
+#talks     .track5 .participant_name,
+#workshops .track5 .participant_name { color: @[] +  track5 + @[]; }
+#schedule  .track6,
+#talks     .track6 .circle,
+#workshops .track6 .circle { background-color: @[] + track6 + @[]; }
+#talks     .track6 h4,
+#workshops .track6 h4,
+#talks     .track6 .participant_name,
+#workshops .track6 .participant_name { color: @[] +  track6 + @[]; }
 
 
 
@@ -508,28 +570,6 @@ nav {
   height: 1.2em;
   border-radius: 50%;
   margin-bottom: 0.4em;
-  background-color: black;
-}
-#schedule table tr td span.track0 {
-  background-color: #10753f;
-}
-#schedule table tr td span.track1 {
-  background-color: #2f62ae;
-}
-#schedule table tr td span.track2 {
-  background-color: #be1e2d;
-}
-#schedule table tr td span.track3 {
-  background-color: #d37a6a;
-}
-#schedule table tr td span.track4 {
-  background-color: #57585a;
-}
-#schedule table tr td span.track5 {
-  background-color: black; /* << FIXME */
-}
-#schedule table tr td span.track6 {
-  background-color: black; /* << FIXME */
 }
 #schedule table tr td span:nth-child(2) {
   font-weight: bold;

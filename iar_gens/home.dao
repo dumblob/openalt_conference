@@ -64,6 +64,9 @@ routine home(
             localized_time_format(
               t['_locale'], conf.time_to, '%-d. %B %Y')
           }
+          paragraph(_class='time_range_big') {
+            '<a href="visitor_program.html">Program konference</a>'
+          }
 
 #          if (my_time.time.now() >= conf.time_show_sched) {
 #            div(id='main_buttons') {
@@ -95,6 +98,9 @@ routine home(
 #          }
 #        }
 
+      # dummy div to move stripe colors by one
+      #div(_class='dummy_section') { }
+
       # FIXME add 'news' to CSS
       div(id='news') {
         h3(_class='section') { t['news'] }
@@ -117,6 +123,9 @@ routine home(
 #        h3(_class='section') { t['contact'] }
 #        paragraph(_class='narrow_paragraph') { t['contact_openalt_content'] }
 #      }
+
+      # dummy div to move stripe colors by one
+      #div(_class='dummy_section') { }
 
       text(_html_footer)
     }
