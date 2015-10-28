@@ -76,7 +76,7 @@ routine visitor_home(
             }
           }
 
-          paragraph { t['visitor_asterisk1'] }
+          #paragraph { t['visitor_asterisk1'] }
         }
       }
 

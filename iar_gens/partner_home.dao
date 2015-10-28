@@ -68,7 +68,7 @@ routine partner_home(
           }
 
           div(id='main_buttons') {
-            anchor(href=t['partner_register_mailto']) { t['partner_register'] }
+            anchor(href=t['partner_register_target']) { t['partner_register'] }
           }
         }
       }
@@ -103,10 +103,13 @@ routine partner_home(
           }
 
           partners_on_level($general)
+          partners_on_level($catering)
           partners_on_level($gold)
           partners_on_level($silver)
           partners_on_level($bronze)
           partners_on_level($supporter)
+          partners_on_level($organizer)
+          partners_on_level($coorganizer)
         }
       }
 

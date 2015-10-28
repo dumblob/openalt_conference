@@ -558,21 +558,22 @@ nav {
   /*border: 5px solid @[] + schedule_bg #{ FIXME make transparent working #} + @[];*/
   box-sizing: border-box;
 }
-#schedule table tr td span {
+#schedule table tr td * {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.2em;
   margin-bottom: 0.2em;
 }
-#schedule table tr td span:nth-child(3n-2) {
+#schedule table tr td *:nth-child(3n-2) {
   width: 1.2em;
   height: 1.2em;
   border-radius: 50%;
   margin-bottom: 0.4em;
 }
-#schedule table tr td span:nth-child(3n-1) {
+#schedule table tr td:nth-child(n+2) *:nth-child(3n-1) {
   font-weight: bold;
+  color: black;
 }
 #schedule table tr:first-child th,
 #schedule table tr td:first-child {
@@ -596,7 +597,7 @@ nav {
   padding-left: 2em;
   padding-right: 2em;
 }
-#schedule table tr td:nth-child(3n-2) span {
+#schedule table tr td:nth-child(3n-2) * {
   margin-top: 0.2em;
   margin-bottom: 0.2em;
 }
@@ -678,7 +679,7 @@ body > .section_partners {
   /*text-transform: uppercase;*/
 }
 .partner_levels img {
-  height: 50pt;
+  height: 40pt;
   margin: 15pt;
 }
 

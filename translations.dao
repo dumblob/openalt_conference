@@ -169,11 +169,11 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
     'partners' -> 'Naši partneři',
     'footer' -> 'Aktualizace: ' + time.now().format('%Y-%d-%m %H:%M:%S'),
 #+ '<br/>Grafický návrh Michaela Slaninková, implementace <a href="https://www.linkedin.com/in/pacnerjan">Jan Pacner</a>.',
-    'talks' -> 'Přednášky (ochutnávka)',
+    'talks' -> 'Přednášky',
 #    'talk' -> 'Přednáška',
 #    'talks_empty' -> 'Přednášky ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
 #    'workshop' -> 'Dílna',
-    'workshops' -> 'Dílny (ochutnávka)',
+    'workshops' -> 'Dílny',
 #    'workshops_empty' -> 'Dílny ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
     'schedule' -> 'Rozvrh',
     'venue' -> 'Místo konání',
@@ -195,6 +195,10 @@ Fakulta informačních technologií
 <br><a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz</a>, <a href="http://www.fit.vutbr.cz">www.fit.vutbr.cz/FIT/location</a>',
 
 
+#  'Laboratoř spolupráce a komunikace'
+#  'Otevřený a svobodný software'
+#  'Otevřená společnost a alternativy ve vzdělávání'
+#  'Hnutí tvůrců, mobilní technologie, bezpečnost a soukromí'
 
     'video_rec' -> 'Video záznamy',
     'presentation' -> 'Prezentace',
@@ -232,14 +236,18 @@ Fakulta informačních technologií
 
 
 
-    'partner_register_mailto' -> 'mailto:partner@openalt.cz?subject=%C5%BD%C3%A1dost%20o%20partnerstv%C3%AD&body=V%C3%A1%C5%BEen%C3%AD%20z%20OpenAlt%20z.s.%2C%0A%0Ar%C3%A1di%20bychom%20se%20stali%20partnerem%20Va%C5%A1%C3%AD%20konference%20OpenAlt.%20Kontaktujte%20n%C3%A1s%20pros%C3%ADm%20prost%C5%99ednictv%C3%ADm%20n%C4%9Bkter%C3%A9ho%20z%20n%C3%A1sleduj%C3%ADc%C3%ADch%20kan%C3%A1l%C5%AF%3A%0A%0AEmail%3A%0Aatd.%0A%0AS%20pozdravem%2C%0A%0AJm%C3%A9no%0A',
+    'partner_register_target' -> 'https://www.openalt.org/2015/partners',
+    #'partner_register_target' -> 'mailto:partner@openalt.cz?subject=%C5%BD%C3%A1dost%20o%20partnerstv%C3%AD&body=V%C3%A1%C5%BEen%C3%AD%20z%20OpenAlt%20z.s.%2C%0A%0Ar%C3%A1di%20bychom%20se%20stali%20partnerem%20Va%C5%A1%C3%AD%20konference%20OpenAlt.%20Kontaktujte%20n%C3%A1s%20pros%C3%ADm%20prost%C5%99ednictv%C3%ADm%20n%C4%9Bkter%C3%A9ho%20z%20n%C3%A1sleduj%C3%ADc%C3%ADch%20kan%C3%A1l%C5%AF%3A%0A%0AEmail%3A%0Aatd.%0A%0AS%20pozdravem%2C%0A%0AJm%C3%A9no%0A',
     #'partner_register' -> 'Požádat o partnerství',
     'partner_register' -> 'Stát se partnerem',
     'general' -> 'Generální',
+    'catering' -> 'Sponzor café nebo cateringu',
     'gold' -> 'Zlatí',
     'silver' -> 'Stříbrní',
     'bronze' -> 'Bronzoví',
     'supporter' -> 'Pořadatelé a příznivci',
+    'organizer' -> 'Hlavní pořadatel',
+    'coorganizer' -> 'Spolupořadatelé',
   },
 #                                    $en -> {
 #                                      '_locale' -> 'en_US.UTF-8',  # locale -a
@@ -434,7 +442,7 @@ Fakulta informačních technologií
 #                                  
 #                                  
 #                                  
-#                                      'partner_register_mailto' -> 'mailto:partner@openalt.cz?subject=Request%20for%20partnership&body=Dear%20OpenAlt%20z.s.%2C%0A%0Awe%27d%20like%20to%20become%20a%20partner%20of%20your%20conference%20OpenAlt.%20Please%20contact%20us%20through%20one%20of%20the%20following%20channels%3A%0A%0AEmail%3A%0Aetc.%0A%0AYours%20sincerely%2C%0A%0AName%0A',
+#                                      'partner_register_target' -> 'mailto:partner@openalt.cz?subject=Request%20for%20partnership&body=Dear%20OpenAlt%20z.s.%2C%0A%0Awe%27d%20like%20to%20become%20a%20partner%20of%20your%20conference%20OpenAlt.%20Please%20contact%20us%20through%20one%20of%20the%20following%20channels%3A%0A%0AEmail%3A%0Aetc.%0A%0AYours%20sincerely%2C%0A%0AName%0A',
 #                                      'partner_register' -> 'Request partnership',
 #                                     'partner_register' -> 'Stát se partnerem',
 #                                     'general' -> 'Generální',
@@ -558,7 +566,7 @@ invar partners: list<Partner> = {
 #   conf.resdir / 'img/partners/logo_become_a_sponsor.png',
 #   'https://openalt.cz/2015/cs/partner_home.html'
 #   ''),
-  ($supporter,
+  ($coorganizer,
    'FIT VUT',
    conf.resdir / 'img/partners/fit-logo.png',
    conf.resdir / 'img/partners/fit-logo.png',
@@ -577,13 +585,13 @@ invar partners: list<Partner> = {
    'https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-opensource/',
    'Společnost <strong>Microsoft Corporation</strong> byla založena roku 1975. Naším cílem je umožnit lidem a podnikům na celém světě realizovat jejich plný potenciál pomocí technologií – softwaru, služeb i zařízení, které mění svět práce, zábavy i komunikace. Česká pobočka společnosti Microsoft Corporation zahájila svou činnost v&nbsp;roce 1992. Od července roku 2013 vede českou pobočku Biljana Weber.
 <br><a href="www.microsoft.com/cze">www.microsoft.com/cze</a>'),
-  ($supporter,
+  ($organizer,
    'OpenAlt z.s.',
    conf.img.logo_oa_org,
    conf.img.logo_oa_org,
    'https://openalt.org/',
    '<strong>OpenAlt z.s.</strong> je spolek, jehož cílem je podporovat a propagovat <a href="https://en.wikipedia.org/wiki/Open_source">Open source</a> v&nbsp;celé šíři jeho paradigmaticého pojetí (hardware, software, data, věda, vzdělávání, vládnutí, ...). Základem je pro nás organizace konference OpenAlt, která představuje otevřenost jako odpověď na technické a společenské výzvy.'),
-  ($supporter,
+  ($coorganizer,
    'SU FIT VUT',
    conf.resdir / 'img/partners/logo_su_fit.jpg',
    conf.resdir / 'img/partners/logo_su_fit.jpg',
@@ -600,6 +608,14 @@ invar partners: list<Partner> = {
 #  ($, 'Honeywell',
 #   conf.resdir / 'img/partners/honeywell.png',             'http://honeywell.com/'),
   ($supporter,
+   'http://www.jetbrains.com',
+   conf.resdir / 'img/partners/logo_jetbrains.svg',
+   conf.resdir / 'img/partners/logo_jetbrains.svg',
+   'http://www.ubuntu.cz',
+'Jsme lídři na trhu s profesionálními vývojářskými nástroji, které pomáhají vývojářům po celém světě zvyšovat produktivitu a dosáhnout požadovaných cílů bez nutnosti ztrácet čas opakujícími se rutinními procesy.<br>
+<br>
+Nabízíme nástroje pro Javu, .NET, C++, Ruby, PHP, Python a týmovou spolupráci: Intellij IDEA, PhpStorm, ReSharper, WebStorm, CLion, AppCode, TeamCity, YouTrack, RubyMine, PyCharm, UpSource, dotTrace, dotMemory, dotCover, dotPeak.'),
+  ($catering,
    'vpsFree.cz o.s.',
    conf.resdir / 'img/partners/logo_vpsfree.svg',
    conf.resdir / 'img/partners/logo_vpsfree.svg',
@@ -611,12 +627,12 @@ invar partners: list<Partner> = {
    conf.resdir / 'img/partners/logo-ubuntu_cz.svg',
    'http://www.ubuntu.cz',
   '<strong>Ubuntu</strong> je open-source operační systém zastřešený britskou společností Canonical. Každé dva roky vychází verze s pětiletou podporou a každého půl roku verze s aktuálními novinkami. O&nbsp;českou lokalizaci, propagaci a komunitní podporu se stará Občanské sdružení Ubuntu pro Českou republiku. Více informací najdete na <a href="http://www.ubuntu.cz">www.ubuntu.cz</a>, případně se můžete zeptat na fóru <a href="http://forum.ubuntu.cz">forum.ubuntu.cz</a>.'),
-  ($bronze,
+  ($silver,
    'ICT Pro s.r.o.',
    conf.resdir / 'img/partners/ict-pro.png',
    conf.resdir / 'img/partners/ict-pro.png',
    'http://www.skoleni-ict.cz/',
-   'add description'),
+   'Již téměř s 20letou tradicí Vám společnost <strong>ICT Pro</strong> poskytuje kompletní služby v oblasti realizace firemního vzdělávání a profesních certifikací. Portfolio služeb se výrazně přizpůsobuje a drží krok se současnými trendy vzdělávání a zahrnuje jak širokou nabídku ICT kurzů a workshopů, včetně komplexní škály kurzů zaměřených na Linux, tak seminářů a školení měkkých dovedností neboli Soft skills. Naši zákaznickou péči podtrhuje dlouhodobá zkušenost v HR Outsourcingu, zaměřeném na IT profesionály a poskytování vysoce odborných konzultačních služeb.'),
 #  ($, 'DataScript s.r.o.',
 #   conf.resdir / 'img/partners/logo_DataScript_cz.jpg',    'http://www.datascript.cz/'),
 #  ($, 'OKsystem',

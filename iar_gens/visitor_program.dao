@@ -36,6 +36,10 @@ routine visitor_program(
     body {
       text(_html_top_stripe)
 
+      # anchor links unique for this page
+      uniqueascii_context: map<string, none> = {=>}
+      invar event_id_prefix = 'event_title_'
+
       if (my_time.time.now() >= conf.time_show_sched) {
         div(id='schedule') {
           h3(_class='section') { t['schedule'] }
@@ -206,7 +210,11 @@ routine visitor_program(
                               for (subcell in cell2) {
                                 span(_class=
                                      ((string)subcell.event.track)[1:]) {}
-                                span { subcell.event.trans[trans].name }
+                                anchor(href='#' + event_id_prefix +
+                                    uniqueascii(
+                                      subcell.event.trans[trans].name, {=>})) {
+                                  subcell.event.trans[trans].name
+                                }
                                 span { subcell.author.name }
                               }
                             }
@@ -228,7 +236,10 @@ routine visitor_program(
 
       put_event = routine(invar e: tuple<name:string, event:Event>) {
         return div(_class='event') {
-          paragraph(_class='event_title') { e.event.trans[trans].name }
+          paragraph(_class='event_title', id=event_id_prefix + uniqueascii(
+              e.event.trans[trans].name, uniqueascii_context)) {
+            e.event.trans[trans].name
+          }
           paragraph(_class='participant_name') { e.name }
           paragraph(_class='event_desc') {
             e.event.trans[trans].description

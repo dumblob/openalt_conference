@@ -9,7 +9,8 @@ namespace iar {}
 
 namespace lib {
   DateTimeX, Locale, Kind, Track, Event, Participant,
-  isrel, check_path, events_satisfying, localized_time_format, mkrel,
+  uniqueascii, isrel, check_path, events_satisfying,
+  localized_time_format, mkrel,
   parse_csv, gen_participants,
 }
 
@@ -30,7 +31,9 @@ type Kind = enum<talk, workshop, internal, party>
 type Track = enum<track0, track1, track2, track3, track4, track5, track6>
 # free grouping (might be used for anything - e.g. menus auto-generation)
 type IarGroup = enum<initial; visitor; speaker; partner>
-type PartnerLevel = enum<general, gold, silver, bronze, supporter>
+type PartnerLevel = enum<
+  general, catering, gold, silver, bronze, supporter, organizer, coorganizer
+>
 type Partner = tuple<
   level: PartnerLevel,
   name: string,
@@ -39,7 +42,6 @@ type Partner = tuple<
   uri: string,
   desc: string,
 >
-
 
 type Event = tuple<
   kind: Kind,
@@ -75,6 +77,18 @@ type Participant = tuple<
   >>,
   events: list<Event>,  # events, this subject/person is in charge for
 >
+
+routine uniqueascii(invar s: string, ctx_map: map<string, none>, allow_collisions = false) => string {
+  x = s.change('[^a-zA-Z0-9]', '_')
+  y = 0
+  z = ''
+  while (z = x + (string)y; z in ctx_map) {
+    if (! allow_collisions) std.error('uniqueascii collision: ' + x)
+    ++y
+  }
+  ctx_map[z] = none
+  return z
+}
 
 routine isrel(invar uri: string) {
   #uri[0] != '/'[0] && uri.match('^[^:/]+') == none
