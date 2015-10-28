@@ -45,10 +45,11 @@ invar conf = (
 
     feed         = 'https://openalt.org/feed',
     diaspora     = 'https://diasp.eu/u/openalt',
-    #twitter      = 'https://twitter.com/hashtag/OA2015?src=hash',
+    #twitter      = 'https://twitter.com/hashtag/OA2015?src=hash',  # OpenAlt 2015
     twitter      = 'https://twitter.com/OpenAlt',
-    #gplus        = 'https://plus.google.com/events/c1p8c1015tq2t6t2nunh1r5ort4',
+    #gplus        = 'https://plus.google.com/events/c1p8c1015tq2t6t2nunh1r5ort4',  # OpenAlt 2015
     gplus        = 'https://plus.google.com/+OpenAlt/posts',
+    #fb           = 'https://www.facebook.com/events/923011161110018/',  # OpenAlt 2015
     fb           = 'https://www.facebook.com/OpenAlt',
 
     #logo_oa_conf = 'http://www.openalt.org/spolek/logo_openalt_conference.svg',

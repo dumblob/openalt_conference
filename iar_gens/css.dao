@@ -565,13 +565,13 @@ nav {
   margin-top: 0.2em;
   margin-bottom: 0.2em;
 }
-#schedule table tr td span:first-child {
+#schedule table tr td span:nth-child(3n-2) {
   width: 1.2em;
   height: 1.2em;
   border-radius: 50%;
   margin-bottom: 0.4em;
 }
-#schedule table tr td span:nth-child(2) {
+#schedule table tr td span:nth-child(3n-1) {
   font-weight: bold;
 }
 #schedule table tr:first-child th,
@@ -582,7 +582,7 @@ nav {
   font-weight: bold;
   border: none;
 }
-#schedule table tr:first-child th img {
+#schedule table tr:nth-child(3n-2) th img {
   height: 1.1em;
   margin-right: 0.4em;
   vertical-align: bottom;
@@ -596,7 +596,7 @@ nav {
   padding-left: 2em;
   padding-right: 2em;
 }
-#schedule table tr td:first-child span {
+#schedule table tr td:nth-child(3n-2) span {
   margin-top: 0.2em;
   margin-bottom: 0.2em;
 }

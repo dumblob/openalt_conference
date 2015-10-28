@@ -51,6 +51,8 @@ type Event = tuple<
   >,
   from: time.DateTime,
   to: time.DateTime,
+  # in case event spans across the same time or overlaps with another event
+  priority: int,
   trans:map<Locale, tuple<
     name: string,
     requirements: string,
@@ -60,18 +62,18 @@ type Event = tuple<
 >
 
 type Participant = tuple<
-  # subject name (e.g. 'Name Surname', 'My Cool Company')
+  # subject/person name (e.g. 'Name Surname', 'My Cool Company')
   name: string,
   # none ~ person; list<string> ~ references to Participants
   members: none|list<string>,
   photo: string,
   trans: map<Locale, tuple<
-    # primary role of this subject (designer(s), analyst(s), manager(s),
+    # primary role of this subject/person (designer(s), analyst(s), manager(s),
     #   programmer, ...)
     role: string,
     note: string,
   >>,
-  events: list<Event>,  # events, this person is in charge for
+  events: list<Event>,  # events, this subject/person is in charge for
 >
 
 routine isrel(invar uri: string) {

@@ -21,6 +21,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
@@ -30,6 +31,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
@@ -39,6 +41,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
@@ -48,6 +51,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
@@ -57,6 +61,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
@@ -68,6 +73,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
@@ -77,6 +83,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
@@ -86,6 +93,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
@@ -95,6 +103,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
@@ -104,6 +113,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
@@ -115,6 +125,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 23, 59),
+    0,
     trans = {
       $en -> ('After-lunch siesta-party!', 'Being prepared to pay 10000 CZK for fly tickets.', 'Please see the leaflets for further information.', 'In my flat in Finland.',),
       $cs -> ('Poobědová siesta-párty', 'Byt odhodlany zaplatit 10000 CZK za letenky.', 'Vizte letáky pro podrobnější informace.', 'V mem byte ve Finsku.',),
@@ -126,6 +137,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 22, 00),
+    0,
     trans = {
       $en -> ('Party', 'no reqs', 'Please see the leaflets for further information.', 'Industra, 1. floor',),
       $cs -> ('Párty', 'žádné pož.', 'Vizte letáky pro podrobnější informace.', 'Industra, 1. partro',),
@@ -137,6 +149,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
+    0,
     trans = {
       $en -> ('Final lottery', 'Having filled the feedback form.', 'For those who filled the feedback forms there are valuable prices (RHEL certification exam, T-Shirts, cups etc.).', 'D105',),
       $cs -> ('Závěrečné slosování', 'Vyplnění formuláře pro zpětnou vazbu.', 'Pro ty, kteří vyplnili formulář zpětné vazby jsou připraveny hodnotné ceny (RHEL certifikační zkouška, třička, hrníčky atd.)', 'D105',),
@@ -162,6 +175,7 @@ _participants: list<Participant> = {
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
+    0,
     trans = {
       $en -> ('Arduino a Linux na jedné desce',
                '',
@@ -201,6 +215,7 @@ _participants: list<Participant> = {
     #  trojblok o 150 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 30),
+    0,
     trans = {
       $cs -> ('Show me your command line',
                'počítač s akoukoľvek linuxovou distribúciou (prednášajúci bude používať Fedoru)',
@@ -316,6 +331,7 @@ V prípade dostatku času:
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
+    0,
     trans = {
       $cs -> ('Novinky ve starém dobrém SQL světě ',
                '',
@@ -441,6 +457,7 @@ V prípade dostatku času:
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
+    0,
     trans = {
       $cs -> ('Novinky v PostgreSQL 9.4, přepracované ukládání a indexace JSON dat',
                '',
@@ -528,6 +545,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+    0,
     trans = {
       $cs -> ('Upravy digitalni fotografie s pouzitim nastroje Darktable',
                'Idealne pocitac s naistalovanym http://www.darktable.org/ , take idealne prinest fotografii na upravu',
@@ -584,6 +602,7 @@ Mezi hlavní změny patří od základu přepracovaná podpora ukládání a ind
     #  dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+    0,
     trans = {
       $cs -> ('Firefox OS/Web apps',
                'Povedomi o HTML & JS a/nebo C, pocitac s prohlizecem Firefox',
@@ -725,6 +744,7 @@ Potrebujete pouze  pocitac s prohlizecem Firefox (Linux/Windows/Mac). Na vyzkous
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
+    0,
     trans = {
       $cs -> ('oVirt - virtualizace datacentra aneb správa virtuálních mašin ve velkém',
                '',
@@ -801,6 +821,7 @@ Součástí přednášky tedy budou zhruba následující body:
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
+    0,
     trans = {
       $cs -> ('Open source a budoucnost školství',
                '',
@@ -840,8 +861,9 @@ Součástí přednášky tedy budou zhruba následující body:
     uri = ('', '', ''),
     #$track1,
     # 50 minut
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
-    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
+    time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 00),
+    -1,
     trans = {
       $cs -> ('Jak náročné je získat data o poloze vozidel MHD?',
                'Dobrá nálada vyžadována, zajímavé otázky k tématu vítány.',
@@ -914,6 +936,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
+    0,
     trans = {
       $cs -> ('Současný svět "Internet věcí"',
                '',
@@ -954,6 +977,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $cs -> ('Fedora.Next: F21 a dál',
                'otevřená mysl :)',
@@ -994,6 +1018,7 @@ Trvalo přes dva roky získat od Dopravního podniku města Brna oficiální pov
     #  dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
+    0,
     trans = {
       $cs -> ('SCAP: Otevřený standard pro bezpečnostní audit ',
                '',
@@ -1069,6 +1094,7 @@ Jsem hotov připravit přednášku či wokshop a jsem schopen upravit téma a po
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
+    0,
     trans = {
       $cs -> ('Ansible za 30 minut / automatizace počítačů levou zadní',
                '',
@@ -1206,6 +1232,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
+    0,
     trans = {
       $cs -> ('Docker ve Fedoře',
                '',
@@ -1246,6 +1273,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
+    0,
     trans = {
       $cs -> ('Novinky v systemd',
                '',
@@ -1287,6 +1315,7 @@ V přednášce předvedeme k čemu to může být dobré a jak se to používá.
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
+    0,
     trans = {
       $cs -> ('Docker: Kontejnery v praxi',
                '',
@@ -1331,6 +1360,7 @@ A pokud Docker samotný není dost, můžeme vám slíbit pár slidů (a příka
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
+    0,
     trans = {
       $cs -> ('otevřený navigační systém modRana',
                '',
@@ -1387,6 +1417,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
+    0,
     trans = {
       $cs -> ('Open source vládnutí',
                '',
@@ -1427,6 +1458,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
+    0,
     trans = {
       $cs -> ('DevAssistant - ',
                'Nic.',
@@ -1467,6 +1499,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
+    0,
     trans = {
       $cs -> ('Jak bych to v Mozille (ne)dělal lépe  ',
                '',
@@ -1587,6 +1620,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
+    0,
     trans = {
       $cs -> ('Jak se měří Internet',
                '',
@@ -1692,6 +1726,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
+    0,
     trans = {
       $cs -> ('Vim Vim Vim',
                'Vim',
@@ -1732,6 +1767,7 @@ Bude představena historie projektu, podporované platformy, přehled dostupné 
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
+    0,
     trans = {
       $cs -> ('Finty v shellu',
                '',
@@ -1780,6 +1816,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
     #  čtyřblok o 200 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 30),
+    0,
     trans = {
       $cs -> ('Django -- webový framework',
                'Povědomí o HTTP, znalost programování v Pythonu, nainstalovaný Python 3 (voliteně 2.7) a volitelně virtualenv (popřípadě docker nebo virtualbox).',
@@ -1999,6 +2036,7 @@ Pojďme se společně podívat na finty v shellu a také na to jaké skrývají 
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 15, 00),
+    0,
     trans = {
       $cs -> ('Lehky uvod do ZeroMQ | TNTnet - web dynamite',
                '',
@@ -2132,6 +2170,7 @@ Webove aplikace jsou porad jeste in. Vetsina frameworku se ale zameruje na vyvoj
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
+    0,
     trans = {
       $cs -> ('Browser jako platforma pro vývoj aplikací',
                '',
@@ -2178,6 +2217,7 @@ Přednáška vám představí ty nejzajímavější vychytávky co dnešní brow
     # 2x 25 minut souvisejících témat
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 10, 30),
+    0,
     trans = {
       $cs -> ('Zálohou dat ke klidnějšímu spaní ',
                '',
@@ -2238,6 +2278,7 @@ Datový prostor přístupný přes standardní protokoly - FTPS, SCP, rsync, SFT
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
+    0,
     trans = {
       $cs -> ('Asterisk 13 - komunikace pro každého',
                '',
@@ -2343,6 +2384,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
     # dvojblok o 100 minutách
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 17, 00),
+    0,
     trans = {
       $cs -> ('Processing',
                '',
@@ -3012,6 +3054,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
     # 50 minut
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 10, 30),
+    0,
     trans = {
       $cs -> ('Jolla SailfishOS',
                '',
@@ -3093,6 +3136,7 @@ Asterisk a WebRTC - propojení do světa webových aplikací ',
     #  trojblok o 150 minutách (pouze workshop)
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 9, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 12, 30),
+    0,
     trans = {
       $cs -> ('Uvod do programovani v Qt/Qml',
                'Vlastni notebook s predinstalovanym Qt z qt-project.org

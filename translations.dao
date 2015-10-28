@@ -62,6 +62,8 @@ var translations = {
     'news' -> 'Aktuality',
     'news_content' -> '
 <table>
+<tr><td>28.10.2015</td><td>Zveřejněn <a href="visitor_program.html">program</a>.</td>
+<tr><td>19.10.2015</td><td>Zveřejněna <a href="visitor_program.html">ochutnávka programu</a>.</td>
 <tr><td>21.9.2015</td><td>Přihlašování přednášek bylo oficiálně ukončeno (nadále je možné přijímat přednášky <a href="' + conf.uri.reg_speaker + '">individuálně</a>).</td>
 <tr><td>7.9.2015</td><td>Uzávěrka <a href="' + conf.uri.prefix / 'cfp">Uzávěrka přihlašování přednášek</a> posunuta na 21.9.2015.</td>
 <tr><td>1.7.2015</td><td><a href="' + conf.uri.prefix / 'cfp">Přihlašování přednášek</a> spuštěno.</td>
@@ -558,8 +560,8 @@ invar partners: list<Partner> = {
 #   ''),
   ($supporter,
    'FIT VUT',
-   conf.resdir / 'img/partners/logo_fit.gif',
-   conf.resdir / 'img/partners/logo_fit.gif',
+   conf.resdir / 'img/partners/fit-logo.png',
+   conf.resdir / 'img/partners/fit-logo.png',
    'http://www.fit.vutbr.cz/',
    '<strong>Fakulta Informačních Technologií VUT</strong> v Brně poskytuje vzdělání a výzkum v oboru informačních technologií. Nabízí studium v tříletem bakalářském, v devíti různých navazujících dvouletých magisterský studijní programech a v doktorském studijním programu. Výzkum tvoří velmi významnou část aktivit FITu. Provádí ho akademičtí pracovníci, výzkumníci zaměstnaní fakultou, studenti v doktorském studijním programu a také studenti v posledním roce jejich magisterského studia.'),
   ($gold,
@@ -592,8 +594,7 @@ invar partners: list<Partner> = {
    conf.resdir / 'img/partners/robime.it_logo-onwhite.png',
    conf.resdir / 'img/partners/robime.it_logo-onwhite.png',
    'http://robime.it/blog',
-   'add description'),
-   #'Portál pre IT ľudí, ale aj pre tých, ktorí s IT úzko spolupracujú – konzultanti, finančníci, obchodníci, personalisti, marketéri, apod. Nájdete u nás pracovné ponuky, tipy a rady ako sa ďalej posunúť v kariére a pohľad do sveta informačných technológii.'),
+   '<strong>Robime.it</strong> je portál pre IT ľudí. Nájdete u nás blogy zo sveta informačných technológií, informácie o konferenciách, pracovné ponuky, tipy a rady pre IT ľudí.'),
 #  ($, 'ABRA FlexiBee',
 #   conf.resdir / 'img/partners/logo-abraflexibee.jpg',     'http://www.flexibee.eu/'),
 #  ($, 'Honeywell',

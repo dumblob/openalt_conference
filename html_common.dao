@@ -91,7 +91,7 @@ routine html_head(
     #   least 50px x 50px. Square images work best, but you are allowed
     #   to use images up to three times as wide as they are tall.
     text('<meta property="og:image" content="' +
-         rel(conf.img.logo_oa_conf_bitmap) + '">\n')
+         cu.prefix / 'dummy' / rel(conf.img.logo_oa_conf_bitmap) + '">\n')
     # canonical & permanent URL of the page representing the entity.
     #   When you use Open Graph tags, the Like button posts a link to
     #   the og:url instead of the URL in the Like button code.
@@ -252,48 +252,6 @@ routine html_footer(invar trans: Locale, invar dst: string) => string {
   rel = routine(invar target: string) { return mkrel(dst, target) }
 
   return fragment {
-      div(_class='section_partners') {
-        h3(_class='section') { t['partners'] }
-      }
-      #div(_class='dummy_section') { }
-      div {
-        #paragraph(_class='narrow_paragraph') {
-        div(_class='narrow_paragraph partner_levels') {
-          partners_on_level = routine(invar level: PartnerLevel) => string {
-            res = ''
-
-            # FIXME some typing error
-            #partners.iterate { [p]
-            for (p in partners) {
-              if (p.level == level) {
-                res += (string)div {
-                  anchor(href=p.uri) {
-                    img(_class='partner partner_' + ((string)level)[1:],
-                        src=rel(p.logo_long), alt=p.name, title=p.name)
-                  }
-                  span { p.desc }
-                }
-              }
-            }
-
-            return res
-          }
-
-          if (partners.find { X.level == $general } != none) {
-            h4 { t['general'] }
-            partners_on_level($general)
-          }
-          h4 { t['gold'] }
-          partners_on_level($gold)
-          h4 { t['silver'] }
-          partners_on_level($silver)
-          h4 { t['bronze'] }
-          partners_on_level($bronze)
-          h4 { t['supporter'] }
-          partners_on_level($supporter)
-        }
-      }
-
     # FIXME this should be done better
 #    div {
 #      h3(_class='section') { t['contact'] }

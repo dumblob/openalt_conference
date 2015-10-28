@@ -21,6 +21,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
@@ -30,6 +31,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
@@ -39,6 +41,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
@@ -48,6 +51,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
@@ -57,6 +61,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
@@ -68,6 +73,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D105',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D105',),
@@ -77,6 +83,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0206',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0206',),
@@ -86,6 +93,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'D0207',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'D0207',),
@@ -95,6 +103,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'A112',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A112',),
@@ -104,6 +113,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 11, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 13, 00),
+    0,
     trans = {
       $en -> ('Pause for lunch', 'no reqs', 'desc', 'A113',),
       $cs -> ('Přestávka na oběd', 'žádné pož.', 'popis', 'A113',),
@@ -115,6 +125,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 13, 30),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day -1, 23, 59),
+    0,
     trans = {
       $en -> ('Siesta after lunch', 'requirements', 'description', 'venue',),
       $cs -> ('Siesta po obědě', 'Dobrou náladu a vhodnou pohovku.', 'Chvilka na odpočinek...', 'vestibul pavilonu D',),
@@ -126,6 +137,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 14, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 22, 00),
+    0,
     trans = {
       $en -> ('Party', 'no reqs', 'Please see the leaflets for further information.', 'Industra, 1. floor',),
       $cs -> ('Párty', 'žádné pož.', 'Vizte letáky pro podrobnější informace.', 'Industra, 1. partro',),
@@ -137,6 +149,7 @@ _participants: list<Participant> = {
     uri = ('', '', ''),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 16, 00),
     time.make(conf.time_to.year, conf.time_to.month, conf.time_to.day, 17, 00),
+    0,
     trans = {
       $en -> ('Final lottery', 'Having filled the feedback form.', 'For those who filled the feedback forms there are valuable prices (RHEL certification exam, T-Shirts, cups etc.).', 'D105',),
       $cs -> ('Závěrečné slosování', 'Vyplnění formuláře pro zpětnou vazbu.', 'Pro ty, kteří vyplnili formulář zpětné vazby jsou připraveny hodnotné ceny (RHEL certifikační zkouška, třička, hrníčky atd.)', 'D105',),
@@ -346,6 +359,7 @@ csv.iterate {
           ),
           from = time.now(),  # time.parse('0s'),  # FIXME
           to   = time.now(),  # time.parse('0s'),  # FIXME
+          priority = 0,
           trans = {
             $cs -> (
               name = X[43],

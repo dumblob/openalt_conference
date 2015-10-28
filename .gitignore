@@ -16,3 +16,4 @@
 
 res.*
 debug*
+*.sigsegv00
