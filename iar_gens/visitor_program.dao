@@ -211,6 +211,7 @@ routine visitor_program(
                                 span(_class=
                                      ((string)subcell.event.track)[1:]) {}
                                 anchor(href='#' + event_id_prefix +
+                                    (string)(int)subcell.event.from.value +
                                     uniqueascii(
                                       subcell.event.trans[trans].name, {=>})) {
                                   subcell.event.trans[trans].name
@@ -236,8 +237,9 @@ routine visitor_program(
 
       put_event = routine(invar e: tuple<name:string, event:Event>) {
         return div(_class='event') {
-          paragraph(_class='event_title', id=event_id_prefix + uniqueascii(
-              e.event.trans[trans].name, uniqueascii_context)) {
+          paragraph(_class='event_title', id=event_id_prefix +
+              (string)(int)e.event.from.value + uniqueascii(
+                e.event.trans[trans].name, {=>})) {
             e.event.trans[trans].name
           }
           paragraph(_class='participant_name') { e.name }
