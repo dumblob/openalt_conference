@@ -175,7 +175,7 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 #    'workshop' -> 'Dílna',
     'workshops' -> 'Dílny',
 #    'workshops_empty' -> 'Dílny ještě nejsou přihlášeny a vybrány. Okolo ' + conf.time_show_sched.format('%-d.%-m.') + ' by se zde měly objevit!',
-    'schedule' -> 'Rozvrh',
+    'schedule' -> 'Harmonogram',
     'venue' -> 'Místo konání',
     'participation_reqs' -> 'Požadavky pro účast:',
     'conference' -> 'Konference',
@@ -634,10 +634,10 @@ invar partners: list<Partner> = {
 #  ($, 'Honeywell',
 #   conf.resdir / 'img/partners/honeywell.png',             'http://honeywell.com/'),
   ($supporter,
+   'JetBrains s.r.o.',
+   conf.resdir / 'img/partners/logo_jetbrains.svg',
+   conf.resdir / 'img/partners/logo_jetbrains.svg',
    'http://www.jetbrains.com',
-   conf.resdir / 'img/partners/logo_jetbrains.svg',
-   conf.resdir / 'img/partners/logo_jetbrains.svg',
-   'http://www.ubuntu.cz',
 'Jsme lídři na trhu s profesionálními vývojářskými nástroji, které pomáhají vývojářům po celém světě zvyšovat produktivitu a dosáhnout požadovaných cílů bez nutnosti ztrácet čas opakujícími se rutinními procesy.<br>
 <br>
 Nabízíme nástroje pro Javu, .NET, C++, Ruby, PHP, Python a týmovou spolupráci: Intellij IDEA, PhpStorm, ReSharper, WebStorm, CLion, AppCode, TeamCity, YouTrack, RubyMine, PyCharm, UpSource, dotTrace, dotMemory, dotCover, dotPeak.'),

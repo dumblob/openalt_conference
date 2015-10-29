@@ -220,42 +220,40 @@ _participants: list<Participant> = {
 #}
 
 load stream
-data = io.read('misc/schedule/2015/201510282155-schedule.json')
+data = io.read('misc/schedule/2015/201510290849-schedule.json')
 load web.json
 res = (map)json.parse(data)
-# about
-# users
-# sessions
-# rss
-# days
-# checksum
-#res.iterate { [k, v]
-#  io.writeln(k)
-#}
-#io.writeln(res['about'])
-#io.writeln(res['users'][2])
-#io.writeln(res['sessions'][0])
-# description string
-# event_end int
-# event_end_rfc
-# event_start int
-# event_start_rfc
-# lang cz
-# room string
-# room_color string
-# room_short string
-# speakers" => { string }
-# tags" => {  }
-# topic string
-# type string
-invar offset = time.TimeSpan(years = 30, days = -1)
+#res['users'].iterate {
 #res['sessions'].iterate {
-#  io.writeln(X['room_color'])
+#  io.writeln(X['track'])
 #}
 #os.exit()
+
+invar offset = time.TimeSpan(years = 30, days = -1, hours = -1)
+
 res['sessions'].iterate {
-  kind = X['type'].convert($lower)  # FIXME
-  track = X['room_color'].convert($lower)  # FIXME
+  kind = X['type'].convert($lower)
+  # X['room_color']
+  track = X['track'].convert($lower)
+  from = time.fromValue((int)X['event_start']) - offset
+  to   = time.fromValue((int)X['event_end']) - offset
+
+  # it's a short (30 min) talk
+  is_short = (to - from) < time.TimeSpan(hours = 1)
+  # it start's in the middle of a full (60 min) block
+  starts_from_middle = from.minute == 0
+  # it's not the OpenAlt z.s. keynote, which starts in the middle, but has to be left scheduled like that
+  not_oa_keynote = X['topic'].match('Keynote') == none
+  priority = is_short && starts_from_middle && not_oa_keynote ? -1 : 0
+#  priority = (
+#      # FIXME Dao bug: without parentheses, boolean evaluation doesn't work
+#      # it's a short (30 min) talk
+#      ((to - from) < time.TimeSpan(hours = 1)) &&
+#      # it start's in the middle of a full (60 min) block
+#      (from.minute != 0) &&
+#      # it's not the OpenAlt z.s. keynote, which starts in the middle, but has to be left scheduled like that
+#      (X['topic'].match('Keynote') == none) ) ? -1 : 0
+
   _participants.append(
     (Participant)(
       name = X['speakers'][0],
@@ -269,30 +267,35 @@ res['sessions'].iterate {
       },
       events = {
         (Event)(
-          kind = kind.match('(talk|přednášk)') != none ? Kind.talk :
+          kind = kind.match('(talk|přednáška)') != none ? Kind.talk :
                  kind.match('(workshop|dílna)') != none ? Kind.workshop :
                  Kind.internal,
-          # FIXME Dao bug: match() doesn't take into account spaces if there are UTF-8 characters
-          track = track.match('{{#d4d1a3}}' .convert($lower)) != none ? Track.track0 :  # open SW
-                  track.match('{{#ecfe80}}' .convert($lower)) != none ? Track.track1 :  # open edu
-                  track.match('{{#e1b4cd}}' .convert($lower)) != none ? Track.track2 :  # makers, mobile, security
-                  track.match('{{#89f891}}' .convert($lower)) != none ? Track.track3 :  # * workshop 1
-                  track.match('{{#787878}}' .convert($lower)) != none ? Track.track4 :  # workshop 2
-                  track.match('{{#08be85}}' .convert($lower)) != none ? Track.track5 :  # lab of communication
-                  #track.match('{{#9aaaec}}' .convert($lower)) != none ? Track.track5 :
+          #track = track.match('{{#d4d1a3}}' .convert($lower)) != none ? Track.track0 :  # open SW
+          #        track.match('{{#ecfe80}}' .convert($lower)) != none ? Track.track1 :  # open edu
+          #        track.match('{{#e1b4cd}}' .convert($lower)) != none ? Track.track2 :  # makers, mobile, security
+          #        track.match('{{#89f891}}' .convert($lower)) != none ? Track.track3 :  # * workshop 1
+          #        track.match('{{#787878}}' .convert($lower)) != none ? Track.track4 :  # workshop 2
+          #        track.match('{{#08be85}}' .convert($lower)) != none ? Track.track5 :  # lab of communication
+          #        #track.match('{{#9aaaec}}' .convert($lower)) != none ? Track.track5 :
+          #        Track.track6,  # cinema
+          track = track.match('({{Otevřený software (LinuxAlt)}}|{{Otevřená společnost, komunity a data}})'           .convert($lower)) != none ? Track.track0 :  # open SW
+                  track.match('{{Alternativy ve vzdělávání}}'                                                         .convert($lower)) != none ? Track.track1 :  # open edu
+                  track.match('({{Hnutí Tvůrců (Makers)}}|{{Otevřené mobilní technologie}}|{{Bezpečnost a soukromí}})'.convert($lower)) != none ? Track.track2 :  # makers, mobile, security
+                  kind.match('(workshop|dílna)')                                                                                        != none ? Track.track3 :  # workshop 1, workshop 2
+                  track.match('{{snthaoeusnthaou}}'                                                                   .convert($lower)) != none ? Track.track5 :  # lab of communication
                   Track.track6,  # cinema
           uri = (
             video_rec = '',
             presentation = '',
             materials = '',
           ),
-          from = time.fromValue((int)X['event_start']) - offset,
-          to   = time.fromValue((int)X['event_end']) - offset,
-          priority = 0,  # FIXME
+          from = priority == 0 ? from : from - TimeSpan(minutes = 30),
+          to   = priority == 0 ? to : to - TimeSpan(minutes = 30),
+          priority = priority,
           trans = {
             $cs -> (
               name = X['topic'],
-              requirements = '',  # FIXME
+              requirements = X['reqs'],
               description = X['description'],
               place = X['room_short'],
             ),
@@ -301,10 +304,15 @@ res['sessions'].iterate {
       }
     )
   )
+
+  #io.writeln(X['topic'])
+  #io.writeln((to - from) < time.TimeSpan(hours = 1))
+  #io.writeln(from.minute != 0, '(', from.minute, ')')
+  #io.writeln(X['topic'].match('Keynote') == none)
+  #io.writeln(X['room_short'])
+  #io.writeln(priority)
+  #io.writeln(_participants[-1].events[0].from)
 }
-#io.writeln(res['rss'])
-#io.writeln(res['days'])
-#io.writeln(res['checksum'])
 
 var participants: list<Participant> = {}
 

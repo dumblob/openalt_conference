@@ -367,6 +367,7 @@ nav {
 .event {
   display: block;
   max-width: 211pt;  /* 450 / 2 - 2 * 7 */
+  min-width: 211pt;
   margin: 0 7pt 0 0;
   float: left;
 }

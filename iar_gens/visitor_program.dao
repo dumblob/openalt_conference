@@ -179,17 +179,18 @@ routine visitor_program(
 
                   set.cell_lines.iterate { [cell_line]
                     tr {
-                      # there is at least 1 cell
                       td {
                         invar time = cell_line[0][0].event.from.format('%H:%M')
                         img(src=rel(ci.clock), alt=time, title=time)
                         span { time }
                       }
 
-                      cell_line.iterate { [cell]
-                        # tight-loop to preserve order
-                        places2.iterate { [place]
+                      # tight-loop to preserve order
+                      places2.iterate { [place]
+                        cell_found = false
+                        cell_line.iterate { [cell]
                           if (place.id == cell[0].event.trans[trans].place) {
+                            cell_found = true
                             td {
                               cell2 = cell.sort {
                                 X.event.priority > Y.event.priority
@@ -221,6 +222,8 @@ routine visitor_program(
                             }
                           }
                         }
+
+                        if (! cell_found) td { }
                       }
                     }
                   }
