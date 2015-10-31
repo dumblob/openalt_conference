@@ -39,6 +39,8 @@ routine visitor_program(
       # anchor links unique for this page
       uniqueascii_context: map<string, none> = {=>}
       invar event_id_prefix = 'event_title_'
+      invar track_id_prefix_workshop = 'workshop_'
+      invar track_id_prefix_talk = 'talk_'
 
       if (my_time.time.now() >= conf.time_show_sched) {
         div(id='schedule') {
@@ -86,21 +88,34 @@ routine visitor_program(
 
           # adjust reverse mappings
 
-          orig_ind = 0
-          places2 = places.collect {
-            (orig_ind = 0, id = X, rank = Y)
-          } .sort {
-            X.id > Y.id
-          } .apply {
-            # FIXME imitate stable sort by remembering the index
-            X.orig_ind = ++orig_ind
-            return X
-          } .sort {
-            if (X.rank == Y.rank)
-              return X.orig_ind > Y.orig_ind
-            else
-              return X.rank > Y.rank
+          invar preferred_order = {
+            'D105'  => 1,
+            'D0206' => 2,
+            'D0207' => 3,
+            'E112'  => 4,
+            'E104'  => 5,
+            'A112'  => 6,
+            'A113'  => 7,
           }
+          places2 = places.collect { (id = X,) } .sort {
+            preferred_order[X.id] < preferred_order[Y.id]
+          }
+
+#          orig_ind = 0
+#          places2 = places.collect {
+#            (orig_ind = 0, id = X, rank = Y)
+#          } .sort {
+#            X.id > Y.id
+#          } .apply {
+#            # FIXME imitate stable sort by remembering the index
+#            X.orig_ind = ++orig_ind
+#            return X
+#          } .sort {
+#            if (X.rank == Y.rank)
+#              return X.orig_ind > Y.orig_ind
+#            else
+#              return X.rank > Y.rank
+#          }
 
           day_sets = routine(m: map<my_time.time::DateTime, map<string, @T>>)
               # FIXME
@@ -177,6 +192,8 @@ routine visitor_program(
                     }
                   }
 
+                  rowspan = {=>}
+
                   set.cell_lines.iterate { [cell_line]
                     tr {
                       td {
@@ -185,16 +202,26 @@ routine visitor_program(
                         span { time }
                       }
 
-                      # tight-loop to preserve order
                       places2.iterate { [place]
                         cell_found = false
-                        cell_line.iterate { [cell]
-                          if (place.id == cell[0].event.trans[trans].place) {
-                            cell_found = true
-                            td {
-                              cell2 = cell.sort {
-                                X.event.priority > Y.event.priority
-                              }
+
+                        # tight-loop to preserve order
+                        for (cell in cell_line) {
+                          if (place.id != cell[0].event.trans[trans].place)
+                            skip
+
+                          cell_found = true
+                          rowspan[place.id] =
+                            (cell[0].event.to - cell[0].event.from).hours
+
+                          td(_class=cell[0].event.kind == $workshop ?
+                              'cell_workshop' : 'cell_talk',
+                              rowspan=rowspan[place.id] < 1 ? 1 :
+                              rowspan[place.id]) {
+
+                            cell2 = cell.sort {
+                              X.event.priority > Y.event.priority
+                            }
 # FIXME
 # [[Error::Value]] --- Invalid value:
 # invalid returned value
@@ -207,23 +234,33 @@ routine visitor_program(
 # WARNING: try activating events (2,2,0,2)!
 # ERROR: All tasklets are suspended - deadlock!
 # ERROR: All tasklets are suspended - deadlock!
-                              #cell2.iterate { [subcell]
-                              for (subcell in cell2) {
-                                span(_class=
-                                     ((string)subcell.event.track)[1:]) {}
-                                anchor(href='#' + event_id_prefix +
-                                    (string)(int)subcell.event.from.value +
-                                    uniqueascii(
-                                      subcell.event.trans[trans].name, {=>})) {
-                                  subcell.event.trans[trans].name
-                                }
-                                span { subcell.author.name }
+                            #cell2.iterate { [subcell]
+
+                            for (subcell in cell2) {
+                              invar track_str =
+                                ((string)subcell.event.track)[1:]
+
+                              anchor(href= '#' +
+                                     (cell[0].event.kind == $workshop ?
+                                     track_id_prefix_workshop :
+                                     track_id_prefix_talk) +
+                                     uniqueascii(track_str, {=>})) {
+                                span(_class=track_str) {}
                               }
+                              anchor(href='#' + event_id_prefix +
+                                  uniqueascii(
+                                    subcell.event.trans[trans].name, {=>})) {
+                                subcell.event.trans[trans].name
+                              }
+                              span { subcell.author.name }
                             }
                           }
                         }
 
-                        if (! cell_found) td { }
+                        if (place.id in rowspan && rowspan[place.id] >= 1)
+                          --rowspan[place.id]
+                        else
+                          if (! cell_found) td {}
                       }
                     }
                   }
@@ -240,10 +277,12 @@ routine visitor_program(
 
       put_event = routine(invar e: tuple<name:string, event:Event>) {
         return div(_class='event') {
-          paragraph(_class='event_title', id=event_id_prefix +
-              (string)(int)e.event.from.value + uniqueascii(
-                e.event.trans[trans].name, {=>})) {
-            e.event.trans[trans].name
+          paragraph(_class='event_title') {
+            # additional span for special CSS for anchor jumps
+            span(id=event_id_prefix +
+                uniqueascii(e.event.trans[trans].name, {=>})) {
+              e.event.trans[trans].name
+            }
           }
           paragraph(_class='participant_name') { e.name }
           paragraph(_class='event_desc') {
@@ -276,6 +315,29 @@ routine visitor_program(
         }
       }
 
+      put_track = routine(invar kind: Kind, track: Track) {
+        if (! %events_satisfying(participants, kind, track))
+          return
+
+        div {
+          invar track_str = ((string)track)[1:]
+
+          div(_class='narrow_paragraph ' + track_str, id=
+              (kind == $workshop ? track_id_prefix_workshop :
+              track_id_prefix_talk) + uniqueascii(track_str, {=>})) {
+            div(_class='circle') { }  # CSS circle
+            div(_class='track') {
+              h4        { t[track_str] }
+              paragraph { t[track_str + '_desc'] }
+            }
+            for (e in events_satisfying(participants, kind, track)) {
+              put_event(e)
+            }
+          }
+          div(_class='clear_float') {}
+        }
+      }
+
       div(_class='no_bottom_padding') {
         h3(_class='section') { t['talks'] }
 
@@ -284,110 +346,13 @@ routine visitor_program(
           #   anything in a fixed manner - only loops over existing data
           #   (CSS should be also generated from the data in the DB)
 
-          if (%events_satisfying(participants, $talk, $track0))
-          div {
-            div(_class='narrow_paragraph track0') {
-              div(_class='circle') { }  # CSS circle
-              div(_class='track') {
-                h4        { t['track0'] }
-                paragraph { t['track0_desc'] }
-              }
-              for (e in events_satisfying(participants, $talk, $track0)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $talk, $track1))
-          div {
-            div(_class='narrow_paragraph track1') {
-              div(_class='circle') { }  # CSS circle
-              div(_class='track') {
-                h4        { t['track1'] }
-                paragraph { t['track1_desc'] }
-              }
-              for (e in events_satisfying(participants, $talk, $track1)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $talk, $track2))
-          div {
-            div(_class='narrow_paragraph track2') {
-              div(_class='circle') { }  # CSS circle
-              div(_class='track') {
-                h4        { t['track2'] }
-                paragraph { t['track2_desc'] }
-              }
-              for (e in events_satisfying(participants, $talk, $track2)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $talk, $track3))
-          div {
-            div(_class='narrow_paragraph track3') {
-              div(_class='circle') { }  # CSS circle
-              div(_class='track') {
-                h4        { t['track3'] }
-                paragraph { t['track3_desc'] }
-              }
-              for (e in events_satisfying(participants, $talk, $track3)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $talk, $track4))
-          div {
-            div(_class='narrow_paragraph track4') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track4'] }
-                paragraph { t['track4_desc'] }
-              }
-              for (e in events_satisfying(participants, $talk, $track4)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $talk, $track5))
-          div {
-            div(_class='narrow_paragraph track5') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track5'] }
-                paragraph { t['track5_desc'] }
-              }
-              for (e in events_satisfying(participants, $talk, $track5)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $talk, $track6))
-          div {
-            div(_class='narrow_paragraph track6') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track6'] }
-                paragraph { t['track6_desc'] }
-              }
-              for (e in events_satisfying(participants, $talk, $track6)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
+          put_track($talk, $track0)
+          put_track($talk, $track1)
+          put_track($talk, $track2)
+          put_track($talk, $track3)
+          put_track($talk, $track4)
+          put_track($talk, $track5)
+          put_track($talk, $track6)
         }
       }
 
@@ -399,110 +364,13 @@ routine visitor_program(
         h3(_class='section') { t['workshops'] }
 
         div(id='workshops') {
-          if (%events_satisfying(participants, $workshop, $track0))
-          div {
-            div(_class='narrow_paragraph track0') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track0'] }
-                paragraph { t['track0_desc'] }
-              }
-              for (e in events_satisfying(participants, $workshop, $track0)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $workshop, $track1))
-          div {
-            div(_class='narrow_paragraph track1') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track1'] }
-                paragraph { t['track1_desc'] }
-              }
-              for (e in events_satisfying(participants, $workshop, $track1)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $workshop, $track2))
-          div {
-            div(_class='narrow_paragraph track2') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track2'] }
-                paragraph { t['track2_desc'] }
-              }
-              for (e in events_satisfying(participants, $workshop, $track2)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $workshop, $track3))
-          div {
-            div(_class='narrow_paragraph track3') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track3'] }
-                paragraph { t['track3_desc'] }
-              }
-              for (e in events_satisfying(participants, $workshop, $track3)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $workshop, $track4))
-          div {
-            div(_class='narrow_paragraph track4') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track4'] }
-                paragraph { t['track4_desc'] }
-              }
-              for (e in events_satisfying(participants, $workshop, $track4)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $workshop, $track5))
-          div {
-            div(_class='narrow_paragraph track5') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track5'] }
-                paragraph { t['track5_desc'] }
-              }
-              for (e in events_satisfying(participants, $workshop, $track5)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
-
-          if (%events_satisfying(participants, $workshop, $track6))
-          div {
-            div(_class='narrow_paragraph track6') {
-              div(_class='circle') { }
-              div(_class='track') {
-                h4        { t['track6'] }
-                paragraph { t['track6_desc'] }
-              }
-              for (e in events_satisfying(participants, $workshop, $track6)) {
-                put_event(e)
-              }
-            }
-            div(_class='clear_float') {}
-          }
+          put_track($workshop, $track0)
+          put_track($workshop, $track1)
+          put_track($workshop, $track2)
+          put_track($workshop, $track3)
+          put_track($workshop, $track4)
+          put_track($workshop, $track5)
+          put_track($workshop, $track6)
         }
       }
 

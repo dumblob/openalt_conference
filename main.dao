@@ -28,11 +28,13 @@ load iar_gens.speaker_benefits
 load iar_gens.speaker_home
 load iar_gens.speaker_media
 load iar_gens.speaker_venue
+load iar_gens.speaker_info
 load iar_gens.visitor_about
 load iar_gens.visitor_home
 load iar_gens.visitor_media
 load iar_gens.visitor_venue
 load iar_gens.visitor_program
+load iar_gens.visitor_speakers
 load iar_gens.css
 load iar_gens.redir_call_for_proposals
 load iar_gens.redir_cfp_form
@@ -57,11 +59,13 @@ invar iars = {
   'speaker_home'     -> 'speaker_home.html',
   'speaker_media'    -> 'speaker_media.html',
   'speaker_venue'    -> 'speaker_venue.html',
+  'speaker_info'     -> 'speaker_info.html',
   'visitor_about'    -> 'visitor_about.html',
   'visitor_home'     -> 'visitor_home.html',
   'visitor_media'    -> 'visitor_media.html',
   'visitor_venue'    -> 'visitor_venue.html',
   'visitor_program'  -> 'visitor_program.html',
+  'visitor_speakers' -> 'visitor_speakers.html',
   'rss'              -> 'feed.rss',
 
   # absolute paths
@@ -84,39 +88,43 @@ routine gen_iars(invar iars: map<string, string>, invar trans: lib.Locale) {
       # FIXME use one-liner using meta?
       switch (r[0]) {
         case 'home':
-          return iar::home(            r[0], dst / r[1], trans, dst, iars, $initial) !!
+          return iar::home(             r[0], dst / r[1], trans, dst, iars, $initial) !!
         case 'partner_benefits':
-          return iar::partner_benefits(r[0], dst / r[1], trans, dst, iars, $partner) !!
+          return iar::partner_benefits( r[0], dst / r[1], trans, dst, iars, $partner) !!
         case 'partner_home'    :
-          return iar::partner_home(    r[0], dst / r[1], trans, dst, iars, $partner) !!
+          return iar::partner_home(     r[0], dst / r[1], trans, dst, iars, $partner) !!
 #        case 'partner_how'     :
-#          return iar::partner_how(     r[0], dst / r[1], trans, dst, iars, $partner) !!
+#          return iar::partner_how(      r[0], dst / r[1], trans, dst, iars, $partner) !!
         case 'partner_media'   :
-          return iar::partner_media(   r[0], dst / r[1], trans, dst, iars, $partner) !!
+          return iar::partner_media(    r[0], dst / r[1], trans, dst, iars, $partner) !!
 #        case 'partner_who'     :
-#          return iar::partner_who(     r[0], dst / r[1], trans, dst, iars, $partner) !!
+#          return iar::partner_who(      r[0], dst / r[1], trans, dst, iars, $partner) !!
         case 'partner_why_we'  :
-          return iar::partner_why_we(  r[0], dst / r[1], trans, dst, iars, $partner) !!
+          return iar::partner_why_we(   r[0], dst / r[1], trans, dst, iars, $partner) !!
         case 'speaker_about'   :
-          return iar::speaker_about(   r[0], dst / r[1], trans, dst, iars, $speaker) !!
+          return iar::speaker_about(    r[0], dst / r[1], trans, dst, iars, $speaker) !!
         case 'speaker_benefits':
-          return iar::speaker_benefits(r[0], dst / r[1], trans, dst, iars, $speaker) !!
+          return iar::speaker_benefits( r[0], dst / r[1], trans, dst, iars, $speaker) !!
         case 'speaker_home'    :
-          return iar::speaker_home(    r[0], dst / r[1], trans, dst, iars, $speaker) !!
+          return iar::speaker_home(     r[0], dst / r[1], trans, dst, iars, $speaker) !!
         case 'speaker_media'   :
-          return iar::speaker_media(   r[0], dst / r[1], trans, dst, iars, $speaker) !!
+          return iar::speaker_media(    r[0], dst / r[1], trans, dst, iars, $speaker) !!
         case 'speaker_venue'   :
-          return iar::speaker_venue(   r[0], dst / r[1], trans, dst, iars, $speaker) !!
+          return iar::speaker_venue(    r[0], dst / r[1], trans, dst, iars, $speaker) !!
+        case 'speaker_info'   :
+          return iar::speaker_info(     r[0], dst / r[1], trans, dst, iars, $speaker) !!
         case 'visitor_about'   :
-          return iar::visitor_about(   r[0], dst / r[1], trans, dst, iars, $visitor) !!
+          return iar::visitor_about(    r[0], dst / r[1], trans, dst, iars, $visitor) !!
         case 'visitor_home'    :
-          return iar::visitor_home(    r[0], dst / r[1], trans, dst, iars, $visitor) !!
+          return iar::visitor_home(     r[0], dst / r[1], trans, dst, iars, $visitor) !!
         case 'visitor_media'   :
-          return iar::visitor_media(   r[0], dst / r[1], trans, dst, iars, $visitor) !!
+          return iar::visitor_media(    r[0], dst / r[1], trans, dst, iars, $visitor) !!
         case 'visitor_venue'   :
-          return iar::visitor_venue(   r[0], dst / r[1], trans, dst, iars, $visitor) !!
+          return iar::visitor_venue(    r[0], dst / r[1], trans, dst, iars, $visitor) !!
         case 'visitor_program' :
-          return iar::visitor_program( r[0], dst / r[1], trans, dst, iars, $visitor) !!
+          return iar::visitor_program(  r[0], dst / r[1], trans, dst, iars, $visitor) !!
+        case 'visitor_speakers' :
+          return iar::visitor_speakers( r[0], dst / r[1], trans, dst, iars, $visitor) !!
       }
 
       std.assert(r[0] == 'rss')

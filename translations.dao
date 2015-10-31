@@ -164,6 +164,51 @@ Návštěvníkům pak děkujeme za účast a vytvoření výborné atmosféry, k
 #'<a class="with_icon" style="background-image: url(../img/icon-android.png);" href="https://play.google.com/store/apps/details?id=cz.mlich.openalt">Google Play mobilní aplikace</a><br/>
 #<a class="with_icon" style="background-image: url(../img/icon-sailfish.png);" href="https://openrepos.net/content/xmlich02/openalt">Sailfish mobilní aplikace</a>',
 '',
+
+
+
+    'speaker_info' -> @[]
+<p>Záchranné číslo pro všechny situace je +420 910 117 377, ale snad bude postačovat následující</p>
+
+<h4>Doprava</h4>
+<p>Místo konání a navigace na něj <a href="https://openalt.cz/2015/cs/speaker_venue.html">zde</a></p>
+<p>Pokud pojedete autem, prosíme o doplnění jména a SPZ do <a href="https://docs.google.com/spreadsheets/d/1OVwK_V6v2CbXl_hp_m4eVn5oshnLy8AWF_6p3O_yrxc/edit?usp=sharing">tabulky</a> na list pojmenový SPZ, abychom mohli domluvit parkování v areálu fakulty (prostor je uzavřen a střežen).</p>
+
+<h4><strong>Na místě</strong></h4>
+<p>Jakmile dorazíte (prosíme o dochvilnost, nebrněnské účastníky očekáváme nejlépe půl až hodinu předem), ohlaste se komukoliv s identifikací „Organizátor“ nebo „Studentská Unie“ a dostanete všechny potřebné informace.</p>
+<p><a href="http://www.projevse.cz/"><a name="moderatori">Naši moderátoři</a></a> provází návštěvníky skrze celou konferenci. Jejich hlavním úkolem je představit řečníka a jeho přednášku a připravit mu tak pevnou půdu pod nohama. Prosíme tedy o <a href="https://www.openalt.org/2015/obedy">vyplnění následujících informací pro moderátory</a>.</p>
+<p><strong>Harmonogram</strong>:</p>
+<p>Snažili jsme se vyhovět všem žádostem o konkrétní časy, ale pokud se to někde nepodařilo, omlouváme se a doufáme, že nenastal žádný problém.</p>
+<ul>
+  <li><a href="visitor_program.html">přednášky a dílny</a></li>
+</ul>
+<p>Materiály použité při přednášce (prezentace výhradně jako pdf) budou vybrány po jejím odeznění pro potřeby vydání sborníku.</p>
+
+<p><strong>Vybavení</strong>:</p>
+<p>Všechny používané místnosti jsou vybaveny projektorem a audiotechnikou. Nativní rozlišení 1024x768 s VGA konektorem, v komplexu D navíc HDMI. Redukcí na Apple je nedostatečný počet, tudíž raději spoléhejte na své zdroje.</p>
+<p>Přístup na Internet je možný prostřednictvím WiFi nebo ethernet kabelu u lektorského stolu.</p>
+<p>Rovněž bude k dispozici přednáškový počítač (výhradně Windows), takže pokud máte prezentaci v nějakém běžném formátu osobní laptop není nutný. Zásuvky na 230V jsou již samozřejmostí.</p>
+
+<p><strong>Stravování</strong>:</p>
+Pro všechny přednášející bude zajištěn oběd v menze a lehké občerstvení. <a href="https://www.openalt.org/2015/obedy">Objednáním</a> si zajistíte své preferované jídlo a menze pomůžete odhadnout zájem.</p>
+<p>Po celou dobu trvání akce bude v areálu fakulty otevřeno <a href="http://ventanacafe.cz/contact.html">Ventana Café</a> a v něm účet na nezbytné životabudiče. Pro přednášející též na vrub akce.</p>
+
+<h4><strong>Pro ubytované</strong></h4>
+<p>Dle požadavků při registraci přednášky jsme pro Vás zajistili ubytování v hotelu <a href="http://www.vista-hotel.cz/kontakt/">Vista</a>.</p>
+<p>Pokud přijíždíte v pátek, jeďte, prosím, rovnou do hotelu. Na recepci se odkažte na akci „OpenAlt“.</p>
+<p>Pokud přijíždíte v sobotu, tak vás očekáváme přímo na místě konference a ubytování potom provádíme "hromadně", abychom měli jistotu, že nezabloudíte.</p>
+<p>S dotazy se obracejte na výše uvedené číslo nebo přímo Jana Mareše (+420 604 271 041), který pro vás ubytování zařizoval.</p>
+
+<h4><strong>Záznamy</strong></h4>
+<p>Z přednášek (workshopy nenahráváme) bude zpracován záznam skupinou SuperLectures během cca dvou týdnů. Odkazy na sociální sítě a web budou vyplněny podle údajů z registrace přednášky. Má-li tomu být u vašeho vystoupení jinak, prosíme o uvedení v tabulce na listu „<a href="https://docs.google.com/spreadsheets/d/1OVwK_V6v2CbXl_hp_m4eVn5oshnLy8AWF_6p3O_yrxc/edit?usp=sharing">záznamy – odkazy</a>“ (pro lepší představu srovnání <a href="http://www.superlectures.com/openalt2014/jak-se-meri-internet">osobní</a> x <a href="http://www.superlectures.com/openalt2014/jak-narocne-je-ziskat-data-o-poloze-vozidel-mhd">na projekt</a>)</p>
+<h4><strong>Závěrem</strong></h4>
+<p>Pokud jsme plně neuspokojili vaše informační potřeby, dejte nám vědět.</p>
+<p>Budeme poctěni, zmíníte-li se o akci svém okolí - propagace není nikdy dost.</p>
+<p>Přejeme radostnou přípravu a těšíme se na setkání :-)</p>
+    @[],
+
+
+
     'speakers' -> 'Přednášející',
     'registered_speakers' -> 'Přihlášení přednášející',
     'partners' -> 'Naši partneři',
@@ -206,42 +251,25 @@ Fakulta informačních technologií
 
 
 
-#    #'track_establishment' -> 'Otevřený svět',
-#    'track0' -> 'Otevřená společnost, komunity a data',
-#    'track0_desc' -> 'otevřená společenství, soukromý sektor, státní sektor, licence, Open Data',
-#    #'track1' -> 'Svět kolem nás',
-#    'track1' -> 'Alternativy ve vzdělávání',
-#    #'track1_desc' -> 'mobilní platformy, automatizace domácnosti včetně RPi',
-#    'track1_desc' -> 'alternativní směry, online vzdělávání, respektující přístup, vzájemně se učící komunity',
-#    'track2' -> 'Bezpečnost a soukromí',
-#    'track2_desc' -> 'sledování, šifrování, záloha dat, monitoring, audit',
-#    #'track3' -> 'Nové systémy & výzvy',
-#    'track3' -> 'Hnutí tvůrců (Makers)',
-#    'track3_desc' -> 'DYI, coworking, hackathon, industriální sféra',
-#    #'track4' -> 'Rady a nápady, aneb jak to lze dělat lépe',
-#    'track4' -> 'Otevřené mobilní technologie',
-#    'track4_desc' -> 'zajímavé aplikace, HW s otevřenou specifikací, novinky, vstupní a výstupní periferie',
-#    'track5' -> 'Otevřený software',
-#    'track5_desc' -> 'open-source systémy a programy, webové technologie, SQL novinky',
-#    'track6' -> 'Kino',
-#    'track6_desc' -> 'mimořádné příběhy známých osobností, svobodné filmy, otevřené umění',
-
-
-
-    'track0' -> 'Otevřený a svobodný software',
-    'track0_desc' -> 'open-source systémy a programy, webové technologie, SQL novinky',
-    'track1' -> 'Otevřená společnost a alternativy ve vzdělávání',
-    'track1_desc' -> 'otevřená společenství, soukromý sektor, státní sektor, licence, Open Data, alternativní směry, online vzdělávání, respektující přístup, vzájemně se učící komunity',
-    'track2' -> 'Hnutí tvůrců, mobilní technologie, bezpečnost a soukromí',
-    'track2_desc' -> 'DYI, coworking, hackathon, industriální sféra, sledování, šifrování, záloha dat, monitoring, audit',
-    'track3' -> 'Workshopy 1',
-    'track3_desc' -> 'zajímavé aplikace, HW a SW s otevřenou specifikací, novinky, vstupní a výstupní periferie',
-    'track4' -> 'Workshopy 2',
-    'track4_desc' -> 'zajímavé aplikace, HW a SW s otevřenou specifikací, novinky, vstupní a výstupní periferie',
-    'track5' -> 'Laboratoř spolupráce a komunikace',
-    'track5_desc' -> 'otevřený prostor pro projekty a komunity',
-    'track6' -> 'Kino',
-    'track6_desc' -> 'mimořádné příběhy známých osobností, svobodné filmy, otevřené umění',
+    #'track_establishment' -> 'Otevřený svět',
+    'track0' -> 'Otevřená společnost, komunity a data',
+    'track0_desc' -> 'otevřená společenství, soukromý sektor, státní sektor, licence, Open Data',
+    #'track1' -> 'Svět kolem nás',
+    'track1' -> 'Alternativy ve vzdělávání',
+    #'track1_desc' -> 'mobilní platformy, automatizace domácnosti včetně RPi',
+    'track1_desc' -> 'alternativní směry, online vzdělávání, respektující přístup, vzájemně se učící komunity',
+    'track2' -> 'Bezpečnost a soukromí',
+    'track2_desc' -> 'sledování, šifrování, záloha dat, monitoring, audit',
+    #'track3' -> 'Nové systémy & výzvy',
+    'track3' -> 'Hnutí tvůrců (Makers)',
+    'track3_desc' -> 'DYI, coworking, hackathon, industriální sféra',
+    #'track4' -> 'Rady a nápady, aneb jak to lze dělat lépe',
+    'track4' -> 'Otevřené mobilní technologie',
+    'track4_desc' -> 'zajímavé aplikace, HW s otevřenou specifikací, novinky, vstupní a výstupní periferie',
+    'track5' -> 'Otevřený software',
+    'track5_desc' -> 'open-source systémy a programy, webové technologie, SQL novinky',
+    'track6' -> 'Ostatní',
+    'track6_desc' -> 'kino (mimořádné příběhy známých osobností, svobodné filmy, otevřené umění), certifikační zkouška, laboratoř spolupráce a komunikace',
 
 
 
@@ -588,14 +616,14 @@ invar partners: list<Partner> = {
 #   ''),
   ($coorganizer,
    'FIT VUT',
-   conf.resdir / 'img/partners/fit-logo.png',
-   conf.resdir / 'img/partners/fit-logo.png',
+   conf.resdir / 'img/partners/FIT_barevne_PANTONE_CZ.svg',
+   conf.resdir / 'img/partners/FIT_zkratka_barevne_PANTONE_CZ.svg',
    'http://www.fit.vutbr.cz/',
    '<strong>Fakulta Informačních Technologií VUT</strong> v Brně poskytuje vzdělání a výzkum v oboru informačních technologií. Nabízí studium v tříletem bakalářském, v devíti různých navazujících dvouletých magisterský studijní programech a v doktorském studijním programu. Výzkum tvoří velmi významnou část aktivit FITu. Provádí ho akademičtí pracovníci, výzkumníci zaměstnaní fakultou, studenti v doktorském studijním programu a také studenti v posledním roce jejich magisterského studia.'),
   ($gold,
    'Red Hat Czech, s.r.o.',
-   conf.resdir / 'img/partners/RHLogo.jpg',
-   conf.resdir / 'img/partners/RHLogo.jpg',
+   conf.resdir / 'img/partners/RedHat.svg',
+   conf.resdir / 'img/partners/RedHat.svg',
    'http://cz.redhat.com/',
    '<strong>Red Hat</strong> je společnost, produkující Red Hat Enterprise Linux, významnou komerční linuxovou distribuci, JBoss Enterprise Middleware, Red Hat Enterprise Virtualization, Red Hat Enterprise MRG a software pro cloud computing. Dále tato společnost poskytuje služby v oblasti konzultace, tréninků a certifikace.'),
   ($general,
@@ -605,6 +633,12 @@ invar partners: list<Partner> = {
    'https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-opensource/',
    'Společnost <strong>Microsoft Corporation</strong> byla založena roku 1975. Naším cílem je umožnit lidem a podnikům na celém světě realizovat jejich plný potenciál pomocí technologií – softwaru, služeb i zařízení, které mění svět práce, zábavy i komunikace. Česká pobočka společnosti Microsoft Corporation zahájila svou činnost v&nbsp;roce 1992. Od července roku 2013 vede českou pobočku Biljana Weber.
 <br><a href="www.microsoft.com/cze">www.microsoft.com/cze</a>'),
+  ($bronze,
+   'Cleverlance Enterprise Solutions a.s.',
+   conf.resdir / 'img/partners/cleverlance-logo-tag-RGB.SVG',
+   conf.resdir / 'img/partners/cleverlance-logo-tag-RGB.SVG',
+   'http://www.cleverlance.com',
+   '<strong>Cleverlance</strong> se zabývá především vývojem softwaru cestou inovací a pro své klienty připravuje i řešení na míru. Cleverlance pracuje pro velké zákazníky v oblastech telekomunikací, bankingu či industry. Při samotném návrhu systémů se snaží využívat možností open source řešení, ať už jde o webové servery, frameworky, integrační technologie, komunikační sběrnice či portály.'),
   ($organizer,
    'OpenAlt z.s.',
    conf.img.logo_oa_org,
@@ -648,11 +682,17 @@ Nabízíme nástroje pro Javu, .NET, C++, Ruby, PHP, Python a týmovou spoluprá
    'https://vpsfree.cz/',
    '<strong>Sdružení vpsFree.cz</strong> vzniklo jako přímá reakce na nepružnost a přemrštěné ceny komerčních hostingů v&nbsp;ČR a ještě horší situaci v&nbsp;SR. Primárním cílem je provozovat virtuální servery, na které je možné se spolehnout jak výkonem, tak stabilitou. Prioritou je poskytnout členům prostředí pro stabilní a rychlý provoz internetových aplikaci, kvalitní zázemí těmto aplikacím a prostor pro experimentování, vzdělávání se a hraní si s&nbsp;open-source internetovými technologiemi.'),
   ($supporter,
-   'http://www.ubuntu.cz',
+   'ubuntu.cz',
    conf.resdir / 'img/partners/logo-ubuntu_cz.svg',
    conf.resdir / 'img/partners/logo-ubuntu_cz.svg',
    'http://www.ubuntu.cz',
   '<strong>Ubuntu</strong> je open-source operační systém zastřešený britskou společností Canonical. Každé dva roky vychází verze s pětiletou podporou a každého půl roku verze s aktuálními novinkami. O&nbsp;českou lokalizaci, propagaci a komunitní podporu se stará Občanské sdružení Ubuntu pro Českou republiku. Více informací najdete na <a href="http://www.ubuntu.cz">www.ubuntu.cz</a>, případně se můžete zeptat na fóru <a href="http://forum.ubuntu.cz">forum.ubuntu.cz</a>.'),
+  ($supporter,
+   'mojeFedora.cz',
+   conf.resdir / 'img/partners/moje_fedora_logo_blue.svg',
+   conf.resdir / 'img/partners/moje_fedora_logo_blue.svg',
+   'http://mojefedora.cz/',
+   'MojeFedora.cz je web české a slovenské komunity linuxové distribuce Fedora. Přináší pravidelné články nejen ze světa Fedory, provozuje uživatelské fórum a wiki a stará se o propagaci Fedory v České republice a na Slovensku.'),
   ($silver,
    'ICT Pro s.r.o.',
    conf.resdir / 'img/partners/ict-pro.png',
@@ -669,8 +709,13 @@ Nabízíme nástroje pro Javu, .NET, C++, Ruby, PHP, Python a týmovou spoluprá
 #   conf.resdir / 'img/partners/root.png',                  'http://www.root.cz/'),
 #  ($, 'skHosting.eu s.r.o.',
 #   conf.resdir / 'img/partners/skhosting_eu.png',          'https://skhosting.eu/'),
-#  ($, 'Toastmasters International',
-#   conf.resdir / 'img/partners/toastmasters.png',          'http://www.projevse.cz/'),
+  ($coorganizer,
+   'Toastmasters International',
+   conf.resdir / 'img/partners/tm.svg',
+   conf.resdir / 'img/partners/tm.svg',
+   'http://www.projevse.cz',
+  '<strong>Brněnští Toastmástři</strong>. Několikrát oceněný řečnický klub poskytující přátelské prostředí pro trénink komunikačních dovedností. Pomocí efektivního systému učení pomáháme lidem vystupovat na veřejnosti bez trémy, úspěšně vést týmy, podávat užitečnou zpětnou vazbu a také pracovat
+na svém sebevědomí.'),
 }
 
 # fill empty translations with english terms (if not existing in en,

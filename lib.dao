@@ -51,9 +51,11 @@ type Event = tuple<
     presentation: string,
     materials: string,
   >,
+  # in case event spans across the same time or overlaps with another event,
+  #   the from time must be the same (use priority to order them correctly)
   from: time.DateTime,
   to: time.DateTime,
-  # in case event spans across the same time or overlaps with another event
+  # see above
   priority: int,
   trans:map<Locale, tuple<
     name: string,
@@ -69,22 +71,30 @@ type Participant = tuple<
   # none ~ person; list<string> ~ references to Participants
   members: none|list<string>,
   photo: string,
+  web: string,
+  linkedin: string,
+  facebook: string,
+  diaspora: string,
+  twitter: string,
+  gplus: string,
   trans: map<Locale, tuple<
     # primary role of this subject/person (designer(s), analyst(s), manager(s),
     #   programmer, ...)
     role: string,
+    organization: string,
     note: string,
   >>,
   events: list<Event>,  # events, this subject/person is in charge for
 >
 
 routine uniqueascii(invar s: string, ctx_map: map<string, none>, allow_collisions = false) => string {
-  x = s.change('[^a-zA-Z0-9]', '_')
+  x = s.change('[^a-zA-Z0-9]', '_').convert($lower)
   y = 0
-  z = ''
-  while (z = x + (string)y; z in ctx_map) {
+  z = x
+  while (z in ctx_map) {
     if (! allow_collisions) std.error('uniqueascii collision: ' + x)
     ++y
+    z = x + (string)y
   }
   ctx_map[z] = none
   return z

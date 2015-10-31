@@ -43,6 +43,7 @@ invar conf = (
 
     prefix       = 'https://openalt.cz/2015',
 
+    oa_org       = 'https://openalt.org',
     feed         = 'https://openalt.org/feed',
     diaspora     = 'https://diasp.eu/u/openalt',
     #twitter      = 'https://twitter.com/hashtag/OA2015?src=hash',  # OpenAlt 2015
@@ -95,6 +96,13 @@ invar conf = (
     twitter             = resdir / 'img/icon-twitter.svg',
     gplus               = resdir / 'img/icon-gplus.svg',
     fb                  = resdir / 'img/icon-facebook.svg',
+
+    web_whitebg         = resdir / 'img/icon-web-whitebg.svg',
+    linkedin_whitebg    = resdir / 'img/icon-linkedin-whitebg.svg',
+    fb_whitebg          = resdir / 'img/icon-facebook-whitebg.svg',
+    diaspora_whitebg    = resdir / 'img/icon-diaspora-whitebg.svg',
+    twitter_whitebg     = resdir / 'img/icon-twitter-whitebg.svg',
+    gplus_whitebg       = resdir / 'img/icon-gplus-whitebg.svg',
 
     logo_la_conf        = resdir / 'img/logo-linuxalt-conference.png',
     logo_om_conf        = resdir / 'img/logo-openmobility-conference.svg',

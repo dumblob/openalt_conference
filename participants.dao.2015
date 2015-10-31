@@ -10,9 +10,15 @@ _participants: list<Participant> = {
   ('',
   members = none,
   conf.resdir / 'img/participants/openalt_z_s.jpg',
+  conf.uri.oa_org,
+  '',
+  conf.uri.fb,
+  conf.uri.diaspora,
+  conf.uri.twitter,
+  conf.uri.gplus,
   trans = {
-    $en -> ('', '',),
-    $cs -> ('', '',),
+    $en -> ('', '', '',),
+    $cs -> ('', '', '',),
   },
   events = {
     # lunch - saturday
@@ -220,7 +226,8 @@ _participants: list<Participant> = {
 #}
 
 load stream
-data = io.read('misc/schedule/2015/201510290849-schedule.json')
+# http://python-conflab.rhcloud.com/oa2015/export/m_app/
+data = io.read('misc/schedule/2015/schedule.json')
 load web.json
 res = (map)json.parse(data)
 #res['users'].iterate {
@@ -254,14 +261,26 @@ res['sessions'].iterate {
 #      # it's not the OpenAlt z.s. keynote, which starts in the middle, but has to be left scheduled like that
 #      (X['topic'].match('Keynote') == none) ) ? -1 : 0
 
+  user = res['users'].find { [a]
+    # a['username']
+    a['name'] in X['speakers']
+  }.value
+
   _participants.append(
     (Participant)(
       name = X['speakers'][0],
       members = %X['speakers'] > 1 ? X['speakers'][1:] : none,
-      photo = '',  # FIXME
+      photo = user['avatar'],
+      web = user['web'],
+      linkedin = user['linkedin'],
+      facebook = user['facebook'],
+      diaspora = '',
+      twitter = user['twitter'],
+      gplus = user['google_plus'],
       trans = {
         $cs -> (
-          role = '',  # FIXME
+          role = user['position'],
+          organization = user['company'],
           note = '',
         )
       },
@@ -278,12 +297,21 @@ res['sessions'].iterate {
           #        track.match('{{#08be85}}' .convert($lower)) != none ? Track.track5 :  # lab of communication
           #        #track.match('{{#9aaaec}}' .convert($lower)) != none ? Track.track5 :
           #        Track.track6,  # cinema
-          track = track.match('({{Otevřený software (LinuxAlt)}}|{{Otevřená společnost, komunity a data}})'           .convert($lower)) != none ? Track.track0 :  # open SW
-                  track.match('{{Alternativy ve vzdělávání}}'                                                         .convert($lower)) != none ? Track.track1 :  # open edu
-                  track.match('({{Hnutí Tvůrců (Makers)}}|{{Otevřené mobilní technologie}}|{{Bezpečnost a soukromí}})'.convert($lower)) != none ? Track.track2 :  # makers, mobile, security
-                  kind.match('(workshop|dílna)')                                                                                        != none ? Track.track3 :  # workshop 1, workshop 2
-                  track.match('{{snthaoeusnthaou}}'                                                                   .convert($lower)) != none ? Track.track5 :  # lab of communication
-                  Track.track6,  # cinema
+
+          track = track.match('{{Otevřená společnost, komunity a data}}'.convert($lower)) != none ? Track.track0 :
+                  track.match('{{Alternativy ve vzdělávání}}'           .convert($lower)) != none ? Track.track1 :
+                  track.match('{{Bezpečnost a soukromí}}'               .convert($lower)) != none ? Track.track2 :
+                  track.match('{{Hnutí Tvůrců (Makers)}}'               .convert($lower)) != none ? Track.track3 :
+                  track.match('{{Otevřené mobilní technologie}}'        .convert($lower)) != none ? Track.track4 :
+                  track.match('{{Otevřený software (LinuxAlt)}}'        .convert($lower)) != none ? Track.track5 :
+                  Track.track6,  # cinema, etc.
+
+          #track = track.match('({{Otevřený software (LinuxAlt)}}|{{Otevřená společnost, komunity a data}})'           .convert($lower)) != none ? Track.track0 :  # open SW
+          #        track.match('{{Alternativy ve vzdělávání}}'                                                         .convert($lower)) != none ? Track.track1 :  # open edu
+          #        track.match('({{Hnutí Tvůrců (Makers)}}|{{Otevřené mobilní technologie}}|{{Bezpečnost a soukromí}})'.convert($lower)) != none ? Track.track2 :  # makers, mobile, security
+          #        kind.match('(workshop|dílna)')                                                                                        != none ? Track.track3 :  # workshop 1, workshop 2
+          #        track.match('{{snthaoeusnthaou}}'                                                                   .convert($lower)) != none ? Track.track5 :  # lab of communication
+          #        Track.track6,  # cinema
           uri = (
             video_rec = '',
             presentation = '',

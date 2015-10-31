@@ -10,7 +10,8 @@ routine css(
   file = io.open(full_path, 'w')
   defer { file.close() }
 
-  invar previous_runs_height = '50pt'
+  invar previous_runs_height = 50
+  invar top_stripe_height = 37
 
   invar schedule_bg = '#C22E38'
   invar schedule_bg_dark = '#981925'
@@ -20,6 +21,8 @@ routine css(
   invar dark_red = '#6B0A12'
   invar dark_grey = '#28292a'
   invar light_grey = '#deddde'
+  #invar light_grey_cell = '#d1d2d4'
+  invar light_grey_cell = '#c8c9ca'
   invar ultra_light_grey = '#e8e7e8'
   #2b2f31ff  # grey-stripe
   #dedddeff  # light-grey-substripe (e.g. talks + workshops)
@@ -34,6 +37,12 @@ routine css(
   #invar track5 = '#ab159e'
   invar track5 = '#92378b'  # violet
   invar track6 = 'black'
+
+  # be careful - margins are mangled
+  invar jump_links_viewport_positioning = @[]
+    border-top: @[] + (string)(top_stripe_height + 7) + @[]pt solid transparent;
+    margin-top: - @[] + (string)(top_stripe_height + 7) + @[]pt;
+    background-clip: padding-box;@[]
 
   # FIXME width of the main menu items - should fit it
   file.write(
@@ -61,16 +70,8 @@ body > .dummy_section:nth-child(2),
 body > *:nth-child(2) > *:first-child {
   margin-top: 27pt;  /* blank space under the stripe minus padding minus ??? */
 }
-/*
-body > *:nth-last-child(2) {
-  /*padding-bottom: 0;
-  margin-bottom: 0;*/
-}
-*/
-@[] +
-# the web page consists of horizontal stripes with colors switching
-#   in a circular manner
-@[]
+/* the web page consists of horizontal stripes with colors switching
+   in a circular manner */
 body > *:nth-child(2) .section {
   color: @[] + dark_grey #{schedule_bg#} + @[];
 }
@@ -107,8 +108,6 @@ a:active {
 
 
 #top_stripe {
-/*min-height: 37pt;
-  height: 37pt; */
   padding: 0;
   margin: 0;
   top: 0;
@@ -127,7 +126,7 @@ a:active {
   }
 /* } */
 /* responsive pure-CSS menu */
-/*
+/* FIXME mobile menu icon
 #menu-icon {
   display: hidden;
   width: 40px;
@@ -151,8 +150,8 @@ a:active {
   #menu-icon {
     display:inline-block;
   }
-  */ @[] +
-  #{ make it more precise than .segment to avoid !important #} @[]
+  */
+  /* make it more precise than .segment to avoid !important */
   #top_stripe nav, #top_stripe nav:active {
   /*, #top_stripe nav:focus { */
     display: none;
@@ -190,7 +189,7 @@ nav {
 }
 #top_stripe .segment * {
   vertical-align: middle;  /* for img */
-  line-height: 37pt;  /* for the rest */
+  line-height: @[] + (string)top_stripe_height + @[]pt;  /* for the rest */
 }
 /* arbitrary sized icons are evil */
 #top_stripe .segment img {
@@ -203,12 +202,6 @@ nav {
 #top_stripe .segment > * {
   display: inline-block;
   margin: 0;
-  /*
-  padding-top: auto;
-  padding-bottom: auto;
-  padding-left: auto;
-  padding-right: auto;
-  */
 }
 #top_stripe a:link,
 #top_stripe a:visited,
@@ -377,6 +370,9 @@ nav {
   font-weight: bolder;
   margin: 25pt 0 5pt 0;
 }
+.event_title > span {
+  @[] + jump_links_viewport_positioning + @[]
+}
 .participant_name {
   margin: 5pt 0 14pt 0;
   font-size: 11pt;
@@ -410,6 +406,9 @@ nav {
 }
 #talks > div, #workshops > div {
   padding: 35pt 0;
+}
+#talks > div > div, #workshops > div > div {
+  @[] + jump_links_viewport_positioning + @[]
 }
 #talks     > div:first-child,
 #workshops > div:first-child {
@@ -496,20 +495,20 @@ nav {
 
 #previous_runs img {
   width: 100pt;
-  max-height: @[] + previous_runs_height + @[];
+  max-height: @[] + (string)previous_runs_height + @[]pt;
   vertical-align: middle;
   margin-right: 4pt;
 }
 @[] + #{ dummy helper to vertically center img #} @[]
 #previous_runs span {
   display: inline-block;
-  height: @[] + previous_runs_height + @[];
+  height: @[] + (string)previous_runs_height + @[]pt;
   float: left;
 }
 #previous_runs a {
   margin: auto 2.5pt;
   vertical-align: middle;
-  line-height: @[] + previous_runs_height + @[];
+  line-height: @[] + (string)previous_runs_height + @[]pt;
 }
 #speakers > div {
   margin-left: auto;
@@ -526,12 +525,20 @@ nav {
   float: left;
   font-size: 10pt;
 }
-.speaker img {
+.speaker img,
+.speaker_full > img {
   height: 100pt;
   width: 100pt;
 }
 .clear_float {
   clear: left;
+}
+
+
+
+.speaker_full div a img {
+  height: 15pt;
+  width: 15pt;
 }
 
 
@@ -549,8 +556,11 @@ nav {
 }
 #schedule table tr th,
 #schedule table tr td {
-  background-color: #d1d2d4;
+  background-color: @[] + ultra_light_grey + @[];
   color: black;
+}
+#schedule table tr td.cell_workshop {
+  background-color: @[] + light_grey_cell + @[];
 }
 #schedule table tr td {
   padding: 0.5em;
