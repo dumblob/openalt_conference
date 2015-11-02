@@ -353,7 +353,7 @@ nav {
   padding: 35pt 0 0 0;
   margin: 0 0 35pt 0;
 }
-#workshops .narrow_paragraph, #talks .narrow_paragraph {
+#workshops .narrow_paragraph, .talks .narrow_paragraph {
   text-align: left;
   position: relative;  /* used for circle */
 }
@@ -398,31 +398,32 @@ nav {
   cursor: default;*/
   display: none;
 }
-#talks     > div:nth-child(2n),
-#talks     > div:nth-child(2n) *,
+.talks     > div:nth-child(2n),
+.talks     > div:nth-child(2n) *,
 #workshops > div:nth-child(2n),
 #workshops > div:nth-child(2n) * {
   background-color: @[] + ultra_light_grey + @[];
 }
-#talks > div, #workshops > div {
+.talks > div, #workshops > div {
   padding: 35pt 0;
 }
-#talks > div > div, #workshops > div > div {
+.talks > div > div, #workshops > div > div {
   @[] + jump_links_viewport_positioning + @[]
 }
-#talks     > div:first-child,
+.talks     > div:first-child,
 #workshops > div:first-child {
   padding-top: 0;
 }
 .no_bottom_padding {
   padding-bottom: 0;
 }
-/*#talks     > div:last-child,*/
-#workshops > div:last-child {
+/*.talks     > div:last-child,*/
+/*#workshops > div:last-child {
   padding-bottom: 0;
 }
+*/
 @[] + #{ circle #} @[]
-#talks .circle,
+.talks .circle,
 #workshops .circle {
   position: absolute;
   width: 18pt;
@@ -442,53 +443,53 @@ nav {
 
 
 #schedule  .track0,  /* also a circle */
-#talks     .track0 .circle,  /* make it more specific than html * */
+.talks     .track0 .circle,  /* make it more specific than html * */
 #workshops .track0 .circle { background-color: @[] + track0 + @[]; }
-#talks     .track0 h4,
+.talks     .track0 h4,
 #workshops .track0 h4,
-#talks     .track0 .participant_name,
+.talks     .track0 .participant_name,
 #workshops .track0 .participant_name { color: @[] +  track0 + @[]; }
 #schedule  .track1,
-#talks     .track1 .circle,
+.talks     .track1 .circle,
 #workshops .track1 .circle { background-color: @[] + track1 + @[]; }
-#talks     .track1 h4,
+.talks     .track1 h4,
 #workshops .track1 h4,
-#talks     .track1 .participant_name,
+.talks     .track1 .participant_name,
 #workshops .track1 .participant_name { color: @[] +  track1 + @[]; }
 #schedule  .track2,
-#talks     .track2 .circle,
+.talks     .track2 .circle,
 #workshops .track2 .circle { background-color: @[] + track2 + @[]; }
-#talks     .track2 h4,
+.talks     .track2 h4,
 #workshops .track2 h4,
-#talks     .track2 .participant_name,
+.talks     .track2 .participant_name,
 #workshops .track2 .participant_name { color: @[] +  track2 + @[]; }
 #schedule  .track3,
-#talks     .track3 .circle,
+.talks     .track3 .circle,
 #workshops .track3 .circle { background-color: @[] + track3 + @[]; }
-#talks     .track3 h4,
+.talks     .track3 h4,
 #workshops .track3 h4,
-#talks     .track3 .participant_name,
+.talks     .track3 .participant_name,
 #workshops .track3 .participant_name { color: @[] +  track3 + @[]; }
 #schedule  .track4,
-#talks     .track4 .circle,
+.talks     .track4 .circle,
 #workshops .track4 .circle { background-color: @[] + track4 + @[]; }
-#talks     .track4 h4,
+.talks     .track4 h4,
 #workshops .track4 h4,
-#talks     .track4 .participant_name,
+.talks     .track4 .participant_name,
 #workshops .track4 .participant_name { color: @[] +  track4 + @[]; }
 #schedule  .track5,
-#talks     .track5 .circle,
+.talks     .track5 .circle,
 #workshops .track5 .circle { background-color: @[] + track5 + @[]; }
-#talks     .track5 h4,
+.talks     .track5 h4,
 #workshops .track5 h4,
-#talks     .track5 .participant_name,
+.talks     .track5 .participant_name,
 #workshops .track5 .participant_name { color: @[] +  track5 + @[]; }
 #schedule  .track6,
-#talks     .track6 .circle,
+.talks     .track6 .circle,
 #workshops .track6 .circle { background-color: @[] + track6 + @[]; }
-#talks     .track6 h4,
+.talks     .track6 h4,
 #workshops .track6 h4,
-#talks     .track6 .participant_name,
+.talks     .track6 .participant_name,
 #workshops .track6 .participant_name { color: @[] +  track6 + @[]; }
 
 

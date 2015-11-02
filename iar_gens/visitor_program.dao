@@ -49,12 +49,13 @@ routine visitor_program(
           # construct reversed event mappings
           # FIXME do it using SQL (just use the built-in sqlite module)
 
-          # FIXME remove type specifications
           places: map<string, int> = {->}
           days: map<my_time.time::DateTime, map<
             my_time.time::DateTime, map<string, @T>>> = {->}
           participants.iterate { [p]
-            p.events.iterate { [ev]
+            for (ev in p.events) {
+              if (ev.kind == $additional) skip
+
               if (ev.kind != $party) {
                 # rank ~ number of occurences
                 if (ev.trans[trans].place in places)
@@ -96,8 +97,20 @@ routine visitor_program(
             'E104'  => 5,
             'A112'  => 6,
             'A113'  => 7,
+            #'O104'  => 8,
           }
-          places2 = places.collect { (id = X,) } .sort {
+          remove = places.collect {
+            if (X in preferred_order)
+              return none
+            else
+              return X
+          }
+          remove.iterate { places.erase(X) }
+          places2 = places
+              .collect { (id = X,) }
+              # FIXME sigsegv https://github.com/daokoder/dao-modules/issues/81
+              #.collect { X in preferred_order ? (@T)(id = X,) : (@T)none }
+              .sort {
             preferred_order[X.id] < preferred_order[Y.id]
           }
 
@@ -269,10 +282,6 @@ routine visitor_program(
             }
           }
         }
-
-        # dummy div to move stripe colors by one
-        div(_class='dummy_section') { }
-        div(_class='dummy_section') { }
       }
 
       put_event = routine(invar e: tuple<name:string, event:Event>) {
@@ -284,7 +293,10 @@ routine visitor_program(
               e.event.trans[trans].name
             }
           }
-          paragraph(_class='participant_name') { e.name }
+
+          if (%e.event.kind == $additional)
+            paragraph(_class='participant_name') { e.name }
+
           paragraph(_class='event_desc') {
             e.event.trans[trans].description
           }
@@ -338,10 +350,29 @@ routine visitor_program(
         }
       }
 
+      #div {
+      div(_class='no_bottom_padding') {
+        h3(_class='section') { 'Doprovodné akce' }
+
+        div(_class='talks') {
+          div {
+            div(_class='narrow_paragraph') {
+              for (e in events_satisfying(participants, $additional, $track6)) {
+                put_event(e)
+              }
+            }
+            div(_class='clear_float') {}
+          }
+        }
+      }
+
+      # dummy div to move stripe colors by one
+      div(_class='dummy_section') { }
+
       div(_class='no_bottom_padding') {
         h3(_class='section') { t['talks'] }
 
-        div(id='talks') {
+        div(_class='talks') {
           # FIXME all the tracks should be in a DB and here shouldn't be
           #   anything in a fixed manner - only loops over existing data
           #   (CSS should be also generated from the data in the DB)
@@ -360,7 +391,8 @@ routine visitor_program(
       div(_class='dummy_section') { }
       div(_class='dummy_section') { }
 
-      div {
+      #div {
+      div(_class='no_bottom_padding') {
         h3(_class='section') { t['workshops'] }
 
         div(id='workshops') {

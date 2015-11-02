@@ -238,6 +238,82 @@ res = (map)json.parse(data)
 
 invar offset = time.TimeSpan(years = 30, days = -1, hours = -1)
 
+res['users'].append(
+{
+  "avatar" => (json.Data)"",
+  "company" => "",
+  "facebook" => "",
+  "google_plus" => "",
+  "joined" => "2015-10-12 21:29:48",
+  "lastactive" => "",
+  "linkedin" => "",
+  "name" => "Unknown",
+  "position" => "",
+  "twitter" => "",
+  "username" => "Unknown",
+  "web" => "",
+}
+)
+
+#res['users'].append({})
+# FIXME this should have thrown a typing error with the missing (string) and (json.Data) casting
+#((list)res['sessions']).append(
+res['sessions'].append(
+{
+  "topic" => (json.Data)"Simulátor AeroWorks",
+  "event_start" => (string)(int)(time.parse('2015-11-07 10:00') + offset).value,
+  #"event_start_rfc" => "Sat, 07 Nov 2015 09:00:00 +0100",
+  "event_end" => (string)(int)(time.parse('2015-11-07 17:00') + offset).value,
+  #"event_end_rfc" => "Sat, 07 Nov 2015 09:30:00 +0100",
+  #"lang" => "cz",
+  "reqs" => "",
+  "room_short" => "AeroWorks lab",
+  #"room_color" => "#787878",
+  #"session_id" => 9999,
+  "speakers" => { "Unknown" },
+  #"tags" => {  },
+  "description" => '
+Pro návštěvníky bude otevřen simulátor Boeingu 737 NG, který je vyvíjený výzkumnou skupinou <a href="https://twitter.com/Aeroworks_cz">AeroWorks</a>.
+<br>
+<br>Kapacita je omezena, při prohlídkách budou upřednostněni registrovaní účastníci konference.
+',
+  "track" => "Unknown",
+  "type" => 'Doprovodné',
+},
+{
+  "topic" => (json.Data)"Muzeum výpočetní techniky",
+  "event_start" => (string)(int)(time.parse('2015-11-07 13:00') + offset).value,
+  "event_end" => (string)(int)(time.parse('2015-11-07 15:00') + offset).value,
+  "reqs" => "",
+  "room_short" => "",
+  "speakers" => { "Unknown" },
+  "description" => '
+Muzeum výpočetní techniky bude mimořádně otevřeno pro návštěvníky konference.
+<br>
+<br>V&nbsp;muzeu se nyní nachází téměř padesát různých počítačů, doplňuje je asi třicítka dobových periferních zařízení, kromě toho expozice zahrnují dalších asi 60 drobných exponátů. Nejstarším exponátem je mechanický kalkulátor z 50. let, nejnovějším pak počítač, vyrobený v roce 1991 v tehdejší ČSFR.
+<br>
+<br><a href="http://www.fit.vutbr.cz/FIT/museum/">Webová stránka</a>
+',
+  "track" => "Unknown",
+  "type" => 'Doprovodné',
+},
+{
+  "topic" => (json.Data)"LPI Certifikace",
+  "event_start" => (string)(int)(time.parse('2015-11-07 09:00') + offset).value,
+  "event_end" => (string)(int)(time.parse('2015-11-07 18:00') + offset).value,
+  "reqs" => "",
+  "room_short" => "",
+  "speakers" => { "Unknown" },
+  "description" => '
+V&nbsp;rámci letošní konference si můžete také nechat otestovat vaše znalosti z oblasti Linuxu a získat tak jeden ze světově nejvíce uznávaných certifikátů od Linux Professional Institute. A to poprvé přímo v Brně!
+
+<a href="https://lpievent.lpice.eu/">Registrace</a>, <a href="https://openalt.cz/2015/lpi.pdf">Propozice</a>
+',
+  "track" => "Unknown",
+  "type" => 'Doprovodné',
+},
+)
+
 res['sessions'].iterate {
   kind = X['type'].convert($lower)
   # X['room_color']
@@ -268,7 +344,8 @@ res['sessions'].iterate {
 
   _participants.append(
     (Participant)(
-      name = X['speakers'][0],
+      name = user['name'],  #X['speakers'][0],
+      # FIXME filter out the correctly indexed user, not the first one
       members = %X['speakers'] > 1 ? X['speakers'][1:] : none,
       photo = user['avatar'],
       web = user['web'],
@@ -286,8 +363,10 @@ res['sessions'].iterate {
       },
       events = {
         (Event)(
-          kind = kind.match('(talk|přednáška)') != none ? Kind.talk :
-                 kind.match('(workshop|dílna)') != none ? Kind.workshop :
+          kind = (kind.match('(additional|doprovodné)'       ) != none ||
+                  X['topic'].convert($lower).match('robo@fit') != none) ? Kind.additional :
+                 kind.match('(talk|přednáška)'               ) != none ? Kind.talk :
+                 kind.match('(workshop|dílna)'               ) != none ? Kind.workshop :
                  Kind.internal,
           #track = track.match('{{#d4d1a3}}' .convert($lower)) != none ? Track.track0 :  # open SW
           #        track.match('{{#ecfe80}}' .convert($lower)) != none ? Track.track1 :  # open edu
@@ -298,7 +377,8 @@ res['sessions'].iterate {
           #        #track.match('{{#9aaaec}}' .convert($lower)) != none ? Track.track5 :
           #        Track.track6,  # cinema
 
-          track = track.match('{{Otevřená společnost, komunity a data}}'.convert($lower)) != none ? Track.track0 :
+          track = X['topic'].convert($lower).match('robo@fit'                           ) != none ? Track.track6 :
+                  track.match('{{Otevřená společnost, komunity a data}}'.convert($lower)) != none ? Track.track0 :
                   track.match('{{Alternativy ve vzdělávání}}'           .convert($lower)) != none ? Track.track1 :
                   track.match('{{Bezpečnost a soukromí}}'               .convert($lower)) != none ? Track.track2 :
                   track.match('{{Hnutí Tvůrců (Makers)}}'               .convert($lower)) != none ? Track.track3 :
