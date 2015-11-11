@@ -361,7 +361,7 @@ routine visitor_program(
                 put_event(e)
               }
             }
-            div(_class='clear_float') {}
+            #div(_class='clear_float') {}
           }
         }
       }

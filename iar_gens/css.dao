@@ -357,12 +357,25 @@ nav {
   text-align: left;
   position: relative;  /* used for circle */
 }
+.two-columns {
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+}
+.one-column {
+}
 .event {
+  /*
   display: block;
-  max-width: 211pt;  /* 450 / 2 - 2 * 7 */
+  max-width: 211pt;  /* 450 / 2 - 2 * 7 *           /
   min-width: 211pt;
   margin: 0 7pt 0 0;
   float: left;
+  */
+  padding: 1pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
 }
 .event_title {
   /*text-transform: uppercase;*/
