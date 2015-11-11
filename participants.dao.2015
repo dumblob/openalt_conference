@@ -312,7 +312,41 @@ V&nbsp;rámci letošní konference si můžete také nechat otestovat vaše znal
   "track" => "Unknown",
   "type" => 'Doprovodné',
 },
+{
+  "topic" => (json.Data)"Robo@FIT laboratoř",
+  "event_start" => (string)(int)(time.parse('2015-11-07 10:30') + offset).value,
+  "event_end" => (string)(int)(time.parse('2015-11-07 11:30') + offset).value,
+  "reqs" => "",
+  "room_short" => "",
+  "speakers" => { "Unknown" },
+  "description" => '
+Workshop | <a href="http://www.fit.vutbr.cz/FIT/map/fit1.php?show=O104">O104</a> | Sobota 10:30 - 11:30
+<br>
+<br>Workshop volně naváže na přednášku "ROS - operační systém pro roboty". Výzkumná skupina <a href="http://www.fit.vutbr.cz/research/groups/robo/.cs">Robo@FIT</a> představí své roboty a seznámí účastníky s oblastmi vývoje kterým se věnuje.
+',
+  "track" => "Unknown",
+  "type" => 'Doprovodné',
+},
+{
+  "topic" => (json.Data)"Sobotní párty Starý pivovar",
+  "event_start" => (string)(int)(time.parse('2015-11-07 18:00') + offset).value,
+  "event_end" => (string)(int)(time.parse('2015-11-08 02:00') + offset).value,
+  "reqs" => "",
+  "room_short" => "",
+  "speakers" => { "Unknown" },
+  "description" => '
+FIT poskytl k dispozici prostory bývále restaurace Starý pivovar, která je součástí areálu fakulty.
+<br>
+<br>Na čepu bude naražené pivo a nějaká nealkoholická limonáda.
+<br>
+<br>Starý pivovar je označený na <a href="http://www.fit.vutbr.cz/FIT/map/fit1.php.cs?show=P108">mapě areálu</a> písmenem P.
+',
+  "track" => "Unknown",
+  "type" => 'Doprovodné',
+},
 )
+
+# FIXME Homeless - pridat Petr Hvižď a Marek Brychta
 
 res['sessions'].iterate {
   kind = X['type'].convert($lower)

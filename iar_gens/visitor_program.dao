@@ -297,13 +297,13 @@ routine visitor_program(
           if (%e.event.kind == $additional)
             paragraph(_class='participant_name') { e.name }
 
-          paragraph(_class='event_desc') {
+          div(_class='event_desc') {
             e.event.trans[trans].description
           }
 
           if (e.event.kind == $workshop && %e.event.trans[trans].requirements) {
-            paragraph(_class='event_reqs') { t['participation_reqs'] }
-            paragraph(_class='event_desc') { e.event.trans[trans].requirements }
+            div(_class='event_reqs') { t['participation_reqs'] }
+            div(_class='event_desc') { e.event.trans[trans].requirements }
           }
 
           # icons

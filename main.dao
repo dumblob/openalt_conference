@@ -16,7 +16,6 @@ load translations import translation
 # IAR (Individually Addressable Resource) generators
 # FIXME read it with a loop
 load iar_gens.home
-load iar_gens.rss
 load iar_gens.partner_benefits
 load iar_gens.partner_home
 #load iar_gens.partner_how
@@ -41,6 +40,8 @@ load iar_gens.redir_cfp_form
 load iar_gens.redir_cfp
 load iar_gens.redir_feed
 load iar_gens.redir_index
+load iar_gens.advert_hallway
+load iar_gens.rss
 
 # FIXME add the relative/absolute path info to the IAR itself?
 #   aka "How to solve routing in a decentralized way?"
@@ -66,6 +67,7 @@ invar iars = {
   'visitor_venue'    -> 'visitor_venue.html',
   'visitor_program'  -> 'visitor_program.html',
   'visitor_speakers' -> 'visitor_speakers.html',
+  'advert_hallway'   -> 'advert_hallway.html',
   'rss'              -> 'feed.rss',
 
   # absolute paths
@@ -125,6 +127,8 @@ routine gen_iars(invar iars: map<string, string>, invar trans: lib.Locale) {
           return iar::visitor_program(  r[0], dst / r[1], trans, dst, iars, $visitor) !!
         case 'visitor_speakers' :
           return iar::visitor_speakers( r[0], dst / r[1], trans, dst, iars, $visitor) !!
+        case 'advert_hallway' :
+          return iar::advert_hallway(   r[0], dst / r[1], trans, dst, iars, $visitor) !!
       }
 
       std.assert(r[0] == 'rss')

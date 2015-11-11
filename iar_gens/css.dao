@@ -378,12 +378,14 @@ nav {
   font-size: 11pt;
   font-weight: bolder;
 }
-.event_desc {
+.event_desc,
+.event_desc * {
   font-size: 10pt;
   margin: 0;
   line-height: 13pt;
 }
-.event_reqs {
+.event_reqs,
+.event_reqs * {
   /*text-transform: uppercase;*/
   font-size: 11pt;
   font-weight: bolder;

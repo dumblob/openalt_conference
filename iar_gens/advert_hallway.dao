@@ -1,0 +1,118 @@
+load time as my_time
+load web.html import html
+load config import configuration
+load translations import translation
+load lib import lib
+load html_common import html_content
+
+namespace iar { advert_hallway }
+
+routine advert_hallway(
+    invar iar_name: string,
+    invar path: string,
+    invar trans: Locale,
+    invar dst: string,
+    invar pages: map<string, string>,
+    invar groups: IarGroup) => none {
+  html5 = io.open(path, 'w')
+  defer { html5.close() }
+
+  # just convenient shortcuts
+  invar cu = conf.uri
+  invar ci = conf.img
+  invar t = translations[trans]
+
+  rel = routine(invar target: string) { mkrel(dst, target) }
+  rel2 = routine(invar ref: LocalRefs) => string {
+    tup = html_local_refs[ref]
+    return mkrel(dst, dst + '/' + pages[tup[0]]) +
+      (%tup[1] ? '#' + tup[1] : '')
+  }
+
+  # FIXME html module should somehow allow (temporary) nested subdocuments
+  #   creation or transitive code section calls through functions
+  #   i.e. basically running fragment{} from document{}
+  _html_top_stripe = html_top_stripe(groups, iar_name, trans, dst, pages)
+  _html_footer = html_footer(trans, dst)
+
+  html5.write(document {
+    head {
+      meta(http_equiv=$content_type, content='text/html; charset=utf-8')
+      meta(name='viewport', content='width=device-width')
+    }
+
+    body(style='background-color: white') {
+      div(_class='slide', style='display: none;
+                                 text-align: center') {
+        img(src=rel(ci.logo_oa_conf), style='height: 19em;
+                                             margin: 4em 0') ;
+      }
+
+      div(_class='slide', style='display: none;
+                                 text-align: center') {
+        h4(style='font-size: 3em; margin: 0.5em') { 'Návštěvnická anketa' }
+        table(style='width: 100%') {
+          tr {
+            td {
+              h5(style='font-size: 2em; margin: 0.5em') { 'Sobota' }
+              #https://docs.google.com/forms/d/1EvIrKwap8nl5gOAzGojN6IHAw-ODlDtcgibTITw4LO4/edit?usp=sharing
+              img(src='../img/qr-enquiry-2015-saturday.svg',
+                  style='height: 19em; margin: 0 1em')
+            }
+            td {
+              h5(style='font-size: 2em; margin: 0.5em') { 'Neděle' }
+              #https://docs.google.com/forms/d/1LK2Ccoh4GRFWkQjusnzBpdAtzFreyIwX84qqceRDQ6U/edit?usp=sharing
+              img(src='../img/qr-enquiry-2015-sunday.svg',
+                  style='height: 19em; margin: 0 1em')
+            }
+          }
+        }
+      }
+
+      div(_class='slide', style='display: block;
+                                 text-align: center') {
+        table(style='width: 100%; height: 100%') {
+            for (level in { (PartnerLevel)$general, $gold, $coorganizer }) {
+              tr {
+                td {
+                  h4(style='font-size: 1.7em;
+                            margin: 1.2em 0 1.2em 4em;
+                            font-weight: normal;
+                            text-align: left') {
+                    t[((string)level)[1:]]
+                  }
+                }
+
+                td {
+                  for (p in partners) {
+                    if (p.level == level && p.name != 'Toastmasters International')
+                      img(src=rel(p.logo_short),
+                          style='height: 4em;
+                                 margin: 2.8em 1.5em;
+                                 display: inline-block;')
+                  }
+                }
+              }
+            }
+        }
+      }
+
+#      script {@[]
+#        var slides = document.getElementsByClassName("slide");
+#        var current = 0;
+#        var last = current;
+#
+#        function switch_slide() {
+#          slides[current].style.display = "none";
+#          last = current;
+#          current = (current +1) % slides.length;
+#          slides[current].style.display = "block";
+#          window.setTimeout(switch_slide, 7000);
+#        }
+#
+#        switch_slide();
+#        @[]
+#      }
+    }
+  })
+}
