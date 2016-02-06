@@ -72,20 +72,22 @@ routine advert_hallway(
       div(_class='slide', style='display: block;
                                  text-align: center') {
         table(style='width: 100%; height: 100%') {
-            for (level in { (PartnerLevel)$general, $gold, $coorganizer }) {
+            for (level in { (PartnerLevel)$general, $gold, $silver, $coorganizer }) {
               tr {
                 td {
                   h4(style='font-size: 1.7em;
                             margin: 1.2em 0 1.2em 4em;
                             font-weight: normal;
                             text-align: left') {
-                    t[((string)level)[1:]]
+                    level == $coorganizer ? 'Poskytovatel prostor' : t[((string)level)[1:]]
                   }
                 }
 
                 td {
                   for (p in partners) {
-                    if (p.level == level && p.name != 'Toastmasters International')
+                    if (p.level == level &&
+                        p.name != 'Toastmasters International' &&
+                        p.name != 'SU FIT VUT')
                       img(src=rel(p.logo_short),
                           style='height: 4em;
                                  margin: 2.8em 1.5em;

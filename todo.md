@@ -20,6 +20,7 @@ pridat podlouhle logo OA do sekce media->propagace
 na hlavni strance je mobilni menu sice prazdne, avsak s nenulovou vyskou
 vytisknutelny schedule (tedy otestovat stavajici a pokud nevyhovuje, pak pridat "@media print")
 ikonky socialnich siti nejsou ve stejne vysce jako okolni text
+pridat sekci ISBN publikace (obsahujici carovy kod a detaily o publikaci)
 
 
 

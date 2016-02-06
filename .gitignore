@@ -12,10 +12,10 @@
 .*.swp
 /misc/advertising/
 /misc/enquiry/2014/*/
-/misc/server_linuxalt_cz/
-/misc/server_openalt_org/
+/misc/server_*/
 /misc/schedule/2015/*json
 /misc/partners/
+/misc/openalt_cz-assets/
 
 res.*
 debug*

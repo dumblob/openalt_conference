@@ -276,7 +276,7 @@ Fakulta informačních technologií
     'propagation' -> 'Propagace',
     'propagation_hint_oa_conf' -> 'Pokud se chystáte navštívit naši konferenci, nebo Vám přijde zajímavá a chtěli byste dát vědět i ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
 #    'propagation_hint_oa_org' -> 'Pokud byste chtěli o nás dát vědět ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
-#    'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
+    'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
     'feedback' -> 'Ohlasy v&nbsp;médiích',
     'gps_coordinates' -> 'GPS souřadnice',
     'fit_vutbr_building' -> 'FIT VUTBR',
@@ -482,7 +482,7 @@ Fakulta informačních technologií
 #                                      # FIXME translate
 #                                      'propagation_hint_oa_conf' -> 'Pokud se chystáte navštívit naši konferenci, nebo Vám přijde zajímavá a chtěli byste dát vědět i ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
 #                                  #    'propagation_hint_oa_org' -> 'Pokud byste chtěli o nás dát vědět ostatním, použijte, prosím, následující propagační materiály (z důvodu eventuálních úprav odkazujte přednostně originály na našem webu).',
-#                                  #    'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
+#                                      'warn_past_annual' -> 'Tento ročník konference již proběhl! Informace o aktuální konferenci naleznete na <a href="http://www.openalt.cz">www.openalt.cz</a>.',
 #                                      'feedback' -> 'Responses and testimonials',
 #                                      'gps_coordinates' -> 'GPS coordinates',
 #                                      'fit_vutbr_building' -> 'FIT VUTBR',
