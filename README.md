@@ -27,7 +27,7 @@ See https://openalt.eu .
 mandatory
 
 * layered and well-described PSD or Inkscape SVG or XCF (see http://www.tutoriarts.cz/10-tipu-jak-svuj-design-pripravit-pro-kodovani-1181)
-* graphic designer comments and ideas
+* graphic designer comments and ideas ([Mobile-first Media Queries](http://www.sitepoint.com/introduction-mobile-first-media-queries/))
 * used fonts including a web version (mind the diacritics)
 * text for the page name (title) and the meta tag description
 * favicon
