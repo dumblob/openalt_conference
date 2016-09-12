@@ -221,7 +221,7 @@ routine parse_csv(
     }
   }
 
-  # emptly line before EOF is a useless empty list
+  # empty line before EOF is a useless empty list
   if (! %res[-1]) res.pop()
 
   return res
